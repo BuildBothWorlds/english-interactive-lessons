@@ -2,6 +2,10 @@
 
 A lightweight, touchscreen-friendly homepage for MRISB Grade 7 and Grade 8 English interactive classroom activities.
 
+## Live site
+
+https://buildbothworlds.github.io/english-interactive-lessons/
+
 ## Structure
 
 - `index.html` — teacher homepage
