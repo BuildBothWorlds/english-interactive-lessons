@@ -1,0 +1,1853 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>English Grade 7 · Week 8 · Interactive Activities</title>
+  <style>
+    :root {
+      --navy-950: #06111f;
+      --navy-900: #091a2e;
+      --navy-850: #0d223a;
+      --navy-800: #12304b;
+      --ink: #f5fbff;
+      --muted: #a9bed0;
+      --cyan: #2ce0d0;
+      --cyan-dark: #062f32;
+      --yellow: #ffd166;
+      --pink: #ff6baa;
+      --green: #69e6a6;
+      --red: #ff7d7d;
+      --line: rgba(180, 219, 240, .18);
+      --panel: rgba(12, 36, 58, .94);
+      --panel-soft: rgba(17, 48, 75, .74);
+      --shadow: 0 18px 48px rgba(0, 0, 0, .26);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 5%, rgba(44, 224, 208, .12), transparent 28rem),
+        radial-gradient(circle at 92% 18%, rgba(255, 107, 170, .10), transparent 26rem),
+        linear-gradient(150deg, var(--navy-950), var(--navy-900) 52%, #071827);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 18px;
+      line-height: 1.45;
+    }
+
+    button, input, select { font: inherit; }
+
+    button { touch-action: manipulation; }
+
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    summary:focus-visible,
+    [tabindex="0"]:focus-visible {
+      outline: 4px solid var(--yellow);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -80px;
+      z-index: 1000;
+      padding: 12px 18px;
+      color: var(--navy-950);
+      background: var(--yellow);
+      border-radius: 10px;
+      font-weight: 800;
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    .app-shell {
+      width: min(1500px, 100%);
+      margin: 0 auto;
+      padding: 20px clamp(14px, 3vw, 42px) 56px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 12px 0 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand { display: flex; align-items: center; gap: 16px; }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      color: var(--navy-950);
+      background: linear-gradient(135deg, var(--cyan), #8ffff4);
+      box-shadow: 0 12px 28px rgba(44, 224, 208, .22);
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -.04em;
+    }
+
+    .eyebrow {
+      margin: 0 0 2px;
+      color: var(--cyan);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 0;
+      font-size: clamp(1.35rem, 3vw, 2.25rem);
+      line-height: 1.08;
+      letter-spacing: -.035em;
+    }
+
+    h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.75rem, 4vw, 3.15rem);
+      line-height: 1.03;
+      letter-spacing: -.045em;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      letter-spacing: -.02em;
+    }
+
+    .top-actions, .button-row, .level-row, .move-controls, .score-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      min-height: 52px;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: var(--ink);
+      background: var(--navy-800);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .14);
+      font-weight: 800;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); border-color: rgba(44, 224, 208, .55); }
+    .btn:active { transform: translateY(1px); }
+    .btn.primary { color: var(--navy-950); background: var(--cyan); border-color: transparent; }
+    .btn.yellow { color: var(--navy-950); background: var(--yellow); border-color: transparent; }
+    .btn.pink { color: var(--navy-950); background: var(--pink); border-color: transparent; }
+    .btn.ghost { background: transparent; }
+    .btn.small { min-height: 46px; padding: 10px 14px; }
+    .btn[disabled] { opacity: .48; transform: none; }
+
+    .lesson-nav {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(120px, 1fr));
+      gap: 10px;
+      padding: 18px 0 10px;
+      overflow-x: auto;
+      scrollbar-color: var(--cyan) transparent;
+    }
+
+    .lesson-tab {
+      min-height: 70px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      color: var(--muted);
+      background: rgba(8, 27, 45, .78);
+      text-align: left;
+      font-weight: 800;
+    }
+
+    .lesson-tab span { display: block; }
+    .lesson-tab .tab-number { color: var(--cyan); font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; }
+    .lesson-tab .tab-label { margin-top: 3px; font-size: .88rem; line-height: 1.18; }
+
+    .lesson-tab[aria-selected="true"] {
+      color: var(--navy-950);
+      background: var(--cyan);
+      border-color: transparent;
+      box-shadow: 0 12px 28px rgba(44, 224, 208, .18);
+    }
+
+    .lesson-tab[aria-selected="true"] .tab-number { color: #124b4c; }
+    .lesson-tab.is-complete::after { content: "✓"; float: right; color: var(--green); }
+    .lesson-tab[aria-selected="true"].is-complete::after { color: #06332c; }
+
+    .lesson-panel { padding-top: 18px; }
+    .lesson-panel[hidden] { display: none; }
+
+    .lesson-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(240px, .7fr);
+      gap: 24px;
+      align-items: end;
+      padding: clamp(24px, 5vw, 52px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(120deg, rgba(44, 224, 208, .10), transparent 42%),
+        var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .lesson-hero::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: -105px;
+      top: -118px;
+      border-radius: 50%;
+      background: rgba(255, 209, 102, .11);
+    }
+
+    .lesson-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: var(--yellow);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .lesson-summary { margin-bottom: 0; max-width: 72ch; color: var(--muted); font-size: 1.05rem; }
+
+    .routine-card {
+      padding: 18px;
+      border-left: 5px solid var(--pink);
+      border-radius: var(--radius-md);
+      color: var(--ink);
+      background: rgba(255, 107, 170, .09);
+    }
+
+    .routine-card strong { display: block; color: var(--pink); margin-bottom: 4px; }
+    .routine-card p { margin-bottom: 0; color: var(--muted); font-size: .9rem; }
+
+    .workspace {
+      margin-top: 20px;
+      padding: clamp(18px, 4vw, 36px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: var(--panel-soft);
+      box-shadow: var(--shadow);
+    }
+
+    .workspace-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .workspace-head p { margin-bottom: 0; color: var(--muted); }
+
+    .level-row { margin-bottom: 22px; }
+
+    .level-btn {
+      min-height: 50px;
+      padding: 10px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: transparent;
+      font-weight: 900;
+      letter-spacing: .04em;
+    }
+
+    .level-btn[data-level="start"][aria-pressed="true"] { color: var(--navy-950); background: var(--cyan); border-color: var(--cyan); }
+    .level-btn[data-level="build"][aria-pressed="true"] { color: var(--navy-950); background: var(--yellow); border-color: var(--yellow); }
+    .level-btn[data-level="extend"][aria-pressed="true"] { color: var(--navy-950); background: var(--pink); border-color: var(--pink); }
+    .level-btn[data-level="mix"][aria-pressed="true"] { color: var(--navy-950); background: var(--green); border-color: var(--green); }
+
+    .stage[hidden] { display: none; }
+
+    .banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding: 15px 18px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 209, 102, .10);
+      border: 1px solid rgba(255, 209, 102, .34);
+      color: #fff2c6;
+    }
+
+    .banner strong { color: var(--yellow); }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      color: var(--navy-950);
+      background: var(--cyan);
+      font-size: .74rem;
+      font-weight: 900;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .badge.yellow { background: var(--yellow); }
+    .badge.pink { background: var(--pink); }
+    .badge.green { background: var(--green); }
+
+    .match-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 16px;
+    }
+
+    .match-column { display: grid; gap: 12px; align-content: start; }
+
+    .choice-card,
+    .evidence-card,
+    .sort-item,
+    .plan-card,
+    .quiz-option,
+    .challenge-card {
+      min-height: 62px;
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid transparent;
+      border-radius: var(--radius-md);
+      color: var(--ink);
+      background: var(--navy-800);
+      box-shadow: 0 9px 20px rgba(0, 0, 0, .15);
+      text-align: left;
+      font-weight: 750;
+      transition: transform .14s ease, border-color .14s ease, background .14s ease;
+    }
+
+    .choice-card:hover,
+    .evidence-card:hover,
+    .sort-item:hover,
+    .plan-card:hover,
+    .quiz-option:hover,
+    .challenge-card:hover { transform: translateY(-2px); border-color: rgba(44, 224, 208, .5); }
+
+    .choice-card[aria-pressed="true"],
+    .evidence-card[aria-pressed="true"],
+    .sort-item[aria-pressed="true"],
+    .plan-card[aria-pressed="true"] {
+      border-color: var(--yellow);
+      background: #173b57;
+    }
+
+    .choice-card.is-correct,
+    .evidence-card.is-correct,
+    .quiz-option.is-correct,
+    .plan-card.is-correct { border-color: var(--green); background: rgba(105, 230, 166, .13); }
+
+    .choice-card.is-wrong,
+    .evidence-card.is-wrong,
+    .quiz-option.is-wrong { border-color: var(--red); background: rgba(255, 125, 125, .12); }
+
+    .choice-card.is-locked { opacity: .65; }
+
+    .feedback {
+      min-height: 64px;
+      margin-top: 18px;
+      padding: 15px 18px;
+      border-left: 5px solid var(--cyan);
+      border-radius: 10px;
+      color: var(--ink);
+      background: rgba(44, 224, 208, .08);
+    }
+
+    .feedback.good { border-color: var(--green); background: rgba(105, 230, 166, .09); }
+    .feedback.warn { border-color: var(--yellow); background: rgba(255, 209, 102, .09); }
+    .feedback.bad { border-color: var(--red); background: rgba(255, 125, 125, .09); }
+
+    .prompt-card {
+      padding: clamp(20px, 4vw, 34px);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(255, 209, 102, .12), rgba(255, 107, 170, .08));
+      border: 1px solid rgba(255, 209, 102, .25);
+      font-size: clamp(1.25rem, 3vw, 2rem);
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .prompt-card .label { display: block; margin-bottom: 12px; color: var(--yellow); font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; }
+
+    .sort-list { display: grid; gap: 12px; margin: 16px 0; }
+
+    .sort-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 14px;
+      cursor: grab;
+    }
+
+    .sort-item:active { cursor: grabbing; }
+    .sort-item .order-number { color: var(--cyan); font-weight: 950; font-variant-numeric: tabular-nums; }
+    .sort-item .grab { color: var(--muted); letter-spacing: -.08em; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .question-box {
+      margin-bottom: 18px;
+      padding: 20px;
+      border-radius: var(--radius-lg);
+      background: rgba(6, 17, 31, .52);
+      border: 1px solid var(--line);
+    }
+
+    .question-box p:last-child { margin-bottom: 0; }
+    .question-label { margin-bottom: 7px; color: var(--cyan); font-size: .78rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+
+    .evidence-grid, .option-grid, .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .paraphrase-note { display: block; margin-top: 8px; color: var(--muted); font-size: .74rem; font-weight: 650; }
+
+    .word-order-board {
+      min-height: 140px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      gap: 12px;
+      margin: 18px 0;
+      padding: 22px;
+      border: 2px dashed rgba(44, 224, 208, .34);
+      border-radius: var(--radius-lg);
+      background: rgba(6, 17, 31, .45);
+    }
+
+    .word-tile {
+      min-height: 58px;
+      padding: 12px 18px;
+      border: 2px solid transparent;
+      border-radius: 14px;
+      color: var(--ink);
+      background: var(--navy-800);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .17);
+      font-size: clamp(1rem, 2.4vw, 1.4rem);
+      font-weight: 850;
+      cursor: grab;
+    }
+
+    .word-tile[aria-pressed="true"] { border-color: var(--yellow); transform: translateY(-3px); }
+    .word-tile.role-question { background: #084c52; }
+    .word-tile.role-helper { background: #6a4b05; }
+    .word-tile.role-subject { background: #5d2444; }
+    .word-tile.role-verb { background: #183f66; }
+    .word-tile.role-punct { color: var(--navy-950); background: var(--yellow); }
+
+    .mini-legend { display: flex; flex-wrap: wrap; gap: 10px; color: var(--muted); font-size: .82rem; }
+    .legend-dot { display: inline-block; width: 13px; height: 13px; margin-right: 6px; border-radius: 4px; vertical-align: -1px; }
+    .legend-dot.q { background: #0f7d84; }
+    .legend-dot.h { background: #a97908; }
+    .legend-dot.s { background: #9a3b70; }
+    .legend-dot.v { background: #286eac; }
+
+    .source-selectors {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    label { display: grid; gap: 7px; color: var(--muted); font-weight: 750; }
+
+    select, input[type="text"], input[type="number"] {
+      min-height: 54px;
+      width: 100%;
+      padding: 10px 14px;
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      color: var(--ink);
+      background: var(--navy-950);
+      font-size: 1rem;
+    }
+
+    .plan-layout {
+      display: grid;
+      grid-template-columns: minmax(220px, .8fr) minmax(0, 2fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .card-bank, .drop-zone {
+      min-height: 170px;
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      background: rgba(6, 17, 31, .48);
+      border: 2px dashed var(--line);
+    }
+
+    .card-bank { display: grid; gap: 10px; }
+
+    .drop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .drop-zone { transition: border-color .15s ease, background .15s ease; }
+    .drop-zone.is-over { border-color: var(--cyan); background: rgba(44, 224, 208, .08); }
+    .drop-zone h3 { color: var(--cyan); font-size: 1rem; }
+    .drop-zone .plan-card { margin-bottom: 10px; }
+
+    .send-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .connective-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+
+    .frame-output {
+      margin-top: 18px;
+      padding: 22px;
+      border-left: 6px solid var(--pink);
+      border-radius: var(--radius-md);
+      background: rgba(255, 107, 170, .09);
+      font-size: 1.12rem;
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .check-btn {
+      min-height: 68px;
+      padding: 14px 16px;
+      border: 2px solid var(--line);
+      border-radius: 14px;
+      color: var(--ink);
+      background: var(--navy-800);
+      text-align: left;
+      font-weight: 780;
+    }
+
+    .check-btn[aria-pressed="true"] { border-color: var(--green); background: rgba(105, 230, 166, .12); }
+    .check-btn[aria-pressed="true"]::before { content: "✓ "; color: var(--green); font-weight: 950; }
+
+    .word-count-panel {
+      display: grid;
+      grid-template-columns: minmax(180px, 300px) 1fr;
+      gap: 18px;
+      align-items: end;
+      margin-top: 18px;
+    }
+
+    .count-status {
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(255, 209, 102, .10);
+      color: var(--yellow);
+      font-weight: 850;
+    }
+
+    .quiz-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .score-pill {
+      padding: 9px 14px;
+      border-radius: 999px;
+      color: var(--navy-950);
+      background: var(--yellow);
+      font-weight: 950;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .progress-track {
+      height: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .progress-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--cyan), var(--pink)); transition: width .25s ease; }
+
+    details.teacher-setup {
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    details.teacher-setup summary {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      color: var(--cyan);
+      font-weight: 850;
+    }
+
+    .setup-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .footer-note {
+      margin: 20px 0 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: .82rem;
+    }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    @media (max-width: 980px) {
+      .lesson-nav { grid-template-columns: repeat(7, 150px); }
+      .lesson-hero { grid-template-columns: 1fr; }
+      .plan-layout { grid-template-columns: 1fr; }
+      .drop-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      body { font-size: 16px; }
+      .app-shell { padding: 10px 10px 38px; }
+      .topbar { align-items: flex-start; }
+      .brand-mark { width: 48px; height: 48px; border-radius: 14px; }
+      .top-actions .btn { min-width: 52px; padding-inline: 12px; }
+      .top-actions .label-wide { display: none; }
+      .match-layout, .two-col, .source-selectors, .word-count-panel { grid-template-columns: 1fr; }
+      .send-row { grid-template-columns: 1fr; }
+      .setup-grid { grid-template-columns: 1fr; }
+      .sort-item { grid-template-columns: auto 1fr; }
+      .sort-item .grab { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#lesson-content">Skip to activity</a>
+  <div class="app-shell" id="week8-app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">G7</div>
+        <div>
+          <p class="eyebrow">English · Week 8</p>
+          <h1>Touchscreen Activity Hub</h1>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="btn ghost" id="fullscreen-btn" type="button" aria-label="Enter full screen">⛶ <span class="label-wide">Full screen</span></button>
+        <button class="btn" id="reset-btn" type="button">↻ <span class="label-wide">Reset lesson</span></button>
+      </div>
+    </header>
+
+    <nav class="lesson-nav" role="tablist" aria-label="Week 8 lessons">
+      <button class="lesson-tab" id="tab-l1" type="button" role="tab" aria-selected="true" aria-controls="l1" data-panel="l1">
+        <span class="tab-number">Lesson 1</span><span class="tab-label">Vocabulary</span>
+      </button>
+      <button class="lesson-tab" id="tab-l2" type="button" role="tab" aria-selected="false" aria-controls="l2" data-panel="l2">
+        <span class="tab-number">Lesson 2</span><span class="tab-label">Read &amp; Sequence</span>
+      </button>
+      <button class="lesson-tab" id="tab-l3" type="button" role="tab" aria-selected="false" aria-controls="l3" data-panel="l3">
+        <span class="tab-number">Lesson 3</span><span class="tab-label">Close Read</span>
+      </button>
+      <button class="lesson-tab" id="tab-l4" type="button" role="tab" aria-selected="false" aria-controls="l4" data-panel="l4">
+        <span class="tab-number">Lesson 4</span><span class="tab-label">Question Order</span>
+      </button>
+      <button class="lesson-tab" id="tab-l5" type="button" role="tab" aria-selected="false" aria-controls="l5" data-panel="l5">
+        <span class="tab-number">Lesson 5</span><span class="tab-label">Compare Evidence</span>
+      </button>
+      <button class="lesson-tab" id="tab-l6" type="button" role="tab" aria-selected="false" aria-controls="l6" data-panel="l6">
+        <span class="tab-number">Lesson 6</span><span class="tab-label">Build the Response</span>
+      </button>
+      <button class="lesson-tab" id="tab-l7" type="button" role="tab" aria-selected="false" aria-controls="l7" data-panel="l7">
+        <span class="tab-number">Lesson 7</span><span class="tab-label">Quick Review</span>
+      </button>
+    </nav>
+
+    <main id="lesson-content">
+      <section class="lesson-panel" id="l1" role="tabpanel" aria-labelledby="tab-l1">
+        <div class="lesson-hero">
+          <div>
+            <div class="lesson-kicker">Lesson 1 · SB 126 + LC 49</div>
+            <h2>Make the words stick.</h2>
+            <p class="lesson-summary">Match, retrieve and use the six Week 8 words from SB 126: crisis, decision, rational, terrified, under pressure and variable.</p>
+          </div>
+          <div class="routine-card"><strong>Whole-class routine</strong><p>Everyone answers in a copybook first. One student then operates the board while the next student waits ready.</p></div>
+        </div>
+        <div class="workspace">
+          <div class="workspace-head">
+            <div><h3>Vocabulary Lab</h3><p>Select a level. Complete START before moving higher.</p></div>
+            <span class="badge green" id="vocab-status">Week 8 set</span>
+          </div>
+          <div class="level-row" data-level-group="l1">
+            <button class="level-btn" type="button" data-level="start" aria-pressed="true">START · Match</button>
+            <button class="level-btn" type="button" data-level="build" aria-pressed="false">BUILD · Retrieve</button>
+            <button class="level-btn" type="button" data-level="extend" aria-pressed="false">EXTEND · Apply</button>
+          </div>
+          <div class="stage" data-stage="start">
+            <div class="match-layout">
+              <div><p class="question-label">Words</p><div class="match-column" id="vocab-words"></div></div>
+              <div><p class="question-label">Meanings</p><div class="match-column" id="vocab-definitions"></div></div>
+            </div>
+            <div class="feedback" id="vocab-match-feedback" aria-live="polite">Tap one word, then tap its matching meaning.</div>
+          </div>
+          <div class="stage" data-stage="build" hidden>
+            <div class="question-box"><p class="question-label">Definition challenge</p><h3 id="vocab-recall-prompt">Choose the matching word.</h3></div>
+            <div class="option-grid" id="vocab-recall-options"></div>
+            <div class="feedback" id="vocab-recall-feedback" aria-live="polite">Read the definition carefully before choosing.</div>
+            <div class="button-row" style="margin-top: 14px"><button class="btn primary" id="vocab-next-recall" type="button">Next definition →</button></div>
+          </div>
+          <div class="stage" data-stage="extend" hidden>
+            <div class="prompt-card"><span class="label">Use the word precisely</span><span id="vocab-extend-prompt"></span></div>
+            <div class="button-row" style="margin-top: 16px"><button class="btn pink" id="vocab-new-challenge" type="button">New challenge</button></div>
+            <div class="feedback" aria-live="polite">Say your answer aloud. The class decides whether the word’s meaning is clear from your sentence.</div>
+          </div>
+
+          <details class="teacher-setup">
+            <summary>Teacher setup · edit the loaded Week 8 vocabulary</summary>
+            <p>The verified SB 126 words are already loaded. Adjust the student-friendly wording of a definition here only if you want it to match the phrasing in your copy exactly. Changes are stored only in this browser.</p>
+            <div class="setup-grid" id="vocab-setup-grid"></div>
+            <div class="button-row">
+              <button class="btn primary" id="save-vocab" type="button">Save edited set</button>
+              <button class="btn ghost" id="restore-vocab" type="button">Restore Week 8 set</button>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="lesson-panel" id="l2" role="tabpanel" aria-labelledby="tab-l2" hidden>
+        <div class="lesson-hero">
+          <div>
+            <div class="lesson-kicker">Lesson 2 · SB 127–131</div>
+            <h2>Read. Sequence. Prove it.</h2>
+            <p class="lesson-summary">Apply the SB 127 skill, <strong>Analyze Key Events</strong>: identify the main idea, examine how events support it and explain why the author included those events.</p>
+          </div>
+          <div class="routine-card"><strong>No spectators</strong><p>The whole class records the order first. The screen operator then checks the class decision.</p></div>
+        </div>
+        <div class="workspace">
+          <div class="workspace-head"><div><h3>Sully Reading Challenge</h3><p>Drag cards, or tap one card and then another to swap them.</p></div><span class="badge">SB 127–131</span></div>
+          <div class="level-row" data-level-group="l2">
+            <button class="level-btn" type="button" data-level="start" aria-pressed="true">START · Sequence</button>
+            <button class="level-btn" type="button" data-level="build" aria-pressed="false">BUILD · Evidence</button>
+            <button class="level-btn" type="button" data-level="extend" aria-pressed="false">EXTEND · Judge</button>
+          </div>
+          <div class="stage" data-stage="start">
+            <div class="banner"><span aria-hidden="true">i</span><div><strong>General sequence.</strong> Confirm the precise details against SB 128–131. These cards paraphrase the decision process and are not quotations.</div></div>
+            <div class="sort-list" id="sully-sequence"></div>
+            <div class="move-controls">
+              <button class="btn small" id="sully-up" type="button">↑ Move selected</button>
+              <button class="btn small" id="sully-down" type="button">↓ Move selected</button>
+              <button class="btn primary" id="check-sully-sequence" type="button">Check sequence</button>
+            </div>
+            <div class="feedback" id="sully-sequence-feedback" aria-live="polite">Put the five stages in a logical order.</div>
+          </div>
+          <div class="stage" data-stage="build" hidden>
+            <div class="question-box"><p class="question-label">Claim</p><h3>Sully’s deliberate calm helps him make an effective decision.</h3></div>
+            <div class="evidence-grid" id="sully-evidence-options"></div>
+            <div class="feedback" id="sully-evidence-feedback" aria-live="polite">Choose the paraphrased detail that supports the claim most directly.</div>
+          </div>
+          <div class="stage" data-stage="extend" hidden>
+            <div class="prompt-card"><span class="label">High-ceiling discussion</span><span id="sully-extend-prompt"></span></div>
+            <div class="button-row" style="margin-top: 16px"><button class="btn pink" id="sully-new-prompt" type="button">Another prompt</button></div>
+            <div class="feedback">Use one precise event from SB 128–131. Explain how it changes your judgement.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lesson-panel" id="l3" role="tabpanel" aria-labelledby="tab-l3" hidden>
+        <div class="lesson-hero">
+          <div>
+            <div class="lesson-kicker">Lesson 3 · SB 132 + LC 50</div>
+            <h2>Find the strongest evidence.</h2>
+            <p class="lesson-summary">Students distinguish relevant evidence from the strongest evidence, then connect the best detail to the claim.</p>
+          </div>
+          <div class="routine-card"><strong>Book stays open</strong><p>Every card is a paraphrase. Students locate the real line or event in SB 128–132 before answering.</p></div>
+        </div>
+        <div class="workspace">
+          <div class="workspace-head"><div><h3>Evidence Spotlight</h3><p>Work through three increasingly demanding rounds.</p></div><span class="badge pink" id="close-read-round">Round 1 of 3</span></div>
+          <div class="level-row" data-level-group="l3">
+            <button class="level-btn" type="button" data-level="start" aria-pressed="true">START · Relevant</button>
+            <button class="level-btn" type="button" data-level="build" aria-pressed="false">BUILD · Strongest</button>
+            <button class="level-btn" type="button" data-level="extend" aria-pressed="false">EXTEND · Explain</button>
+          </div>
+          <div class="question-box"><p class="question-label" id="close-read-label">Claim</p><h3 id="close-read-claim"></h3></div>
+          <div class="evidence-grid" id="close-read-options"></div>
+          <div class="feedback" id="close-read-feedback" aria-live="polite">Choose carefully, then justify your choice using the text.</div>
+          <div class="button-row" style="margin-top: 14px"><button class="btn primary" id="close-read-next" type="button">Next round →</button></div>
+        </div>
+      </section>
+
+      <section class="lesson-panel" id="l4" role="tabpanel" aria-labelledby="tab-l4" hidden>
+        <div class="lesson-hero">
+          <div>
+            <div class="lesson-kicker">Lesson 4 · LC 52</div>
+            <h2>Build the question.</h2>
+            <p class="lesson-summary">Move each word into the correct position. START uses colour cues; BUILD removes them; EXTEND adds longer questions.</p>
+          </div>
+          <div class="routine-card"><strong>Touchscreen controls</strong><p>Drag the tiles, or tap one tile and then another to swap them. Arrow buttons provide another accessible route.</p></div>
+        </div>
+        <div class="workspace">
+          <div class="workspace-head"><div><h3>Question Word Order</h3><p>Remember: question word + helper/be + subject + main verb + rest + ?</p></div><span class="badge yellow" id="question-progress">Question 1</span></div>
+          <div class="level-row" data-level-group="l4">
+            <button class="level-btn" type="button" data-level="start" aria-pressed="true">START · Colour cues</button>
+            <button class="level-btn" type="button" data-level="build" aria-pressed="false">BUILD · No cues</button>
+            <button class="level-btn" type="button" data-level="extend" aria-pressed="false">EXTEND · Longer</button>
+          </div>
+          <div class="mini-legend" id="question-legend">
+            <span><span class="legend-dot q"></span>question word</span>
+            <span><span class="legend-dot h"></span>helper / be</span>
+            <span><span class="legend-dot s"></span>subject</span>
+            <span><span class="legend-dot v"></span>main verb</span>
+          </div>
+          <div class="word-order-board" id="question-board" aria-label="Words to arrange"></div>
+          <div class="move-controls">
+            <button class="btn small" id="question-left" type="button">← Move selected</button>
+            <button class="btn small" id="question-right" type="button">Move selected →</button>
+            <button class="btn primary" id="check-question" type="button">Check order</button>
+            <button class="btn yellow" id="next-question" type="button">New question</button>
+          </div>
+          <div class="feedback" id="question-feedback" aria-live="polite">Arrange the words. Check the capital letter, helper verb and question mark.</div>
+        </div>
+      </section>
+
+      <section class="lesson-panel" id="l5" role="tabpanel" aria-labelledby="tab-l5" hidden>
+        <div class="lesson-hero">
+          <div>
+            <div class="lesson-kicker">Lesson 5 · NTA planning</div>
+            <h2>Build an evidence bridge.</h2>
+            <p class="lesson-summary">Select two Unit 2 texts, organise the six essential planning parts and rehearse an accurate comparison sentence.</p>
+          </div>
+          <div class="routine-card"><strong>Keep quotations accurate</strong><p>The HTML organises the plan. Students copy exact quotations only from their Student Books.</p></div>
+        </div>
+        <div class="workspace">
+          <div class="workspace-head"><div><h3>Comparing Texts Planner</h3><p>Task: explain how two Unit 2 texts show the problem of clean water.</p></div><span class="badge">150–250 words</span></div>
+          <div class="source-selectors">
+            <label>Text 1<select id="text-one"></select></label>
+            <label>Text 2<select id="text-two"></select></label>
+          </div>
+          <div class="level-row" data-level-group="l5">
+            <button class="level-btn" type="button" data-level="start" aria-pressed="true">START · Sort</button>
+            <button class="level-btn" type="button" data-level="build" aria-pressed="false">BUILD · Connect</button>
+            <button class="level-btn" type="button" data-level="extend" aria-pressed="false">EXTEND · Evaluate</button>
+          </div>
+          <div class="stage" data-stage="start">
+            <div class="plan-layout">
+              <div>
+                <p class="question-label">Card bank</p>
+                <div class="card-bank" id="plan-bank"></div>
+                <p class="paraphrase-note">Tap a card, then use one of the move buttons. Dragging also works with a mouse.</p>
+                <div class="send-row">
+                  <button class="btn small" type="button" data-send-plan="text1">To Text 1</button>
+                  <button class="btn small" type="button" data-send-plan="text2">To Text 2</button>
+                  <button class="btn small" type="button" data-send-plan="connection">To Connection</button>
+                </div>
+              </div>
+              <div class="drop-grid">
+                <div class="drop-zone" id="zone-text1" data-zone="text1"><h3>Text 1 evidence</h3></div>
+                <div class="drop-zone" id="zone-text2" data-zone="text2"><h3>Text 2 evidence</h3></div>
+                <div class="drop-zone" id="zone-connection" data-zone="connection"><h3>Connection</h3></div>
+              </div>
+            </div>
+            <div class="button-row" style="margin-top: 16px"><button class="btn primary" id="check-plan" type="button">Check the plan</button><button class="btn ghost" id="return-plan-card" type="button">Return selected card</button></div>
+            <div class="feedback" id="plan-feedback" aria-live="polite">Sort each planning part into the correct section.</div>
+          </div>
+          <div class="stage" data-stage="build" hidden>
+            <div class="question-box"><p class="question-label">Choose the relationship</p><h3>How will you connect the two texts?</h3></div>
+            <div class="connective-options">
+              <button class="challenge-card" type="button" data-connective="Similarly">Similarly</button>
+              <button class="challenge-card" type="button" data-connective="However">However</button>
+              <button class="challenge-card" type="button" data-connective="Both texts">Both texts</button>
+              <button class="challenge-card" type="button" data-connective="In contrast">In contrast</button>
+            </div>
+            <div class="frame-output" id="comparison-frame" aria-live="polite">Choose a connective to build a speaking frame.</div>
+          </div>
+          <div class="stage" data-stage="extend" hidden>
+            <div class="prompt-card"><span class="label">High-ceiling comparison</span><span id="comparison-extend-prompt"></span></div>
+            <div class="button-row" style="margin-top: 16px"><button class="btn pink" id="comparison-new-prompt" type="button">Another prompt</button></div>
+            <div class="feedback">Answer using the two exact quotations students selected from their books.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lesson-panel" id="l6" role="tabpanel" aria-labelledby="tab-l6" hidden>
+        <div class="lesson-hero">
+          <div>
+            <div class="lesson-kicker">Lesson 6 · NTA writing</div>
+            <h2>Construct. Check. Improve.</h2>
+            <p class="lesson-summary">Order the response structure, then use a live checklist before submitting the 150–250-word comparison.</p>
+          </div>
+          <div class="routine-card"><strong>Keep this brief</strong><p>Use the activity to launch and check writing—not to replace students’ independent writing time.</p></div>
+        </div>
+        <div class="workspace">
+          <div class="workspace-head"><div><h3>Comparison Response Builder</h3><p>Every element has a job. Put the response structure in a logical order.</p></div><span class="badge pink">NTA Task 4</span></div>
+          <div class="level-row" data-level-group="l6">
+            <button class="level-btn" type="button" data-level="start" aria-pressed="true">START · Organise</button>
+            <button class="level-btn" type="button" data-level="build" aria-pressed="false">BUILD · Check</button>
+            <button class="level-btn" type="button" data-level="extend" aria-pressed="false">EXTEND · Improve</button>
+          </div>
+          <div class="stage" data-stage="start">
+            <div class="sort-list" id="response-structure"></div>
+            <div class="move-controls"><button class="btn small" id="response-up" type="button">↑ Move selected</button><button class="btn small" id="response-down" type="button">↓ Move selected</button><button class="btn primary" id="check-response-structure" type="button">Check structure</button></div>
+            <div class="feedback" id="response-feedback" aria-live="polite">Tap two cards to swap them, or drag them into order.</div>
+          </div>
+          <div class="stage" data-stage="build" hidden>
+            <div class="checklist" id="writing-checklist"></div>
+            <div class="word-count-panel">
+              <label>Current word count<input id="word-count" type="number" inputmode="numeric" min="0" max="999" value="0"></label>
+              <div class="count-status" id="word-count-status" aria-live="polite">Enter the word count.</div>
+            </div>
+            <div class="feedback" id="checklist-feedback" aria-live="polite">Tick each requirement only when it is visible in the draft.</div>
+          </div>
+          <div class="stage" data-stage="extend" hidden>
+            <div class="question-box"><p class="question-label">Which is more analytical?</p><h3>Choose the sentence that creates a clearer comparison.</h3></div>
+            <div class="two-col">
+              <button class="challenge-card" type="button" data-analytic="0">A. Both texts are about clean water.</button>
+              <button class="challenge-card" type="button" data-analytic="1">B. Both texts present the clean-water problem, but they develop it in different ways; the evidence from each text reveals that difference.</button>
+            </div>
+            <div class="feedback" id="analytic-feedback" aria-live="polite">Choose, then explain what makes the sentence stronger.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lesson-panel" id="l7" role="tabpanel" aria-labelledby="tab-l7" hidden>
+        <div class="lesson-hero">
+          <div>
+            <div class="lesson-kicker">Lesson 7 · Review</div>
+            <h2>Fast thinking. Clear reasons.</h2>
+            <p class="lesson-summary">Use this as a warm-up or backup alongside the planned Kahoot. Questions review grammar, evidence and the comparison task.</p>
+          </div>
+          <div class="routine-card"><strong>Answer before tapping</strong><p>All students write A, B, C or D first. The operator then selects the agreed response and a classmate explains it.</p></div>
+        </div>
+        <div class="workspace">
+          <div class="quiz-top">
+            <div><h3>Week 8 Quick Review</h3><p id="quiz-level-label" style="margin: 0; color: var(--muted)">Mixed challenge</p></div>
+            <div class="score-row"><span class="score-pill" id="quiz-question-count">1 / 9</span><span class="score-pill" id="quiz-score">Score 0</span></div>
+          </div>
+          <div class="level-row" data-level-group="l7">
+            <button class="level-btn" type="button" data-level="start" aria-pressed="false">START</button>
+            <button class="level-btn" type="button" data-level="build" aria-pressed="false">BUILD</button>
+            <button class="level-btn" type="button" data-level="extend" aria-pressed="false">EXTEND</button>
+            <button class="level-btn" type="button" data-level="mix" aria-pressed="true">MIX</button>
+          </div>
+          <div class="progress-track" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar" id="quiz-progress"></div></div>
+          <div class="question-box"><p class="question-label" id="quiz-level">START</p><h3 id="quiz-question"></h3></div>
+          <div class="option-grid" id="quiz-options"></div>
+          <div class="feedback" id="quiz-feedback" aria-live="polite">Choose the best answer.</div>
+          <div class="button-row" style="margin-top: 14px"><button class="btn primary" id="quiz-next" type="button">Next question →</button><button class="btn ghost" id="quiz-restart" type="button">Restart quiz</button></div>
+        </div>
+      </section>
+    </main>
+
+    <p class="footer-note">Offline classroom resource · No login, internet connection or student data collection</p>
+  </div>
+
+  <script>
+    'use strict';
+
+    const WEEK8_VOCAB = [
+      { term: 'crisis', definition: 'a dangerous or difficult situation that needs urgent action' },
+      { term: 'decision', definition: 'a choice made after thinking about the possibilities' },
+      { term: 'rational', definition: 'based on reason and clear thinking' },
+      { term: 'terrified', definition: 'extremely frightened' },
+      { term: 'under pressure', definition: 'experiencing stress because something urgent or difficult must be handled' },
+      { term: 'variable', definition: 'something that can change or differ' }
+    ];
+
+    const TEXT_CHOICES = [
+      'A Long Walk—Nya’s Story · SB 62–69',
+      'Bringing Water to the Driest Desert on Earth · SB 78–83',
+      'Aqueducts: Quenching Rome’s Thirst · SB 92–95'
+    ];
+
+    const SULLY_SEQUENCE = [
+      { key: 's1', text: 'The situation changes and an emergency develops.' },
+      { key: 's2', text: 'Sully gathers information and assesses the available options.' },
+      { key: 's3', text: 'He communicates a clear decision.' },
+      { key: 's4', text: 'He acts calmly and carries out the decision.' },
+      { key: 's5', text: 'The outcome allows readers to judge the effect of deliberate calm.' }
+    ];
+
+    const SULLY_EVIDENCE = [
+      { text: 'An emergency occurs.', correct: false, response: 'Relevant, but it describes the situation rather than Sully’s decision-making.' },
+      { text: 'He considers the available options before acting.', correct: true, response: 'Strong choice. It connects deliberate thought directly to the decision.' },
+      { text: 'People later discuss the event.', correct: false, response: 'This may show importance, but it does not directly prove deliberate calm.' }
+    ];
+
+    const SULLY_EXTEND = [
+      'Was calmness alone enough to produce the outcome, or did experience matter more? Use one event to defend your judgement.',
+      'Which decision in the text seems most deliberate? Explain what Sully appears to consider before acting.',
+      'How would the outcome or reader’s view change if Sully acted impulsively? Link your answer to a real event in the text.'
+    ];
+
+    const CLOSE_READ = {
+      start: {
+        label: 'START · Relevant evidence',
+        claim: 'The situation places people under pressure.',
+        options: [
+          { text: 'The emergency creates an immediate problem that requires action.', correct: true, feedback: 'Directly relevant: it connects the situation to pressure and urgency.' },
+          { text: 'Sully has a professional role.', correct: false, feedback: 'This may be true, but it does not directly demonstrate pressure.' },
+          { text: 'The event is remembered later.', correct: false, feedback: 'This concerns the event’s legacy, not the pressure during it.' }
+        ]
+      },
+      build: {
+        label: 'BUILD · Strongest evidence',
+        claim: 'Sully acts deliberately rather than impulsively.',
+        options: [
+          { text: 'He notices that the situation is serious.', correct: false, feedback: 'Relevant, but noticing danger is not the clearest proof of deliberate action.' },
+          { text: 'He considers the available options before committing to a decision.', correct: true, feedback: 'Strongest: it demonstrates thought, choice and action in one connected detail.' },
+          { text: 'Other people are present during the event.', correct: false, feedback: 'This gives context but does not support the claim directly.' }
+        ]
+      },
+      extend: {
+        label: 'EXTEND · Best explanation',
+        claim: 'Why does considering options support the idea of “deliberate calm”?',
+        options: [
+          { text: 'It shows that he is calm.', correct: false, feedback: 'This repeats the claim without explaining the connection.' },
+          { text: 'It shows he pauses long enough to judge possible actions, so his calmness supports a reasoned decision.', correct: true, feedback: 'Strong explanation: it connects the evidence to both “deliberate” and “calm”.' },
+          { text: 'It makes the story interesting.', correct: false, feedback: 'Too general. Explain the precise effect of the evidence.' }
+        ]
+      }
+    };
+
+    const QUESTION_SETS = {
+      start: [
+        [
+          { text: 'Why', role: 'question' }, { text: 'did', role: 'helper' }, { text: 'Sully', role: 'subject' },
+          { text: 'remain', role: 'verb' }, { text: 'calm', role: 'rest' }, { text: '?', role: 'punct' }
+        ],
+        [
+          { text: 'Where', role: 'question' }, { text: 'was', role: 'helper' }, { text: 'the plane', role: 'subject' }, { text: '?', role: 'punct' }
+        ]
+      ],
+      build: [
+        [
+          { text: 'What', role: 'question' }, { text: 'did', role: 'helper' }, { text: 'the passengers', role: 'subject' },
+          { text: 'do', role: 'verb' }, { text: '?', role: 'punct' }
+        ],
+        [
+          { text: 'Why', role: 'question' }, { text: 'were', role: 'helper' }, { text: 'the passengers', role: 'subject' },
+          { text: 'frightened', role: 'rest' }, { text: '?', role: 'punct' }
+        ],
+        [
+          { text: 'When', role: 'question' }, { text: 'did', role: 'helper' }, { text: 'the emergency', role: 'subject' },
+          { text: 'begin', role: 'verb' }, { text: '?', role: 'punct' }
+        ]
+      ],
+      extend: [
+        [
+          { text: 'Which option', role: 'question' }, { text: 'did', role: 'helper' }, { text: 'Sully', role: 'subject' },
+          { text: 'choose', role: 'verb' }, { text: 'during the emergency', role: 'rest' }, { text: '?', role: 'punct' }
+        ],
+        [
+          { text: 'How', role: 'question' }, { text: 'can', role: 'helper' }, { text: 'deliberate calm', role: 'subject' },
+          { text: 'help', role: 'verb' }, { text: 'someone make a decision', role: 'rest' }, { text: '?', role: 'punct' }
+        ]
+      ]
+    };
+
+    const PLAN_CARDS = [
+      { key: 'p1', text: 'Exact quotation from Text 1', zone: 'text1' },
+      { key: 'p2', text: 'Explanation of what Text 1 evidence shows', zone: 'text1' },
+      { key: 'p3', text: 'Exact quotation from Text 2', zone: 'text2' },
+      { key: 'p4', text: 'Explanation of what Text 2 evidence shows', zone: 'text2' },
+      { key: 'p5', text: 'Clear similarity or difference', zone: 'connection' },
+      { key: 'p6', text: 'Accurate comparison connective', zone: 'connection' }
+    ];
+
+    const COMPARISON_EXTEND = [
+      'Which quotation reveals the clean-water problem more powerfully? Explain why the evidence is effective—not simply what it says.',
+      'Do the two texts present the problem in similar ways or different ways? Explain how the authors’ choices affect the reader.',
+      'What important idea becomes clearer when the two texts are placed side by side? Use both quotations in your response.'
+    ];
+
+    const RESPONSE_STRUCTURE = [
+      { key: 'r1', text: 'Introduce both texts and their shared clean-water topic.' },
+      { key: 'r2', text: 'Make a clear point about Text 1.' },
+      { key: 'r3', text: 'Include and explain an exact quotation from Text 1.' },
+      { key: 'r4', text: 'Use a connective to introduce the comparison.' },
+      { key: 'r5', text: 'Include and explain an exact quotation from Text 2.' },
+      { key: 'r6', text: 'Finish with a clear similarity, difference or overall judgement.' }
+    ];
+
+    const WRITING_CHECKS = [
+      'I wrote 150–250 words.',
+      'I named both Unit 2 texts.',
+      'I included one exact quotation from each text.',
+      'I explained what both quotations show.',
+      'I made a clear similarity or difference.',
+      'I checked capitals, spelling and punctuation.'
+    ];
+
+    const QUIZ = [
+      { level: 'start', q: 'Which question has the correct word order?', options: ['Why Sully remained calm?', 'Why did Sully remain calm?', 'Why did Sully remained calm?', 'Why Sully did remain calm?'], correct: 1, why: 'After “did”, use the subject and the base verb: did + Sully + remain.' },
+      { level: 'start', q: 'Which verb form follows “did”?', options: ['The base verb', 'The past-tense verb', 'The -ing form', 'Any verb form'], correct: 0, why: 'The auxiliary “did” carries the past tense, so the main verb stays in its base form.' },
+      { level: 'start', q: 'What punctuation should end a direct question?', options: ['A comma', 'A full stop', 'A question mark', 'A colon'], correct: 2, why: 'A direct question ends with a question mark.' },
+      { level: 'build', q: 'Which evidence best supports a claim?', options: ['A detail connected directly to the claim', 'The longest sentence in the text', 'Any interesting fact', 'The first line on the page'], correct: 0, why: 'Strong evidence is relevant and precise, not merely long or interesting.' },
+      { level: 'build', q: 'What should come after a quotation in a strong reading response?', options: ['Another unrelated quotation', 'An explanation of what it shows', 'A new title', 'Nothing'], correct: 1, why: 'The explanation connects the evidence to the answer or claim.' },
+      { level: 'build', q: 'How many quotations does the Week 8 comparison require?', options: ['One in total', 'One from each text', 'Three from each text', 'No quotations'], correct: 1, why: 'The task requires one quotation from each of the two texts.' },
+      { level: 'extend', q: 'Which connective most clearly signals a difference?', options: ['Similarly', 'For example', 'However', 'Also'], correct: 2, why: '“However” signals a contrast or difference.' },
+      { level: 'extend', q: 'Which explanation is more analytical?', options: ['This quotation is good.', 'This shows the problem.', 'This detail reveals how limited access affects people, which strengthens the text’s presentation of the problem.', 'The quotation is in the text.'], correct: 2, why: 'It identifies a precise effect and links it to how the problem is presented.' },
+      { level: 'extend', q: 'What is the required length of the comparison?', options: ['50–100 words', '100–150 words', '150–250 words', 'At least 500 words'], correct: 2, why: 'The Non-Test Assessment Plan sets a 150–250-word range.' }
+    ];
+
+    const state = {
+      activeLesson: 'l1',
+      selectedVocab: null,
+      matchedVocab: new Set(),
+      recallIndex: 0,
+      selectedSort: {},
+      questionLevel: 'start',
+      questionIndex: 0,
+      selectedQuestionTile: null,
+      selectedPlanCard: null,
+      closeLevel: 'start',
+      quizMode: 'mix',
+      quizIndex: 0,
+      quizScore: 0,
+      quizAnswered: false,
+      quizQuestions: []
+    };
+
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+    function shuffle(items) {
+      const copy = [...items];
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function setFeedback(element, message, type = '') {
+      element.className = `feedback${type ? ` ${type}` : ''}`;
+      element.textContent = message;
+    }
+
+    function markLessonComplete(id) {
+      $(`#tab-${id}`).classList.add('is-complete');
+    }
+
+    function setActiveLesson(id, focusPanel = false) {
+      state.activeLesson = id;
+      $$('.lesson-tab').forEach(tab => {
+        const active = tab.dataset.panel === id;
+        tab.setAttribute('aria-selected', String(active));
+        tab.setAttribute('tabindex', active ? '0' : '-1');
+      });
+      $$('.lesson-panel').forEach(panel => { panel.hidden = panel.id !== id; });
+      if (focusPanel) $(`#${id} h2`).scrollIntoView({ block: 'start' });
+      try { history.replaceState(null, '', `#${id}`); }
+      catch (_) { location.hash = id; }
+    }
+
+    $$('.lesson-tab').forEach((tab, index, tabs) => {
+      tab.addEventListener('click', () => setActiveLesson(tab.dataset.panel, true));
+      tab.addEventListener('keydown', event => {
+        if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+        event.preventDefault();
+        const next = event.key === 'ArrowRight' ? (index + 1) % tabs.length : (index - 1 + tabs.length) % tabs.length;
+        tabs[next].focus();
+        setActiveLesson(tabs[next].dataset.panel);
+      });
+    });
+
+    $('#fullscreen-btn').addEventListener('click', async () => {
+      try {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+        else await document.exitFullscreen();
+      } catch (error) {
+        alert('Full-screen mode is not available in this browser.');
+      }
+    });
+
+    document.addEventListener('fullscreenchange', () => {
+      $('#fullscreen-btn').innerHTML = document.fullscreenElement ? '✕ <span class="label-wide">Exit full screen</span>' : '⛶ <span class="label-wide">Full screen</span>';
+    });
+
+    function wireLevelGroup(lessonId, onChange) {
+      const root = $(`#${lessonId}`);
+      $$('[data-level-group]', root).forEach(group => {
+        group.addEventListener('click', event => {
+          const button = event.target.closest('.level-btn');
+          if (!button) return;
+          $$('.level-btn', group).forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+          const level = button.dataset.level;
+          $$('.stage', root).forEach(stage => { stage.hidden = stage.dataset.stage !== level; });
+          onChange?.(level);
+        });
+      });
+    }
+
+    function loadVocab() {
+      try {
+        const saved = JSON.parse(localStorage.getItem('g7w8-exact-vocab'));
+        if (Array.isArray(saved) && saved.length === 6 && saved.every(item => item.term && item.definition)) return saved;
+      } catch (_) { /* use the verified Week 8 set */ }
+      return WEEK8_VOCAB;
+    }
+
+    function isCustomVocab() { return localStorage.getItem('g7w8-exact-vocab') !== null; }
+    let vocab = loadVocab();
+
+    function refreshVocabStatus() {
+      const custom = isCustomVocab();
+      $('#vocab-status').textContent = custom ? 'Teacher-edited set' : 'Week 8 set';
+      $('#vocab-status').className = 'badge green';
+    }
+
+    function renderVocabSetup() {
+      const grid = $('#vocab-setup-grid');
+      grid.innerHTML = '';
+      vocab.forEach((item, index) => {
+        const term = document.createElement('input');
+        term.type = 'text';
+        term.value = item.term;
+        term.dataset.vocabTerm = index;
+        term.setAttribute('aria-label', `Vocabulary word ${index + 1}`);
+        const definition = document.createElement('input');
+        definition.type = 'text';
+        definition.value = item.definition;
+        definition.dataset.vocabDefinition = index;
+        definition.setAttribute('aria-label', `Definition for vocabulary word ${index + 1}`);
+        grid.append(term, definition);
+      });
+    }
+
+    function renderVocabMatch() {
+      state.selectedVocab = null;
+      state.matchedVocab = new Set();
+      const words = $('#vocab-words');
+      const definitions = $('#vocab-definitions');
+      words.innerHTML = '';
+      definitions.innerHTML = '';
+      shuffle(vocab.map((item, index) => ({ item, index }))).forEach(({ item, index }) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'choice-card';
+        button.textContent = item.term;
+        button.dataset.wordIndex = index;
+        button.setAttribute('aria-pressed', 'false');
+        button.addEventListener('click', () => selectVocabWord(button, index));
+        words.append(button);
+      });
+      shuffle(vocab.map((item, index) => ({ item, index }))).forEach(({ item, index }) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'choice-card';
+        button.textContent = item.definition;
+        button.dataset.definitionIndex = index;
+        button.addEventListener('click', () => chooseVocabDefinition(button, index));
+        definitions.append(button);
+      });
+      setFeedback($('#vocab-match-feedback'), 'Tap one word, then tap its matching meaning.');
+    }
+
+    function selectVocabWord(button, index) {
+      if (state.matchedVocab.has(index)) return;
+      state.selectedVocab = index;
+      $$('#vocab-words .choice-card').forEach(card => card.setAttribute('aria-pressed', String(card === button)));
+      setFeedback($('#vocab-match-feedback'), `Selected “${vocab[index].term}”. Now choose its meaning.`);
+    }
+
+    function chooseVocabDefinition(button, index) {
+      if (state.selectedVocab === null) {
+        setFeedback($('#vocab-match-feedback'), 'Choose a word first.', 'warn');
+        return;
+      }
+      if (state.selectedVocab !== index) {
+        button.classList.add('is-wrong');
+        setTimeout(() => button.classList.remove('is-wrong'), 550);
+        setFeedback($('#vocab-match-feedback'), 'Not yet. Read the exact meaning and try again.', 'bad');
+        return;
+      }
+      state.matchedVocab.add(index);
+      button.classList.add('is-correct', 'is-locked');
+      button.disabled = true;
+      const word = $(`[data-word-index="${index}"]`);
+      word.classList.add('is-correct', 'is-locked');
+      word.disabled = true;
+      word.setAttribute('aria-pressed', 'false');
+      state.selectedVocab = null;
+      if (state.matchedVocab.size === vocab.length) {
+        setFeedback($('#vocab-match-feedback'), 'All six matched. Explain one word in your own sentence before moving to BUILD.', 'good');
+        markLessonComplete('l1');
+      } else {
+        setFeedback($('#vocab-match-feedback'), `Correct. ${vocab.length - state.matchedVocab.size} pair${vocab.length - state.matchedVocab.size === 1 ? '' : 's'} left.`, 'good');
+      }
+    }
+
+    function renderVocabRecall() {
+      const answer = state.recallIndex % vocab.length;
+      $('#vocab-recall-prompt').textContent = vocab[answer].definition;
+      const options = $('#vocab-recall-options');
+      options.innerHTML = '';
+      const distractors = shuffle(vocab.map((_, i) => i).filter(i => i !== answer)).slice(0, 3);
+      shuffle([answer, ...distractors]).forEach(index => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'quiz-option';
+        button.textContent = vocab[index].term;
+        button.addEventListener('click', () => {
+          $$('#vocab-recall-options .quiz-option').forEach(item => { item.disabled = true; });
+          if (index === answer) {
+            button.classList.add('is-correct');
+            setFeedback($('#vocab-recall-feedback'), 'Correct. Now use the word orally in a sentence.', 'good');
+          } else {
+            button.classList.add('is-wrong');
+            $$('#vocab-recall-options .quiz-option').find(item => item.textContent === vocab[answer].term)?.classList.add('is-correct');
+            setFeedback($('#vocab-recall-feedback'), `The correct word is “${vocab[answer].term}”. Explain why.`, 'bad');
+          }
+        });
+        options.append(button);
+      });
+      setFeedback($('#vocab-recall-feedback'), 'Read the definition carefully before choosing.');
+    }
+
+    function renderVocabExtend() {
+      const item = vocab[Math.floor(Math.random() * vocab.length)];
+      const prompts = [
+        `Use “${item.term}” in a sentence that makes its meaning obvious without stating the definition.`,
+        `Give a synonym or near-synonym for “${item.term}”, then explain one difference.`,
+        `Create a question containing “${item.term}” and ask a classmate to answer it.`
+      ];
+      $('#vocab-extend-prompt').textContent = prompts[Math.floor(Math.random() * prompts.length)];
+    }
+
+    $('#vocab-next-recall').addEventListener('click', () => { state.recallIndex += 1; renderVocabRecall(); });
+    $('#vocab-new-challenge').addEventListener('click', renderVocabExtend);
+    $('#save-vocab').addEventListener('click', () => {
+      const next = [0, 1, 2, 3, 4, 5].map(index => ({
+        term: $(`[data-vocab-term="${index}"]`).value.trim(),
+        definition: $(`[data-vocab-definition="${index}"]`).value.trim()
+      }));
+      if (next.some(item => !item.term || !item.definition)) {
+        alert('Please enter all six words and definitions.');
+        return;
+      }
+      localStorage.setItem('g7w8-exact-vocab', JSON.stringify(next));
+      vocab = next;
+      refreshVocabStatus();
+      renderVocabMatch();
+      renderVocabRecall();
+      renderVocabExtend();
+      $('details.teacher-setup').open = false;
+    });
+    $('#restore-vocab').addEventListener('click', () => {
+      localStorage.removeItem('g7w8-exact-vocab');
+      vocab = WEEK8_VOCAB.map(item => ({ ...item }));
+      refreshVocabStatus();
+      renderVocabSetup();
+      renderVocabMatch();
+      renderVocabRecall();
+      renderVocabExtend();
+    });
+
+    function renderSortable(container, items, selectedKey, selectHandler) {
+      container.innerHTML = '';
+      items.forEach((item, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'sort-item';
+        button.draggable = true;
+        button.dataset.key = item.key;
+        button.setAttribute('aria-pressed', String(item.key === selectedKey));
+        button.innerHTML = `<span class="order-number">${index + 1}</span><span>${item.text}</span><span class="grab" aria-hidden="true">⠿</span>`;
+        button.addEventListener('click', () => selectHandler(item.key));
+        button.addEventListener('dragstart', event => { event.dataTransfer.setData('text/plain', item.key); });
+        button.addEventListener('dragover', event => event.preventDefault());
+        button.addEventListener('drop', event => {
+          event.preventDefault();
+          const from = event.dataTransfer.getData('text/plain');
+          swapSortItems(container, from, item.key);
+        });
+        container.append(button);
+      });
+    }
+
+    function swapSortItems(container, firstKey, secondKey) {
+      if (!firstKey || !secondKey || firstKey === secondKey) return;
+      const items = [...container.children];
+      const first = items.find(item => item.dataset.key === firstKey);
+      const second = items.find(item => item.dataset.key === secondKey);
+      const placeholder = document.createElement('span');
+      first.replaceWith(placeholder);
+      second.replaceWith(first);
+      placeholder.replaceWith(second);
+      renumberSort(container);
+    }
+
+    function renumberSort(container) {
+      [...container.children].forEach((item, index) => { $('.order-number', item).textContent = index + 1; });
+    }
+
+    function setupSortable(name, container, originalItems, feedback, checkButton, upButton, downButton) {
+      const render = (items = shuffle(originalItems)) => {
+        state.selectedSort[name] = null;
+        renderSortable(container, items, null, key => {
+          const selected = state.selectedSort[name];
+          if (selected && selected !== key) {
+            swapSortItems(container, selected, key);
+            state.selectedSort[name] = null;
+            $$('.sort-item', container).forEach(item => item.setAttribute('aria-pressed', 'false'));
+          } else {
+            state.selectedSort[name] = selected === key ? null : key;
+            $$('.sort-item', container).forEach(item => item.setAttribute('aria-pressed', String(item.dataset.key === state.selectedSort[name])));
+          }
+        });
+      };
+      const move = direction => {
+        const key = state.selectedSort[name];
+        if (!key) { setFeedback(feedback, 'Select a card first.', 'warn'); return; }
+        const items = [...container.children];
+        const index = items.findIndex(item => item.dataset.key === key);
+        const nextIndex = index + direction;
+        if (nextIndex < 0 || nextIndex >= items.length) return;
+        if (direction < 0) container.insertBefore(items[index], items[nextIndex]);
+        else container.insertBefore(items[nextIndex], items[index]);
+        renumberSort(container);
+      };
+      upButton.addEventListener('click', () => move(-1));
+      downButton.addEventListener('click', () => move(1));
+      checkButton.addEventListener('click', () => {
+        const actual = [...container.children].map(item => item.dataset.key);
+        const expected = originalItems.map(item => item.key);
+        const correct = actual.every((key, index) => key === expected[index]);
+        setFeedback(feedback, correct ? 'Correct order. Now point to the exact text event that matches each stage.' : 'Not yet. Find the first clear cause, then follow each decision and result.', correct ? 'good' : 'bad');
+        if (correct) markLessonComplete(name === 'sully' ? 'l2' : 'l6');
+      });
+      render();
+      return render;
+    }
+
+    const resetSullySort = setupSortable('sully', $('#sully-sequence'), SULLY_SEQUENCE, $('#sully-sequence-feedback'), $('#check-sully-sequence'), $('#sully-up'), $('#sully-down'));
+
+    function renderSullyEvidence() {
+      const root = $('#sully-evidence-options');
+      root.innerHTML = '';
+      SULLY_EVIDENCE.forEach(item => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'evidence-card';
+        button.innerHTML = `${item.text}<span class="paraphrase-note">Paraphrase—not a quotation</span>`;
+        button.addEventListener('click', () => {
+          $$('#sully-evidence-options .evidence-card').forEach(choice => { choice.disabled = true; });
+          button.classList.add(item.correct ? 'is-correct' : 'is-wrong');
+          setFeedback($('#sully-evidence-feedback'), item.response, item.correct ? 'good' : 'bad');
+        });
+        root.append(button);
+      });
+    }
+
+    function renderSullyPrompt() { $('#sully-extend-prompt').textContent = SULLY_EXTEND[Math.floor(Math.random() * SULLY_EXTEND.length)]; }
+    $('#sully-new-prompt').addEventListener('click', renderSullyPrompt);
+
+    function renderCloseRead(level) {
+      state.closeLevel = level;
+      const data = CLOSE_READ[level];
+      $('#close-read-round').textContent = data.label;
+      $('#close-read-label').textContent = data.label;
+      $('#close-read-claim').textContent = data.claim;
+      const root = $('#close-read-options');
+      root.innerHTML = '';
+      data.options.forEach(item => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'evidence-card';
+        button.innerHTML = `${item.text}<span class="paraphrase-note">Paraphrase—verify against SB 128–132</span>`;
+        button.addEventListener('click', () => {
+          $$('#close-read-options .evidence-card').forEach(choice => { choice.disabled = true; });
+          button.classList.add(item.correct ? 'is-correct' : 'is-wrong');
+          if (!item.correct) {
+            const correctIndex = data.options.findIndex(option => option.correct);
+            root.children[correctIndex].classList.add('is-correct');
+          }
+          setFeedback($('#close-read-feedback'), item.feedback, item.correct ? 'good' : 'bad');
+          if (item.correct && level === 'extend') markLessonComplete('l3');
+        });
+        root.append(button);
+      });
+      setFeedback($('#close-read-feedback'), 'Choose carefully, then justify your choice using the text.');
+    }
+
+    $('#close-read-next').addEventListener('click', () => {
+      const order = ['start', 'build', 'extend'];
+      const next = order[Math.min(order.indexOf(state.closeLevel) + 1, order.length - 1)];
+      const button = $(`#l3 .level-btn[data-level="${next}"]`);
+      button.click();
+    });
+
+    function currentQuestionTokens() { return QUESTION_SETS[state.questionLevel][state.questionIndex % QUESTION_SETS[state.questionLevel].length]; }
+
+    function renderQuestion(shuffleWords = true) {
+      state.selectedQuestionTile = null;
+      const expected = currentQuestionTokens();
+      const tokens = shuffleWords ? shuffle(expected.map((item, index) => ({ ...item, key: `w${index}` }))) : expected.map((item, index) => ({ ...item, key: `w${index}` }));
+      const board = $('#question-board');
+      board.innerHTML = '';
+      tokens.forEach(item => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `word-tile${state.questionLevel === 'start' ? ` role-${item.role}` : ''}`;
+        button.textContent = item.text;
+        button.draggable = true;
+        button.dataset.key = item.key;
+        button.setAttribute('aria-pressed', 'false');
+        button.addEventListener('click', () => selectQuestionTile(button));
+        button.addEventListener('dragstart', event => event.dataTransfer.setData('text/plain', item.key));
+        button.addEventListener('dragover', event => event.preventDefault());
+        button.addEventListener('drop', event => {
+          event.preventDefault();
+          swapQuestionTiles(event.dataTransfer.getData('text/plain'), item.key);
+        });
+        board.append(button);
+      });
+      $('#question-progress').textContent = `${state.questionLevel.toUpperCase()} · ${state.questionIndex + 1}`;
+      $('#question-legend').hidden = state.questionLevel !== 'start';
+      setFeedback($('#question-feedback'), 'Arrange the words. Check the capital letter, helper verb and question mark.');
+    }
+
+    function selectQuestionTile(button) {
+      const key = button.dataset.key;
+      if (state.selectedQuestionTile && state.selectedQuestionTile !== key) {
+        swapQuestionTiles(state.selectedQuestionTile, key);
+        state.selectedQuestionTile = null;
+      } else state.selectedQuestionTile = state.selectedQuestionTile === key ? null : key;
+      $$('#question-board .word-tile').forEach(tile => tile.setAttribute('aria-pressed', String(tile.dataset.key === state.selectedQuestionTile)));
+    }
+
+    function swapQuestionTiles(firstKey, secondKey) {
+      const board = $('#question-board');
+      const items = [...board.children];
+      const first = items.find(item => item.dataset.key === firstKey);
+      const second = items.find(item => item.dataset.key === secondKey);
+      if (!first || !second || first === second) return;
+      const placeholder = document.createElement('span');
+      first.replaceWith(placeholder);
+      second.replaceWith(first);
+      placeholder.replaceWith(second);
+    }
+
+    function moveQuestion(direction) {
+      const key = state.selectedQuestionTile;
+      if (!key) { setFeedback($('#question-feedback'), 'Select a word tile first.', 'warn'); return; }
+      const board = $('#question-board');
+      const items = [...board.children];
+      const index = items.findIndex(item => item.dataset.key === key);
+      const target = index + direction;
+      if (target < 0 || target >= items.length) return;
+      if (direction < 0) board.insertBefore(items[index], items[target]);
+      else board.insertBefore(items[target], items[index]);
+    }
+
+    $('#question-left').addEventListener('click', () => moveQuestion(-1));
+    $('#question-right').addEventListener('click', () => moveQuestion(1));
+    $('#check-question').addEventListener('click', () => {
+      const actual = $$('#question-board .word-tile').map(item => item.textContent);
+      const expected = currentQuestionTokens().map(item => item.text);
+      const correct = actual.every((word, index) => word === expected[index]);
+      setFeedback($('#question-feedback'), correct ? `Correct: ${expected.join(' ').replace(' ?', '?')}` : 'Not yet. Find the question word, then the helper or “be”, then the subject.', correct ? 'good' : 'bad');
+      if (correct && state.questionLevel === 'extend') markLessonComplete('l4');
+    });
+    $('#next-question').addEventListener('click', () => { state.questionIndex = (state.questionIndex + 1) % QUESTION_SETS[state.questionLevel].length; renderQuestion(true); });
+
+    function setupTextChoices() {
+      ['#text-one', '#text-two'].forEach((selector, selectIndex) => {
+        const select = $(selector);
+        select.innerHTML = '';
+        TEXT_CHOICES.forEach((text, index) => {
+          const option = document.createElement('option');
+          option.value = text;
+          option.textContent = text;
+          option.selected = index === selectIndex;
+          select.append(option);
+        });
+      });
+    }
+
+    function renderPlanCards() {
+      state.selectedPlanCard = null;
+      ['#plan-bank', '#zone-text1', '#zone-text2', '#zone-connection'].forEach(selector => {
+        const root = $(selector);
+        $$('.plan-card', root).forEach(card => card.remove());
+      });
+      const bank = $('#plan-bank');
+      shuffle(PLAN_CARDS).forEach(item => bank.append(createPlanCard(item)));
+      setFeedback($('#plan-feedback'), 'Sort each planning part into the correct section.');
+    }
+
+    function createPlanCard(item) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'plan-card';
+      button.textContent = item.text;
+      button.dataset.key = item.key;
+      button.dataset.expectedZone = item.zone;
+      button.draggable = true;
+      button.setAttribute('aria-pressed', 'false');
+      button.addEventListener('click', () => {
+        state.selectedPlanCard = state.selectedPlanCard === item.key ? null : item.key;
+        $$('.plan-card').forEach(card => card.setAttribute('aria-pressed', String(card.dataset.key === state.selectedPlanCard)));
+      });
+      button.addEventListener('dragstart', event => event.dataTransfer.setData('text/plain', item.key));
+      return button;
+    }
+
+    function movePlanCard(zone) {
+      const key = state.selectedPlanCard;
+      if (!key) { setFeedback($('#plan-feedback'), 'Select a card first.', 'warn'); return; }
+      const card = $(`.plan-card[data-key="${key}"]`);
+      $(`#zone-${zone}`).append(card);
+      card.setAttribute('aria-pressed', 'false');
+      state.selectedPlanCard = null;
+    }
+
+    $$('.drop-zone').forEach(zone => {
+      zone.addEventListener('dragover', event => { event.preventDefault(); zone.classList.add('is-over'); });
+      zone.addEventListener('dragleave', () => zone.classList.remove('is-over'));
+      zone.addEventListener('drop', event => {
+        event.preventDefault();
+        zone.classList.remove('is-over');
+        const card = $(`.plan-card[data-key="${event.dataTransfer.getData('text/plain')}"]`);
+        if (card) zone.append(card);
+      });
+    });
+
+    $$('[data-send-plan]').forEach(button => button.addEventListener('click', () => movePlanCard(button.dataset.sendPlan)));
+    $('#return-plan-card').addEventListener('click', () => {
+      const key = state.selectedPlanCard;
+      if (!key) { setFeedback($('#plan-feedback'), 'Select a card first.', 'warn'); return; }
+      $('#plan-bank').append($(`.plan-card[data-key="${key}"]`));
+      state.selectedPlanCard = null;
+      $$('.plan-card').forEach(card => card.setAttribute('aria-pressed', 'false'));
+    });
+    $('#check-plan').addEventListener('click', () => {
+      if ($('#text-one').value === $('#text-two').value) {
+        setFeedback($('#plan-feedback'), 'Choose two different texts before checking the plan.', 'warn');
+        return;
+      }
+      const allPlaced = $$('#plan-bank .plan-card').length === 0;
+      const correct = PLAN_CARDS.every(item => $(`.plan-card[data-key="${item.key}"]`)?.parentElement?.dataset.zone === item.zone);
+      setFeedback($('#plan-feedback'), !allPlaced ? 'Some planning parts are still in the card bank.' : correct ? 'Plan complete. Students now add their exact quotations and explanations in their copybooks.' : 'One or more parts are in the wrong section. Ask: does it belong to a text or to the connection?', correct ? 'good' : 'bad');
+    });
+
+    $$('[data-connective]').forEach(button => button.addEventListener('click', () => {
+      const connector = button.dataset.connective;
+      const one = $('#text-one').selectedOptions[0].textContent.split(' · ')[0];
+      const two = $('#text-two').selectedOptions[0].textContent.split(' · ')[0];
+      $('#comparison-frame').textContent = `${connector}, ${one} and ${two} present the clean-water problem ________. The evidence shows ________.`;
+    }));
+
+    function renderComparisonPrompt() { $('#comparison-extend-prompt').textContent = COMPARISON_EXTEND[Math.floor(Math.random() * COMPARISON_EXTEND.length)]; }
+    $('#comparison-new-prompt').addEventListener('click', renderComparisonPrompt);
+
+    const resetResponseSort = setupSortable('response', $('#response-structure'), RESPONSE_STRUCTURE, $('#response-feedback'), $('#check-response-structure'), $('#response-up'), $('#response-down'));
+
+    function renderChecklist() {
+      const root = $('#writing-checklist');
+      root.innerHTML = '';
+      WRITING_CHECKS.forEach(item => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'check-btn';
+        button.textContent = item;
+        button.setAttribute('aria-pressed', 'false');
+        button.addEventListener('click', () => {
+          button.setAttribute('aria-pressed', String(button.getAttribute('aria-pressed') !== 'true'));
+          const done = $$('#writing-checklist .check-btn[aria-pressed="true"]').length;
+          setFeedback($('#checklist-feedback'), done === WRITING_CHECKS.length ? 'All six checks complete. Read the response once more for meaning before submitting.' : `${done} of ${WRITING_CHECKS.length} checks confirmed.`, done === WRITING_CHECKS.length ? 'good' : '');
+          if (done === WRITING_CHECKS.length) markLessonComplete('l6');
+        });
+        root.append(button);
+      });
+    }
+
+    $('#word-count').addEventListener('input', event => {
+      const value = Number(event.target.value);
+      const status = $('#word-count-status');
+      if (!value) status.textContent = 'Enter the word count.';
+      else if (value < 150) status.textContent = `${150 - value} more word${150 - value === 1 ? '' : 's'} needed to reach 150.`;
+      else if (value <= 250) status.textContent = `In range ✓ ${250 - value} words remain before the limit.`;
+      else status.textContent = `${value - 250} word${value - 250 === 1 ? '' : 's'} over the limit—edit for precision.`;
+      status.style.color = value >= 150 && value <= 250 ? 'var(--green)' : 'var(--yellow)';
+    });
+
+    $$('[data-analytic]').forEach(button => button.addEventListener('click', () => {
+      const correct = button.dataset.analytic === '1';
+      setFeedback($('#analytic-feedback'), correct ? 'Correct. Sentence B states a relationship and prepares the writer to analyse evidence. Improve it further by naming the exact difference.' : 'Sentence A identifies only the topic. A stronger comparison states the relationship between the texts and prepares for evidence.', correct ? 'good' : 'bad');
+    }));
+
+    function filteredQuiz() { return state.quizMode === 'mix' ? QUIZ : QUIZ.filter(item => item.level === state.quizMode); }
+
+    function restartQuiz() {
+      state.quizIndex = 0;
+      state.quizScore = 0;
+      state.quizAnswered = false;
+      state.quizQuestions = state.quizMode === 'mix' ? shuffle(QUIZ) : filteredQuiz();
+      renderQuiz();
+    }
+
+    function renderQuiz() {
+      const questions = state.quizQuestions;
+      if (state.quizIndex >= questions.length) {
+        $('#quiz-question').textContent = `Review complete: ${state.quizScore} out of ${questions.length}.`;
+        $('#quiz-options').innerHTML = '';
+        $('#quiz-level').textContent = 'FINISH';
+        $('#quiz-question-count').textContent = `${questions.length} / ${questions.length}`;
+        $('#quiz-score').textContent = `Score ${state.quizScore}`;
+        $('#quiz-progress').style.width = '100%';
+        $('.progress-track').setAttribute('aria-valuenow', '100');
+        setFeedback($('#quiz-feedback'), 'Explain one corrected misconception before ending the review.', 'good');
+        markLessonComplete('l7');
+        return;
+      }
+      const item = questions[state.quizIndex];
+      state.quizAnswered = false;
+      $('#quiz-level').textContent = item.level.toUpperCase();
+      $('#quiz-level-label').textContent = state.quizMode === 'mix' ? 'Mixed challenge' : `${state.quizMode.toUpperCase()} questions`;
+      $('#quiz-question').textContent = item.q;
+      $('#quiz-question-count').textContent = `${state.quizIndex + 1} / ${questions.length}`;
+      $('#quiz-score').textContent = `Score ${state.quizScore}`;
+      const progress = Math.round((state.quizIndex / questions.length) * 100);
+      $('#quiz-progress').style.width = `${progress}%`;
+      $('.progress-track').setAttribute('aria-valuenow', String(progress));
+      const root = $('#quiz-options');
+      root.innerHTML = '';
+      item.options.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'quiz-option';
+        button.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
+        button.addEventListener('click', () => answerQuiz(index));
+        root.append(button);
+      });
+      setFeedback($('#quiz-feedback'), 'Choose the best answer.');
+    }
+
+    function answerQuiz(index) {
+      if (state.quizAnswered) return;
+      state.quizAnswered = true;
+      const item = state.quizQuestions[state.quizIndex];
+      const options = $$('#quiz-options .quiz-option');
+      options.forEach(button => { button.disabled = true; });
+      options[item.correct].classList.add('is-correct');
+      if (index === item.correct) {
+        state.quizScore += 1;
+        setFeedback($('#quiz-feedback'), `Correct. ${item.why}`, 'good');
+      } else {
+        options[index].classList.add('is-wrong');
+        setFeedback($('#quiz-feedback'), `Not this time. ${item.why}`, 'bad');
+      }
+      $('#quiz-score').textContent = `Score ${state.quizScore}`;
+    }
+
+    $('#quiz-next').addEventListener('click', () => {
+      if (!state.quizAnswered) { setFeedback($('#quiz-feedback'), 'Answer the current question first.', 'warn'); return; }
+      state.quizIndex += 1;
+      renderQuiz();
+    });
+    $('#quiz-restart').addEventListener('click', restartQuiz);
+
+    wireLevelGroup('l1', level => {
+      if (level === 'build') renderVocabRecall();
+      if (level === 'extend') renderVocabExtend();
+    });
+    wireLevelGroup('l2');
+    wireLevelGroup('l3', renderCloseRead);
+    wireLevelGroup('l4', level => { state.questionLevel = level; state.questionIndex = 0; renderQuestion(true); });
+    wireLevelGroup('l5');
+    wireLevelGroup('l6');
+    wireLevelGroup('l7', level => { state.quizMode = level; restartQuiz(); });
+
+    function resetLesson(id) {
+      if (id === 'l1') { renderVocabMatch(); state.recallIndex = 0; renderVocabRecall(); renderVocabExtend(); }
+      if (id === 'l2') { resetSullySort(); renderSullyEvidence(); renderSullyPrompt(); }
+      if (id === 'l3') renderCloseRead(state.closeLevel);
+      if (id === 'l4') { state.questionIndex = 0; renderQuestion(true); }
+      if (id === 'l5') { renderPlanCards(); renderComparisonPrompt(); }
+      if (id === 'l6') { resetResponseSort(); renderChecklist(); $('#word-count').value = 0; $('#word-count').dispatchEvent(new Event('input')); }
+      if (id === 'l7') restartQuiz();
+    }
+
+    $('#reset-btn').addEventListener('click', () => resetLesson(state.activeLesson));
+
+    refreshVocabStatus();
+    renderVocabSetup();
+    renderVocabMatch();
+    renderVocabRecall();
+    renderVocabExtend();
+    renderSullyEvidence();
+    renderSullyPrompt();
+    renderCloseRead('start');
+    renderQuestion(true);
+    setupTextChoices();
+    renderPlanCards();
+    renderComparisonPrompt();
+    renderChecklist();
+    restartQuiz();
+
+    const initialHash = location.hash.replace('#', '');
+    if (/^l[1-7]$/.test(initialHash)) setActiveLesson(initialHash);
+    else setActiveLesson('l1');
+  </script>
+</body>
+</html>
