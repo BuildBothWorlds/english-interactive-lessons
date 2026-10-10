@@ -1,0 +1,1685 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071321">
+  <meta name="description" content="Grade 8 English Week 8 touchscreen classroom activities for Lessons 1–5.">
+  <title>Grade 8 English • Week 8 Touchscreen Challenge</title>
+  <style>
+    :root {
+      --bg: #071321;
+      --surface: #12233b;
+      --surface-2: #192d49;
+      --line: #2b4669;
+      --text: #f7faff;
+      --soft: #d8e2f1;
+      --muted: #8ea2bd;
+      --cyan: #5de2ea;
+      --yellow: #fff200;
+      --pink: #ff8fa8;
+      --mint: #71e6a2;
+      --orange: #ffb65e;
+      --danger: #ff6b78;
+      --shadow: 0 22px 70px rgba(0, 0, 0, .32);
+    }
+    
+    * { box-sizing: border-box; }
+    
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    body {
+      min-height: 100dvh;
+      background:
+        radial-gradient(circle at 11% -5%, rgba(93, 226, 234, .13), transparent 25rem),
+        radial-gradient(circle at 95% 15%, rgba(255, 143, 168, .09), transparent 28rem),
+        var(--bg);
+      overflow-x: hidden;
+    }
+    
+    button { font: inherit; }
+    
+    .app-shell {
+      width: min(1600px, 100%);
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: 22px clamp(20px, 3vw, 48px) 18px;
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      gap: 14px;
+    }
+    
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    
+    .brand-kicker,
+    .eyebrow {
+      color: var(--cyan);
+      font-weight: 800;
+      letter-spacing: .09em;
+    }
+    
+    .brand-kicker { font-size: clamp(.72rem, 1.1vw, .95rem); }
+    
+    h1 {
+      margin: 4px 0 0;
+      font-size: clamp(1.45rem, 2.4vw, 2.5rem);
+      line-height: 1;
+    }
+    
+    .class-rule {
+      min-width: 260px;
+      min-height: 58px;
+      padding: 9px 17px 9px 10px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(18, 35, 59, .9);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--soft);
+      font-size: 1rem;
+    }
+    
+    .rule-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--bg);
+      background: var(--yellow);
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+    
+    .lesson-tabs {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 9px;
+    }
+    
+    .lesson-tab {
+      min-height: 62px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(18, 35, 59, .78);
+      color: var(--soft);
+      text-align: left;
+      cursor: pointer;
+      transition: transform .16s ease, border-color .16s ease, background .16s ease;
+    }
+    
+    .lesson-tab span {
+      display: block;
+      color: var(--muted);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    
+    .lesson-tab strong {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(.82rem, 1vw, 1rem);
+    }
+    
+    .lesson-tab:hover,
+    .lesson-tab:focus-visible {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+      outline: none;
+    }
+    
+    .lesson-tab.active {
+      background: var(--cyan);
+      border-color: var(--cyan);
+      color: var(--bg);
+      box-shadow: 0 9px 26px rgba(93, 226, 234, .18);
+    }
+    
+    .lesson-tab.active span { color: rgba(7, 19, 33, .7); }
+    
+    .activity-card {
+      min-height: 0;
+      padding: clamp(18px, 2vw, 28px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(18, 35, 59, .97), rgba(9, 24, 42, .98));
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto minmax(280px, 1fr) auto;
+      gap: 16px;
+      overflow: hidden;
+    }
+    
+    .activity-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 30%);
+      align-items: end;
+      gap: 30px;
+    }
+    
+    .eyebrow {
+      margin: 0 0 7px;
+      font-size: .82rem;
+    }
+    
+    h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 3vw, 3.7rem);
+      line-height: .98;
+    }
+    
+    .activity-instruction {
+      margin: 10px 0 0;
+      color: var(--soft);
+      font-size: clamp(.92rem, 1.3vw, 1.2rem);
+    }
+    
+    .progress-cluster { align-self: end; }
+    
+    .score-line {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--soft);
+      font-weight: 800;
+      font-size: .9rem;
+    }
+    
+    .progress-track {
+      height: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #0a1829;
+      border: 1px solid var(--line);
+    }
+    
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--mint));
+      transition: width .35s ease;
+    }
+    
+    .activity-stage {
+      min-height: 0;
+      display: grid;
+      align-items: stretch;
+    }
+    
+    .choice-layout {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(300px, .9fr) minmax(420px, 1.25fr);
+      gap: 24px;
+    }
+    
+    .visual-card,
+    .prompt-card,
+    .reading-card {
+      min-height: 0;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface-2);
+      overflow: hidden;
+    }
+    
+    .visual-card {
+      position: relative;
+      display: grid;
+      place-items: stretch;
+    }
+    
+    .visual-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+    }
+    
+    .visual-tag {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      padding: 9px 13px;
+      border-radius: 10px;
+      color: var(--bg);
+      background: var(--yellow);
+      font-size: .86rem;
+      font-weight: 900;
+      letter-spacing: .05em;
+    }
+    
+    .choice-panel {
+      display: grid;
+      align-content: center;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+    }
+    
+    .choice-button,
+    .category-button,
+    .strip-card,
+    .slot {
+      min-height: 72px;
+      border-radius: 16px;
+      border: 2px solid var(--line);
+      color: var(--text);
+      background: var(--surface);
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      touch-action: manipulation;
+    }
+    
+    .choice-button {
+      padding: 16px;
+      font-size: clamp(1.05rem, 1.8vw, 1.55rem);
+    }
+    
+    .choice-button.thinking-hidden,
+    .category-button.thinking-hidden,
+    .strip-card.thinking-hidden {
+      visibility: hidden;
+    }
+    
+    .choice-button:hover,
+    .choice-button:focus-visible,
+    .category-button:hover,
+    .category-button:focus-visible,
+    .strip-card:hover,
+    .strip-card:focus-visible,
+    .slot:hover,
+    .slot:focus-visible {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+      outline: none;
+    }
+    
+    .choice-button.correct,
+    .category-button.correct,
+    .slot.correct {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+    
+    .choice-button.wrong,
+    .category-button.wrong,
+    .slot.wrong {
+      background: rgba(255, 107, 120, .18);
+      border-color: var(--danger);
+    }
+    
+    .choice-button:disabled,
+    .category-button:disabled,
+    .strip-card:disabled,
+    .slot:disabled {
+      cursor: default;
+    }
+    
+    .prompt-card {
+      padding: clamp(22px, 3vw, 42px);
+      display: grid;
+      align-content: center;
+      gap: 12px;
+    }
+    
+    .prompt-label {
+      color: var(--cyan);
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: .09em;
+    }
+    
+    .prompt-text {
+      margin: 0;
+      font-size: clamp(1.45rem, 2.5vw, 2.7rem);
+      line-height: 1.15;
+      font-weight: 800;
+    }
+    
+    .prompt-note {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 13px;
+      align-content: center;
+    }
+    
+    .category-button {
+      padding: 18px 12px;
+      font-size: clamp(1.05rem, 1.6vw, 1.45rem);
+    }
+    
+    .category-button:nth-child(1) { border-color: rgba(93, 226, 234, .62); }
+    .category-button:nth-child(2) { border-color: rgba(255, 143, 168, .62); }
+    .category-button:nth-child(3) { border-color: rgba(113, 230, 162, .62); }
+    
+    .sequence-layout {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(300px, .85fr) minmax(520px, 1.4fr);
+      gap: 20px;
+    }
+    
+    .reading-card {
+      padding: clamp(20px, 2.5vw, 36px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+    
+    .reading-card blockquote {
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(1.15rem, 1.7vw, 1.6rem);
+      line-height: 1.35;
+    }
+    
+    .reading-question {
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--yellow);
+      font-weight: 900;
+      font-size: clamp(1rem, 1.4vw, 1.25rem);
+    }
+    
+    .sequence-workspace {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 12px;
+      min-height: 0;
+    }
+    
+    .strip-pool {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    
+    .strip-card {
+      padding: 13px;
+      min-height: 88px;
+      font-size: clamp(.86rem, 1.2vw, 1.04rem);
+      line-height: 1.25;
+    }
+    
+    .strip-card.selected {
+      border-color: var(--yellow);
+      box-shadow: 0 0 0 3px rgba(255, 242, 0, .12);
+      transform: translateY(-3px);
+    }
+    
+    .strip-card.placed {
+      opacity: .3;
+      border-style: dashed;
+    }
+    
+    .slot-stack {
+      display: grid;
+      grid-template-rows: repeat(3, minmax(62px, 1fr));
+      gap: 10px;
+      min-height: 0;
+    }
+    
+    .slot {
+      padding: 11px 16px;
+      display: grid;
+      grid-template-columns: 105px 1fr;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+    }
+    
+    .slot-label {
+      color: var(--cyan);
+      font-size: .9rem;
+      letter-spacing: .05em;
+    }
+    
+    .slot-content {
+      color: var(--muted);
+      font-size: clamp(.86rem, 1.15vw, 1.05rem);
+      font-weight: 700;
+    }
+    
+    .slot.filled .slot-content { color: var(--text); }
+    
+    .argument-layout .strip-pool {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    
+    .argument-layout .sequence-workspace {
+      grid-template-columns: minmax(250px, .85fr) minmax(340px, 1.15fr);
+      grid-template-rows: 1fr;
+      align-items: stretch;
+    }
+    
+    .argument-layout .slot-stack {
+      grid-template-rows: repeat(5, minmax(52px, 1fr));
+    }
+    
+    .argument-layout .slot {
+      min-height: 52px;
+      grid-template-columns: 105px 1fr;
+    }
+    
+    .argument-layout .strip-card {
+      min-height: 76px;
+      padding: 10px;
+      font-size: clamp(.76rem, 1vw, .94rem);
+    }
+    
+    .feedback-panel {
+      min-height: 72px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      align-items: center;
+      gap: 13px;
+      background: rgba(10, 24, 41, .9);
+    }
+    
+    .feedback-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--muted);
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+    
+    .feedback-panel strong { font-size: 1.05rem; }
+    .feedback-panel p { margin: 4px 0 0; color: var(--soft); }
+    .feedback-panel.success { border-color: rgba(113, 230, 162, .7); }
+    .feedback-panel.success .feedback-icon { background: var(--mint); }
+    .feedback-panel.error { border-color: rgba(255, 107, 120, .75); }
+    .feedback-panel.error .feedback-icon { color: white; background: var(--danger); }
+    .feedback-panel.reveal { border-color: rgba(255, 242, 0, .7); }
+    .feedback-panel.reveal .feedback-icon { background: var(--yellow); }
+    
+    .teacher-toolbar {
+      min-height: 58px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    
+    .toolbar-left,
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    
+    .teacher-tip {
+      max-width: 360px;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 700;
+      text-align: right;
+    }
+    
+    .tool-button {
+      min-height: 50px;
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--soft);
+      background: var(--surface);
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, opacity .12s ease;
+      touch-action: manipulation;
+    }
+    
+    .tool-button:hover,
+    .tool-button:focus-visible {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+      outline: none;
+    }
+    
+    .tool-button.primary {
+      color: var(--bg);
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+    
+    .tool-button:disabled {
+      opacity: .35;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .finish-screen {
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+    
+    .finish-panel {
+      width: min(850px, 100%);
+      padding: clamp(28px, 4vw, 54px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--surface-2);
+    }
+    
+    .finish-mark {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--mint);
+      font-size: 2.5rem;
+      font-weight: 900;
+    }
+    
+    .finish-panel h3 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 4rem);
+    }
+    
+    .finish-panel p {
+      margin: 14px auto 0;
+      max-width: 680px;
+      color: var(--soft);
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      line-height: 1.4;
+    }
+    
+    .model-answer {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-left: 7px solid var(--yellow);
+      border-radius: 12px;
+      background: var(--bg);
+      color: var(--text);
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      font-weight: 800;
+      text-align: left;
+    }
+    
+    .celebration {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 20;
+    }
+    
+    .confetti {
+      position: absolute;
+      top: -24px;
+      width: 12px;
+      height: 24px;
+      border-radius: 3px;
+      animation: fall 1.3s ease-in forwards;
+    }
+    
+    @keyframes fall {
+      to { transform: translateY(108vh) rotate(600deg); opacity: .2; }
+    }
+    
+    @media (max-width: 1000px) {
+      body { overflow: auto; }
+      .app-shell { min-height: 100vh; }
+      .lesson-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lesson-tab:last-child { grid-column: span 2; }
+      .choice-layout,
+      .sequence-layout { grid-template-columns: 1fr; }
+      .argument-layout .sequence-workspace {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+      }
+      .visual-card img { max-height: 330px; }
+      .teacher-toolbar,
+      .toolbar-left,
+      .toolbar-right { flex-wrap: wrap; }
+      .teacher-tip { max-width: none; text-align: left; flex: 1 1 100%; }
+    }
+    
+    @media (max-height: 850px) and (min-width: 1001px) {
+      .app-shell {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        gap: 8px;
+      }
+      .topbar h1 { font-size: 1.75rem; }
+      .brand-kicker { font-size: .68rem; }
+      .class-rule {
+        min-height: 46px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+      .rule-number { width: 36px; height: 36px; }
+      .lesson-tab { min-height: 48px; padding: 6px 10px; }
+      .lesson-tab strong { margin-top: 2px; }
+      .activity-card {
+        padding: 14px 18px;
+        grid-template-rows: auto minmax(245px, 1fr) auto;
+        gap: 10px;
+      }
+      h2 { font-size: clamp(1.8rem, 2.5vw, 2.65rem); }
+      .activity-instruction { margin-top: 6px; }
+      .prompt-card { padding: 22px 30px; }
+      .prompt-text { font-size: clamp(1.35rem, 2.1vw, 2.15rem); }
+      .reading-card blockquote { font-size: 1.15rem; }
+      .strip-card { min-height: 64px; padding: 9px 11px; }
+      .slot-stack {
+        grid-template-rows: repeat(3, minmax(52px, 1fr));
+        gap: 8px;
+      }
+      .slot { min-height: 52px; }
+      .choice-button,
+      .category-button { min-height: 62px; }
+      .feedback-panel { min-height: 60px; padding-top: 8px; padding-bottom: 8px; }
+      .teacher-toolbar { min-height: 50px; }
+      .tool-button { min-height: 46px; }
+    }
+    
+    @media (max-width: 680px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .class-rule { width: 100%; }
+      .activity-heading { grid-template-columns: 1fr; }
+      .choice-panel,
+      .category-grid,
+      .strip-pool,
+      .argument-layout .strip-pool { grid-template-columns: 1fr; }
+      .activity-card { overflow: visible; }
+      .teacher-toolbar { flex-direction: column; }
+      .toolbar-left,
+      .toolbar-right { width: 100%; }
+      .tool-button { flex: 1 1 auto; }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="brand-kicker">MRISB • GRADE 8 ENGLISH</div>
+        <h1>Week 8 Touchscreen Challenge</h1>
+      </div>
+      <div class="class-rule" aria-label="Classroom routine">
+        <span class="rule-number" id="turnNumber">01</span>
+        <span><strong>Silent think.</strong> One move. Explain.</span>
+      </div>
+    </header>
+
+    <nav class="lesson-tabs" aria-label="Select a lesson">
+      <button class="lesson-tab active" data-lesson="1">
+        <span>Lesson 1</span><strong>Vocabulary</strong>
+      </button>
+      <button class="lesson-tab" data-lesson="2">
+        <span>Lesson 2</span><strong>Viewpoints</strong>
+      </button>
+      <button class="lesson-tab" data-lesson="3">
+        <span>Lesson 3</span><strong>Answer • Prove • Push</strong>
+      </button>
+      <button class="lesson-tab" data-lesson="4">
+        <span>Lesson 4</span><strong>Present Perfect</strong>
+      </button>
+      <button class="lesson-tab" data-lesson="5">
+        <span>Lesson 5</span><strong>Build an Argument</strong>
+      </button>
+    </nav>
+
+    <main class="activity-card" id="activityCard">
+      <section class="activity-heading">
+        <div>
+          <p class="eyebrow" id="activityEyebrow">LESSON 1 • SB 84 / LC 34</p>
+          <h2 id="activityTitle">Read closely. Choose, prove, use.</h2>
+          <p class="activity-instruction" id="activityInstruction">Think first. Tap one word, then explain the visual clue.</p>
+        </div>
+        <div class="progress-cluster" aria-label="Activity progress">
+          <div class="score-line"><span id="progressText">1 of 5</span><span id="scoreText">0 correct</span></div>
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+      </section>
+
+      <section class="activity-stage" id="activityStage" aria-live="polite"></section>
+
+      <section class="feedback-panel neutral" id="feedbackPanel" aria-live="assertive">
+        <div class="feedback-icon" id="feedbackIcon">?</div>
+        <div>
+          <strong id="feedbackTitle">Class decides first</strong>
+          <p id="feedbackText">Everyone should have an answer before the screen player taps.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="teacher-toolbar">
+      <div class="toolbar-left">
+        <button class="tool-button" id="resetButton" title="Reset this lesson">
+          <span aria-hidden="true">↻</span> Reset lesson
+        </button>
+        <button class="tool-button" id="revealButton" title="Reveal the current answer">
+          <span aria-hidden="true">◉</span> Reveal answer
+        </button>
+        <button class="tool-button" id="soundButton" aria-pressed="true" title="Turn sound on or off">
+          <span aria-hidden="true">♪</span> Sound on
+        </button>
+      </div>
+      <div class="toolbar-right">
+        <span class="teacher-tip" id="teacherTip">Ask: What clue proves your choice?</span>
+        <button class="tool-button primary" id="nextButton" disabled>
+          Next challenge <span aria-hidden="true">→</span>
+        </button>
+        <button class="tool-button fullscreen" id="fullscreenButton" title="Enter full screen">
+          <span aria-hidden="true">⛶</span> Full screen
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <div class="celebration" id="celebration" aria-hidden="true"></div>
+  <script>
+    const vocabularyChallenges = [
+      {
+        label: "CONTEXT • BEST FIT",
+        prompt: "The debate became so ___ that the chairperson paused the meeting before anyone lost control.",
+        options: ["hostile", "rigid", "restless", "ordinary"],
+        answer: "hostile",
+        targetWord: "hostile",
+        why: "Hostile is the precise choice because the mood has become openly angry and unfriendly.",
+        hint: "Which word describes an atmosphere of anger or opposition—not simply discomfort?"
+      },
+      {
+        label: "CONTEXT • MOVEMENT",
+        prompt: "After carrying equipment uphill for three hours, the exhausted team ___ toward the bus without speaking.",
+        options: ["trudged", "marched", "strolled", "dashed"],
+        answer: "trudged",
+        targetWord: "trudged",
+        why: "Trudged shows slow, heavy movement caused by tiredness or difficulty.",
+        hint: "The sentence combines exhaustion, weight and slow movement."
+      },
+      {
+        label: "CONTEXT • PRECISE NOUN",
+        prompt: "The first repair failed, so the engineers compared several possible ___ before choosing a lasting solution.",
+        options: ["remedies", "arguments", "warnings", "obstacles"],
+        answer: "remedies",
+        targetWord: "remedies",
+        why: "Remedies are possible ways to correct or improve a problem.",
+        hint: "Which choice names solutions rather than problems or reactions?"
+      },
+      {
+        label: "CONTEXT • SCALE OF CONFLICT",
+        prompt: "The brothers began to ___ over who had moved the charger, even though the problem was minor.",
+        options: ["squabble", "negotiate", "protest", "confess"],
+        answer: "squabble",
+        targetWord: "squabble",
+        why: "Squabble fits a small, noisy argument about something unimportant.",
+        hint: "The word must match both the minor cause and the noisy disagreement."
+      },
+      {
+        label: "CONTEXT • PURPOSE",
+        prompt: "Because the liquid could splash without warning, every student had to fasten protective ___ before beginning.",
+        options: ["goggles", "binoculars", "lenses", "visors"],
+        answer: "goggles",
+        targetWord: "goggles",
+        why: "Goggles seal around and protect the eyes during practical work.",
+        hint: "Which item is worn specifically to protect the eyes from a splash?"
+      },
+      {
+        label: "SYNONYM • CLOSEST MEANING",
+        prompt: "Which word is the closest synonym for squabble in this sentence: ‘The teammates squabbled over a minor decision’ ?",
+        options: ["bickered", "debated", "whispered", "cooperated"],
+        answer: "bickered",
+        targetWord: "squabble",
+        why: "Bickered also means argued repeatedly about something small; debated is calmer and more formal.",
+        hint: "Choose the word that keeps the sense of a petty, noisy disagreement."
+      },
+      {
+        label: "ANTONYM • TONE",
+        prompt: "A hostile welcome would feel cold or threatening. Which phrase gives the strongest opposite meaning?",
+        options: ["a warm welcome", "a quiet welcome", "a formal welcome", "a cautious welcome"],
+        answer: "a warm welcome",
+        targetWord: "hostile",
+        why: "Warm is the clearest opposite of hostile because it signals friendliness and acceptance.",
+        hint: "Which choice changes the attitude from unfriendly to genuinely friendly?"
+      },
+      {
+        label: "USAGE • ACCURATE SENTENCE",
+        prompt: "Which sentence uses remedies accurately?",
+        options: [
+          "The council tested several remedies for the flooding problem.",
+          "The remedies argued loudly beside the gate.",
+          "We remedies the broken shelf yesterday.",
+          "His remedies expression frightened the audience."
+        ],
+        answer: "The council tested several remedies for the flooding problem.",
+        targetWord: "remedies",
+        why: "Here remedies correctly means possible solutions to a problem and functions as a plural noun.",
+        hint: "Check both meaning and grammar: the word should name solutions."
+      }
+    ];
+    
+    const viewpointItems = [
+      {
+        prompt: "This speaker values a shared benefit more than the inconvenience of practice.",
+        answer: "Speaker A",
+        why: "Speaker A accepts the cost of practice because teamwork benefits the group.",
+        hint: "Which speaker decides that the benefit makes the cost worthwhile?"
+      },
+      {
+        prompt: "This speaker judges the event partly by its effect on academic time.",
+        answer: "Speaker B",
+        why: "Speaker B objects because Sports Day takes time away from lessons.",
+        hint: "Which speaker measures the event against lost learning time?"
+      },
+      {
+        prompt: "This speaker's reasoning is mainly collective: the benefit is something a group develops together.",
+        answer: "Speaker A",
+        why: "Teamwork is a collective benefit, so this paraphrases Speaker A's reasoning.",
+        hint: "Which reason concerns what students build as a group?"
+      },
+      {
+        prompt: "This speaker considers an emotional consequence, not only a practical one.",
+        answer: "Speaker B",
+        why: "Speaker B mentions anxiety, which is an emotional consequence.",
+        hint: "Which viewpoint includes how some students may feel?"
+      },
+      {
+        prompt: "The speaker supports a judgement by linking it to a consequence.",
+        answer: "Both",
+        why: "A links the event to teamwork; B links it to lost time and anxiety. Both use consequences as reasons.",
+        hint: "Do both speakers explain what the event may cause?"
+      },
+      {
+        prompt: "The speaker emphasises possible costs rather than possible gains.",
+        answer: "Speaker B",
+        why: "Lost lesson time and anxiety are costs; Speaker A instead emphasises a gain.",
+        hint: "Which speaker focuses on what students may lose or suffer?"
+      },
+      {
+        prompt: "The speakers discuss the same event but use different criteria to judge whether it is worthwhile.",
+        answer: "Both",
+        why: "Both evaluate Sports Day, but A prioritises teamwork while B prioritises learning time and wellbeing.",
+        hint: "Can people share a subject while using different standards to evaluate it?"
+      }
+    ];
+    
+    const answerProvePushSets = [
+      {
+        text: "Omar found a wallet in the corridor. Although nobody was watching, he took it to the office and asked staff to contact its owner.",
+        question: "What quality does Omar show?",
+        parts: [
+          { id: "answer", label: "ANSWER", text: "Omar shows honesty." },
+          { id: "prove", label: "PROVE", text: "He takes the wallet to the office and asks staff to contact its owner." },
+          { id: "push", label: "PUSH", text: "This proves he chooses to do the right thing without expecting praise." }
+        ],
+        distractors: [
+          { id: "distractor-wallet", label: "DISTRACTOR", text: "The wallet might have contained money or an identification card." }
+        ]
+      },
+      {
+        text: "Salma noticed that the group kept interrupting one another. She suggested a speaking order and invited the quietest student to begin.",
+        question: "How does Salma help the group?",
+        parts: [
+          { id: "answer", label: "ANSWER", text: "Salma helps the group communicate fairly." },
+          { id: "prove", label: "PROVE", text: "She creates a speaking order and invites the quietest student to begin." },
+          { id: "push", label: "PUSH", text: "Her actions give everyone a chance to contribute, making the teamwork stronger." }
+        ],
+        distractors: [
+          { id: "distractor-meeting", label: "DISTRACTOR", text: "The group met after school to continue working on its task." }
+        ]
+      }
+    ];
+    
+    const grammarItems = [
+      {
+        label: "CHOOSE THE TENSE FROM CONTEXT",
+        prompt: "When I was in Grade 6, I ___ every speech before presenting it.",
+        options: ["practised", "have practised"],
+        answer: "practised",
+        why: "Grade 6 is a finished period in the speaker's past, so the action belongs to simple past.",
+        hint: "Is the named time period still continuing?"
+      },
+      {
+        label: "CHOOSE THE TENSE FROM CONTEXT",
+        prompt: "This week, our class ___ three debates, and another is planned for Thursday.",
+        options: ["has completed", "completed"],
+        answer: "has completed",
+        why: "This week is unfinished and the number may still change, so present perfect connects past actions to now.",
+        hint: "Has the time period ended, or can the total still change?"
+      },
+      {
+        label: "MEANING • STILL TRUE?",
+        prompt: "Which sentence suggests that Ali may still live here now?",
+        options: ["Ali has lived here for five years.", "Ali lived here for five years."],
+        answer: "Ali has lived here for five years.",
+        why: "Present perfect with for connects the five-year period to the present and suggests it continues.",
+        hint: "Which tense links an earlier starting point to now?"
+      },
+      {
+        label: "MEANING • FINISHED PERIOD",
+        prompt: "Which sentence clearly describes a completed period before Ali moved away?",
+        options: ["Ali lived here for five years.", "Ali has lived here for five years."],
+        answer: "Ali lived here for five years.",
+        why: "Simple past presents the five-year period as finished; the context confirms that he moved away.",
+        hint: "Which form closes the action inside a finished past period?"
+      },
+      {
+        label: "FIX THE VERB",
+        prompt: "She has wrote three pages.",
+        options: ["has wrote", "has written", "wrote has"],
+        answer: "has written",
+        why: "Present perfect uses has + the past participle written.",
+        hint: "What form comes after has?"
+      },
+      {
+        label: "CHOOSE THE PRECISE FORM",
+        prompt: "The club still meets in the same room. It ___ there since September.",
+        options: ["has met", "met", "has meet"],
+        answer: "has met",
+        why: "Since marks a starting point, and the first sentence confirms that the situation continues now.",
+        hint: "The meeting began earlier and remains true in the present."
+      },
+      {
+        label: "FIX THE VERB",
+        prompt: "He have finished the task.",
+        options: ["He have finished", "He has finished", "He has finish"],
+        answer: "He has finished",
+        why: "He takes has, followed by the past participle finished.",
+        hint: "Which auxiliary agrees with he?"
+      },
+      {
+        label: "CHOOSE THE CORRECTION",
+        prompt: "I have completed it yesterday.",
+        options: ["I completed it yesterday.", "I have complete it yesterday.", "I had completed it yesterday now."],
+        answer: "I completed it yesterday.",
+        why: "Yesterday is a finished time, so use simple past.",
+        hint: "Do not use present perfect with a finished past time."
+      },
+      {
+        label: "CONTEXT CHANGES THE TENSE",
+        prompt: "Our teacher ___ us three quizzes so far this term.",
+        options: ["has given", "gave", "has gave"],
+        answer: "has given",
+        why: "So far and this term describe an unfinished period; present perfect uses has + given.",
+        hint: "Look for a time phrase meaning ‘up to now’."
+      },
+      {
+        label: "CONTEXT CHANGES THE TENSE",
+        prompt: "Our teacher ___ us three quizzes during the first term last year.",
+        options: ["gave", "has given", "has gave"],
+        answer: "gave",
+        why: "Last year is a finished past time, so simple past is required.",
+        hint: "The same action needs a different tense when the time is complete."
+      }
+    ];
+    
+    const argumentParts = [
+      {
+        id: "claim",
+        label: "CLAIM",
+        text: "Reliability is the most important quality for a student leader."
+      },
+      {
+        id: "reason",
+        label: "REASON",
+        text: "Students need to trust that the leader will complete responsibilities."
+      },
+      {
+        id: "evidence",
+        label: "EVIDENCE",
+        text: "A reliable class captain submits the team list on time and ensures everyone has a role."
+      },
+      {
+        id: "explanation",
+        label: "EXPLANATION",
+        text: "This keeps the group organised and shows students they can depend on the leader."
+      },
+      {
+        id: "link",
+        label: "LINK",
+        text: "Therefore, reliability helps a student leader guide the group successfully."
+      }
+    ];
+    
+    const argumentDistractors = [
+      {
+        id: "distractor-popularity",
+        label: "DISTRACTOR",
+        text: "Many students enjoy choosing leaders and taking part in school elections."
+      }
+    ];
+    
+    const lessonConfig = {
+      1: {
+        eyebrow: "LESSON 1 • SB 84 / LC 34",
+        title: "Word Lab: meaning under pressure",
+        instruction: "Read closely. Choose the most precise answer, then use the target word in a fresh sentence.",
+        tip: "Require a new sentence before selecting Next.",
+        total: vocabularyChallenges.length,
+        finishTitle: "Vocabulary used with precision",
+        finishText: "Choose two words and connect them naturally in one original sentence.",
+        model: "Stretch: replace one word with a near-synonym and explain the change in meaning or tone."
+      },
+      2: {
+        eyebrow: "LESSON 2 • APPLY TO SB 85–88 / LC 35",
+        title: "Whose viewpoint is it?",
+        instruction: "Infer whose reasoning is being paraphrased. Choose, then cite the exact clue.",
+        tip: "Accept the answer only with evidence from A or B.",
+        total: viewpointItems.length,
+        finishTitle: "Two viewpoints compared",
+        finishText: "A complete comparison names both viewpoints, gives both reasons and explains the difference.",
+        model: "While Speaker A believes Sports Day practice is worthwhile because it builds teamwork, Speaker B thinks it has drawbacks because it costs lesson time and may cause anxiety."
+      },
+      3: {
+        eyebrow: "LESSON 3 • APPLY TO SB 89–92",
+        title: "Build Answer • Prove • Push",
+        instruction: "Build the response—but one strip is irrelevant. Leave it out and explain why.",
+        tip: "After the chain is built, ask why the unused strip fails.",
+        total: answerProvePushSets.length,
+        finishTitle: "Evidence became analysis",
+        finishText: "Use this structure when answering one of the questions on SB 92.",
+        model: "Answer responds directly. Proof gives a precise detail. Push explains why that detail matters."
+      },
+      4: {
+        eyebrow: "LESSON 4 • LC 37–38",
+        title: "Past or present perfect?",
+        instruction: "Use time, form and meaning to decide. A correct answer without a rule is incomplete.",
+        tip: "Ask: Finished time, experience or present result?",
+        total: grammarItems.length,
+        finishTitle: "Tense decisions complete",
+        finishText: "Now complete LC 37–38 using form, time clue and meaning—not guessing.",
+        model: "Transform: She has written four essays this term. → She wrote four essays last term."
+      },
+      5: {
+        eyebrow: "LESSON 5 • SB 96–99",
+        title: "Build a convincing argument",
+        instruction: "Build the strongest chain. One related strip is too weak or irrelevant and must be rejected.",
+        tip: "Require a reason for every placement and for the rejected strip.",
+        total: 1,
+        finishTitle: "The argument has a clear chain",
+        finishText: "Use the same logic when drafting the Leadership Argument Paragraph.",
+        model: "High ceiling: challenge the claim. Could another quality matter more? Defend your answer."
+      }
+    };
+    
+    const lessonStates = {};
+    let currentLesson = 1;
+    let soundOn = true;
+    let turnNumber = 1;
+    let audioContext;
+    let thinkIntervalId = null;
+    
+    const dom = {
+      tabs: [...document.querySelectorAll(".lesson-tab")],
+      eyebrow: document.getElementById("activityEyebrow"),
+      title: document.getElementById("activityTitle"),
+      instruction: document.getElementById("activityInstruction"),
+      stage: document.getElementById("activityStage"),
+      progressText: document.getElementById("progressText"),
+      scoreText: document.getElementById("scoreText"),
+      progressFill: document.getElementById("progressFill"),
+      feedback: document.getElementById("feedbackPanel"),
+      feedbackIcon: document.getElementById("feedbackIcon"),
+      feedbackTitle: document.getElementById("feedbackTitle"),
+      feedbackText: document.getElementById("feedbackText"),
+      reset: document.getElementById("resetButton"),
+      reveal: document.getElementById("revealButton"),
+      sound: document.getElementById("soundButton"),
+      next: document.getElementById("nextButton"),
+      fullscreen: document.getElementById("fullscreenButton"),
+      teacherTip: document.getElementById("teacherTip"),
+      turn: document.getElementById("turnNumber"),
+      celebration: document.getElementById("celebration")
+    };
+    
+    function shuffle(items) {
+      const copy = [...items];
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+    
+    function newState(lesson) {
+      if (lesson === 1) {
+        return { index: 0, score: 0, attempts: 0, answered: false, revealed: false, ready: false, finished: false, order: shuffle(vocabularyChallenges) };
+      }
+      if (lesson === 2) {
+        return { index: 0, score: 0, attempts: 0, answered: false, revealed: false, ready: false, finished: false, order: shuffle(viewpointItems) };
+      }
+      if (lesson === 3) {
+        return sequenceState(answerProvePushSets.map(set => ({
+          ...set,
+          parts: set.parts.map(part => ({ ...part })),
+          distractors: (set.distractors || []).map(part => ({ ...part }))
+        })));
+      }
+      if (lesson === 4) {
+        return { index: 0, score: 0, attempts: 0, answered: false, revealed: false, ready: false, finished: false, order: shuffle(grammarItems) };
+      }
+      return sequenceState([{
+        text: "A strong argument links every part to one clear position. One strip below is related to leadership but does not support this exact claim.",
+        question: "Build the strongest chain. Leave out the weak or irrelevant strip.",
+        parts: argumentParts.map(part => ({ ...part })),
+        distractors: argumentDistractors.map(part => ({ ...part }))
+      }]);
+    }
+    
+    function allCardsForSet(set) {
+      return [...set.parts, ...(set.distractors || [])];
+    }
+    
+    function sequenceState(sets) {
+      return {
+        index: 0,
+        score: 0,
+        attempts: 0,
+        selectedId: null,
+        placements: {},
+        ready: false,
+        revealed: false,
+        finished: false,
+        sets,
+        cardOrder: shuffle(allCardsForSet(sets[0]).map(part => part.id))
+      };
+    }
+    
+    function stateFor(lesson) {
+      if (!lessonStates[lesson]) lessonStates[lesson] = newState(lesson);
+      return lessonStates[lesson];
+    }
+    
+    function updateHeader() {
+      const config = lessonConfig[currentLesson];
+      const state = stateFor(currentLesson);
+      dom.eyebrow.textContent = config.eyebrow;
+      dom.title.textContent = config.title;
+      dom.instruction.textContent = config.instruction;
+      dom.teacherTip.textContent = config.tip;
+      dom.turn.textContent = String(turnNumber).padStart(2, "0");
+    
+      const completed = state.finished ? config.total : Math.min(state.index + 1, config.total);
+      dom.progressText.textContent = state.finished ? `${config.total} of ${config.total}` : `${completed} of ${config.total}`;
+      dom.scoreText.textContent = `${state.score} correct`;
+      const progress = state.finished ? 100 : ((state.index) / config.total) * 100;
+      dom.progressFill.style.width = `${progress}%`;
+    }
+    
+    function setFeedback(kind, title, text) {
+      dom.feedback.className = `feedback-panel ${kind}`;
+      dom.feedbackIcon.textContent = kind === "success" ? "✓" : kind === "error" ? "×" : kind === "reveal" ? "!" : "?";
+      dom.feedbackTitle.textContent = title;
+      dom.feedbackText.textContent = text;
+    }
+    
+    function resetFeedback() {
+      setFeedback("neutral", "Class decides first", "Everyone should have an answer before the screen player taps.");
+    }
+    
+    function advanceTurn() {
+      turnNumber = turnNumber >= 99 ? 1 : turnNumber + 1;
+      dom.turn.textContent = String(turnNumber).padStart(2, "0");
+    }
+    
+    function tone(kind) {
+      if (!soundOn) return;
+      try {
+        audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+        oscillator.type = "sine";
+        oscillator.frequency.value = kind === "correct" ? 660 : kind === "finish" ? 820 : 210;
+        gain.gain.setValueAtTime(.0001, audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(.12, audioContext.currentTime + .015);
+        gain.gain.exponentialRampToValueAtTime(.0001, audioContext.currentTime + .18);
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + .2);
+      } catch (_) {
+        // Sound is optional; the visual feedback remains complete.
+      }
+    }
+    
+    function render() {
+      clearThinkTimer();
+      updateHeader();
+      dom.tabs.forEach(tab => tab.classList.toggle("active", Number(tab.dataset.lesson) === currentLesson));
+      const state = stateFor(currentLesson);
+      dom.next.disabled = true;
+      dom.next.innerHTML = 'Next challenge <span aria-hidden="true">→</span>';
+      dom.reveal.disabled = state.finished;
+      if (state.finished) {
+        renderFinish();
+      } else if (currentLesson === 1) {
+        renderVocabulary();
+      } else if (currentLesson === 2) {
+        renderViewpoints();
+      } else if (currentLesson === 3 || currentLesson === 5) {
+        renderSequence();
+      } else {
+        renderGrammar();
+      }
+    }
+    
+    function renderVocabulary() {
+      const state = stateFor(1);
+      const item = state.order[state.index];
+      const options = shuffle(item.options);
+      dom.stage.innerHTML = `
+        <div class="choice-layout">
+          <div class="prompt-card">
+            <span class="prompt-label">${item.label}</span>
+            <p class="prompt-text">${item.prompt}</p>
+            <p class="prompt-note">First decide silently. Then defend the most precise choice.</p>
+          </div>
+          <div class="choice-panel" role="group" aria-label="Vocabulary choices">
+            ${options.map(choice => `<button class="choice-button" data-choice="${escapeAttribute(choice)}">${choice}</button>`).join("")}
+          </div>
+        </div>`;
+      bindChoiceButtons(
+        item.answer,
+        item.hint,
+        item.why,
+        ".choice-button",
+        `Before continuing, use “${item.targetWord}” in a fresh full sentence. Do not repeat the prompt.`
+      );
+      if (state.answered || state.revealed) restoreChoiceResult(item.answer);
+    }
+    
+    function renderViewpoints() {
+      const state = stateFor(2);
+      const item = state.order[state.index];
+      dom.stage.innerHTML = `
+        <div class="choice-layout">
+          <div class="prompt-card">
+            <span class="prompt-label">SPORTS DAY VIEWPOINT</span>
+            <p class="prompt-text">${item.prompt}</p>
+            <p class="prompt-note">A: practice builds teamwork. B: it costs lesson time and may cause anxiety.</p>
+          </div>
+          <div class="category-grid" role="group" aria-label="Viewpoint choices">
+            ${["Speaker A", "Speaker B", "Both"].map(choice => `<button class="category-button" data-choice="${choice}">${choice}</button>`).join("")}
+          </div>
+        </div>`;
+      bindChoiceButtons(
+        item.answer,
+        item.hint,
+        item.why,
+        ".category-button",
+        "Before continuing, quote or paraphrase the exact clue from Speaker A or B."
+      );
+      if (state.answered || state.revealed) restoreChoiceResult(item.answer, ".category-button");
+    }
+    
+    function renderGrammar() {
+      const state = stateFor(4);
+      const item = state.order[state.index];
+      dom.stage.innerHTML = `
+        <div class="choice-layout">
+          <div class="prompt-card">
+            <span class="prompt-label">${item.label}</span>
+            <p class="prompt-text">${item.prompt}</p>
+            <p class="prompt-note">Say the rule after choosing.</p>
+          </div>
+          <div class="choice-panel" role="group" aria-label="Grammar choices">
+            ${shuffle(item.options).map(choice => `<button class="choice-button" data-choice="${escapeAttribute(choice)}">${choice}</button>`).join("")}
+          </div>
+        </div>`;
+      bindChoiceButtons(
+        item.answer,
+        item.hint,
+        item.why,
+        ".choice-button",
+        "Before continuing, explain which time, form or meaning clue controls the tense."
+      );
+      if (state.answered || state.revealed) restoreChoiceResult(item.answer);
+    }
+    
+    function bindChoiceButtons(answer, hint, explanation, selector = ".choice-button", followUp = "Explain the clue before continuing.") {
+      const state = stateFor(currentLesson);
+      const buttons = [...dom.stage.querySelectorAll(selector)];
+      buttons.forEach(button => {
+        button.addEventListener("click", () => {
+          if (state.answered || state.revealed) return;
+          state.attempts += 1;
+          advanceTurn();
+          if (button.dataset.choice === answer) {
+            state.answered = true;
+            state.score += 1;
+            button.classList.add("correct");
+            buttons.forEach(item => item.disabled = true);
+            setFeedback("success", "Correct—now prove it", `${explanation} ${followUp}`);
+            dom.next.disabled = false;
+            dom.next.innerHTML = confirmationLabel();
+            tone("correct");
+            updateHeader();
+          } else {
+            button.classList.add("wrong");
+            setFeedback("error", "Not yet—try another choice", hint);
+            tone("wrong");
+            window.setTimeout(() => button.classList.remove("wrong"), 650);
+          }
+        });
+      });
+      if (!state.answered && !state.revealed) startSilentThink(state, buttons);
+    }
+    
+    function confirmationLabel() {
+      if (currentLesson === 1) return 'Confirm sentence & continue <span aria-hidden="true">→</span>';
+      if (currentLesson === 2) return 'Confirm evidence & continue <span aria-hidden="true">→</span>';
+      if (currentLesson === 4) return 'Confirm rule & continue <span aria-hidden="true">→</span>';
+      return 'Confirm explanation & continue <span aria-hidden="true">→</span>';
+    }
+    
+    function clearThinkTimer() {
+      if (thinkIntervalId) window.clearInterval(thinkIntervalId);
+      thinkIntervalId = null;
+    }
+    
+    function startSilentThink(state, buttons) {
+      if (state.ready) return;
+      let seconds = 5;
+      buttons.forEach(button => {
+        button.disabled = true;
+        button.classList.add("thinking-hidden");
+      });
+      setFeedback("neutral", `Silent think: ${seconds}`, "The choices are hidden. Everyone decides what kind of answer should fit before they appear.");
+      thinkIntervalId = window.setInterval(() => {
+        seconds -= 1;
+        if (seconds > 0) {
+          setFeedback("neutral", `Silent think: ${seconds}`, "No calling out. Build your reason before the screen player moves.");
+          return;
+        }
+        clearThinkTimer();
+        state.ready = true;
+        buttons.forEach(button => {
+          button.disabled = false;
+          button.classList.remove("thinking-hidden");
+        });
+        setFeedback("neutral", "Choices unlocked", "The screen player chooses. The class listens for the explanation.");
+      }, 1000);
+    }
+    
+    function restoreChoiceResult(answer, selector = ".choice-button") {
+      const state = stateFor(currentLesson);
+      const buttons = [...dom.stage.querySelectorAll(selector)];
+      buttons.forEach(button => {
+        button.disabled = true;
+        if (button.dataset.choice === answer) button.classList.add("correct");
+      });
+      dom.next.disabled = false;
+      dom.next.innerHTML = confirmationLabel();
+    }
+    
+    function renderSequence() {
+      const state = stateFor(currentLesson);
+      const set = state.sets[state.index];
+      const allCards = allCardsForSet(set);
+      const partMap = Object.fromEntries(allCards.map(part => [part.id, part]));
+      const isArgument = currentLesson === 5;
+      const slots = set.parts.map(part => {
+        const placedId = state.placements[part.id];
+        const placed = placedId ? partMap[placedId] : null;
+        return `
+          <button class="slot ${placed ? "filled correct" : ""}" data-slot="${part.id}" ${placed ? "disabled" : ""}>
+            <span class="slot-label">${part.label}</span>
+            <span class="slot-content">${placed ? placed.text : "Tap here after selecting a strip"}</span>
+          </button>`;
+      }).join("");
+    
+      const cards = state.cardOrder.map(id => {
+        const part = partMap[id];
+        const placed = Object.values(state.placements).includes(id);
+        return `<button class="strip-card ${state.selectedId === id ? "selected" : ""} ${placed ? "placed" : ""}" data-card="${id}" ${placed || state.revealed ? "disabled" : ""}>${part.text}</button>`;
+      }).join("");
+    
+      dom.stage.innerHTML = `
+        <div class="sequence-layout ${isArgument ? "argument-layout" : ""}">
+          <div class="reading-card">
+            <span class="prompt-label">${isArgument ? "ARGUMENT CHAIN" : "MICRO-TEXT"}</span>
+            <blockquote>${set.text}</blockquote>
+            <div class="reading-question">${set.question}</div>
+          </div>
+          <div class="sequence-workspace">
+            <div class="strip-pool" aria-label="Sentence strips">${cards}</div>
+            <div class="slot-stack" aria-label="Response boxes">${slots}</div>
+          </div>
+        </div>`;
+    
+      dom.stage.querySelectorAll(".strip-card").forEach(card => {
+        card.addEventListener("click", () => {
+          state.selectedId = card.dataset.card;
+          setFeedback("neutral", "Strip selected", "Now decide: does this strip earn a place in the response, or should it be rejected as irrelevant?");
+          renderSequence();
+        });
+      });
+    
+      dom.stage.querySelectorAll(".slot").forEach(slot => {
+        slot.addEventListener("click", () => placeSequenceCard(slot, set, partMap));
+      });
+    
+      const complete = Object.keys(state.placements).length === set.parts.length;
+      if (!complete && !state.revealed && !state.ready) {
+        startSilentThink(state, [...dom.stage.querySelectorAll(".strip-card")]);
+      }
+      if (complete) {
+        dom.next.disabled = false;
+        dom.next.innerHTML = 'Confirm rejection & continue <span aria-hidden="true">→</span>';
+        if (!state.revealed) {
+          setFeedback("success", "Chain complete—defend the rejection", "Identify the unused strip and explain precisely why it does not prove the answer or support the claim.");
+        }
+      }
+    }
+    
+    function placeSequenceCard(slot, set, partMap) {
+      const state = stateFor(currentLesson);
+      if (!state.selectedId) {
+        setFeedback("error", "Choose a strip first", "Tap one sentence strip, then tap the box where it belongs.");
+        tone("wrong");
+        return;
+      }
+      state.attempts += 1;
+      advanceTurn();
+      const expected = slot.dataset.slot;
+      if (state.selectedId === expected) {
+        const placed = partMap[state.selectedId];
+        state.placements[expected] = state.selectedId;
+        state.selectedId = null;
+        state.score += 1;
+        setFeedback("success", `${placed.label} placed`, sequenceExplanation(placed.id));
+        tone("correct");
+        renderSequence();
+        updateHeader();
+      } else {
+        slot.classList.add("wrong");
+        setFeedback("error", "That strip does not earn this position", `Ask what the sentence actually does: answer, prove or explain${currentLesson === 5 ? "—or connect the argument" : ""}. It may also be the distractor.`);
+        tone("wrong");
+        window.setTimeout(() => slot.classList.remove("wrong"), 700);
+      }
+    }
+    
+    function sequenceExplanation(id) {
+      const explanations = {
+        answer: "It responds directly to the question.",
+        prove: "It provides a precise detail from the text.",
+        push: "It explains what the evidence shows and why it matters.",
+        claim: "It states the exact position the writer will defend.",
+        reason: "It explains why the claim should be accepted.",
+        evidence: "It gives a relevant, specific example.",
+        explanation: "It connects the example back to the reason and claim.",
+        link: "It closes the chain by returning to the main position."
+      };
+      return explanations[id] || "The part now has a clear purpose.";
+    }
+    
+    function revealCurrent() {
+      clearThinkTimer();
+      const state = stateFor(currentLesson);
+      if (state.finished) return;
+      state.revealed = true;
+      if (currentLesson === 1) {
+        const item = state.order[state.index];
+        setFeedback("reveal", item.answer, `${item.why} Now use ${item.targetWord} in a fresh full sentence.`);
+        renderVocabulary();
+      } else if (currentLesson === 2) {
+        const item = state.order[state.index];
+        setFeedback("reveal", item.answer, item.why);
+        renderViewpoints();
+      } else if (currentLesson === 4) {
+        const item = state.order[state.index];
+        setFeedback("reveal", item.answer, item.why);
+        renderGrammar();
+      } else {
+        const set = state.sets[state.index];
+        state.placements = Object.fromEntries(set.parts.map(part => [part.id, part.id]));
+        state.selectedId = null;
+        setFeedback("reveal", "Answer revealed", "Read each part aloud and explain its job before moving on.");
+        renderSequence();
+      }
+      dom.next.disabled = false;
+    }
+    
+    function nextChallenge() {
+      const state = stateFor(currentLesson);
+      const total = lessonConfig[currentLesson].total;
+      if (state.index + 1 >= total) {
+        state.finished = true;
+        dom.progressFill.style.width = "100%";
+        tone("finish");
+        celebrate();
+      } else {
+        state.index += 1;
+        state.answered = false;
+        state.revealed = false;
+        state.ready = false;
+        if (currentLesson === 3 || currentLesson === 5) {
+          state.selectedId = null;
+          state.placements = {};
+          state.ready = false;
+          state.cardOrder = shuffle(allCardsForSet(state.sets[state.index]).map(part => part.id));
+        }
+        resetFeedback();
+      }
+      render();
+    }
+    
+    function renderFinish() {
+      const config = lessonConfig[currentLesson];
+      const state = stateFor(currentLesson);
+      dom.stage.innerHTML = `
+        <div class="finish-screen">
+          <div class="finish-panel">
+            <div class="finish-mark">✓</div>
+            <h3>${config.finishTitle}</h3>
+            <p>${config.finishText}</p>
+            <div class="model-answer">${config.model}</div>
+          </div>
+        </div>`;
+      setFeedback("success", "Transfer the skill", "The screen activity is complete. Apply the same thinking to today’s book or writing task.");
+      dom.progressText.textContent = `${config.total} of ${config.total}`;
+      dom.progressFill.style.width = "100%";
+      dom.scoreText.textContent = `${state.score} correct`;
+      dom.next.disabled = true;
+      dom.reveal.disabled = true;
+    }
+    
+    function resetLesson() {
+      lessonStates[currentLesson] = newState(currentLesson);
+      turnNumber = 1;
+      resetFeedback();
+      render();
+    }
+    
+    function escapeAttribute(value) {
+      return String(value).replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+    }
+    
+    function celebrate() {
+      const colors = ["#5de2ea", "#fff200", "#ff8fa8", "#71e6a2", "#ffb65e"];
+      dom.celebration.innerHTML = Array.from({ length: 36 }, (_, index) => {
+        const left = Math.round(Math.random() * 100);
+        const delay = (Math.random() * .45).toFixed(2);
+        const color = colors[index % colors.length];
+        return `<span class="confetti" style="left:${left}%;background:${color};animation-delay:${delay}s"></span>`;
+      }).join("");
+      window.setTimeout(() => { dom.celebration.innerHTML = ""; }, 2200);
+    }
+    
+    dom.tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        currentLesson = Number(tab.dataset.lesson);
+        resetFeedback();
+        render();
+      });
+    });
+    
+    dom.reset.addEventListener("click", resetLesson);
+    dom.reveal.addEventListener("click", revealCurrent);
+    dom.next.addEventListener("click", nextChallenge);
+    dom.sound.addEventListener("click", () => {
+      soundOn = !soundOn;
+      dom.sound.setAttribute("aria-pressed", String(soundOn));
+      dom.sound.innerHTML = `<span aria-hidden="true">♪</span> Sound ${soundOn ? "on" : "off"}`;
+      if (soundOn) tone("correct");
+    });
+    
+    dom.fullscreen.addEventListener("click", async () => {
+      try {
+        if (!document.fullscreenElement) {
+          await document.documentElement.requestFullscreen();
+        } else {
+          await document.exitFullscreen();
+        }
+      } catch (_) {
+        setFeedback("error", "Full screen was blocked", "Use the browser’s full-screen control instead.");
+      }
+    });
+    
+    document.addEventListener("fullscreenchange", () => {
+      dom.fullscreen.innerHTML = document.fullscreenElement
+        ? '<span aria-hidden="true">⛶</span> Exit full screen'
+        : '<span aria-hidden="true">⛶</span> Full screen';
+    });
+    
+    resetFeedback();
+    render();
+  </script>
+</body>
+</html>
