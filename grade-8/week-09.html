@@ -1,0 +1,1070 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071321">
+  <meta name="description" content="Grade 8 English Week 9 touchscreen classroom activities for Lessons 1-5.">
+  <title>Grade 8 English | Week 9 Touchscreen Challenge</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071321;
+      --panel: #10243c;
+      --panel-2: #172e4b;
+      --line: #2e4d72;
+      --text: #f8fbff;
+      --soft: #d8e3f1;
+      --muted: #93a8c1;
+      --cyan: #5de2ea;
+      --yellow: #fff200;
+      --pink: #ff8fa8;
+      --mint: #71e6a2;
+      --orange: #ffb65e;
+      --red: #ff6f7f;
+      --shadow: 0 24px 74px rgba(0, 0, 0, .34);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100dvh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 8% -4%, rgba(93, 226, 234, .14), transparent 28rem),
+        radial-gradient(circle at 100% 12%, rgba(255, 143, 168, .1), transparent 30rem),
+        var(--bg);
+    }
+
+    button { font: inherit; }
+
+    .shell {
+      width: min(1660px, 100%);
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: 18px clamp(18px, 3vw, 46px) 16px;
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      gap: 13px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-kicker,
+    .eyebrow {
+      color: var(--cyan);
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .brand-kicker { font-size: clamp(.7rem, 1vw, .9rem); }
+
+    h1 {
+      margin: 5px 0 0;
+      font-size: clamp(1.45rem, 2.4vw, 2.45rem);
+      line-height: 1;
+    }
+
+    .routine {
+      min-width: 330px;
+      min-height: 58px;
+      padding: 8px 16px 8px 9px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(16, 36, 60, .9);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--soft);
+    }
+
+    .routine-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 12px;
+      color: var(--bg);
+      background: var(--yellow);
+      font-size: 1.1rem;
+      font-weight: 950;
+    }
+
+    .routine strong { color: var(--text); }
+
+    .lesson-tabs {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .lesson-tab {
+      min-height: 62px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(16, 36, 60, .82);
+      color: var(--soft);
+      text-align: left;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .lesson-tab span {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .lesson-tab strong {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(.82rem, 1.05vw, 1rem);
+    }
+
+    .lesson-tab:hover,
+    .lesson-tab:focus-visible {
+      border-color: var(--cyan);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .lesson-tab.active {
+      color: var(--bg);
+      background: var(--cyan);
+      border-color: var(--cyan);
+      box-shadow: 0 10px 28px rgba(93, 226, 234, .18);
+    }
+
+    .lesson-tab.active span { color: rgba(7, 19, 33, .72); }
+
+    .activity-card {
+      min-height: 0;
+      padding: clamp(16px, 2vw, 28px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(16, 36, 60, .98), rgba(8, 24, 42, .99));
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto auto minmax(300px, 1fr) auto;
+      gap: 14px;
+      overflow: hidden;
+    }
+
+    .activity-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(250px, 29%);
+      align-items: end;
+      gap: 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 7px;
+      font-size: .78rem;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 3.55rem);
+      line-height: .99;
+    }
+
+    .instruction {
+      margin: 9px 0 0;
+      color: var(--soft);
+      font-size: clamp(.92rem, 1.3vw, 1.16rem);
+    }
+
+    .score-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 8px;
+      color: var(--soft);
+      font-size: .88rem;
+      font-weight: 850;
+    }
+
+    .progress-track {
+      height: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #08192b;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--mint));
+      transition: width .3s ease;
+    }
+
+    .tier-track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .tier-step {
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--muted);
+      background: rgba(7, 19, 33, .55);
+      font-size: .72rem;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-align: center;
+    }
+
+    .tier-step.active[data-tier="START"] { color: var(--bg); background: var(--cyan); border-color: var(--cyan); }
+    .tier-step.active[data-tier="BUILD"] { color: var(--bg); background: var(--orange); border-color: var(--orange); }
+    .tier-step.active[data-tier="EXTEND"] { color: var(--bg); background: var(--pink); border-color: var(--pink); }
+
+    .stage {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(330px, .9fr) minmax(460px, 1.2fr);
+      gap: 22px;
+    }
+
+    .prompt-card,
+    .response-card,
+    .finish-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--panel-2);
+    }
+
+    .prompt-card {
+      min-height: 0;
+      padding: clamp(22px, 3vw, 42px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .challenge-label {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--cyan);
+      font-size: .78rem;
+      font-weight: 950;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .tier-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 15px rgba(93, 226, 234, .75);
+    }
+
+    .prompt-text {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.35vw, 2.6rem);
+      line-height: 1.17;
+      font-weight: 850;
+    }
+
+    .source-line {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 750;
+    }
+
+    .response-card {
+      min-height: 0;
+      padding: clamp(18px, 2vw, 28px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .think-box {
+      padding: clamp(22px, 3vw, 40px);
+      border: 2px dashed rgba(93, 226, 234, .55);
+      border-radius: 18px;
+      background: rgba(7, 19, 33, .48);
+      text-align: center;
+    }
+
+    .think-count {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--bg);
+      background: var(--yellow);
+      font-size: 2.25rem;
+      font-weight: 950;
+    }
+
+    .think-box h3 {
+      margin: 0;
+      font-size: clamp(1.45rem, 2vw, 2.15rem);
+    }
+
+    .think-box p {
+      max-width: 580px;
+      margin: 10px auto 18px;
+      color: var(--soft);
+      line-height: 1.4;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .choice {
+      min-height: 78px;
+      padding: 15px 16px;
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      color: var(--text);
+      background: var(--panel);
+      font-size: clamp(.98rem, 1.4vw, 1.28rem);
+      font-weight: 800;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+
+    .choice:hover,
+    .choice:focus-visible,
+    .tool-button:hover,
+    .tool-button:focus-visible {
+      border-color: var(--cyan);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .choice.correct {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .choice.wrong {
+      background: rgba(255, 111, 127, .17);
+      border-color: var(--red);
+    }
+
+    .choice:disabled { cursor: default; transform: none; }
+
+    .open-response {
+      padding: clamp(22px, 3vw, 38px);
+      border-left: 7px solid var(--pink);
+      border-radius: 16px;
+      background: rgba(7, 19, 33, .55);
+    }
+
+    .open-response h3 {
+      margin: 0 0 10px;
+      color: var(--pink);
+      font-size: 1.35rem;
+    }
+
+    .open-response p {
+      margin: 0;
+      color: var(--soft);
+      font-size: clamp(1rem, 1.45vw, 1.25rem);
+      line-height: 1.45;
+    }
+
+    .oral-gate {
+      padding: 15px 17px;
+      border: 1px solid rgba(255, 242, 0, .58);
+      border-radius: 15px;
+      background: rgba(255, 242, 0, .06);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .oral-gate strong { color: var(--yellow); }
+    .oral-gate p { margin: 4px 0 0; color: var(--soft); }
+
+    .feedback {
+      min-height: 72px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      align-items: center;
+      gap: 13px;
+      background: rgba(7, 19, 33, .74);
+    }
+
+    .feedback-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--muted);
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .feedback strong { font-size: 1.04rem; }
+    .feedback p { margin: 4px 0 0; color: var(--soft); }
+    .feedback.success { border-color: rgba(113, 230, 162, .7); }
+    .feedback.success .feedback-icon { background: var(--mint); }
+    .feedback.error { border-color: rgba(255, 111, 127, .75); }
+    .feedback.error .feedback-icon { color: white; background: var(--red); }
+    .feedback.reveal { border-color: rgba(255, 242, 0, .7); }
+    .feedback.reveal .feedback-icon { background: var(--yellow); }
+
+    .teacher-toolbar {
+      min-height: 56px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .toolbar-left,
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .teacher-tip {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 750;
+      text-align: right;
+    }
+
+    .tool-button {
+      min-height: 50px;
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--soft);
+      background: var(--panel);
+      font-weight: 850;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: transform .12s ease, border-color .12s ease, opacity .12s ease;
+    }
+
+    .tool-button.primary {
+      color: var(--bg);
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+
+    .tool-button.confirm {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .tool-button:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+
+    .finish-card {
+      grid-column: 1 / -1;
+      min-height: 100%;
+      padding: clamp(30px, 5vw, 70px);
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .finish-inner { width: min(850px, 100%); }
+
+    .finish-mark {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--mint);
+      font-size: 2.45rem;
+      font-weight: 950;
+    }
+
+    .finish-card h3 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 4rem);
+    }
+
+    .finish-card p {
+      max-width: 680px;
+      margin: 14px auto 0;
+      color: var(--soft);
+      font-size: clamp(1rem, 1.5vw, 1.22rem);
+      line-height: 1.45;
+    }
+
+    .finish-model {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-left: 7px solid var(--yellow);
+      border-radius: 12px;
+      color: var(--text);
+      background: var(--bg);
+      font-size: clamp(1rem, 1.45vw, 1.2rem);
+      font-weight: 800;
+      text-align: left;
+    }
+
+    @media (max-width: 1000px) {
+      body { overflow: auto; }
+      .shell { min-height: 100vh; }
+      .lesson-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lesson-tab:last-child { grid-column: span 2; }
+      .stage { grid-template-columns: 1fr; }
+      .teacher-toolbar,
+      .toolbar-left,
+      .toolbar-right { flex-wrap: wrap; }
+      .teacher-tip { max-width: none; flex: 1 1 100%; text-align: left; }
+    }
+
+    @media (max-width: 680px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .routine { min-width: 0; width: 100%; }
+      .activity-heading { grid-template-columns: 1fr; }
+      .choice-grid { grid-template-columns: 1fr; }
+      .oral-gate { grid-template-columns: 1fr; }
+      .activity-card { overflow: visible; }
+      .teacher-toolbar { flex-direction: column; }
+      .toolbar-left,
+      .toolbar-right { width: 100%; }
+      .tool-button { flex: 1 1 auto; }
+    }
+
+    @media (max-height: 850px) and (min-width: 1001px) {
+      .shell { padding-top: 9px; padding-bottom: 9px; gap: 8px; }
+      .topbar h1 { font-size: 1.7rem; }
+      .routine { min-height: 46px; }
+      .routine-number { width: 36px; height: 36px; }
+      .lesson-tab { min-height: 48px; padding: 6px 10px; }
+      .activity-card { padding: 13px 18px; gap: 9px; grid-template-rows: auto auto minmax(255px, 1fr) auto; }
+      h2 { font-size: clamp(1.7rem, 2.5vw, 2.55rem); }
+      .instruction { margin-top: 5px; }
+      .prompt-card { padding: 20px 28px; }
+      .prompt-text { font-size: clamp(1.28rem, 2.05vw, 2.05rem); }
+      .choice { min-height: 62px; padding: 10px 13px; }
+      .feedback { min-height: 58px; padding-top: 7px; padding-bottom: 7px; }
+      .teacher-toolbar { min-height: 48px; }
+      .tool-button { min-height: 44px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <div class="brand-kicker">MRISB | GRADE 8 ENGLISH</div>
+        <h1>Week 9 Touchscreen Challenge</h1>
+      </div>
+      <div class="routine" aria-label="Classroom routine">
+        <span class="routine-number" id="turnNumber">01</span>
+        <span><strong>Silent think.</strong> One move. Explain with evidence.</span>
+      </div>
+    </header>
+
+    <nav class="lesson-tabs" aria-label="Select a lesson">
+      <button class="lesson-tab active" data-lesson="1"><span>Lesson 1</span><strong>Vocabulary + Analogy</strong></button>
+      <button class="lesson-tab" data-lesson="2"><span>Lesson 2</span><strong>Setting + Characters</strong></button>
+      <button class="lesson-tab" data-lesson="3"><span>Lesson 3</span><strong>Close Read</strong></button>
+      <button class="lesson-tab" data-lesson="4"><span>Lesson 4</span><strong>Past Perfect</strong></button>
+      <button class="lesson-tab" data-lesson="5"><span>Lesson 5</span><strong>Plan an Argument</strong></button>
+    </nav>
+
+    <main class="activity-card">
+      <section class="activity-heading">
+        <div>
+          <p class="eyebrow" id="activityEyebrow"></p>
+          <h2 id="activityTitle"></h2>
+          <p class="instruction" id="activityInstruction"></p>
+        </div>
+        <div>
+          <div class="score-line"><span id="progressText"></span><span id="scoreText"></span></div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+      </section>
+
+      <section class="tier-track" aria-label="Challenge level">
+        <div class="tier-step" data-tier="START">START | Recognise</div>
+        <div class="tier-step" data-tier="BUILD">BUILD | Apply</div>
+        <div class="tier-step" data-tier="EXTEND">EXTEND | Justify</div>
+      </section>
+
+      <section class="stage" id="activityStage" aria-live="polite"></section>
+
+      <section class="feedback" id="feedbackPanel" aria-live="assertive">
+        <div class="feedback-icon" id="feedbackIcon">?</div>
+        <div><strong id="feedbackTitle">Class decides first</strong><p id="feedbackText">Everyone forms an answer before the board player reveals the choices.</p></div>
+      </section>
+    </main>
+
+    <footer class="teacher-toolbar">
+      <div class="toolbar-left">
+        <button class="tool-button" id="resetButton">Reset lesson</button>
+        <button class="tool-button" id="revealButton">Reveal answer</button>
+        <button class="tool-button" id="soundButton" aria-pressed="true">Sound on</button>
+      </div>
+      <div class="toolbar-right">
+        <span class="teacher-tip" id="teacherTip"></span>
+        <button class="tool-button primary" id="nextButton" disabled>Next challenge</button>
+        <button class="tool-button" id="fullscreenButton">Full screen</button>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const lessons = {
+      1: {
+        eyebrow: "LESSON 1 | SB 107-108, 119",
+        title: "Word Lab: meaning under pressure",
+        instruction: "Move from context to precise usage, then make and explain an analogy.",
+        tip: "After a correct choice, require an original sentence or a clear comparison before confirming the explanation.",
+        finishTitle: "Words and comparisons used precisely",
+        finishText: "Return to SB 107-108 and 119. Complete the assigned work using context, not guessing.",
+        finishModel: "Stretch: connect one academic word and one key word in a single accurate sentence, then turn the idea into a simile or metaphor.",
+        challenges: [
+          { tier: "START", label: "CONTEXT | KEY WORD", prompt: "After two days without clean water, the hikers were ___ for a safe drink.", options: ["desperate", "startled", "distinct", "merged"], answer: "desperate", why: "Desperate means having an urgent or very strong need. The two-day shortage creates that urgency.", gate: "Use desperate in a new full sentence without copying the prompt." },
+          { tier: "START", label: "RELATIONSHIP | SYNONYM", prompt: "Which pair has the closest meaning?", options: ["merge : combine", "cower : celebrate", "reveal : hide", "distinct : identical"], answer: "merge : combine", why: "To merge is to combine separate parts into one. The other pairs give opposites or unrelated meanings.", gate: "Name one real situation in which two things might merge." },
+          { tier: "START", label: "CONTEXT | ACADEMIC WORD", prompt: "The two paw prints looked similar, but one had a ___ broken claw mark that made it easy to identify.", options: ["distinct", "desperate", "startled", "merged"], answer: "distinct", why: "Distinct means clearly different or easy to recognise. The broken claw mark separates one print from the other.", gate: "Explain which clue makes distinct more precise than different." },
+          { tier: "BUILD", label: "NUANCE | PRECISE VERB", prompt: "The cub pressed close to the cave wall and lowered its body when the torch swept across the entrance. Which verb best captures this reaction?", options: ["cowered", "merged", "acknowledged", "revealed"], answer: "cowered", why: "Cowered shows shrinking or backing away because of fear. The body position and torch trigger both support it.", gate: "Describe a physical clue that shows a person or animal is cowering." },
+          { tier: "BUILD", label: "USAGE | GRAMMAR + MEANING", prompt: "Which sentence uses acknowledge accurately?", options: ["Rupa acknowledged that the rising tide made the plan dangerous.", "The rain acknowledged across the river all night.", "Neel was acknowledge when the cub moved.", "They acknowledged the two boats into one."], answer: "Rupa acknowledged that the rising tide made the plan dangerous.", why: "Acknowledge is a verb meaning admit or recognise that something is true. Only the first sentence has the correct meaning and form.", gate: "Acknowledge one difficulty in a plan without abandoning the plan." },
+          { tier: "BUILD", label: "ANTONYM | TONE", prompt: "Which action is the clearest opposite of dishonor?", options: ["show respect", "feel startled", "take a challenge", "perceive danger"], answer: "show respect", why: "To dishonor is to shame or treat without respect, so showing respect gives the strongest opposite meaning.", gate: "Explain how a difficult choice could still show respect." },
+          { tier: "BUILD", label: "INFERENCE | ACADEMIC WORD", prompt: "At first, Neel saw the storm only as a danger. Later, he ___ it as useful cover from the men searching nearby.", options: ["perceived", "merged", "dishonored", "cowered"], answer: "perceived", why: "Perceived means understood or became aware of something in a particular way. His interpretation of the storm changes.", gate: "Explain how two people can perceive the same risk differently." },
+          { tier: "EXTEND", label: "ANALOGY | SIMILE OR METAPHOR", prompt: "Which sentence is a metaphor that also communicates danger?", options: ["The rising river was a closing door.", "The river rose beside the path.", "The river was like water.", "The river had risen after the rain."], answer: "The rising river was a closing door.", why: "It directly compares the river to a closing door without like or as. The image suggests that escape is becoming impossible.", gate: "Explain the shared idea between the river and a closing door." },
+          { tier: "EXTEND", label: "ANALOGY | BEST EFFECT", prompt: "Which analogy best shows why the mud slowed the children but did not stop them?", options: ["The mud tugged at their feet like stubborn hands.", "The mud was brown and wet.", "The mud was like the ground.", "Their feet moved across the mud."], answer: "The mud tugged at their feet like stubborn hands.", why: "The simile creates a clear image of resistance while still allowing movement. The other choices describe but do not illuminate the idea.", gate: "Create a different analogy for the rain, darkness or rising tide." },
+          { tier: "EXTEND", label: "CONTEXT | TWO-WORD LOGIC", prompt: "Which completion creates the most logical cause-and-effect sentence? ‘The sudden shout ___ the cub and ___ its hiding place.’", options: ["startled | revealed", "merged | transformed", "acknowledged | cowered", "dishonored | perceived"], answer: "startled | revealed", why: "The shout can frighten the cub, and the cub's reaction can expose where it is hiding. Both grammar and cause-and-effect fit.", gate: "Replace sudden shout with a different cause while keeping both verbs accurate." }
+        ]
+      },
+      2: {
+        eyebrow: "LESSON 2 | SB 109, 110-117",
+        title: "Setting changes what characters can do",
+        instruction: "Connect setting detail, character response and a defensible prediction.",
+        tip: "Do not accept a prediction alone. Ask for the setting clue and the effect on a character.",
+        finishTitle: "Setting became evidence",
+        finishText: "Continue the shared and individual reading on SB 110-117. Mark details that change choices, feelings or risk.",
+        finishModel: "Setting detail -> pressure or opportunity -> character action. Strong analysis explains the link between all three.",
+        challenges: [
+          { tier: "START", label: "SETTING | EFFECT", prompt: "The path is muddy, rain has reduced visibility and the tide is low. Which effect is best supported?", options: ["The children can approach quietly, but moving is difficult.", "The children can move quickly and be easily seen.", "The cub is certain to leave the cave at once.", "The setting removes every danger from the plan."], answer: "The children can approach quietly, but moving is difficult.", why: "Darkness and rain can hide them, while mud makes movement harder. A strong answer recognises both an advantage and a danger.", gate: "Name one advantage and one disadvantage created by this setting." },
+          { tier: "START", label: "CHARACTER | ACTION", prompt: "Why are Rupa and Neel more capable on the slippery island path than a visitor might be?", options: ["Their feet are used to walking in mud.", "They have brought a map of every path.", "The tide has made the path dry.", "They are following Gupta's men."], answer: "Their feet are used to walking in mud.", why: "Familiarity with the physical setting affects what the characters can do. Experience reduces, but does not remove, the risk.", gate: "Explain how familiarity changes risk without making the action safe." },
+          { tier: "START", label: "MOTIVE | EVIDENCE", prompt: "The children return with milk, a shirt, a flashlight and a stick. What does this preparation most strongly reveal?", options: ["They are determined to rescue the cub.", "They expect the cub to rescue them.", "They want to explore without a plan.", "They have decided to give up."], answer: "They are determined to rescue the cub.", why: "Each item has a purpose in the rescue attempt. Their careful preparation reveals a strong motive rather than casual curiosity.", gate: "Choose one item and explain what it reveals about their plan." },
+          { tier: "BUILD", label: "SETTING | URGENCY", prompt: "Rupa warns that the tide is rising while the cub remains deep in the cave. What pressure does the setting create?", options: ["They must act before water blocks their safe exit.", "They can wait until daylight with no consequence.", "They should make more noise to call the men.", "They now have unlimited time to change the plan."], answer: "They must act before water blocks their safe exit.", why: "The changing tide creates a deadline. The physical setting now controls how long the characters can remain.", gate: "Explain how the rising tide changes Neel's next decision." },
+          { tier: "BUILD", label: "CHARACTER | INTERNAL RESPONSE", prompt: "Neel hears familiar voices above the bridge, hides and feels his heart pounding. Which analysis is strongest?", options: ["The hidden shoreline makes him safer, but hearing his family increases his fear of being discovered.", "The voices prove that the cub has already escaped.", "The darkness makes Neel forget why he came.", "The bridge causes Neel to stop caring about the cub."], answer: "The hidden shoreline makes him safer, but hearing his family increases his fear of being discovered.", why: "The answer links place, sound and emotion. It recognises that one setting can create protection and pressure at the same time.", gate: "Cite the physical and emotional clues in your own words." },
+          { tier: "BUILD", label: "PREDICTION | BEST EVIDENCE", prompt: "Neel must enter the narrow, dark cave while the tide rises. Which prediction is most defensible?", options: ["He will take a greater personal risk because the cub will not come out on its own.", "He will immediately leave because he dislikes getting wet.", "The cub will explain how it wants to escape.", "The tide will stop rising when Neel reaches the cave."], answer: "He will take a greater personal risk because the cub will not come out on its own.", why: "The prediction follows from Neel's motive, the cub's position and the growing time pressure. It does not invent impossible events.", gate: "State the prediction with because and one setting clue." },
+          { tier: "BUILD", label: "SETTING | SENSE DETAIL", prompt: "Inside the cave, Neel cannot see clearly and must notice paws, licking and movement. What does this sensory setting do?", options: ["It increases suspense and forces him to rely on touch and sound.", "It proves that the cave is empty.", "It makes the rescue completely predictable.", "It shows that Neel has forgotten the cub."], answer: "It increases suspense and forces him to rely on touch and sound.", why: "Limited sight changes both the reader's experience and Neel's behaviour. He must respond carefully to other sensory clues.", gate: "Explain how limited information can make a risk feel greater." },
+          { tier: "EXTEND", label: "MOTIVE | COMPETING VALUES", prompt: "Neel wants to respect Baba, yet he continues the secret rescue. Which interpretation is most convincing?", options: ["He believes protecting the cub is consistent with the values Baba taught him.", "He has stopped caring about his family completely.", "He wants to embarrass Baba in front of Gupta.", "He thinks respect means obeying every powerful person."], answer: "He believes protecting the cub is consistent with the values Baba taught him.", why: "Neel faces a conflict between obedience and a deeper moral value. His motive is not simple rebellion.", gate: "Explain the difference between obeying someone and honouring their values." },
+          { tier: "EXTEND", label: "CLAIM | SETTING + CHARACTER", prompt: "Which claim best captures how the setting shapes the children?", options: ["The dangerous setting reveals courage because every obstacle gives them a reason to stop, yet they adapt.", "The setting matters only because it tells us where the story happens.", "The setting makes every choice for the children, so motive does not matter.", "The island removes risk because the children know it well."], answer: "The dangerous setting reveals courage because every obstacle gives them a reason to stop, yet they adapt.", why: "This claim connects external obstacles with character qualities and choices. It leaves room for evidence from several moments.", gate: "Give two different setting details that could support this claim." }
+        ]
+      },
+      3: {
+        eyebrow: "LESSON 3 | SB 118",
+        title: "Trace the chain: setting, motive, risk",
+        instruction: "Choose the explanation that completes each evidence chain, then push the idea further.",
+        tip: "Require the speaker to name the setting detail, the motive and the risk before confirming.",
+        finishTitle: "Close reading completed",
+        finishText: "Use the same chain on SB 118: evidence -> effect -> motive -> risk -> meaning.",
+        finishModel: "High ceiling: decide whether the risk is wise, necessary or reckless. Defend the label using two details.",
+        challenges: [
+          { tier: "START", label: "TRACE | CAUSE AND EFFECT", prompt: "Setting: the tide is rising. Action: Neel pushes farther into the cave. Which link completes the chain?", options: ["Time pressure makes waiting more dangerous than acting.", "The tide makes the cave brighter and safer.", "Neel wants to prove that he can swim fastest.", "The cub has already reached the boat."], answer: "Time pressure makes waiting more dangerous than acting.", why: "The rising tide changes the balance of risk. Delay now threatens both the rescue and the children's escape.", gate: "Explain why doing nothing can also be a risk." },
+          { tier: "START", label: "TRACE | MOTIVE", prompt: "Evidence: Neel repeatedly moves the milk-soaked cloth back and waits for the cub. Which motive is best supported?", options: ["He wants to gain the cub's trust without harming it.", "He wants to frighten the cub out of the cave.", "He wants Rupa to complete the rescue alone.", "He wants to abandon the cub in a different cave."], answer: "He wants to gain the cub's trust without harming it.", why: "His repeated, careful method shows patience and concern for the animal rather than force.", gate: "Identify one action that makes the rescue careful, not merely brave." },
+          { tier: "START", label: "TRACE | RISK TYPE", prompt: "The children may be caught by family and by Gupta's men. What kind of risk is most clearly added here?", options: ["social and moral risk", "only financial risk", "only academic risk", "no risk at all"], answer: "social and moral risk", why: "They risk conflict, punishment and being judged as disobedient while trying to act according to their values.", gate: "Contrast this risk with the physical danger of the cave and tide." },
+          { tier: "BUILD", label: "EVIDENCE | STRONGEST INFERENCE", prompt: "Neel's fear changes to anger when he thinks about Gupta taking the cub. What does this shift most likely do?", options: ["It strengthens his determination to continue despite fear.", "It makes him forget where the cub is.", "It proves that the weather has improved.", "It removes all consequences from his choice."], answer: "It strengthens his determination to continue despite fear.", why: "The emotional shift changes his motivation. Anger at injustice pushes him to act even though the danger remains.", gate: "Explain how an emotion can increase both courage and risk." },
+          { tier: "BUILD", label: "EVALUATE | WORTH THE RISK?", prompt: "Which judgement is best supported by the rescue so far?", options: ["The risk may be justified because the cub faces serious harm and the children plan carefully.", "The risk is automatically wise because the children succeed once.", "The risk is pointless because danger is always wrong.", "The risk is harmless because they know the island."], answer: "The risk may be justified because the cub faces serious harm and the children plan carefully.", why: "The wording may be justified is appropriately cautious. It weighs purpose and preparation without pretending the danger disappears.", gate: "State one detail that supports the risk and one that argues against it." },
+          { tier: "BUILD", label: "ANALYSIS | SETTING AS PRESSURE", prompt: "Which response moves beyond summary?", options: ["The rising tide acts like a countdown, forcing Neel to choose before he feels fully ready.", "The tide rises while Neel is near the cave.", "Neel and Rupa are at the creek at night.", "There is water near the island."], answer: "The rising tide acts like a countdown, forcing Neel to choose before he feels fully ready.", why: "Analysis explains how a detail affects choice and meaning. The other responses only restate setting information.", gate: "Identify the word or phrase that turns summary into analysis." },
+          { tier: "EXTEND", label: "COUNTERCLAIM | TEST THE IDEA", prompt: "Claim: ‘Neel is courageous because he enters the cave.’ Which counterclaim creates the strongest discussion?", options: ["Entering the cave may be reckless if he has not planned a safe exit.", "Caves are usually made of rock or earth.", "Neel has a sister named Rupa.", "The scene happens after dinner."], answer: "Entering the cave may be reckless if he has not planned a safe exit.", why: "This counterclaim challenges the judgement of courage by questioning preparation and consequences, not by changing the subject.", gate: "Respond to the counterclaim using one piece of evidence." },
+          { tier: "EXTEND", label: "THEME | TRANSFER", prompt: "Which broader idea is best developed by the children's choices?", options: ["A worthwhile risk requires purpose, preparation and acceptance of consequences.", "Every danger should be ignored if a person feels brave.", "Young people never understand serious choices.", "A familiar place can never be dangerous."], answer: "A worthwhile risk requires purpose, preparation and acceptance of consequences.", why: "The idea transfers beyond the story while remaining grounded in the children's motive, planning and danger.", gate: "Apply this idea to a realistic risk outside the story." }
+        ]
+      },
+      4: {
+        eyebrow: "LESSON 4 | LC 45-46",
+        title: "Past Perfect: which event came first?",
+        instruction: "Read the whole timeline. Choose the form, then explain the earlier and later events.",
+        tip: "A correct verb is not enough. Require: had + past participle, earlier event, later event.",
+        finishTitle: "Past timelines made clear",
+        finishText: "Complete LC 45-46. Mark event 1 and event 2 before choosing the tense.",
+        finishModel: "Past perfect = earlier past event. Simple past = later past event. Do not use past perfect merely because an action happened long ago.",
+        challenges: [
+          { tier: "START", label: "FORM | AFFIRMATIVE", prompt: "Choose the correct past perfect form: ‘The cub ___ from the reserve before the children began searching.’", options: ["had escaped", "has escaped", "had escape", "escaped had"], answer: "had escaped", why: "Past perfect uses had + past participle. Escaped is the past participle, and the escape happened first.", gate: "Name event 1 and event 2 in order." },
+          { tier: "START", label: "TIMELINE | EARLIER EVENT", prompt: "‘Rupa had prepared the milk before Neel entered the cave.’ Which event happened first?", options: ["Rupa prepared the milk.", "Neel entered the cave.", "Both events happened at exactly the same time.", "The sentence does not show an order."], answer: "Rupa prepared the milk.", why: "Had prepared marks the earlier past event. Entered is simple past and marks the later event.", gate: "Point to the two verb phrases and explain what each tense signals." },
+          { tier: "START", label: "FORM | IRREGULAR PARTICIPLE", prompt: "Which sentence is correct?", options: ["They had left the shirt near the cave.", "They had leaved the shirt near the cave.", "They had leave the shirt near the cave.", "They have left the shirt before they returned."], answer: "They had left the shirt near the cave.", why: "The past participle of leave is left. Had left is the correct past perfect form.", gate: "Give the base form, simple past and past participle of leave." },
+          { tier: "BUILD", label: "TENSE CHOICE | TWO PAST EVENTS", prompt: "When the children reached the bank, the tide ___ above their ankles.", options: ["had already risen", "has already risen", "already rise", "will have risen"], answer: "had already risen", why: "The rising began before the children reached the bank. Had risen places that earlier change before the later simple-past event.", gate: "Explain what already adds to the meaning." },
+          { tier: "BUILD", label: "NEGATIVE | MEANING", prompt: "Choose the sentence showing that Neel did not see the cub at any time before entering the cave.", options: ["Neel had not seen the cub before he entered the cave.", "Neel did not saw the cub before he had entered the cave.", "Neel has not saw the cub before he entered.", "Neel had not see the cub before entering."], answer: "Neel had not seen the cub before he entered the cave.", why: "The negative form is had not + past participle. Seen is the past participle of see.", gate: "Contract had not, then identify the later event." },
+          { tier: "BUILD", label: "QUESTION FORM", prompt: "Which question correctly asks about an event before the search began?", options: ["Had they checked the tide before they left?", "Did they had checked the tide before they left?", "Had they check the tide before they left?", "Have they checked the tide before they left yesterday?"], answer: "Had they checked the tide before they left?", why: "Past-perfect questions use had + subject + past participle. Checked is the participle; left marks the later past event.", gate: "Answer the question in a complete past-perfect sentence." },
+          { tier: "BUILD", label: "ERROR ANALYSIS", prompt: "Fix the error: ‘By the time Rupa called him, Neel had went inside.’", options: ["Neel had gone inside.", "Neel had go inside.", "Neel has went inside.", "Neel gone inside."], answer: "Neel had gone inside.", why: "The past participle of go is gone, not went. Past perfect is had gone.", gate: "Explain why went is wrong even though it is a past form." },
+          { tier: "EXTEND", label: "MEANING | CHANGE THE TIMELINE", prompt: "Which pair changes the event order rather than only changing the wording?", options: ["Neel had hidden before the men arrived. / The men had arrived before Neel hid.", "Neel had hidden before the men arrived. / Before the men arrived, Neel had hidden.", "They had planned carefully. / They'd planned carefully.", "Rupa had not shouted. / Rupa hadn't shouted."], answer: "Neel had hidden before the men arrived. / The men had arrived before Neel hid.", why: "The first pair reverses which event came first. The other pairs preserve the same timeline through word order or contraction.", gate: "Explain how each sentence would change the scene." },
+          { tier: "EXTEND", label: "PRECISION | WHEN NOT TO USE IT", prompt: "Which sentence does not need past perfect because the events are already presented in a clear simple sequence?", options: ["Neel picked up the pail and walked toward the boat.", "When Neel reached the bank, the tide had risen.", "The cub was hungry because it had not eaten.", "Rupa recognised the shirt they had left behind."], answer: "Neel picked up the pail and walked toward the boat.", why: "Two simple-past actions are told in the order they happened. Past perfect is useful when we need to look back to an earlier past event.", gate: "Rewrite the sentence so that past perfect becomes useful and necessary." },
+          { tier: "EXTEND", label: "TRANSFER | BUILD THE SENTENCE", prompt: "Which completion creates the clearest timeline? ‘The class ___ the quiz because we ___ the rule carefully the day before.’", options: ["understood | had practised", "had understood | practised", "understands | had practise", "had understand | were practising"], answer: "understood | had practised", why: "The practice happened first, so it takes past perfect. The understanding during the quiz is the later simple-past result.", gate: "Create a new because sentence with one earlier and one later past event." }
+        ]
+      },
+      5: {
+        eyebrow: "LESSON 5 | SB 96-98",
+        title: "Plan the leadership argument",
+        instruction: "Choose one leadership quality, test the thesis, separate three reasons and match each reason with useful evidence.",
+        tip: "Students should point to the exact thesis, reason and evidence link before the answer is confirmed.",
+        finishTitle: "Argument plan ready for the copybook",
+        finishText: "Use SB 96-98 to answer: Which quality is most important for a successful leader? Build a clear thesis, three distinct reasons and evidence for each reason.",
+        finishModel: "Before drafting, the teacher checks: one clear quality, three different reasons, relevant evidence and an explanation of each link.",
+        challenges: [
+          { tier: "START", label: "THESIS | ARGUABLE + CLEAR", prompt: "Which thesis best answers: ‘Which quality is most important for a successful leader?’", options: ["Fairness is the most important leadership quality because it builds trust, gives everyone a voice and guides difficult decisions.", "Leadership has many qualities and they are all interesting.", "This essay will tell you about leaders.", "Some leaders are good and some leaders are not."], answer: "Fairness is the most important leadership quality because it builds trust, gives everyone a voice and guides difficult decisions.", why: "The thesis names one quality, takes a clear position and previews three distinct reasons that can be developed.", gate: "Identify the quality, position and three reasons." },
+          { tier: "START", label: "REASONS | DISTINCT OR REPEATED?", prompt: "Which set gives three genuinely different reasons why fairness strengthens leadership?", options: ["builds trust | includes different voices | guides decisions", "is useful | is helpful | is beneficial", "seems fair | feels fair | looks fair", "is important | matters a lot | has value"], answer: "builds trust | includes different voices | guides decisions", why: "Each reason opens a different line of argument. The other sets repeat one idea with synonyms.", gate: "Explain why repeated wording does not create a stronger argument." },
+          { tier: "START", label: "EVIDENCE | BEST MATCH", prompt: "Reason: ‘A fair leader gives everyone a voice.’ Which evidence fits best?", options: ["A team captain asks every member for an idea before assigning roles.", "The meeting room has a large table and twelve chairs.", "The captain's badge is blue and silver.", "Some teams meet after school on Tuesdays."], answer: "A team captain asks every member for an idea before assigning roles.", why: "The action directly demonstrates the reason. It shows the leader creating a chance for everyone to contribute.", gate: "State the link between the evidence and the reason in one sentence." },
+          { tier: "BUILD", label: "EVIDENCE | RELEVANCE", prompt: "Thesis: ‘Reliability is the most important leadership quality.’ Which detail is least relevant?", options: ["The class captain's notebook has a green cover.", "The captain submits the team list on time.", "The captain completes promised tasks without reminders.", "The captain checks that every member knows the deadline."], answer: "The class captain's notebook has a green cover.", why: "The colour does not show reliability. A fact can be about the leader without supporting the leadership claim.", gate: "Explain the difference between about the topic and evidence for the claim." },
+          { tier: "BUILD", label: "REASON | CAUSE NOT EXAMPLE", prompt: "Which statement works as a reason rather than one isolated example?", options: ["Reliable leaders keep a group organised during long projects.", "Last Tuesday, Omar brought the attendance sheet.", "The project folder was on a wooden desk.", "Omar used a black pen."], answer: "Reliable leaders keep a group organised during long projects.", why: "A reason explains why the quality matters across more than one situation. The other choices are details from one event.", gate: "Turn one of the details into evidence that supports the reason." },
+          { tier: "BUILD", label: "THESIS | PRECISE CLAIM", prompt: "Which revision makes the thesis clearer? ‘Good leaders are good because they lead well.’", options: ["Courage is the most important leadership quality because it helps leaders make hard decisions, defend others and act during uncertainty.", "Good leaders are very good and really important.", "Every leader is perfect when people agree.", "Leadership is leadership because leaders lead."], answer: "Courage is the most important leadership quality because it helps leaders make hard decisions, defend others and act during uncertainty.", why: "The revision names a precise quality, takes a position and previews three reasons instead of repeating the same vague words.", gate: "Identify the vague repetition removed by the revision." },
+          { tier: "BUILD", label: "OUTLINE | LOGICAL ORDER", prompt: "Which order builds the clearest argumentative paragraph?", options: ["reason -> evidence -> explanation -> link", "evidence -> unrelated fact -> new topic -> title", "link -> title -> question -> repeated claim", "counterclaim -> greeting -> evidence -> name"], answer: "reason -> evidence -> explanation -> link", why: "The writer first states why, then proves it, explains the connection and returns to the larger position.", gate: "Explain the job of the explanation sentence." },
+          { tier: "EXTEND", label: "EVIDENCE | STRONGER OR WEAKER", prompt: "Which evidence would most strengthen the claim that empathy improves leadership decisions?", options: ["During a group conflict, the leader listened to both sides before proposing a solution accepted by the team.", "One student says the leader has a nice voice.", "The classroom walls are painted white.", "The leader owns three different notebooks."], answer: "During a group conflict, the leader listened to both sides before proposing a solution accepted by the team.", why: "The evidence shows empathy in action and connects it to a useful leadership result. The other details are weak or irrelevant.", gate: "Name one question you would ask to make this evidence more specific." },
+          { tier: "EXTEND", label: "COUNTERCLAIM | FAIR RESPONSE", prompt: "Counterclaim: ‘Confidence matters more than fairness because people follow decisive leaders.’ Which response is strongest?", options: ["Confidence helps, but decisions lose support when a leader ignores people or applies rules unfairly.", "That is wrong because confidence never matters.", "Anyone who disagrees does not understand leadership.", "Fair leaders are always popular and never make mistakes."], answer: "Confidence helps, but decisions lose support when a leader ignores people or applies rules unfairly.", why: "The response acknowledges the value of confidence while defending fairness with a clear consequence. It avoids an unrealistic absolute claim.", gate: "Explain how the response concedes one point without giving up the thesis." },
+          { tier: "EXTEND", label: "PLAN CHECK | READY TO DRAFT?", prompt: "Which outline is ready to become an essay?", options: ["clear thesis | 3 distinct reasons | relevant evidence for each | explanation links", "topic only | 3 repeated reasons | no evidence", "strong opinion | unrelated stories | no thesis", "title | conclusion | two questions | one copied fact"], answer: "clear thesis | 3 distinct reasons | relevant evidence for each | explanation links", why: "The plan includes the complete logic needed for a focused draft and meets the Week 9 outline check.", gate: "State the first missing part you would fix in one of the weaker outlines." }
+        ]
+      }
+    };
+
+    const states = {};
+    let currentLesson = 1;
+    let turnNumber = 1;
+    let soundOn = true;
+    let audioContext = null;
+    let countdownId = null;
+
+    const dom = {
+      tabs: [...document.querySelectorAll('.lesson-tab')],
+      eyebrow: document.getElementById('activityEyebrow'),
+      title: document.getElementById('activityTitle'),
+      instruction: document.getElementById('activityInstruction'),
+      stage: document.getElementById('activityStage'),
+      progressText: document.getElementById('progressText'),
+      scoreText: document.getElementById('scoreText'),
+      progressFill: document.getElementById('progressFill'),
+      tiers: [...document.querySelectorAll('.tier-step')],
+      feedback: document.getElementById('feedbackPanel'),
+      feedbackIcon: document.getElementById('feedbackIcon'),
+      feedbackTitle: document.getElementById('feedbackTitle'),
+      feedbackText: document.getElementById('feedbackText'),
+      tip: document.getElementById('teacherTip'),
+      reset: document.getElementById('resetButton'),
+      reveal: document.getElementById('revealButton'),
+      sound: document.getElementById('soundButton'),
+      next: document.getElementById('nextButton'),
+      fullscreen: document.getElementById('fullscreenButton'),
+      turn: document.getElementById('turnNumber')
+    };
+
+    function newState(lessonNumber) {
+      return {
+        index: 0,
+        score: 0,
+        attempts: 0,
+        choicesVisible: false,
+        answered: false,
+        explanationConfirmed: false,
+        revealed: false,
+        finished: false
+      };
+    }
+
+    function stateFor(lessonNumber) {
+      if (!states[lessonNumber]) states[lessonNumber] = newState(lessonNumber);
+      return states[lessonNumber];
+    }
+
+    function currentChallenge() {
+      const state = stateFor(currentLesson);
+      return lessons[currentLesson].challenges[state.index];
+    }
+
+    function setFeedback(kind, title, text) {
+      dom.feedback.className = `feedback ${kind}`;
+      dom.feedbackIcon.textContent = kind === 'success' ? '✓' : kind === 'error' ? '×' : kind === 'reveal' ? '!' : '?';
+      dom.feedbackTitle.textContent = title;
+      dom.feedbackText.textContent = text;
+    }
+
+    function neutralFeedback() {
+      setFeedback('neutral', 'Class decides first', 'Everyone forms an answer before the board player reveals the choices.');
+    }
+
+    function tone(frequency, duration) {
+      if (!soundOn) return;
+      try {
+        audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.frequency.value = frequency;
+        gain.gain.setValueAtTime(.045, audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(.001, audioContext.currentTime + duration);
+        oscillator.connect(gain).connect(audioContext.destination);
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + duration);
+      } catch (error) {
+        soundOn = false;
+        dom.sound.textContent = 'Sound unavailable';
+      }
+    }
+
+    function shuffle(items) {
+      const copy = [...items];
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function updateHeader() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      const total = lesson.challenges.length;
+      const itemNumber = state.finished ? total : state.index + 1;
+      dom.eyebrow.textContent = lesson.eyebrow;
+      dom.title.textContent = lesson.title;
+      dom.instruction.textContent = lesson.instruction;
+      dom.tip.textContent = lesson.tip;
+      dom.progressText.textContent = `${itemNumber} of ${total}`;
+      dom.scoreText.textContent = `${state.score} first-try correct`;
+      dom.progressFill.style.width = `${state.finished ? 100 : (state.index / total) * 100}%`;
+      dom.tiers.forEach(step => step.classList.toggle('active', !state.finished && step.dataset.tier === currentChallenge().tier));
+      dom.next.disabled = !state.explanationConfirmed || state.finished;
+      dom.reveal.disabled = state.finished;
+      dom.turn.textContent = String(turnNumber).padStart(2, '0');
+    }
+
+    function render() {
+      window.clearInterval(countdownId);
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      updateHeader();
+      if (state.finished) {
+        dom.stage.innerHTML = `
+          <article class="finish-card">
+            <div class="finish-inner">
+              <div class="finish-mark">✓</div>
+              <h3>${lesson.finishTitle}</h3>
+              <p>${lesson.finishText}</p>
+              <div class="finish-model">${lesson.finishModel}</div>
+            </div>
+          </article>`;
+        setFeedback('success', 'Lesson challenge complete', `${state.score} of ${lesson.challenges.length} were correct on the first attempt.`);
+        dom.next.disabled = true;
+        return;
+      }
+
+      const challenge = currentChallenge();
+      dom.stage.innerHTML = `
+        <article class="prompt-card">
+          <div class="challenge-label"><span class="tier-dot"></span>${challenge.tier} | ${challenge.label}</div>
+          <p class="prompt-text">${challenge.prompt}</p>
+          <div class="source-line">Use only your reasoning, copybook and the listed SB/LC pages.</div>
+        </article>
+        <article class="response-card" id="responseCard"></article>`;
+
+      const responseCard = document.getElementById('responseCard');
+      if (!state.choicesVisible) {
+        responseCard.innerHTML = `
+          <div class="think-box">
+            <div class="think-count" id="thinkCount">8</div>
+            <h3>Silent think first</h3>
+            <p>No answers are visible yet. Everyone prepares a choice and one reason. The board player waits.</p>
+            <button class="tool-button primary" id="thinkButton">Start 8-second think</button>
+          </div>`;
+        document.getElementById('thinkButton').addEventListener('click', startThink);
+      } else {
+        renderChoices(responseCard, challenge, state);
+      }
+      if (!state.answered && !state.revealed) neutralFeedback();
+    }
+
+    function startThink() {
+      const state = stateFor(currentLesson);
+      const button = document.getElementById('thinkButton');
+      const count = document.getElementById('thinkCount');
+      if (!button || !count) return;
+      button.disabled = true;
+      let seconds = 8;
+      count.textContent = seconds;
+      setFeedback('neutral', 'Silent thinking', 'Prepare the answer and the evidence. Do not call out.');
+      countdownId = window.setInterval(() => {
+        seconds -= 1;
+        count.textContent = seconds;
+        if (seconds <= 0) {
+          window.clearInterval(countdownId);
+          state.choicesVisible = true;
+          tone(540, .12);
+          render();
+        }
+      }, 1000);
+    }
+
+    function renderChoices(container, challenge, state) {
+      const options = state.optionOrder || shuffle(challenge.options);
+      state.optionOrder = options;
+      container.innerHTML = `
+        <div class="choice-grid">
+          ${options.map(option => `<button class="choice" data-option="${encodeURIComponent(option)}">${option}</button>`).join('')}
+        </div>
+        <div id="gateArea"></div>`;
+
+      [...container.querySelectorAll('.choice')].forEach(button => {
+        const option = decodeURIComponent(button.dataset.option);
+        if (state.answered || state.revealed) {
+          button.disabled = true;
+          if (option === challenge.answer) button.classList.add('correct');
+        }
+        button.addEventListener('click', () => choose(option, button));
+      });
+
+      if (state.answered || state.revealed) renderGate(challenge, state);
+    }
+
+    function choose(option, button) {
+      const state = stateFor(currentLesson);
+      const challenge = currentChallenge();
+      if (state.answered || state.revealed) return;
+      state.attempts += 1;
+      if (option === challenge.answer) {
+        state.answered = true;
+        if (state.attempts === 1) state.score += 1;
+        tone(720, .18);
+        [...document.querySelectorAll('.choice')].forEach(choice => {
+          choice.disabled = true;
+          if (decodeURIComponent(choice.dataset.option) === challenge.answer) choice.classList.add('correct');
+        });
+        setFeedback('success', 'Correct. Now prove it.', challenge.why);
+        renderGate(challenge, state);
+      } else {
+        button.classList.add('wrong');
+        tone(190, .16);
+        setFeedback('error', 'Not precise enough', 'Re-read every word. Test meaning, grammar and evidence before trying again.');
+      }
+      updateHeader();
+    }
+
+    function renderGate(challenge, state) {
+      const gateArea = document.getElementById('gateArea');
+      if (!gateArea) return;
+      gateArea.innerHTML = `
+        <div class="oral-gate">
+          <div><strong>Explanation gate</strong><p>${challenge.gate}</p></div>
+          <button class="tool-button confirm" id="confirmExplanation">${state.explanationConfirmed ? 'Explanation confirmed' : 'Explanation heard'}</button>
+        </div>`;
+      const confirm = document.getElementById('confirmExplanation');
+      confirm.disabled = state.explanationConfirmed;
+      confirm.addEventListener('click', () => {
+        state.explanationConfirmed = true;
+        confirm.disabled = true;
+        confirm.textContent = 'Explanation confirmed';
+        setFeedback('success', 'Reason accepted', challenge.why);
+        dom.next.disabled = false;
+        tone(880, .12);
+      });
+    }
+
+    function revealAnswer() {
+      const state = stateFor(currentLesson);
+      if (state.finished) return;
+      const challenge = currentChallenge();
+      state.choicesVisible = true;
+      state.revealed = true;
+      state.answered = true;
+      render();
+      setFeedback('reveal', `Answer: ${challenge.answer}`, challenge.why);
+      renderGate(challenge, state);
+    }
+
+    function nextChallenge() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      if (!state.explanationConfirmed) return;
+      if (state.index >= lesson.challenges.length - 1) {
+        state.finished = true;
+      } else {
+        state.index += 1;
+        state.attempts = 0;
+        state.choicesVisible = false;
+        state.answered = false;
+        state.explanationConfirmed = false;
+        state.revealed = false;
+        state.optionOrder = null;
+        turnNumber = turnNumber >= 99 ? 1 : turnNumber + 1;
+      }
+      render();
+    }
+
+    function switchLesson(lessonNumber) {
+      currentLesson = lessonNumber;
+      dom.tabs.forEach(tab => tab.classList.toggle('active', Number(tab.dataset.lesson) === lessonNumber));
+      window.location.hash = `l${lessonNumber}`;
+      render();
+    }
+
+    dom.tabs.forEach(tab => tab.addEventListener('click', () => switchLesson(Number(tab.dataset.lesson))));
+    dom.reset.addEventListener('click', () => {
+      states[currentLesson] = newState(currentLesson);
+      render();
+    });
+    dom.reveal.addEventListener('click', revealAnswer);
+    dom.next.addEventListener('click', nextChallenge);
+    dom.sound.addEventListener('click', () => {
+      soundOn = !soundOn;
+      dom.sound.textContent = soundOn ? 'Sound on' : 'Sound off';
+      dom.sound.setAttribute('aria-pressed', String(soundOn));
+      if (soundOn) tone(620, .1);
+    });
+    dom.fullscreen.addEventListener('click', async () => {
+      try {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+        else await document.exitFullscreen();
+      } catch (error) {
+        setFeedback('error', 'Full screen unavailable', 'Use the browser menu or presentation mode instead.');
+      }
+    });
+    document.addEventListener('fullscreenchange', () => {
+      dom.fullscreen.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen';
+    });
+
+    const hashLesson = Number(window.location.hash.replace('#l', ''));
+    switchLesson(hashLesson >= 1 && hashLesson <= 5 ? hashLesson : 1);
+  </script>
+</body>
+</html>
