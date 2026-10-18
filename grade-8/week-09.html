@@ -766,7 +766,6 @@
     let turnNumber = 1;
     let soundOn = true;
     let audioContext = null;
-    let countdownId = null;
 
     const dom = {
       tabs: [...document.querySelectorAll('.lesson-tab')],
@@ -796,7 +795,7 @@
         index: 0,
         score: 0,
         attempts: 0,
-        choicesVisible: false,
+        choicesVisible: true,
         answered: false,
         explanationConfirmed: false,
         revealed: false,
@@ -871,7 +870,6 @@
     }
 
     function render() {
-      window.clearInterval(countdownId);
       const lesson = lessons[currentLesson];
       const state = stateFor(currentLesson);
       updateHeader();
@@ -900,43 +898,8 @@
         <article class="response-card" id="responseCard"></article>`;
 
       const responseCard = document.getElementById('responseCard');
-      // Vocabulary choices should appear immediately. The silent-think countdown
-      // remains available for the reading, grammar and writing lessons.
-      if (currentLesson === 1) state.choicesVisible = true;
-      if (!state.choicesVisible) {
-        responseCard.innerHTML = `
-          <div class="think-box">
-            <div class="think-count" id="thinkCount">8</div>
-            <h3>Silent think first</h3>
-            <p>No answers are visible yet. Everyone prepares a choice and one reason. The board player waits.</p>
-            <button class="tool-button primary" id="thinkButton">Start 8-second think</button>
-          </div>`;
-        document.getElementById('thinkButton').addEventListener('click', startThink);
-      } else {
-        renderChoices(responseCard, challenge, state);
-      }
+      renderChoices(responseCard, challenge, state);
       if (!state.answered && !state.revealed) neutralFeedback();
-    }
-
-    function startThink() {
-      const state = stateFor(currentLesson);
-      const button = document.getElementById('thinkButton');
-      const count = document.getElementById('thinkCount');
-      if (!button || !count) return;
-      button.disabled = true;
-      let seconds = 8;
-      count.textContent = seconds;
-      setFeedback('neutral', 'Silent thinking', 'Prepare the answer and the evidence. Do not call out.');
-      countdownId = window.setInterval(() => {
-        seconds -= 1;
-        count.textContent = seconds;
-        if (seconds <= 0) {
-          window.clearInterval(countdownId);
-          state.choicesVisible = true;
-          tone(540, .12);
-          render();
-        }
-      }, 1000);
     }
 
     function renderChoices(container, challenge, state) {
@@ -1024,7 +987,7 @@
       } else {
         state.index += 1;
         state.attempts = 0;
-        state.choicesVisible = false;
+        state.choicesVisible = true;
         state.answered = false;
         state.explanationConfirmed = false;
         state.revealed = false;
