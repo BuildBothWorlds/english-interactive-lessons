@@ -900,6 +900,9 @@
         <article class="response-card" id="responseCard"></article>`;
 
       const responseCard = document.getElementById('responseCard');
+      // Vocabulary choices should appear immediately. The silent-think countdown
+      // remains available for the reading, grammar and writing lessons.
+      if (currentLesson === 1) state.choicesVisible = true;
       if (!state.choicesVisible) {
         responseCard.innerHTML = `
           <div class="think-box">
