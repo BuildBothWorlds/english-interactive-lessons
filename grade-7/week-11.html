@@ -1,0 +1,2015 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071321">
+  <meta name="description" content="Grade 7 English Week 11 touchscreen classroom activities for Lessons 1-7.">
+  <title>Grade 7 English | Week 11 Touchscreen Challenge</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071321;
+      --panel: #10243c;
+      --panel-2: #172e4b;
+      --line: #2e4d72;
+      --text: #f8fbff;
+      --soft: #d8e3f1;
+      --muted: #93a8c1;
+      --cyan: #5de2ea;
+      --yellow: #fff200;
+      --pink: #ff8fa8;
+      --mint: #71e6a2;
+      --orange: #ffb65e;
+      --red: #ff6f7f;
+      --shadow: 0 24px 74px rgba(0, 0, 0, .34);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100dvh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 8% -4%, rgba(93, 226, 234, .14), transparent 28rem),
+        radial-gradient(circle at 100% 12%, rgba(255, 143, 168, .1), transparent 30rem),
+        var(--bg);
+    }
+
+    a, button { touch-action: manipulation; }
+    button { font: inherit; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 4px solid var(--yellow);
+      outline-offset: 3px;
+    }
+
+    .shell {
+      width: min(1660px, 100%);
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: 18px clamp(18px, 3vw, 46px) 16px;
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      gap: 13px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .home-link {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--cyan);
+      background: rgba(16, 36, 60, .9);
+      text-decoration: none;
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .brand-kicker,
+    .eyebrow {
+      color: var(--cyan);
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .brand-kicker { font-size: clamp(.7rem, 1vw, .9rem); }
+
+    h1 {
+      margin: 5px 0 0;
+      font-size: clamp(1.45rem, 2.4vw, 2.45rem);
+      line-height: 1;
+    }
+
+    .routine {
+      min-width: 340px;
+      min-height: 58px;
+      padding: 8px 16px 8px 9px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(16, 36, 60, .9);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--soft);
+    }
+
+    .routine-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 12px;
+      color: var(--bg);
+      background: var(--yellow);
+      font-size: 1.1rem;
+      font-weight: 950;
+    }
+
+    .routine strong { color: var(--text); }
+
+    .lesson-tabs {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .lesson-tab {
+      min-height: 62px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(16, 36, 60, .82);
+      color: var(--soft);
+      text-align: left;
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .lesson-tab span {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .lesson-tab strong {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(.82rem, 1.05vw, 1rem);
+    }
+
+    .lesson-tab:hover,
+    .lesson-tab:focus-visible {
+      border-color: var(--cyan);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .lesson-tab.active {
+      color: var(--bg);
+      background: var(--cyan);
+      border-color: var(--cyan);
+      box-shadow: 0 10px 28px rgba(93, 226, 234, .18);
+    }
+
+    .lesson-tab.active span { color: rgba(7, 19, 33, .72); }
+
+    .activity-card {
+      min-height: 0;
+      padding: clamp(16px, 2vw, 28px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(16, 36, 60, .98), rgba(8, 24, 42, .99));
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto auto minmax(300px, 1fr) auto;
+      gap: 14px;
+      overflow: hidden;
+    }
+
+    .activity-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(250px, 29%);
+      align-items: end;
+      gap: 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 7px;
+      font-size: .78rem;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 3.55rem);
+      line-height: .99;
+    }
+
+    .instruction {
+      margin: 9px 0 0;
+      color: var(--soft);
+      font-size: clamp(.92rem, 1.3vw, 1.16rem);
+    }
+
+    .score-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 8px;
+      color: var(--soft);
+      font-size: .88rem;
+      font-weight: 850;
+    }
+
+    .progress-track {
+      height: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #08192b;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--mint));
+      transition: width .3s ease;
+    }
+
+    .tier-track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .tier-step {
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--muted);
+      background: rgba(7, 19, 33, .55);
+      font-size: .72rem;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-align: center;
+    }
+
+    .tier-step.active[data-tier="START"] { color: var(--bg); background: var(--cyan); border-color: var(--cyan); }
+    .tier-step.active[data-tier="BUILD"] { color: var(--bg); background: var(--orange); border-color: var(--orange); }
+    .tier-step.active[data-tier="EXTEND"] { color: var(--bg); background: var(--pink); border-color: var(--pink); }
+
+    .stage {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(330px, .9fr) minmax(460px, 1.2fr);
+      gap: 22px;
+    }
+
+    .prompt-card,
+    .response-card,
+    .finish-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--panel-2);
+    }
+
+    .prompt-card {
+      min-height: 0;
+      padding: clamp(22px, 3vw, 42px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .challenge-label {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--cyan);
+      font-size: .78rem;
+      font-weight: 950;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .tier-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 15px rgba(93, 226, 234, .75);
+    }
+
+    .prompt-text {
+      margin: 0;
+      font-size: clamp(1.3rem, 2.25vw, 2.5rem);
+      line-height: 1.18;
+      font-weight: 850;
+    }
+
+    .source-line {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 750;
+    }
+
+    .response-card {
+      min-height: 0;
+      padding: clamp(18px, 2vw, 28px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .choice {
+      position: relative;
+      min-height: 82px;
+      padding: 15px 16px 15px 50px;
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      color: var(--text);
+      background: var(--panel);
+      font-size: clamp(.96rem, 1.35vw, 1.24rem);
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+
+    .key-hint {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      color: var(--bg);
+      background: var(--muted);
+      font-size: .78rem;
+      font-weight: 950;
+    }
+
+    .choice:hover,
+    .choice:focus-visible,
+    .tool-button:hover,
+    .tool-button:focus-visible {
+      border-color: var(--cyan);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .choice.correct {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .choice.correct .key-hint { color: var(--mint); background: var(--bg); }
+
+    .choice.wrong {
+      background: rgba(255, 111, 127, .17);
+      border-color: var(--red);
+    }
+
+    .choice:disabled { cursor: default; transform: none; }
+
+    .oral-gate {
+      padding: 15px 17px;
+      border: 1px solid rgba(255, 242, 0, .58);
+      border-radius: 15px;
+      background: rgba(255, 242, 0, .06);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .oral-gate strong { color: var(--yellow); }
+    .oral-gate p { margin: 4px 0 0; color: var(--soft); }
+
+    .feedback {
+      min-height: 72px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      align-items: center;
+      gap: 13px;
+      background: rgba(7, 19, 33, .74);
+    }
+
+    .feedback-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--muted);
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .feedback strong { font-size: 1.04rem; }
+    .feedback p { margin: 4px 0 0; color: var(--soft); }
+    .feedback.success { border-color: rgba(113, 230, 162, .7); }
+    .feedback.success .feedback-icon { background: var(--mint); }
+    .feedback.error { border-color: rgba(255, 111, 127, .75); }
+    .feedback.error .feedback-icon { color: white; background: var(--red); }
+    .feedback.reveal { border-color: rgba(255, 242, 0, .7); }
+    .feedback.reveal .feedback-icon { background: var(--yellow); }
+
+    .teacher-toolbar {
+      min-height: 56px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .toolbar-left,
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .teacher-tip {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 750;
+      text-align: right;
+    }
+
+    .tool-button {
+      min-height: 50px;
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--soft);
+      background: var(--panel);
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, opacity .12s ease;
+    }
+
+    .tool-button.primary {
+      color: var(--bg);
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+
+    .tool-button.confirm {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .tool-button:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+
+    .finish-card {
+      grid-column: 1 / -1;
+      min-height: 100%;
+      padding: clamp(30px, 5vw, 70px);
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .finish-inner { width: min(850px, 100%); }
+
+    .finish-mark {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--mint);
+      font-size: 2.45rem;
+      font-weight: 950;
+    }
+
+    .finish-card h3 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 4rem);
+    }
+
+    .finish-card p {
+      max-width: 680px;
+      margin: 14px auto 0;
+      color: var(--soft);
+      font-size: clamp(1rem, 1.5vw, 1.22rem);
+      line-height: 1.45;
+    }
+
+    .finish-model {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-left: 7px solid var(--yellow);
+      border-radius: 12px;
+      color: var(--text);
+      background: var(--bg);
+      font-size: clamp(1rem, 1.45vw, 1.2rem);
+      font-weight: 800;
+      text-align: left;
+    }
+
+    @media (max-width: 1000px) {
+      body { overflow: auto; }
+      .shell { min-height: 100vh; }
+      .lesson-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lesson-tab:last-child { grid-column: span 2; }
+      .stage { grid-template-columns: 1fr; }
+      .teacher-toolbar,
+      .toolbar-left,
+      .toolbar-right { flex-wrap: wrap; }
+      .teacher-tip { max-width: none; flex: 1 1 100%; text-align: left; }
+    }
+
+    @media (max-width: 680px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .routine { min-width: 0; width: 100%; }
+      .activity-heading { grid-template-columns: 1fr; }
+      .choice-grid { grid-template-columns: 1fr; }
+      .oral-gate { grid-template-columns: 1fr; }
+      .activity-card { overflow: visible; }
+      .teacher-toolbar { flex-direction: column; }
+      .toolbar-left,
+      .toolbar-right { width: 100%; }
+      .tool-button { flex: 1 1 auto; }
+    }
+
+    @media (max-height: 850px) and (min-width: 1001px) {
+      .shell { padding-top: 9px; padding-bottom: 9px; gap: 8px; }
+      .topbar h1 { font-size: 1.7rem; }
+      .routine { min-height: 46px; }
+      .routine-number { width: 36px; height: 36px; }
+      .lesson-tab { min-height: 48px; padding: 6px 10px; }
+      .activity-card { padding: 13px 18px; gap: 9px; grid-template-rows: auto auto minmax(255px, 1fr) auto; }
+      h2 { font-size: clamp(1.7rem, 2.5vw, 2.55rem); }
+      .instruction { margin-top: 5px; }
+      .prompt-card { padding: 20px 28px; }
+      .prompt-text { font-size: clamp(1.2rem, 1.9vw, 1.95rem); }
+      .choice { min-height: 62px; padding-top: 10px; padding-bottom: 10px; }
+      .feedback { min-height: 58px; padding-top: 7px; padding-bottom: 7px; }
+      .teacher-toolbar { min-height: 48px; }
+      .tool-button { min-height: 44px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+    .reading-source { font-size:clamp(.95rem,1.2vw,1.12rem); line-height:1.4; color:var(--soft); border-bottom:1px solid var(--line); padding-bottom:12px; }
+    .reading-source strong { display:block; color:var(--cyan); font-size:.78rem; margin-bottom:7px; }
+    .reading-source p { margin:0; }
+    .prompt-card:has(.reading-source) { align-content:start; padding:20px 26px; }
+    .prompt-card:has(.reading-source) .prompt-text { font-size:clamp(1.2rem,1.75vw,1.8rem); }
+    .lesson-tab:focus-visible, .choice:focus-visible, .tool-button:focus-visible { outline:3px solid var(--yellow); outline-offset:3px; }
+    @media(max-width:1150px) and (min-width:1001px){.lesson-tab strong{font-size:.78rem}.lesson-tab{padding-inline:8px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand-line">
+        <a class="home-link" href="../index.html" aria-label="Return to lesson library">‹</a>
+        <div>
+          <div class="brand-kicker">MRISB | GRADE 7 ENGLISH</div>
+          <h1>Week 11 Touchscreen Challenge</h1>
+        </div>
+      </div>
+      <div class="routine" aria-label="Classroom routine">
+        <span class="routine-number" id="turnNumber">01</span>
+        <span><strong>Read fully.</strong> Choose carefully. Explain the link.</span>
+      </div>
+    </header>
+
+    <nav class="lesson-tabs" aria-label="Select a lesson"><button class="lesson-tab active" data-lesson="1" aria-pressed="true"><span>Lesson 1</span><strong>Vocabulary</strong></button><button class="lesson-tab" data-lesson="2" aria-pressed="false"><span>Lesson 2</span><strong>Analyze the text</strong></button><button class="lesson-tab" data-lesson="3" aria-pressed="false"><span>Lesson 3</span><strong>Demonstratives</strong></button><button class="lesson-tab" data-lesson="4" aria-pressed="false"><span>Lesson 4</span><strong>Close reading</strong></button><button class="lesson-tab" data-lesson="5" aria-pressed="false"><span>Lesson 5</span><strong>Essay plan</strong></button><button class="lesson-tab" data-lesson="6" aria-pressed="false"><span>Lesson 6</span><strong>Catch-up</strong></button><button class="lesson-tab" data-lesson="7" aria-pressed="false"><span>Lesson 7</span><strong>Week review</strong></button></nav>
+
+    <main class="activity-card">
+      <section class="activity-heading">
+        <div>
+          <p class="eyebrow" id="activityEyebrow"></p>
+          <h2 id="activityTitle"></h2>
+          <p class="instruction" id="activityInstruction"></p>
+        </div>
+        <div>
+          <div class="score-line"><span id="progressText"></span><span id="scoreText"></span></div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+      </section>
+
+      <section class="tier-track" aria-label="Challenge level">
+        <div class="tier-step" data-tier="START">START | Recognise</div>
+        <div class="tier-step" data-tier="BUILD">BUILD | Apply</div>
+        <div class="tier-step" data-tier="EXTEND">EXTEND | Justify</div>
+      </section>
+
+      <section class="stage" id="activityStage" aria-live="polite"></section>
+
+      <section class="feedback" id="feedbackPanel" aria-live="assertive">
+        <div class="feedback-icon" id="feedbackIcon">?</div>
+        <div><strong id="feedbackTitle">Read every option</strong><p id="feedbackText">The board player chooses only after the class has formed an answer.</p></div>
+      </section>
+    </main>
+
+    <footer class="teacher-toolbar">
+      <div class="toolbar-left">
+        <button class="tool-button" id="resetButton">Reset lesson</button>
+        <button class="tool-button" id="revealButton">Reveal answer</button>
+        <button class="tool-button" id="soundButton" aria-pressed="true">Sound on</button>
+      </div>
+      <div class="toolbar-right">
+        <span class="teacher-tip" id="teacherTip"></span>
+        <button class="tool-button primary" id="nextButton" disabled>Next challenge</button>
+        <button class="tool-button" id="fullscreenButton">Full screen</button>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const lessons = {
+  "1": {
+    "eyebrow": "LESSON 1 | SB p.176 · LC p.69",
+    "title": "Six words in context",
+    "instruction": "Read the clue, choose precisely and explain why the word fits.",
+    "tip": "Every boy forms an answer before the board turn. Ask for meaning and a useful example.",
+    "finishTitle": "Six words ready to use",
+    "finishText": "Complete the vocabulary activities on SB p.176, then the whole of LC p.69. Switch books only at the teacher’s signal.",
+    "finishModel": "Finished? Check your answers, correct spelling and punctuation, complete current book work, deepen an explanation, then read your independent book.",
+    "challenges": [
+      {
+        "label": "MEANING | NOUN",
+        "prompt": "Which word means a particular time or event?",
+        "options": [
+          "occasion",
+          "philosophy",
+          "relationship",
+          "sorrow"
+        ],
+        "answer": "occasion",
+        "why": "An occasion is a particular time or event, such as a celebration or a meeting.",
+        "gate": "Name an occasion and explain why it fits.",
+        "tier": "START"
+      },
+      {
+        "label": "MEANING | ADVERB",
+        "prompt": "If the water became slightly warmer, how much did it change?",
+        "options": [
+          "A little",
+          "Completely",
+          "Not at all",
+          "As much as possible"
+        ],
+        "answer": "A little",
+        "why": "Slightly means a little or to a small degree. It describes a limited change.",
+        "gate": "Use slightly in a different sentence.",
+        "tier": "START"
+      },
+      {
+        "label": "CONTEXT | FEELING",
+        "prompt": "After saying goodbye to his closest friend for a long time, Ali felt deep sadness. Which word names this feeling?",
+        "options": [
+          "sorrow",
+          "occasion",
+          "philosophy",
+          "relationship"
+        ],
+        "answer": "sorrow",
+        "why": "Sorrow means deep sadness. The clue is the feeling after a painful goodbye.",
+        "gate": "Which words in the question show the meaning?",
+        "tier": "START"
+      },
+      {
+        "label": "CONTEXT | CONNECTION",
+        "prompt": "Omar trusts his brother and talks to him each day. Which word names their connection?",
+        "options": [
+          "relationship",
+          "occasion",
+          "sorrow",
+          "slightly"
+        ],
+        "answer": "relationship",
+        "why": "A relationship is a connection between people or things. Trust and regular conversation describe this connection.",
+        "gate": "Give a different example of a relationship.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "CONTEXT | BEHAVIOUR",
+        "prompt": "Even after seeing clear proof that his answer was wrong, Hamza refused to change it. Which adjective fits?",
+        "options": [
+          "stubborn",
+          "slightly",
+          "sorrow",
+          "occasion"
+        ],
+        "answer": "stubborn",
+        "why": "Stubborn describes being unwilling to change an idea or decision. The clear proof makes the refusal important.",
+        "gate": "Explain how this differs from checking an answer carefully.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "CONTEXT | GUIDING IDEAS",
+        "prompt": "“Treat others fairly, and learn from mistakes” describes Faris’s ideas about living. Which word fits?",
+        "options": [
+          "philosophy",
+          "occasion",
+          "relationship",
+          "sorrow"
+        ],
+        "answer": "philosophy",
+        "why": "A philosophy is a set of ideas about life and how to live. Here the ideas guide behaviour.",
+        "gate": "Explain one action that would follow this philosophy.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "GRAMMAR | WORD CLASS",
+        "prompt": "Which sentence uses slightly correctly?",
+        "options": [
+          "The two plans are slightly different.",
+          "He felt a slightly in his heart.",
+          "It was an important slightly.",
+          "Slightly is my closest friend."
+        ],
+        "answer": "The two plans are slightly different.",
+        "why": "Slightly is an adverb. Here it tells us the small degree of difference.",
+        "gate": "Replace different with another adjective that fits.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "COMPARE | STUBBORN OR DETERMINED?",
+        "prompt": "Which detail most clearly shows stubbornness rather than useful determination?",
+        "options": [
+          "He ignores strong evidence and refuses to reconsider.",
+          "He practises a difficult skill each day.",
+          "He asks for advice and improves his plan.",
+          "He checks whether a new method works."
+        ],
+        "answer": "He ignores strong evidence and refuses to reconsider.",
+        "why": "Determination can include learning and adapting. Ignoring strong evidence shows unwillingness to reconsider.",
+        "gate": "Give a situation in which changing your mind is sensible.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "PRECISION | STRONGEST SENTENCE",
+        "prompt": "Which sentence makes both relationship and sorrow clear?",
+        "options": [
+          "His close relationship with his uncle made their long goodbye a time of sorrow.",
+          "His relationship was slightly an occasion of philosophy.",
+          "He sorrow the relationship every morning.",
+          "The occasion relationship became stubbornly a noun."
+        ],
+        "answer": "His close relationship with his uncle made their long goodbye a time of sorrow.",
+        "why": "The sentence shows a close connection and the sadness of a long goodbye. Both meanings fit the grammar.",
+        "gate": "Explain how the two ideas connect.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "REVISION | MEANING AND DETAIL",
+        "prompt": "Which revision best improves “He had ideas and would not change”?",
+        "options": [
+          "His philosophy valued fairness, but he was stubborn about reconsidering one unfair rule.",
+          "His philosophy was an occasion and his ideas were words.",
+          "He slightly sorrow because relationship was stubborn.",
+          "He had very many ideas and still had ideas."
+        ],
+        "answer": "His philosophy valued fairness, but he was stubborn about reconsidering one unfair rule.",
+        "why": "The revision names a guiding belief and a refusal to change. It also creates a meaningful tension between the belief and the behaviour.",
+        "gate": "Explain why his belief and his action may conflict.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "2": {
+    "eyebrow": "LESSON 2 | SB p.177 · The Turtle of Oman, pp.178–183",
+    "title": "From detail to interpretation",
+    "instruction": "Practise with the original mini-text shown here. Then use the same thinking in your Student Book.",
+    "tip": "These questions concern the practice text, not events or quotations from The Turtle of Oman.",
+    "practice": "Before the school trip, Sami checked his bag three times. He put his grandfather’s compass in the front pocket. At the gate he hesitated, then joined his friends. During the journey he held the compass and smiled.",
+    "finishTitle": "An interpretation needs support",
+    "finishText": "Return to The Turtle of Oman on SB pp.178–183. Use the skill on p.177 and explain what selected details suggest.",
+    "finishModel": "A useful analysis states an interpretation, selects an accurate detail and explains the connection. Different readings need evidence.",
+    "challenges": [
+      {
+        "label": "LOCATE | ACTION",
+        "prompt": "What does Sami do before leaving?",
+        "options": [
+          "He checks his bag three times.",
+          "He throws away the compass.",
+          "He misses the trip.",
+          "He argues with his friends."
+        ],
+        "answer": "He checks his bag three times.",
+        "why": "The opening sentence directly states that he checks his bag three times.",
+        "gate": "Point to the exact words that support the answer.",
+        "tier": "START"
+      },
+      {
+        "label": "LOCATE | OBJECT",
+        "prompt": "Which object belongs to Sami’s grandfather?",
+        "options": [
+          "The compass",
+          "The school gate",
+          "The bus",
+          "The front pocket"
+        ],
+        "answer": "The compass",
+        "why": "The text calls it his grandfather’s compass. The ownership is stated.",
+        "gate": "Explain the difference between a stated fact and a guess.",
+        "tier": "START"
+      },
+      {
+        "label": "VOCABULARY | CONTEXT",
+        "prompt": "At the gate, Sami “hesitated.” What does this suggest?",
+        "options": [
+          "He paused before acting.",
+          "He ran without stopping.",
+          "He forgot his own name.",
+          "He arrived after the trip ended."
+        ],
+        "answer": "He paused before acting.",
+        "why": "To hesitate is to pause before doing something, often because of uncertainty.",
+        "gate": "Which action follows the hesitation?",
+        "tier": "START"
+      },
+      {
+        "label": "INFERENCE | FEELING",
+        "prompt": "Which inference best fits checking the bag repeatedly and hesitating?",
+        "options": [
+          "Sami may feel uncertain about leaving.",
+          "Sami certainly hates all his friends.",
+          "Sami has already lost the compass.",
+          "Sami is certain that the trip will fail."
+        ],
+        "answer": "Sami may feel uncertain about leaving.",
+        "why": "Repeated checking and hesitation suggest uncertainty. They do not prove stronger claims about hatred or failure.",
+        "gate": "Explain why may is more careful than certainly here.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "CHANGE | BEFORE AND AFTER",
+        "prompt": "Which detail best suggests that Sami becomes more comfortable?",
+        "options": [
+          "He holds the compass and smiles during the journey.",
+          "The compass has no stated colour.",
+          "The trip starts at a gate.",
+          "His bag has a front pocket."
+        ],
+        "answer": "He holds the compass and smiles during the journey.",
+        "why": "The smile after the earlier hesitation suggests a change towards comfort. The other details do not show that change.",
+        "gate": "Connect one earlier detail to the later smile.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "OBJECT | POSSIBLE MEANING",
+        "prompt": "What might the compass represent for Sami?",
+        "options": [
+          "A connection to his grandfather that gives comfort",
+          "Proof that the trip is dangerous",
+          "A guarantee that he cannot feel worried",
+          "A plan to leave all his friends forever"
+        ],
+        "answer": "A connection to his grandfather that gives comfort",
+        "why": "Its connection to his grandfather, followed by holding it and smiling, supports the idea of comfort. This remains an interpretation.",
+        "gate": "Name the two details that make this interpretation reasonable.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "ANALYSIS | MORE THAN RETELLING",
+        "prompt": "Which response explains a detail rather than only retelling it?",
+        "options": [
+          "His smile suggests that the familiar compass helps him feel more secure.",
+          "He puts the compass in a pocket.",
+          "He goes to the gate.",
+          "He joins his friends."
+        ],
+        "answer": "His smile suggests that the familiar compass helps him feel more secure.",
+        "why": "The response connects an action to a possible feeling. The other responses report actions only.",
+        "gate": "Identify the detail and the interpretation in the answer.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "COMPARE | TEST AN INTERPRETATION",
+        "prompt": "A pupil says, “Sami feels uncertain but still chooses to join in.” Which pair best supports this?",
+        "options": [
+          "He hesitates, then joins his friends.",
+          "He owns a bag, and the bag has a pocket.",
+          "The story mentions a gate and a journey.",
+          "His grandfather owns a compass, and a compass is an object."
+        ],
+        "answer": "He hesitates, then joins his friends.",
+        "why": "The hesitation shows uncertainty. Joining the friends shows that he acts despite it.",
+        "gate": "Explain why both details are needed.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "EVALUATE | A LIMIT TO THE CLAIM",
+        "prompt": "Which claim goes beyond the evidence?",
+        "options": [
+          "Sami will never feel worried again.",
+          "Sami pauses at the gate.",
+          "The compass may comfort Sami.",
+          "Sami joins his friends despite hesitating."
+        ],
+        "answer": "Sami will never feel worried again.",
+        "why": "One smile during one journey cannot show that someone will never worry again.",
+        "gate": "Revise the overclaim into a careful interpretation.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "SYNTHESIS | STRONGEST ANALYSIS",
+        "prompt": "Which analysis best brings the beginning and ending together?",
+        "options": [
+          "The repeated checking and hesitation suggest uncertainty, while the later smile suggests that a familiar connection helps him move forward.",
+          "The text proves that every trip cures worry.",
+          "The only important fact is that bags have pockets.",
+          "Sami smiles, so none of the earlier details matter."
+        ],
+        "answer": "The repeated checking and hesitation suggest uncertainty, while the later smile suggests that a familiar connection helps him move forward.",
+        "why": "The analysis combines accurate details from different parts and uses cautious language for the inference.",
+        "gate": "Offer another defensible interpretation and identify its evidence.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "3": {
+    "eyebrow": "LESSON 3 | Whole LC pp.66–67",
+    "title": "This, that, these or those?",
+    "instruction": "Check how many, how near and whether the sentence needs is or are.",
+    "tip": "Distance is from the speaker. Make the viewpoint explicit before deciding.",
+    "finishTitle": "Number and distance checked",
+    "finishText": "Complete and correct every activity on LC pp.66–67. Explain the rule behind a correction.",
+    "finishModel": "Near: this for one, these for more than one. Far: that for one, those for more than one. This/that use is; these/those use are.",
+    "challenges": [
+      {
+        "label": "NUMBER + DISTANCE | ONE NEAR",
+        "prompt": "I am holding one book in my hand. “___ book is mine.”",
+        "options": [
+          "This",
+          "That",
+          "These",
+          "Those"
+        ],
+        "answer": "This",
+        "why": "The book is singular and near the speaker, so this fits.",
+        "gate": "Name both clues: number and distance.",
+        "tier": "START"
+      },
+      {
+        "label": "NUMBER + DISTANCE | ONE FAR",
+        "prompt": "I point to one clock on the far wall. “___ clock is slow.”",
+        "options": [
+          "That",
+          "This",
+          "These",
+          "Those"
+        ],
+        "answer": "That",
+        "why": "One clock is singular. It is far from the speaker, so use that.",
+        "gate": "How would the sentence change if the clock were in your hand?",
+        "tier": "START"
+      },
+      {
+        "label": "NUMBER + DISTANCE | SEVERAL NEAR",
+        "prompt": "I am holding two pencils. “___ pencils are sharp.”",
+        "options": [
+          "These",
+          "This",
+          "That",
+          "Those"
+        ],
+        "answer": "These",
+        "why": "Two pencils are plural and near the speaker, so use these.",
+        "gate": "Explain why this cannot go before pencils here.",
+        "tier": "START"
+      },
+      {
+        "label": "NUMBER + DISTANCE | SEVERAL FAR",
+        "prompt": "I point across the room to three bags. “___ bags are heavy.”",
+        "options": [
+          "Those",
+          "That",
+          "This",
+          "These"
+        ],
+        "answer": "Those",
+        "why": "The bags are plural and far from the speaker, so those fits.",
+        "gate": "Change the sentence for three bags beside you.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "AGREEMENT | IS OR ARE",
+        "prompt": "Two chairs stand beside me. Which sentence is correct?",
+        "options": [
+          "These chairs are empty.",
+          "These chairs is empty.",
+          "This chairs are empty.",
+          "Those chair is empty."
+        ],
+        "answer": "These chairs are empty.",
+        "why": "These matches the nearby plural chairs, and the plural subject takes are.",
+        "gate": "Explain both the demonstrative and the verb.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "SENTENCE JOB | BEFORE A NOUN OR ALONE",
+        "prompt": "Which pair uses a demonstrative before a noun, then on its own?",
+        "options": [
+          "This bag is mine. This is mine.",
+          "I have a bag. It is mine.",
+          "A bag is here. The bag is mine.",
+          "Mine is blue. It is a bag."
+        ],
+        "answer": "This bag is mine. This is mine.",
+        "why": "In the first sentence this comes before bag. In the second it stands alone and refers to the bag.",
+        "gate": "Give a similar pair using those.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "REPAIR | KEEP THE MEANING",
+        "prompt": "Two books are beside me. Repair: “This books is new.”",
+        "options": [
+          "These books are new.",
+          "That books is new.",
+          "Those book are new.",
+          "This book are new."
+        ],
+        "answer": "These books are new.",
+        "why": "Two nearby books need these and are. The correction keeps both the number and the location.",
+        "gate": "Identify all the changes and explain each one.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "VIEWPOINT | SAME OBJECT",
+        "prompt": "A ball is beside Ali but far from Omar. Each speaks about that one ball. Which pair fits?",
+        "options": [
+          "Ali: “This ball.” Omar: “That ball.”",
+          "Ali: “Those ball.” Omar: “These ball.”",
+          "Ali: “That ball.” Omar: “This ball.”",
+          "Ali: “These balls.” Omar: “Those balls.”"
+        ],
+        "answer": "Ali: “This ball.” Omar: “That ball.”",
+        "why": "The object is singular for both speakers. It is near Ali and far from Omar, so their demonstratives differ.",
+        "gate": "What stays the same, and what changes between the two viewpoints?",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "REVISION | TWO ERRORS",
+        "prompt": "Several trees stand far away. Which correction fixes “That trees is tall”?",
+        "options": [
+          "Those trees are tall.",
+          "That trees are tall.",
+          "Those trees is tall.",
+          "These tree is tall."
+        ],
+        "answer": "Those trees are tall.",
+        "why": "Several faraway trees need those. Trees is plural, so the verb is are.",
+        "gate": "Explain why each tempting partial correction is still wrong.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "TRANSFER | CHECK THE WHOLE DESCRIPTION",
+        "prompt": "Two bags are beside the speaker. One box is across the room. Which description is accurate?",
+        "options": [
+          "These bags are light, but that box is heavy.",
+          "This bags is light, but those box are heavy.",
+          "Those bags are light, but this box is heavy.",
+          "These bags is light, but that box are heavy."
+        ],
+        "answer": "These bags are light, but that box is heavy.",
+        "why": "These and are match the nearby plural bags. That and is match the distant singular box.",
+        "gate": "Move the box beside the speaker and the bags far away. Say the new sentence.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "4": {
+    "eyebrow": "LESSON 4 | SB p.184 · Whole LC p.70",
+    "title": "Evidence that answers the question",
+    "instruction": "Use the original mini-text shown here to test relevance, explanation and precision.",
+    "tip": "These are skill-practice questions, not answers to the printed Turtle of Oman exercises.",
+    "practice": "During the group task, Nabil first kept his idea to himself. When the model collapsed, he explained a stronger design. His group tried it, and the model stood. Nabil offered to explain their work to the class.",
+    "finishTitle": "Evidence selected and explained",
+    "finishText": "Complete the whole close-read page, SB p.184. Then switch once and complete the whole of LC p.70.",
+    "finishModel": "Check that the answer addresses the question, the detail is accurate and relevant, and the explanation shows what the detail proves.",
+    "challenges": [
+      {
+        "label": "LOCATE | FIRST RESPONSE",
+        "prompt": "What does Nabil do at the start?",
+        "options": [
+          "He keeps his idea to himself.",
+          "He explains the work to the class.",
+          "He breaks the model on purpose.",
+          "He leaves the group."
+        ],
+        "answer": "He keeps his idea to himself.",
+        "why": "The first sentence states that Nabil keeps his idea to himself.",
+        "gate": "Locate the words that confirm it.",
+        "tier": "START"
+      },
+      {
+        "label": "LOCATE | A CHANGE",
+        "prompt": "What happens after the model collapses?",
+        "options": [
+          "Nabil explains a stronger design.",
+          "Everyone leaves without speaking.",
+          "Nabil hides the model.",
+          "The task ends immediately."
+        ],
+        "answer": "Nabil explains a stronger design.",
+        "why": "The text states that Nabil explains a stronger design when the model collapses.",
+        "gate": "Which event causes him to act?",
+        "tier": "START"
+      },
+      {
+        "label": "RELEVANCE | THE RIGHT DETAIL",
+        "prompt": "Which detail shows that the new design works?",
+        "options": [
+          "The group tries it, and the model stands.",
+          "The task involves a group.",
+          "Nabil has an idea at the start.",
+          "The story mentions a class."
+        ],
+        "answer": "The group tries it, and the model stands.",
+        "why": "A standing model after the new design directly supports the claim that the design works.",
+        "gate": "Explain why mentioning the class would not prove success.",
+        "tier": "START"
+      },
+      {
+        "label": "INFERENCE | CONFIDENCE",
+        "prompt": "Which detail most strongly suggests growing confidence?",
+        "options": [
+          "Nabil offers to explain the work to the class.",
+          "The task uses a model.",
+          "The model has no stated colour.",
+          "Nabil is part of a group."
+        ],
+        "answer": "Nabil offers to explain the work to the class.",
+        "why": "Volunteering to explain publicly shows a willingness to speak after initially keeping an idea private.",
+        "gate": "Connect this detail to how he behaved at the start.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "EXPLANATION | THE MISSING LINK",
+        "prompt": "Finish the reasoning: “Nabil offers to present. This suggests confidence because…”",
+        "options": [
+          "he volunteers to share his thinking with a wider audience.",
+          "a model is an object.",
+          "the text uses several sentences.",
+          "every pupil always enjoys speaking."
+        ],
+        "answer": "he volunteers to share his thinking with a wider audience.",
+        "why": "The explanation links the action of volunteering to willingness to speak publicly. It avoids an unsupported claim about everyone.",
+        "gate": "Say the complete evidence-and-explanation sentence.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "ACCURACY | PARAPHRASE",
+        "prompt": "Which paraphrase keeps the text’s meaning?",
+        "options": [
+          "Nabil becomes willing to share an idea and later offers to present.",
+          "Nabil refuses to speak at any point.",
+          "Nabil presents before the group begins.",
+          "Nabil works completely alone."
+        ],
+        "answer": "Nabil becomes willing to share an idea and later offers to present.",
+        "why": "It accurately follows the change from keeping an idea private to explaining and offering to present.",
+        "gate": "Identify one inaccurate detail in a distractor.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "QUALITY | STRONGER ANSWER",
+        "prompt": "Question: How does Nabil change? Which answer is strongest?",
+        "options": [
+          "He becomes more willing to speak: he first hides his idea but later offers to explain the work to the class.",
+          "He changes because he is different.",
+          "He makes a model with a group.",
+          "He is definitely the best pupil in the school."
+        ],
+        "answer": "He becomes more willing to speak: he first hides his idea but later offers to explain the work to the class.",
+        "why": "The answer states a change and supports it with a contrast between the beginning and end.",
+        "gate": "Explain why the answer needs both parts of the contrast.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "COMPARE | EVIDENCE DEPENDS ON THE QUESTION",
+        "prompt": "To answer “How do we know the design succeeds?”, which detail is stronger than “Nabil offers to present”?",
+        "options": [
+          "The model stands when the group tries the new design.",
+          "The group is in a class.",
+          "Nabil first keeps his idea private.",
+          "There are several pupils."
+        ],
+        "answer": "The model stands when the group tries the new design.",
+        "why": "The standing model directly tests the design. Offering to present is more useful for a question about confidence.",
+        "gate": "Name a different question for which the presentation detail would be useful.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "EVALUATE | A CLAIM TOO STRONG",
+        "prompt": "Which answer makes an unsupported claim?",
+        "options": [
+          "The group’s success proves Nabil will always be confident.",
+          "Nabil initially keeps his idea private.",
+          "The successful model may help Nabil feel more confident.",
+          "Nabil offers to explain the work."
+        ],
+        "answer": "The group’s success proves Nabil will always be confident.",
+        "why": "One event cannot prove how he will feel in every future situation. The word always overstates the evidence.",
+        "gate": "Rewrite the claim using careful, evidence-based wording.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "REVISION | STRONGEST IMPROVEMENT",
+        "prompt": "Improve: “He is confident because the model is good.”",
+        "options": [
+          "The model’s success may encourage him: he moves from keeping an idea private to volunteering to present.",
+          "He is confident because confidence is good.",
+          "The model is good, so every problem is solved forever.",
+          "He is confident because the classroom has pupils."
+        ],
+        "answer": "The model’s success may encourage him: he moves from keeping an idea private to volunteering to present.",
+        "why": "The revision explains a possible connection and supports it with a clear change in behaviour.",
+        "gate": "Name what is stated and what is inferred in the improved answer.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "5": {
+    "eyebrow": "LESSON 5 | NTA Week 11 · Assessed essay-plan checkpoint",
+    "title": "One problem, two supported solutions",
+    "instruction": "Build a thesis, explain causes and compare two distinct solutions before drafting.",
+    "tip": "Use the plan headings. Give written feedback on the organiser before pupils start the essay draft.",
+    "finishTitle": "A plan ready for feedback",
+    "finishText": "Submit your OneNote graphic organiser with a thesis, problem and causes, two solutions and evidence for each. Present the plan to a small group and add a brief reflection.",
+    "finishModel": "Use Week 10 Task 5 feedback to improve one point. This week is an assessed plan checkpoint, not a full essay or a new word-count task.",
+    "challenges": [
+      {
+        "label": "PLAN PART | PROBLEM",
+        "prompt": "Which statement names a specific school problem?",
+        "options": [
+          "Unlabelled papers often get left on classroom desks.",
+          "School is a place for learning.",
+          "Everyone should be better.",
+          "Many things happen each day."
+        ],
+        "answer": "Unlabelled papers often get left on classroom desks.",
+        "why": "The statement identifies a clear situation that a solution could address.",
+        "gate": "Explain who could be affected by this problem.",
+        "tier": "START"
+      },
+      {
+        "label": "PLAN PART | CAUSE",
+        "prompt": "For papers getting lost, which is a possible cause rather than a solution?",
+        "options": [
+          "Pupils leave loose sheets in different places.",
+          "Use a labelled class tray.",
+          "Give each pupil a folder.",
+          "Create a clear collection routine."
+        ],
+        "answer": "Pupils leave loose sheets in different places.",
+        "why": "Leaving loose sheets in different places may cause the loss. The other choices describe proposed actions.",
+        "gate": "Explain how the cause could lead to the problem.",
+        "tier": "START"
+      },
+      {
+        "label": "PLAN PART | THESIS",
+        "prompt": "Which thesis clearly introduces two solutions?",
+        "options": [
+          "A labelled collection tray and personal folders could reduce lost papers.",
+          "Lost papers are papers that are lost.",
+          "School has many pupils and classrooms.",
+          "This essay will have several words."
+        ],
+        "answer": "A labelled collection tray and personal folders could reduce lost papers.",
+        "why": "The thesis names the problem and proposes two distinct ways to address it.",
+        "gate": "Identify the two solutions in the sentence.",
+        "tier": "START"
+      },
+      {
+        "label": "DISTINCT SOLUTIONS | NOT REPEATS",
+        "prompt": "Which pair offers two genuinely different solutions to lost papers?",
+        "options": [
+          "A class collection tray and individual folders",
+          "A class tray and a tray for the class",
+          "Label the tray and put a label on the tray",
+          "Tell pupils to be careful and say “be careful” again"
+        ],
+        "answer": "A class collection tray and individual folders",
+        "why": "One solution organises shared collection; the other helps each pupil manage personal papers. Rewording one idea does not make it a second solution.",
+        "gate": "Explain how the two solutions work differently.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "SUPPORT | RELEVANT EXAMPLE",
+        "prompt": "Which example best supports using a collection tray?",
+        "options": [
+          "A single collection place would make unfinished work easier to find next lesson.",
+          "The tray could be a nice colour.",
+          "Some pupils prefer football.",
+          "Classrooms usually have doors."
+        ],
+        "answer": "A single collection place would make unfinished work easier to find next lesson.",
+        "why": "The example explains a direct link between the solution and reducing lost work. Appearance alone does not establish that link.",
+        "gate": "Explain the cause-and-effect link in your own words.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "FEASIBILITY | WHO DOES WHAT?",
+        "prompt": "Which plan makes the folder solution most practical?",
+        "options": [
+          "Each pupil puts loose work in a named folder before leaving.",
+          "Someone should organise something somehow.",
+          "Buy a new school building tomorrow.",
+          "Wait until papers stop getting lost."
+        ],
+        "answer": "Each pupil puts loose work in a named folder before leaving.",
+        "why": "It states who acts, what they do and when. That makes the solution specific and manageable.",
+        "gate": "Name one simple way the class could check whether the routine is followed.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "EVIDENCE | HONEST SUPPORT",
+        "prompt": "Which support can you use without inventing research?",
+        "options": [
+          "A clearly labelled example explaining how the routine could help",
+          "A made-up survey claiming 99% success",
+          "A claim that every school has already proved it",
+          "A fake quotation from the headteacher"
+        ],
+        "answer": "A clearly labelled example explaining how the routine could help",
+        "why": "A clearly labelled example can support reasoning without pretending to be a real survey or quotation.",
+        "gate": "Explain the difference between an example and a verified finding.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "LIMITATION | REFINE A SOLUTION",
+        "prompt": "A class tray becomes mixed up. Which improvement keeps the same solution but addresses the problem?",
+        "options": [
+          "Divide the tray into clearly labelled sections.",
+          "Stop collecting work altogether.",
+          "Claim that trays never become mixed up.",
+          "Replace the problem with an unrelated issue."
+        ],
+        "answer": "Divide the tray into clearly labelled sections.",
+        "why": "Labelled sections make the collection system more organised. The solution is refined in response to a realistic limitation.",
+        "gate": "Explain which cause of confusion the change addresses.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "COMPARISON | STRONGER EVALUATION",
+        "prompt": "Which comparison best helps a writer judge the two solutions?",
+        "options": [
+          "The tray helps shared collection, while folders help pupils manage work they still need.",
+          "The tray and folders are both things.",
+          "One solution is first and the other is second.",
+          "Both solutions must work perfectly for everyone."
+        ],
+        "answer": "The tray helps shared collection, while folders help pupils manage work they still need.",
+        "why": "The comparison explains different purposes and helps the writer judge where each solution is useful.",
+        "gate": "Give a possible limitation of one solution and a sensible response.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "CHECKPOINT | READY FOR DRAFTING?",
+        "prompt": "A plan has a thesis and two solutions, but no causes or support. What is the best next step?",
+        "options": [
+          "Add causes and evidence for each solution, then use teacher feedback before drafting.",
+          "Start the full essay and ignore the missing parts.",
+          "Add a word count instead of evidence.",
+          "Repeat the thesis several times."
+        ],
+        "answer": "Add causes and evidence for each solution, then use teacher feedback before drafting.",
+        "why": "The checkpoint requires the problem and causes, two solutions and evidence for each. Feedback should guide the draft.",
+        "gate": "Name one specific improvement you would check in your own organiser.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "6": {
+    "eyebrow": "LESSON 6 | SB pp.176–184 · Whole LC pp.66–67, 69–70",
+    "title": "Check, correct and explain",
+    "instruction": "Use ten checks to find what needs attention. Correct existing work without repeating accurate answers.",
+    "tip": "Use the diagnostic responses to choose a book-work priority. The checklist is a self-audit, not proof of completion.",
+    "finishTitle": "Your next useful step",
+    "finishText": "Work in the Student Book block first, then switch once to LC. Complete whole assigned pages and show the teacher your corrections.",
+    "finishModel": "Current page list: SB p.176 vocabulary; p.177 skill; pp.178–183 reading; p.184 close read. LC pp.66–67 demonstratives; p.69 vocabulary; p.70 understanding. Complete the OneNote plan if needed.",
+    "challenges": [
+      {
+        "label": "VOCABULARY | MEANING",
+        "prompt": "Which word describes being unwilling to reconsider a decision?",
+        "options": [
+          "stubborn",
+          "slightly",
+          "occasion",
+          "sorrow"
+        ],
+        "answer": "stubborn",
+        "why": "Stubborn describes an unwillingness to change an idea or decision.",
+        "gate": "Give an example that makes the meaning clear.",
+        "tier": "START"
+      },
+      {
+        "label": "GRAMMAR | NUMBER AND DISTANCE",
+        "prompt": "One notebook is beside me. “___ notebook is open.”",
+        "options": [
+          "This",
+          "Those",
+          "These",
+          "That"
+        ],
+        "answer": "This",
+        "why": "The notebook is singular and near the speaker, so use this.",
+        "gate": "Name the number and distance clues.",
+        "tier": "START"
+      },
+      {
+        "label": "READING | ACCURATE EVIDENCE",
+        "prompt": "What is the first useful check before using a detail as evidence?",
+        "options": [
+          "Confirm that the detail is actually in the text.",
+          "Choose the longest sentence without reading it.",
+          "Invent a detail that sounds convincing.",
+          "Use any fact you remember from another story."
+        ],
+        "answer": "Confirm that the detail is actually in the text.",
+        "why": "Evidence must be accurate before it can support an answer.",
+        "gate": "What would you do if your memory and the page disagree?",
+        "tier": "START"
+      },
+      {
+        "label": "VOCABULARY | PRECISE USE",
+        "prompt": "Which sentence uses relationship accurately?",
+        "options": [
+          "Shared activities helped the brothers strengthen their relationship.",
+          "He relationship the door every morning.",
+          "The relationship was slightly a verb.",
+          "She was sorrowly relationship."
+        ],
+        "answer": "Shared activities helped the brothers strengthen their relationship.",
+        "why": "Relationship is a noun naming a connection. The sentence explains how shared activities may strengthen it.",
+        "gate": "Replace shared activities with a specific example.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "GRAMMAR | REPAIR",
+        "prompt": "Three boxes are far away. Repair: “That boxes is empty.”",
+        "options": [
+          "Those boxes are empty.",
+          "Those boxes is empty.",
+          "That boxes are empty.",
+          "These box is empty."
+        ],
+        "answer": "Those boxes are empty.",
+        "why": "Faraway plural boxes need those, and the plural subject takes are.",
+        "gate": "Explain both corrections without just repeating the sentence.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "READING | ANSWER QUALITY",
+        "prompt": "A response gives a relevant detail but does not explain it. What should the pupil add?",
+        "options": [
+          "How that detail supports the answer",
+          "An unrelated sentence to make it longer",
+          "The same detail copied twice",
+          "A claim that every reader must agree"
+        ],
+        "answer": "How that detail supports the answer",
+        "why": "The explanation makes the connection between the evidence and the answer visible.",
+        "gate": "Give an example of a useful explanation phrase.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "PLANNING | TWO SOLUTIONS",
+        "prompt": "Which pair would need revision because it repeats the same solution?",
+        "options": [
+          "Use a labelled tray; put a label on the tray.",
+          "Use a collection tray; use personal folders.",
+          "Add a quiet-entry routine; improve task directions.",
+          "Provide a clear timetable; prepare materials in advance."
+        ],
+        "answer": "Use a labelled tray; put a label on the tray.",
+        "why": "Both parts describe labelling the same tray. The essay plan needs two distinct solutions, not two versions of one.",
+        "gate": "Change the second idea into a different practical solution.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "DIAGNOSE | WHAT NEEDS RETEACHING?",
+        "prompt": "A pupil writes “these books is” and “those bags is.” What pattern needs attention?",
+        "options": [
+          "Plural demonstratives with the verb are",
+          "The spelling of the word occasion",
+          "Whether every noun needs a capital",
+          "The meaning of a singular noun only"
+        ],
+        "answer": "Plural demonstratives with the verb are",
+        "why": "Both sentences already use plural demonstratives and nouns. The repeated error is the singular verb is.",
+        "gate": "Give one corrected example and explain the pattern.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "CORRECTION | STRONGEST EXPLANATION",
+        "prompt": "Which note shows a useful correction?",
+        "options": [
+          "I changed that to those because the objects are plural and far from the speaker.",
+          "I changed it because my friend did.",
+          "I wrote a different answer without checking.",
+          "I copied the model but do not know why."
+        ],
+        "answer": "I changed that to those because the objects are plural and far from the speaker.",
+        "why": "The note identifies the change and links it to the number-and-distance rule.",
+        "gate": "Give a similarly precise note for changing is to are.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "NEXT STEP | TARGETED PRACTICE",
+        "prompt": "Your vocabulary is accurate, but your demonstrative corrections are still uncertain. What should you do next?",
+        "options": [
+          "Use the chart to check the whole LC grammar pages and explain the uncertain items.",
+          "Redo all correct vocabulary just to stay busy.",
+          "Mark everything complete without checking.",
+          "Start an unrelated worksheet."
+        ],
+        "answer": "Use the chart to check the whole LC grammar pages and explain the uncertain items.",
+        "why": "Targeted practice addresses the remaining gap without repeating work that is already correct.",
+        "gate": "Name the rule you would check first and how you would prove the correction.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "7": {
+    "eyebrow": "LESSON 7 | Week 11 review · Ten rounds",
+    "title": "Ten questions, deeper thinking",
+    "instruction": "Take time to explain. Revisit difficult rounds without adding more questions.",
+    "tip": "For a full review lesson, use discussion and written reasoning between the ten rounds. This is the live fallback, not a newly created Kahoot.",
+    "finishTitle": "Week 11 review complete",
+    "finishText": "Revisit the most difficult rounds, then write two corrections with reasons. Finish with one specific strength and one next step.",
+    "finishModel": "Finished? Check the accuracy of your explanations, correct spelling and punctuation, complete current book work, then read independently.",
+    "challenges": [
+      {
+        "label": "VOCABULARY | CONTEXT",
+        "prompt": "The celebration was a special ___. Which word fits?",
+        "options": [
+          "occasion",
+          "slightly",
+          "stubborn",
+          "sorrowfully"
+        ],
+        "answer": "occasion",
+        "why": "Occasion is a noun for a particular time or event. A celebration is an example.",
+        "gate": "Give another occasion that is not a celebration.",
+        "tier": "START"
+      },
+      {
+        "label": "GRAMMAR | NEAR AND PLURAL",
+        "prompt": "I hold two rulers. “___ rulers are long.”",
+        "options": [
+          "These",
+          "This",
+          "That",
+          "Those"
+        ],
+        "answer": "These",
+        "why": "The rulers are plural and near the speaker, so these fits.",
+        "gate": "Change only the distance and say the new sentence.",
+        "tier": "START"
+      },
+      {
+        "label": "READING | STATED OR INFERRED?",
+        "prompt": "“Sami checked his bag three times.” Which claim is directly stated?",
+        "options": [
+          "He checked the bag three times.",
+          "He was definitely terrified.",
+          "He never enjoys trips.",
+          "He had lost everything in the bag."
+        ],
+        "answer": "He checked the bag three times.",
+        "why": "The repeated checking is stated. The feelings or wider habits would be inferences and would need support.",
+        "gate": "Offer one careful inference, using may or might.",
+        "tier": "START"
+      },
+      {
+        "label": "VOCABULARY | NUANCE",
+        "prompt": "Which statement best explains philosophy?",
+        "options": [
+          "A set of ideas that can guide how someone lives",
+          "Any single event in a person’s day",
+          "A small change in temperature",
+          "A refusal to consider evidence"
+        ],
+        "answer": "A set of ideas that can guide how someone lives",
+        "why": "A philosophy can guide choices and behaviour. It is broader than one event or one stubborn decision.",
+        "gate": "Give one belief and an action it could guide.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "GRAMMAR | A COMPLETE REPAIR",
+        "prompt": "Two chairs are far from me. Correct: “That chairs is empty.”",
+        "options": [
+          "Those chairs are empty.",
+          "Those chairs is empty.",
+          "That chairs are empty.",
+          "These chair is empty."
+        ],
+        "answer": "Those chairs are empty.",
+        "why": "Those matches faraway plural chairs, and are matches the plural subject.",
+        "gate": "Explain every change in the correction.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "EVIDENCE | EXPLAIN A CHANGE",
+        "prompt": "Original practice: “Nabil kept quiet at first. Later he volunteered to present.” Which interpretation is best supported?",
+        "options": [
+          "He becomes more willing to speak.",
+          "He has always hated group work.",
+          "He will never feel nervous again.",
+          "He learns nothing from the task."
+        ],
+        "answer": "He becomes more willing to speak.",
+        "why": "The contrast between keeping quiet and volunteering supports greater willingness to speak. It does not prove a permanent change.",
+        "gate": "Explain why the words at first and later matter.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "WRITING | SUPPORT BOTH SOLUTIONS",
+        "prompt": "A plan proposes a tray and folders, but only explains the tray. What is missing?",
+        "options": [
+          "A reason or example showing how folders address the problem",
+          "A third unrelated solution",
+          "A longer title instead of support",
+          "A claim that the tray solves every problem"
+        ],
+        "answer": "A reason or example showing how folders address the problem",
+        "why": "Each solution needs support. The reader should understand how the second solution also addresses the problem.",
+        "gate": "Give one relevant supporting reason for folders.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "COMPARE | STUBBORNNESS AND LEARNING",
+        "prompt": "Which response best shows determination without stubbornness?",
+        "options": [
+          "Keep working towards the goal, but change a method when evidence shows it is failing.",
+          "Ignore every useful suggestion.",
+          "Refuse to check whether the plan works.",
+          "Repeat the same mistake because changing is always weak."
+        ],
+        "answer": "Keep working towards the goal, but change a method when evidence shows it is failing.",
+        "why": "Determination keeps a worthwhile goal in view while allowing learning and adjustment. Stubbornness can block reconsideration.",
+        "gate": "Give an example from learning a skill.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "VIEWPOINT | NUMBER STAYS THE SAME",
+        "prompt": "Three bags are beside Omar but far from Ali. Which pair correctly describes the same bags?",
+        "options": [
+          "Omar: “These bags.” Ali: “Those bags.”",
+          "Omar: “This bag.” Ali: “That bag.”",
+          "Omar: “Those bags.” Ali: “These bags.”",
+          "Omar: “These bags.” Ali: “That bags.”"
+        ],
+        "answer": "Omar: “These bags.” Ali: “Those bags.”",
+        "why": "The number is plural for both. Distance from each speaker changes, so Omar uses these and Ali uses those.",
+        "gate": "What would both speakers say if the bags were far from both of them?",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "EVALUATION | STRONGEST PLAN",
+        "prompt": "Which plan is most ready for teacher feedback before drafting?",
+        "options": [
+          "A clear thesis, problem and causes, two distinct solutions, and relevant support for each",
+          "A title and two repeated solutions with no causes",
+          "A full essay built on invented survey results",
+          "A long paragraph with no clear problem or solution"
+        ],
+        "answer": "A clear thesis, problem and causes, two distinct solutions, and relevant support for each",
+        "why": "The assessed checkpoint needs the complete structure and honest support. Teacher feedback should then guide drafting.",
+        "gate": "Identify one limitation you would test before approving either solution.",
+        "tier": "EXTEND"
+      }
+    ]
+  }
+};
+
+    const states = {};
+    let currentLesson = 1;
+    let turnNumber = 1;
+    let soundOn = true;
+    let audioContext = null;
+
+    const dom = {
+      tabs: [...document.querySelectorAll('.lesson-tab')],
+      eyebrow: document.getElementById('activityEyebrow'),
+      title: document.getElementById('activityTitle'),
+      instruction: document.getElementById('activityInstruction'),
+      stage: document.getElementById('activityStage'),
+      progressText: document.getElementById('progressText'),
+      scoreText: document.getElementById('scoreText'),
+      progressFill: document.getElementById('progressFill'),
+      tiers: [...document.querySelectorAll('.tier-step')],
+      feedback: document.getElementById('feedbackPanel'),
+      feedbackIcon: document.getElementById('feedbackIcon'),
+      feedbackTitle: document.getElementById('feedbackTitle'),
+      feedbackText: document.getElementById('feedbackText'),
+      tip: document.getElementById('teacherTip'),
+      reset: document.getElementById('resetButton'),
+      reveal: document.getElementById('revealButton'),
+      sound: document.getElementById('soundButton'),
+      next: document.getElementById('nextButton'),
+      fullscreen: document.getElementById('fullscreenButton'),
+      turn: document.getElementById('turnNumber')
+    };
+
+    function newState() {
+      return {
+        index: 0,
+        score: 0,
+        attempts: 0,
+        answered: false,
+        explanationConfirmed: false,
+        revealed: false,
+        finished: false,
+        optionOrder: null
+      };
+    }
+
+    function stateFor(lessonNumber) {
+      if (!states[lessonNumber]) states[lessonNumber] = newState();
+      return states[lessonNumber];
+    }
+
+    function currentChallenge() {
+      const state = stateFor(currentLesson);
+      return lessons[currentLesson].challenges[state.index];
+    }
+
+    function setFeedback(kind, title, text) {
+      dom.feedback.className = `feedback ${kind}`;
+      dom.feedbackIcon.textContent = kind === 'success' ? '✓' : kind === 'error' ? '×' : kind === 'reveal' ? '!' : '?';
+      dom.feedbackTitle.textContent = title;
+      dom.feedbackText.textContent = text;
+    }
+
+    function neutralFeedback() {
+      setFeedback('neutral', 'Read every option', 'The board player chooses only after the class has formed an answer.');
+    }
+
+    function tone(frequency, duration) {
+      if (!soundOn) return;
+      try {
+        audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.frequency.value = frequency;
+        gain.gain.setValueAtTime(.045, audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(.001, audioContext.currentTime + duration);
+        oscillator.connect(gain).connect(audioContext.destination);
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + duration);
+      } catch (error) {
+        soundOn = false;
+        dom.sound.textContent = 'Sound unavailable';
+      }
+    }
+
+    function shuffle(items) {
+      const copy = [...items];
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function updateHeader() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      const total = lesson.challenges.length;
+      const itemNumber = state.finished ? total : state.index + 1;
+      dom.eyebrow.textContent = lesson.eyebrow;
+      dom.title.textContent = lesson.title;
+      dom.instruction.textContent = lesson.instruction;
+      dom.tip.textContent = lesson.tip;
+      dom.progressText.textContent = `${itemNumber} of ${total}`;
+      dom.scoreText.textContent = `${state.score} first-try correct`;
+      dom.progressFill.style.width = `${state.finished ? 100 : (state.index / total) * 100}%`;
+      dom.tiers.forEach(step => step.classList.toggle('active', !state.finished && step.dataset.tier === currentChallenge().tier));
+      dom.next.disabled = !state.explanationConfirmed || state.finished;
+      dom.reveal.disabled = state.finished;
+      dom.turn.textContent = String(turnNumber).padStart(2, '0');
+    }
+
+    function render() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      updateHeader();
+
+      if (state.finished) {
+        dom.stage.innerHTML = `
+          <article class="finish-card">
+            <div class="finish-inner">
+              <div class="finish-mark">✓</div>
+              <h3>${lesson.finishTitle}</h3>
+              <p>${lesson.finishText}</p>
+              <div class="finish-model">${lesson.finishModel}</div>
+            </div>
+          </article>`;
+        setFeedback('success', 'Lesson challenge complete', `${state.score} of ${lesson.challenges.length} were correct on the first attempt.`);
+        dom.next.disabled = true;
+        return;
+      }
+
+      const challenge = currentChallenge();
+      dom.stage.innerHTML = `
+        <article class="prompt-card">
+          <div class="challenge-label"><span class="tier-dot"></span>${challenge.tier} | ${challenge.label}</div>
+          ${lesson.practice ? `<div class="reading-source"><strong>Original practice text, not from the book</strong><p>${lesson.practice}</p></div>` : ""}
+          <p class="prompt-text">${challenge.prompt}</p>
+          <div class="source-line">Use the prompt and explain your reasoning.</div>
+        </article>
+        <article class="response-card" id="responseCard"></article>`;
+
+      renderChoices(document.getElementById('responseCard'), challenge, state);
+      if (!state.answered && !state.revealed) neutralFeedback();
+      else if (state.explanationConfirmed) setFeedback('success', 'Reason accepted', challenge.why);
+      else if (state.revealed) setFeedback('reveal', `Answer: ${challenge.answer}`, challenge.why);
+      else setFeedback('success', 'Correct. Now prove it.', challenge.why);
+    }
+
+    function renderChoices(container, challenge, state) {
+      const options = state.optionOrder || shuffle(challenge.options);
+      state.optionOrder = options;
+      container.innerHTML = `
+        <div class="choice-grid">
+          ${options.map((option, index) => `<button class="choice" data-option="${encodeURIComponent(option)}"><span class="key-hint">${index + 1}</span>${option}</button>`).join('')}
+        </div>
+        <div id="gateArea"></div>`;
+
+      [...container.querySelectorAll('.choice')].forEach(button => {
+        const option = decodeURIComponent(button.dataset.option);
+        if (state.answered || state.revealed) {
+          button.disabled = true;
+          if (option === challenge.answer) button.classList.add('correct');
+        }
+        button.addEventListener('click', () => choose(option, button));
+      });
+
+      if (state.answered || state.revealed) renderGate(challenge, state);
+    }
+
+    function choose(option, button) {
+      const state = stateFor(currentLesson);
+      const challenge = currentChallenge();
+      if (state.answered || state.revealed || button.disabled) return;
+      state.attempts += 1;
+
+      if (option === challenge.answer) {
+        state.answered = true;
+        if (state.attempts === 1) state.score += 1;
+        tone(720, .18);
+        [...document.querySelectorAll('.choice')].forEach(choice => {
+          choice.disabled = true;
+          if (decodeURIComponent(choice.dataset.option) === challenge.answer) choice.classList.add('correct');
+        });
+        setFeedback('success', 'Correct. Now prove it.', challenge.why);
+        renderGate(challenge, state);
+      } else {
+        button.classList.add('wrong');
+        button.disabled = true;
+        tone(190, .16);
+        setFeedback('error', 'Not precise enough', 'Re-read the prompt and every option. Check meaning, grammar and evidence before choosing again.');
+      }
+      updateHeader();
+    }
+
+    function renderGate(challenge, state) {
+      const gateArea = document.getElementById('gateArea');
+      if (!gateArea) return;
+      gateArea.innerHTML = `
+        <div class="oral-gate">
+          <div><strong>Explanation gate</strong><p>${challenge.gate}</p></div>
+          <button class="tool-button confirm" id="confirmExplanation">${state.explanationConfirmed ? 'Explanation confirmed' : 'Explanation heard'}</button>
+        </div>`;
+      const confirm = document.getElementById('confirmExplanation');
+      confirm.disabled = state.explanationConfirmed;
+      confirm.addEventListener('click', () => {
+        state.explanationConfirmed = true;
+        confirm.disabled = true;
+        confirm.textContent = 'Explanation confirmed';
+        setFeedback('success', 'Reason accepted', challenge.why);
+        dom.next.disabled = false;
+        tone(880, .12);
+      });
+    }
+
+    function revealAnswer() {
+      const state = stateFor(currentLesson);
+      if (state.finished) return;
+      const challenge = currentChallenge();
+      state.revealed = true;
+      state.answered = true;
+      render();
+      setFeedback('reveal', `Answer: ${challenge.answer}`, challenge.why);
+      renderGate(challenge, state);
+    }
+
+    function nextChallenge() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      if (!state.explanationConfirmed) return;
+
+      if (state.index >= lesson.challenges.length - 1) {
+        state.finished = true;
+      } else {
+        state.index += 1;
+        state.attempts = 0;
+        state.answered = false;
+        state.explanationConfirmed = false;
+        state.revealed = false;
+        state.optionOrder = null;
+        turnNumber = turnNumber >= 99 ? 1 : turnNumber + 1;
+      }
+      render();
+    }
+
+    function switchLesson(lessonNumber) {
+      currentLesson = lessonNumber;
+      dom.tabs.forEach(tab => { const active=Number(tab.dataset.lesson) === lessonNumber; tab.classList.toggle('active', active); tab.setAttribute('aria-pressed', String(active)); });
+      window.location.hash = `l${lessonNumber}`;
+      render();
+    }
+
+    function clickChoiceByNumber(number) {
+      const buttons = [...document.querySelectorAll('.choice')];
+      const button = buttons[number - 1];
+      if (button && !button.disabled) button.click();
+    }
+
+    dom.tabs.forEach(tab => tab.addEventListener('click', () => switchLesson(Number(tab.dataset.lesson))));
+    dom.reset.addEventListener('click', () => {
+      states[currentLesson] = newState();
+      render();
+    });
+    dom.reveal.addEventListener('click', revealAnswer);
+    dom.next.addEventListener('click', nextChallenge);
+    dom.sound.addEventListener('click', () => {
+      soundOn = !soundOn;
+      dom.sound.textContent = soundOn ? 'Sound on' : 'Sound off';
+      dom.sound.setAttribute('aria-pressed', String(soundOn));
+      if (soundOn) tone(620, .1);
+    });
+    dom.fullscreen.addEventListener('click', async () => {
+      try {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+        else await document.exitFullscreen();
+      } catch (error) {
+        setFeedback('error', 'Full screen unavailable', 'Use the browser menu or presentation mode instead.');
+      }
+    });
+    document.addEventListener('fullscreenchange', () => {
+      dom.fullscreen.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen';
+    });
+    document.addEventListener('keydown', event => {
+      if (event.altKey && event.key === 'ArrowRight') {
+        event.preventDefault();
+        switchLesson(currentLesson === 7 ? 1 : currentLesson + 1);
+        return;
+      }
+      if (event.altKey && event.key === 'ArrowLeft') {
+        event.preventDefault();
+        switchLesson(currentLesson === 1 ? 7 : currentLesson - 1);
+        return;
+      }
+      if (['1', '2', '3', '4'].includes(event.key)) clickChoiceByNumber(Number(event.key));
+      if (event.key.toLowerCase() === 'e') document.getElementById('confirmExplanation')?.click();
+      if (event.key.toLowerCase() === 'n' && !dom.next.disabled) nextChallenge();
+      if (event.key.toLowerCase() === 'r' && !dom.reveal.disabled) revealAnswer();
+    });
+
+    const hashLesson = Number(window.location.hash.replace('#l', ''));
+    switchLesson(hashLesson >= 1 && hashLesson <= 7 ? hashLesson : 1);
+  </script>
+</body>
+</html>
+
