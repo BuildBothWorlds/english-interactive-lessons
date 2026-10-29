@@ -1,0 +1,1666 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071321">
+  <meta name="description" content="Grade 8 English Week 11 touchscreen classroom activities for Lessons 1-5.">
+  <title>Grade 8 English | Week 11 Touchscreen Challenge</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071321;
+      --panel: #10243c;
+      --panel-2: #172e4b;
+      --line: #2e4d72;
+      --text: #f8fbff;
+      --soft: #d8e3f1;
+      --muted: #93a8c1;
+      --cyan: #5de2ea;
+      --yellow: #fff200;
+      --pink: #ff8fa8;
+      --mint: #71e6a2;
+      --orange: #ffb65e;
+      --red: #ff6f7f;
+      --shadow: 0 24px 74px rgba(0, 0, 0, .34);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100dvh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 8% -4%, rgba(93, 226, 234, .14), transparent 28rem),
+        radial-gradient(circle at 100% 12%, rgba(255, 143, 168, .1), transparent 30rem),
+        var(--bg);
+    }
+
+    a, button { touch-action: manipulation; }
+    button { font: inherit; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 4px solid var(--yellow);
+      outline-offset: 3px;
+    }
+
+    .shell {
+      width: min(1660px, 100%);
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: 18px clamp(18px, 3vw, 46px) 16px;
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      gap: 13px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .home-link {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--cyan);
+      background: rgba(16, 36, 60, .9);
+      text-decoration: none;
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .brand-kicker,
+    .eyebrow {
+      color: var(--cyan);
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .brand-kicker { font-size: clamp(.7rem, 1vw, .9rem); }
+
+    h1 {
+      margin: 5px 0 0;
+      font-size: clamp(1.45rem, 2.4vw, 2.45rem);
+      line-height: 1;
+    }
+
+    .routine {
+      min-width: 340px;
+      min-height: 58px;
+      padding: 8px 16px 8px 9px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(16, 36, 60, .9);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--soft);
+    }
+
+    .routine-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 12px;
+      color: var(--bg);
+      background: var(--yellow);
+      font-size: 1.1rem;
+      font-weight: 950;
+    }
+
+    .routine strong { color: var(--text); }
+
+    .lesson-tabs {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .lesson-tab {
+      min-height: 62px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(16, 36, 60, .82);
+      color: var(--soft);
+      text-align: left;
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .lesson-tab span {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .lesson-tab strong {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(.82rem, 1.05vw, 1rem);
+    }
+
+    .lesson-tab:hover,
+    .lesson-tab:focus-visible {
+      border-color: var(--cyan);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .lesson-tab.active {
+      color: var(--bg);
+      background: var(--cyan);
+      border-color: var(--cyan);
+      box-shadow: 0 10px 28px rgba(93, 226, 234, .18);
+    }
+
+    .lesson-tab.active span { color: rgba(7, 19, 33, .72); }
+
+    .activity-card {
+      min-height: 0;
+      padding: clamp(16px, 2vw, 28px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(16, 36, 60, .98), rgba(8, 24, 42, .99));
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto auto minmax(300px, 1fr) auto;
+      gap: 14px;
+      overflow: hidden;
+    }
+
+    .activity-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(250px, 29%);
+      align-items: end;
+      gap: 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 7px;
+      font-size: .78rem;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 3.55rem);
+      line-height: .99;
+    }
+
+    .instruction {
+      margin: 9px 0 0;
+      color: var(--soft);
+      font-size: clamp(.92rem, 1.3vw, 1.16rem);
+    }
+
+    .score-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 8px;
+      color: var(--soft);
+      font-size: .88rem;
+      font-weight: 850;
+    }
+
+    .progress-track {
+      height: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #08192b;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--mint));
+      transition: width .3s ease;
+    }
+
+    .tier-track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .tier-step {
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--muted);
+      background: rgba(7, 19, 33, .55);
+      font-size: .72rem;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-align: center;
+    }
+
+    .tier-step.active[data-tier="START"] { color: var(--bg); background: var(--cyan); border-color: var(--cyan); }
+    .tier-step.active[data-tier="BUILD"] { color: var(--bg); background: var(--orange); border-color: var(--orange); }
+    .tier-step.active[data-tier="EXTEND"] { color: var(--bg); background: var(--pink); border-color: var(--pink); }
+
+    .stage {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(330px, .9fr) minmax(460px, 1.2fr);
+      gap: 22px;
+    }
+
+    .prompt-card,
+    .response-card,
+    .finish-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--panel-2);
+    }
+
+    .prompt-card {
+      min-height: 0;
+      padding: clamp(22px, 3vw, 42px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .challenge-label {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--cyan);
+      font-size: .78rem;
+      font-weight: 950;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .tier-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 15px rgba(93, 226, 234, .75);
+    }
+
+    .prompt-text {
+      margin: 0;
+      font-size: clamp(1.3rem, 2.25vw, 2.5rem);
+      line-height: 1.18;
+      font-weight: 850;
+    }
+
+    .source-line {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 750;
+    }
+
+    .response-card {
+      min-height: 0;
+      padding: clamp(18px, 2vw, 28px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .choice {
+      position: relative;
+      min-height: 82px;
+      padding: 15px 16px 15px 50px;
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      color: var(--text);
+      background: var(--panel);
+      font-size: clamp(.96rem, 1.35vw, 1.24rem);
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+
+    .key-hint {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      color: var(--bg);
+      background: var(--muted);
+      font-size: .78rem;
+      font-weight: 950;
+    }
+
+    .choice:hover,
+    .choice:focus-visible,
+    .tool-button:hover,
+    .tool-button:focus-visible {
+      border-color: var(--cyan);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .choice.correct {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .choice.correct .key-hint { color: var(--mint); background: var(--bg); }
+
+    .choice.wrong {
+      background: rgba(255, 111, 127, .17);
+      border-color: var(--red);
+    }
+
+    .choice:disabled { cursor: default; transform: none; }
+
+    .oral-gate {
+      padding: 15px 17px;
+      border: 1px solid rgba(255, 242, 0, .58);
+      border-radius: 15px;
+      background: rgba(255, 242, 0, .06);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .oral-gate strong { color: var(--yellow); }
+    .oral-gate p { margin: 4px 0 0; color: var(--soft); }
+
+    .feedback {
+      min-height: 72px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      align-items: center;
+      gap: 13px;
+      background: rgba(7, 19, 33, .74);
+    }
+
+    .feedback-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--muted);
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .feedback strong { font-size: 1.04rem; }
+    .feedback p { margin: 4px 0 0; color: var(--soft); }
+    .feedback.success { border-color: rgba(113, 230, 162, .7); }
+    .feedback.success .feedback-icon { background: var(--mint); }
+    .feedback.error { border-color: rgba(255, 111, 127, .75); }
+    .feedback.error .feedback-icon { color: white; background: var(--red); }
+    .feedback.reveal { border-color: rgba(255, 242, 0, .7); }
+    .feedback.reveal .feedback-icon { background: var(--yellow); }
+
+    .teacher-toolbar {
+      min-height: 56px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .toolbar-left,
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .teacher-tip {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 750;
+      text-align: right;
+    }
+
+    .tool-button {
+      min-height: 50px;
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--soft);
+      background: var(--panel);
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, opacity .12s ease;
+    }
+
+    .tool-button.primary {
+      color: var(--bg);
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+
+    .tool-button.confirm {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .tool-button:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+
+    .finish-card {
+      grid-column: 1 / -1;
+      min-height: 100%;
+      padding: clamp(30px, 5vw, 70px);
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .finish-inner { width: min(850px, 100%); }
+
+    .finish-mark {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--mint);
+      font-size: 2.45rem;
+      font-weight: 950;
+    }
+
+    .finish-card h3 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 4rem);
+    }
+
+    .finish-card p {
+      max-width: 680px;
+      margin: 14px auto 0;
+      color: var(--soft);
+      font-size: clamp(1rem, 1.5vw, 1.22rem);
+      line-height: 1.45;
+    }
+
+    .finish-model {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-left: 7px solid var(--yellow);
+      border-radius: 12px;
+      color: var(--text);
+      background: var(--bg);
+      font-size: clamp(1rem, 1.45vw, 1.2rem);
+      font-weight: 800;
+      text-align: left;
+    }
+
+    @media (max-width: 1000px) {
+      body { overflow: auto; }
+      .shell { min-height: 100vh; }
+      .lesson-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lesson-tab:last-child { grid-column: span 2; }
+      .stage { grid-template-columns: 1fr; }
+      .teacher-toolbar,
+      .toolbar-left,
+      .toolbar-right { flex-wrap: wrap; }
+      .teacher-tip { max-width: none; flex: 1 1 100%; text-align: left; }
+    }
+
+    @media (max-width: 680px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .routine { min-width: 0; width: 100%; }
+      .activity-heading { grid-template-columns: 1fr; }
+      .choice-grid { grid-template-columns: 1fr; }
+      .oral-gate { grid-template-columns: 1fr; }
+      .activity-card { overflow: visible; }
+      .teacher-toolbar { flex-direction: column; }
+      .toolbar-left,
+      .toolbar-right { width: 100%; }
+      .tool-button { flex: 1 1 auto; }
+    }
+
+    @media (max-height: 850px) and (min-width: 1001px) {
+      .shell { padding-top: 9px; padding-bottom: 9px; gap: 8px; }
+      .topbar h1 { font-size: 1.7rem; }
+      .routine { min-height: 46px; }
+      .routine-number { width: 36px; height: 36px; }
+      .lesson-tab { min-height: 48px; padding: 6px 10px; }
+      .activity-card { padding: 13px 18px; gap: 9px; grid-template-rows: auto auto minmax(255px, 1fr) auto; }
+      h2 { font-size: clamp(1.7rem, 2.5vw, 2.55rem); }
+      .instruction { margin-top: 5px; }
+      .prompt-card { padding: 20px 28px; }
+      .prompt-text { font-size: clamp(1.2rem, 1.9vw, 1.95rem); }
+      .choice { min-height: 62px; padding-top: 10px; padding-bottom: 10px; }
+      .feedback { min-height: 58px; padding-top: 7px; padding-bottom: 7px; }
+      .teacher-toolbar { min-height: 48px; }
+      .tool-button { min-height: 44px; }
+    }
+
+    .root-bank { font-size: .92rem; color: var(--soft); border-top: 1px solid var(--line); padding-top: 10px; }
+    .root-bank summary { cursor: pointer; color: var(--yellow); min-height: 44px; display: flex; align-items: center; font-weight: 850; }
+    .root-bank p { margin: 0; line-height: 1.6; }
+    .tier-step { cursor: pointer; min-height: 44px; font: inherit; font-weight: 850; }
+    .tier-step:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand-line">
+        <a class="home-link" href="../index.html" aria-label="Return to lesson library">‹</a>
+        <div>
+          <div class="brand-kicker">MRISB | GRADE 8 ENGLISH</div>
+          <h1>Week 11 Touchscreen Challenge</h1>
+        </div>
+      </div>
+      <div class="routine" aria-label="Classroom routine">
+        <span class="routine-number" id="turnNumber">01</span>
+        <span><strong>Read fully.</strong> Choose carefully. Explain the link.</span>
+      </div>
+    </header>
+
+    <nav class="lesson-tabs" aria-label="Select a lesson">
+      <button class="lesson-tab active" data-lesson="1"><span>Lesson 1</span><strong>Personality Vocabulary</strong></button>
+      <button class="lesson-tab" data-lesson="2"><span>Lesson 2</span><strong>Inferences + Reading</strong></button>
+      <button class="lesson-tab" data-lesson="3"><span>Lesson 3</span><strong>Close Reading + Roots</strong></button>
+      <button class="lesson-tab" data-lesson="4"><span>Lesson 4</span><strong>Indirect Questions</strong></button>
+      <button class="lesson-tab" data-lesson="5"><span>Lesson 5</span><strong>Improve Your Argument</strong></button>
+    </nav>
+
+    <main class="activity-card">
+      <section class="activity-heading">
+        <div>
+          <p class="eyebrow" id="activityEyebrow"></p>
+          <h2 id="activityTitle"></h2>
+          <p class="instruction" id="activityInstruction"></p>
+        </div>
+        <div>
+          <div class="score-line"><span id="progressText"></span><span id="scoreText"></span></div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+      </section>
+
+      <section class="tier-track" aria-label="Challenge level">
+        <button class="tier-step" data-tier="START" aria-label="Jump to start questions">START | Recognise</button>
+        <button class="tier-step" data-tier="BUILD" aria-label="Jump to build questions">BUILD | Apply</button>
+        <button class="tier-step" data-tier="EXTEND" aria-label="Jump to extend questions">EXTEND | Justify</button>
+      </section>
+
+      <section class="stage" id="activityStage" aria-live="polite"></section>
+
+      <section class="feedback" id="feedbackPanel" aria-live="assertive">
+        <div class="feedback-icon" id="feedbackIcon">?</div>
+        <div><strong id="feedbackTitle">Read every option</strong><p id="feedbackText">The board player chooses only after the class has formed an answer.</p></div>
+      </section>
+    </main>
+
+    <footer class="teacher-toolbar">
+      <div class="toolbar-left">
+        <button class="tool-button" id="resetButton">Reset lesson</button>
+        <button class="tool-button" id="revealButton">Reveal answer</button>
+        <button class="tool-button" id="soundButton" aria-pressed="true">Sound on</button>
+      </div>
+      <div class="toolbar-right">
+        <span class="teacher-tip" id="teacherTip"></span>
+        <button class="tool-button primary" id="nextButton" disabled>Next challenge</button>
+        <button class="tool-button" id="fullscreenButton">Full screen</button>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const lessons = {
+  "1": {
+    "eyebrow": "LESSON 1 | SB 140 · LC 54 A",
+    "title": "Words that change the judgement",
+    "instruction": "Read silently. Choose the most precise meaning, defend it, then create a sentence of your own.",
+    "tip": "Use 3–5 challenges in the lesson. Extension questions are a bank, not a race.",
+    "finishTitle": "Precise words, careful judgements",
+    "finishText": "Return to LC 54 A: Key Vocabulary. Complete or correct the activity. Use your copied word bank.",
+    "finishModel": "A convincing example gives enough context to prove the meaning. Unusual is not the same as reckless.",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "CONTEXT | NOT JUST UNUSUAL",
+        "prompt": "A climber checks the forecast, practises the route and uses safety equipment. Which sentence is most accurate?",
+        "options": [
+          "The unusual activity proves that the climber is reckless.",
+          "The preparation exhibits careful planning, even though risk remains.",
+          "The equipment removes every possible sensation of fear.",
+          "The climber’s susceptibility means that the route is common."
+        ],
+        "answer": "The preparation exhibits careful planning, even though risk remains.",
+        "why": "Exhibits means shows. Preparation is evidence of planning; an unusual activity alone does not prove disregard for consequences.",
+        "gate": "Point to the preparation clue. Use reckless in a different sentence that clearly shows ignored consequences."
+      },
+      {
+        "tier": "START",
+        "label": "NEAR-SYNONYMS | PREVALENT",
+        "prompt": "A habit is prevalent among a group. What must be true?",
+        "options": [
+          "The habit is especially noticeable whenever it occurs.",
+          "The habit is approved of by nearly everyone in the group.",
+          "The habit occurs commonly across the group.",
+          "The habit has serious effects on those who have it."
+        ],
+        "answer": "The habit occurs commonly across the group.",
+        "why": "Prevalent describes how common something is, not how visible, popular or serious it is.",
+        "gate": "Explain why a dramatic habit seen once may be noticeable but not prevalent. Give your own example."
+      },
+      {
+        "tier": "START",
+        "label": "TWO GAPS | WORD FORM",
+        "prompt": "Select the best pair: “Patience is one of his strongest ____. He often ____ it when work takes longer than expected.”",
+        "options": [
+          "characteristics / exhibits",
+          "sensations / prevails",
+          "susceptibilities / characterises",
+          "exhibits / senses"
+        ],
+        "answer": "characteristics / exhibits",
+        "why": "Characteristics are qualities; exhibits is the verb shows. The singular subject he needs exhibits.",
+        "gate": "Name the noun and the verb. Create a new sentence using a different characteristic."
+      },
+      {
+        "tier": "BUILD",
+        "label": "ANTONYM | KEEP THE MEANING",
+        "prompt": "Which word is the best opposite of reckless in “a reckless decision”?",
+        "options": [
+          "ordinary — a decision many people would make",
+          "fearful — a decision made while feeling afraid",
+          "fortunate — a decision with a lucky result",
+          "cautious — a decision made with attention to possible harm"
+        ],
+        "answer": "cautious — a decision made with attention to possible harm",
+        "why": "Cautious directly opposes disregard for consequences. A common or lucky decision can still be reckless.",
+        "gate": "Explain why a good outcome does not automatically make the original decision cautious."
+      },
+      {
+        "tier": "BUILD",
+        "label": "CONTEXT | SUSCEPTIBILITY",
+        "prompt": "Two identical metal panels face damp air. One has a protective coating. It is less likely to rust. Which description is precise?",
+        "options": [
+          "The coating increases the prevalence of rust.",
+          "The coated panel has lower susceptibility to rust.",
+          "The coated panel experiences a weaker sensation of rust.",
+          "Rust is no longer a characteristic of any metal."
+        ],
+        "answer": "The coated panel has lower susceptibility to rust.",
+        "why": "Lower susceptibility means less vulnerability to the effect. The example does not claim that rust is impossible.",
+        "gate": "Replace susceptibility with a short phrase without changing the meaning. Then make a new example."
+      },
+      {
+        "tier": "BUILD",
+        "label": "MEANING IN CONTEXT | SENSATION",
+        "prompt": "Which use of sensation matches this week’s meaning: a physical feeling?",
+        "options": [
+          "The new film became an overnight sensation.",
+          "The unexpected news caused a sensation online.",
+          "A tingling sensation spread through his cold fingers.",
+          "The invention was described as a worldwide sensation."
+        ],
+        "answer": "A tingling sensation spread through his cold fingers.",
+        "why": "Tingling is a physical feeling. The other examples use a different meaning: something that attracts great attention.",
+        "gate": "Name another physical sensation and place it in a complete sentence."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "PRECISION | REPAIR THE CLAIM",
+        "prompt": "“Risk-taking videos are prevalent online, so every student who watches them is reckless.” Which revision is best supported?",
+        "options": [
+          "The videos may be common, but viewing them alone does not show disregard for consequences.",
+          "The videos may be common, so most viewers will eventually ignore safety.",
+          "The videos are common only because all viewers enjoy physical danger.",
+          "The videos are uncommon whenever viewers decide to act cautiously."
+        ],
+        "answer": "The videos may be common, but viewing them alone does not show disregard for consequences.",
+        "why": "Prevalence describes frequency. Recklessness concerns choices and consequences; one claim does not prove the other.",
+        "gate": "Give one piece of evidence you would need before describing a particular decision as reckless."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "NUANCE | TWO QUALITIES",
+        "prompt": "A student enjoys new experiences but checks safety rules before each activity. Which statement avoids an unfair label?",
+        "options": [
+          "Enjoying new experiences is proof of susceptibility to every danger.",
+          "Safety checks mean that excitement cannot be a sensation the student enjoys.",
+          "A cautious choice means the student never exhibits curiosity.",
+          "Curiosity and caution can both be characteristics of the same person."
+        ],
+        "answer": "Curiosity and caution can both be characteristics of the same person.",
+        "why": "Different characteristics can coexist. A preference for novelty does not prove careless decision-making.",
+        "gate": "Use exhibit and characteristics in one natural sentence about the example."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "WORD CHOICE | DEFEND THE BEST PAIR",
+        "prompt": "“Although the behaviour is ____, it is not harmless. Ignoring repeated safety warnings can be ____.” Which pair is most precise?",
+        "options": [
+          "reckless / prevalent",
+          "prevalent / reckless",
+          "susceptible / characteristic",
+          "sensational / exhibited"
+        ],
+        "answer": "prevalent / reckless",
+        "why": "The first gap means common; the second describes disregard for possible harm. Frequency does not establish safety.",
+        "gate": "Create a different two-sentence example that distinguishes common from safe."
+      }
+    ]
+  },
+  "2": {
+    "eyebrow": "LESSON 2 | SB 141–147 · LC 55 C",
+    "title": "Inference: prove the missing link",
+    "instruction": "Separate what the text states from what the evidence allows you to infer. Be ready to revise a claim.",
+    "tip": "Use the article and your knowledge. An inference is supported reasoning, not a personality diagnosis.",
+    "finishTitle": "A clue is stronger than a guess",
+    "finishText": "Return to LC 55 C: Making Inferences. Pair a relevant clue with what you know, then state a careful inference.",
+    "finishModel": "The text suggests… because… . This does not prove that every person will react in the same way.",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "CLUE + KNOWLEDGE | INFERENCE",
+        "prompt": "A student has practised a difficult speech several times and still chooses to present. Which is the strongest inference?",
+        "options": [
+          "The student has stopped experiencing all fear.",
+          "The student is certain to receive the highest mark.",
+          "Preparation may help the student act despite uncertainty.",
+          "The student has always enjoyed speaking to large groups."
+        ],
+        "answer": "Preparation may help the student act despite uncertainty.",
+        "why": "Repeated practice supports an inference about preparation. It does not reveal every feeling, past experience or eventual result.",
+        "gate": "Identify the clue and the background knowledge you used. Name one thing you still cannot know."
+      },
+      {
+        "tier": "START",
+        "label": "ARTICLE | VISIBILITY OR ORIGIN?",
+        "prompt": "The interview says sensation-seeking existed before social media, which now makes it more visible. Which inference follows?",
+        "options": [
+          "More visible examples do not by themselves prove that the trait is new.",
+          "Social media cannot influence anyone’s choices or opportunities.",
+          "Everyone who posts an unusual activity has the same personality.",
+          "Before social media, sensation-seeking activities were impossible."
+        ],
+        "answer": "More visible examples do not by themselves prove that the trait is new.",
+        "why": "Visibility and origin are different. The text also allows that social media may reinforce activity or provide opportunities.",
+        "gate": "Explain why the second option goes further than the evidence allows."
+      },
+      {
+        "tier": "START",
+        "label": "ARTICLE | NOT EASILY BORED",
+        "prompt": "The interview links low boredom susceptibility with willingness to repeat demanding practice. What is the best inference?",
+        "options": [
+          "Such people always choose the safest possible activities.",
+          "Repeated practice prevents every form of frustration.",
+          "People who practise a lot cannot enjoy new experiences.",
+          "Tolerating repetition may help someone develop a difficult skill."
+        ],
+        "answer": "Tolerating repetition may help someone develop a difficult skill.",
+        "why": "A willingness to repeat practice can support skill development. It does not guarantee safety or a particular personality.",
+        "gate": "Explain the meaning of low in low boredom susceptibility."
+      },
+      {
+        "tier": "BUILD",
+        "label": "REVISE AN INFERENCE | NEW EVIDENCE",
+        "prompt": "At first, an extreme sport looks careless. Later, the article describes months of training and careful preparation. What should a reader do?",
+        "options": [
+          "Keep the first judgement because first impressions are usually strongest.",
+          "Revise the judgement: appearance alone did not establish recklessness.",
+          "Conclude that trained participants face no remaining danger.",
+          "Ignore the training because only the final outcome matters."
+        ],
+        "answer": "Revise the judgement: appearance alone did not establish recklessness.",
+        "why": "New relevant evidence should refine an inference. Preparation changes the judgement without eliminating risk.",
+        "gate": "State the revised inference using may or suggests, then say what remains uncertain."
+      },
+      {
+        "tier": "BUILD",
+        "label": "ARTICLE | BODY RESPONSES",
+        "prompt": "The interview reports that some high sensation-seekers may experience less stress and more pleasure in chaotic conditions. Which inference is safest?",
+        "options": [
+          "Chaotic situations are objectively safe for high sensation-seekers.",
+          "Feeling pleasure proves that a person has assessed all dangers.",
+          "The same setting can feel different to different people.",
+          "Every person who stays calm belongs to one fixed personality type."
+        ],
+        "answer": "The same setting can feel different to different people.",
+        "why": "The evidence concerns different responses, not guaranteed safety or a way to label individuals.",
+        "gate": "Distinguish how a risk feels from how dangerous it may be."
+      },
+      {
+        "tier": "BUILD",
+        "label": "CHOOSE EVIDENCE | TEST A CLAIM",
+        "prompt": "Claim: “It is unfair to judge preparation from how dramatic an activity looks.” Which article detail best supports it?",
+        "options": [
+          "Some wingsuit fliers and ice climbers practise for months.",
+          "The interview is organised as questions and answers.",
+          "The article discusses several personality components.",
+          "Social media can make unusual activities more visible."
+        ],
+        "answer": "Some wingsuit fliers and ice climbers practise for months.",
+        "why": "Months of practice directly challenges the assumption that a dramatic activity is unprepared.",
+        "gate": "Add the explanation that connects this evidence to the claim."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "QUALIFY THE CONCLUSION | HABITUATION",
+        "prompt": "After repeating an activity, someone feels less afraid. Which conclusion stays within the article’s evidence?",
+        "options": [
+          "Repetition has removed all risks from the activity.",
+          "The person’s personality has permanently changed.",
+          "Everyone will now enjoy the activity equally.",
+          "Repetition may have reduced fear, but reactions can still differ."
+        ],
+        "answer": "Repetition may have reduced fear, but reactions can still differ.",
+        "why": "Habituation can reduce fear through repetition. It does not guarantee a change of personality or identical reactions.",
+        "gate": "Name another possible explanation you would investigate before making a stronger claim."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "MISSING INFORMATION | INFERENCE LIMIT",
+        "prompt": "A video shows a climber calm on a difficult route. What extra information would most improve a judgement about the decision?",
+        "options": [
+          "How many viewers liked the video after it was posted.",
+          "The climber’s training, equipment and knowledge of conditions.",
+          "Whether the background music sounds exciting.",
+          "Whether the route looks unusual from the camera angle."
+        ],
+        "answer": "The climber’s training, equipment and knowledge of conditions.",
+        "why": "Preparation and conditions help judge a decision. Presentation and popularity are weak evidence of safety.",
+        "gate": "Explain why calmness alone cannot prove either preparation or recklessness."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "TWO INFERENCES | WHICH IS DEFENSIBLE?",
+        "prompt": "The interview describes strengths in both high and low sensation-seekers. Which inference fits best?",
+        "options": [
+          "One type should make every decision for the other type.",
+          "The two groups cannot work together effectively.",
+          "Different responses may contribute different strengths to a team.",
+          "All members of each group will behave identically."
+        ],
+        "answer": "Different responses may contribute different strengths to a team.",
+        "why": "The article describes useful differences, such as emergency focus and prevention, without making one type universally superior.",
+        "gate": "Use two article details to support this inference, then name a limit to it."
+      }
+    ]
+  },
+  "3": {
+    "eyebrow": "LESSON 3 | SB 148–149 · LC 55 A–B, 56",
+    "title": "Read closely. Build word meanings.",
+    "instruction": "Use the article, word roots and context together. A useful word part is a clue, not proof on its own.",
+    "tip": "Open the root bank when needed. No dictionary or thesaurus is required.",
+    "support": "Root bank: psych = mind; sens = feel; neuro = nervous system; aqu = water; gen = family; lingu = language; photo = light; phob = fear; super = over.",
+    "finishTitle": "Roots plus context",
+    "finishText": "Complete or correct LC 56: Greek and Latin Roots. Revisit LC 55 A–B and SB 148 for the reading responses.",
+    "finishModel": "Use the root to predict a meaning, then check that prediction in the sentence. Keep claims about the article qualified.",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "ROOT + CONTEXT | LANGUAGE",
+        "prompt": "“The bilingual guide explained the route in Arabic and English.” Which word part best supports the meaning?",
+        "options": [
+          "lingu, because the sentence concerns language",
+          "gen, because the sentence concerns a family",
+          "photo, because the sentence concerns light",
+          "phob, because the sentence concerns fear"
+        ],
+        "answer": "lingu, because the sentence concerns language",
+        "why": "Lingu points to language. The two named languages confirm the meaning of bilingual in context.",
+        "gate": "Use bilingual in a new sentence that makes its meaning clear."
+      },
+      {
+        "tier": "START",
+        "label": "ROOT + CONTEXT | MIND",
+        "prompt": "A psychologist studies how people think, feel and behave. Which root helps explain the job?",
+        "options": [
+          "sens, which proves the job studies only physical feelings",
+          "aqu, which points to work near water",
+          "super, which shows the person is above other people",
+          "psych, which points to the mind"
+        ],
+        "answer": "psych, which points to the mind",
+        "why": "Psych means mind. Context helps us connect the root to thinking, feelings and behaviour.",
+        "gate": "Explain why knowing one root gives a clue rather than the full definition of every related word."
+      },
+      {
+        "tier": "START",
+        "label": "ROOT + CONTEXT | FEAR",
+        "prompt": "“Aerophobia made boarding the flight difficult.” Which inference is supported by the root and context?",
+        "options": [
+          "The traveller is interested in the language used at the airport.",
+          "The traveller experiences fear connected with flying.",
+          "The traveller is unable to see bright light clearly.",
+          "The traveller has inherited a preference for water travel."
+        ],
+        "answer": "The traveller experiences fear connected with flying.",
+        "why": "Phob signals fear and boarding a flight supplies the flying context. A preference for water travel is not stated.",
+        "gate": "Which part of the meaning came from the root, and which part came from the sentence?"
+      },
+      {
+        "tier": "BUILD",
+        "label": "ARTICLE | CORRECT THE GENERALISATION",
+        "prompt": "Which correction best fits the interview?",
+        "options": [
+          "All thrill-seekers get bored easily, so none can practise regularly.",
+          "No thrill-seeker gets bored easily, because all enjoy repetition.",
+          "Some become bored easily; others tolerate the repetition needed for training.",
+          "Boredom susceptibility tells us nothing about a response to repetition."
+        ],
+        "answer": "Some become bored easily; others tolerate the repetition needed for training.",
+        "why": "The text allows variation. Low boredom susceptibility can support repeated practice; do not generalise to everyone.",
+        "gate": "Use the words some and others to explain the distinction in your own words."
+      },
+      {
+        "tier": "BUILD",
+        "label": "ROOT + CONTEXT | BIOLOGY",
+        "prompt": "“A neurotransmitter carries signals between nerve cells.” Which meaning is best supported?",
+        "options": [
+          "A chemical messenger used by the nervous system.",
+          "A trait that is common in a large group.",
+          "A method of changing words into another language.",
+          "A physical structure that stores water."
+        ],
+        "answer": "A chemical messenger used by the nervous system.",
+        "why": "Neuro points to the nervous system; the sentence explains the messenger function.",
+        "gate": "Identify the root clue and the context clue separately."
+      },
+      {
+        "tier": "BUILD",
+        "label": "ROOT + CONTEXT | FAMILY CONNECTION",
+        "prompt": "“Researchers examined a genetic characteristic passed through generations.” Which explanation fits gen and the context?",
+        "options": [
+          "The characteristic is learned from a photograph.",
+          "The characteristic is a fear caused by language.",
+          "The characteristic is a feeling caused by water.",
+          "The characteristic has a connection with family inheritance."
+        ],
+        "answer": "The characteristic has a connection with family inheritance.",
+        "why": "The LC root bank gives gen as family; passed through generations supports inheritance in this sentence.",
+        "gate": "Explain why this sentence does not establish that every characteristic is inherited."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "CHECK A ROOT GUESS | PHOTO",
+        "prompt": "“Light-sensitive paper changed during the photography experiment.” Which explanation uses both the root and context?",
+        "options": [
+          "Photo means a picture, so the sentence must describe a drawing.",
+          "Photo relates to light; the experiment’s light-sensitive material supports that clue.",
+          "Photo relates to fear; the experiment must be frightening.",
+          "Photo relates to family; the experiment must study inherited traits."
+        ],
+        "answer": "Photo relates to light; the experiment’s light-sensitive material supports that clue.",
+        "why": "Photo means light. The sentence confirms the connection; a photograph is made using light, not necessarily drawing.",
+        "gate": "Make a sentence about photography that demonstrates the light connection without copying this one."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "ARTICLE | EVIDENCE AND EXPLANATION",
+        "prompt": "Which response best explains why different sensation-seeking traits may help a team?",
+        "options": [
+          "Different traits help because differences are always helpful.",
+          "A calm response proves that a person can manage every emergency.",
+          "Some trained people remain focused in chaos; others help anticipate problems. These strengths can complement each other.",
+          "The article lists personality components, so every group needs one person of each type."
+        ],
+        "answer": "Some trained people remain focused in chaos; others help anticipate problems. These strengths can complement each other.",
+        "why": "The response connects two relevant article ideas to a cautious conclusion. It neither guarantees performance nor prescribes fixed labels.",
+        "gate": "Give a fair counterpoint: what else would matter besides personality?"
+      },
+      {
+        "tier": "EXTEND",
+        "label": "LIMITS OF ROOTS | TEST THE METHOD",
+        "prompt": "A student sees familiar letters inside an unfamiliar word and guesses its meaning. What is the strongest next step?",
+        "options": [
+          "Check whether the root-based prediction fits the sentence and the known word family.",
+          "Accept the guess because familiar letters always form the same root.",
+          "Reject the guess because word parts never give reliable clues.",
+          "Choose the longest definition because it is most likely to be precise."
+        ],
+        "answer": "Check whether the root-based prediction fits the sentence and the known word family.",
+        "why": "A root is useful evidence, but context and a genuine word-family connection are needed to avoid a false split.",
+        "gate": "Explain your process using one word from the visible root bank."
+      }
+    ]
+  },
+  "4": {
+    "eyebrow": "LESSON 4 | LC 57–58",
+    "title": "Questions inside questions",
+    "instruction": "Keep the meaning. Fix the embedded word order, verb form and punctuation. Explain the exact repair.",
+    "tip": "Check the outer sentence first. Inside the question: subject + verb. For yes/no questions, use if or whether.",
+    "finishTitle": "Order, form, punctuation",
+    "finishText": "Complete or correct LC 57–58: Direct and Indirect Questions. Use the model sentence patterns from your copybook.",
+    "finishModel": "Where is the office? → Can you tell me where the office is? / I wonder where the office is.",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "WH-QUESTION | KEEP THE ORDER",
+        "prompt": "Choose the correct indirect form of “Where is the equipment?”",
+        "options": [
+          "Can you tell me where is the equipment?",
+          "Can you tell me where the equipment is?",
+          "Can you tell me where does the equipment is?",
+          "Can you tell me if where the equipment is?"
+        ],
+        "answer": "Can you tell me where the equipment is?",
+        "why": "Keep where, then use subject the equipment + verb is. If is not added before a wh-word.",
+        "gate": "Say the embedded subject and verb in order."
+      },
+      {
+        "tier": "START",
+        "label": "YES/NO | ADD THE LINK",
+        "prompt": "Choose the correct indirect form of “Does the club meet on Monday?”",
+        "options": [
+          "Do you know does the club meet on Monday?",
+          "Do you know if the club meet on Monday?",
+          "Do you know if does the club meet on Monday?",
+          "Do you know whether the club meets on Monday?"
+        ],
+        "answer": "Do you know whether the club meets on Monday?",
+        "why": "A yes/no question needs if or whether. Remove does and put the present-tense ending on meets.",
+        "gate": "Give the same correct question with if. Explain what happened to does."
+      },
+      {
+        "tier": "START",
+        "label": "PAST TENSE | KEEP THE TIME",
+        "prompt": "Choose the correct form of “When did they finish?”",
+        "options": [
+          "I wonder when they finished.",
+          "I wonder when did they finish.",
+          "I wonder when they did finished.",
+          "I wonder when they finish?"
+        ],
+        "answer": "I wonder when they finished.",
+        "why": "Remove question did and use finished to retain past time. I wonder forms a statement, so it ends with a full stop.",
+        "gate": "Name both changes: the verb form and the punctuation."
+      },
+      {
+        "tier": "BUILD",
+        "label": "MODAL VERB | EMBEDDED CLAUSE",
+        "prompt": "Choose the correct indirect form of “How can we reduce the risk?”",
+        "options": [
+          "Could you explain how can we reduce the risk?",
+          "Could you explain how do we can reduce the risk?",
+          "Could you explain how we can reduce the risk?",
+          "Could you explain if how we can reduce the risk?"
+        ],
+        "answer": "Could you explain how we can reduce the risk?",
+        "why": "The embedded clause puts we before can. Keep the modal and the wh-word.",
+        "gate": "Identify which part still uses question order and which part uses statement order."
+      },
+      {
+        "tier": "BUILD",
+        "label": "SUBJECT QUESTION | DO NOT OVER-REPAIR",
+        "prompt": "Choose the correct indirect form of “Who checked the route?”",
+        "options": [
+          "Do you know who did checked the route?",
+          "Do you know who checked the route?",
+          "Do you know who the route checked?",
+          "Do you know if who checked the route?"
+        ],
+        "answer": "Do you know who checked the route?",
+        "why": "Who is the subject doing the checking, so who checked already has the needed order. Do not add did or if.",
+        "gate": "Explain how this differs from “Who did you ask?”"
+      },
+      {
+        "tier": "BUILD",
+        "label": "PUNCTUATION | OUTER SENTENCE",
+        "prompt": "Which pair is correctly punctuated?",
+        "options": [
+          "I wonder whether the route is open? / Do you know whether the route is open.",
+          "I wonder whether the route is open? / Do you know whether the route is open?",
+          "I wonder whether the route is open. / Do you know whether the route is open.",
+          "I wonder whether the route is open. / Do you know whether the route is open?"
+        ],
+        "answer": "I wonder whether the route is open. / Do you know whether the route is open?",
+        "why": "I wonder is a statement. Do you know is an outer question. Punctuation follows the whole sentence, not just the embedded idea.",
+        "gate": "Create a new pair using the same embedded clause in two different outer frames."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "THREE REPAIRS | FORM + ORDER + PUNCTUATION",
+        "prompt": "Repair: “I wonder why did the group leaves early?”",
+        "options": [
+          "I wonder why the group left early.",
+          "I wonder why the group did left early.",
+          "I wonder why left the group early.",
+          "I wonder why the group leaves early?"
+        ],
+        "answer": "I wonder why the group left early.",
+        "why": "Use subject the group before the verb, replace did + base verb with past left, and finish the outer statement with a full stop.",
+        "gate": "Explain all three repairs without saying only “it sounds right”."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "PRESERVE MEANING | NO AUTOMATIC BACKSHIFT",
+        "prompt": "The lab is open now. Turn “Is the lab open?” into a polite current question.",
+        "options": [
+          "Could you tell me was the lab open?",
+          "Could you tell me whether the lab had been open?",
+          "Could you tell me whether the lab is open?",
+          "Could you tell me whether is the lab open?"
+        ],
+        "answer": "Could you tell me whether the lab is open?",
+        "why": "Could you is a polite frame. It does not force the current question into the past. Keep is and use statement order inside.",
+        "gate": "Explain why could in the outer frame does not mean that the lab question is about yesterday."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "REVERSE THE TRANSFORMATION",
+        "prompt": "Indirect question: “Do you know why the captain chose that route?” Which direct question preserves the meaning?",
+        "options": [
+          "Why the captain chose that route?",
+          "Why did the captain choose that route?",
+          "Why did the captain chose that route?",
+          "Why does the captain choose that route?"
+        ],
+        "answer": "Why did the captain choose that route?",
+        "why": "A direct past-simple question needs did + subject + base verb choose. The other forms lose correct question order or change the time.",
+        "gate": "Change it back to an indirect statement beginning “I do not know…” and punctuate it correctly."
+      }
+    ]
+  },
+  "5": {
+    "eyebrow": "LESSON 5 | SB 96–99 · EXISTING RISK ESSAY",
+    "title": "Make your argument harder to dismiss",
+    "instruction": "Test the reasoning in your existing essay. Improve the claim, evidence, rebuttal and conclusion before the debate.",
+    "tip": "Revise the same Week 10 essay. Today is preparation; final hand-in follows the Lesson 6 debate.",
+    "finishTitle": "Revise, debate, improve, submit",
+    "finishText": "Return to your existing “Are Risks Necessary for Success?” essay. Use the Week 10 feedback, revise and complete the peer check.",
+    "finishModel": "Keep the prior 250–300-word target. Use a thesis, three distinct reasons with evidence, a fair counterargument/rebuttal and a conclusion. Final submission follows the Lesson 6 debate.",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "THESIS | ANSWER THE PRECISE QUESTION",
+        "prompt": "Which thesis best answers “Are risks necessary for success?” without claiming too much?",
+        "options": [
+          "Risk is interesting because different people enjoy different activities.",
+          "Every successful decision must involve serious physical danger.",
+          "Success often requires accepting uncertainty, although reckless danger is not a requirement.",
+          "There are advantages and disadvantages that this essay will discuss."
+        ],
+        "answer": "Success often requires accepting uncertainty, although reckless danger is not a requirement.",
+        "why": "The thesis takes a qualified position on necessity and distinguishes uncertainty from reckless danger.",
+        "gate": "State the position in simpler words, then suggest one distinct reason."
+      },
+      {
+        "tier": "START",
+        "label": "THREE REASONS | AVOID REPEATING ONE IDEA",
+        "prompt": "Which outline offers three genuinely different reasons for taking calculated risks?",
+        "options": [
+          "New opportunities / learning from setbacks / testing an untried solution",
+          "Being brave / showing courage / demonstrating boldness",
+          "Helping success / supporting achievement / making progress",
+          "Gaining experience / learning through experience / becoming more experienced"
+        ],
+        "answer": "New opportunities / learning from setbacks / testing an untried solution",
+        "why": "The first outline can develop opportunity, learning and innovation separately. The other sets largely restate the same reason.",
+        "gate": "Describe the different evidence each of the three paragraphs would need."
+      },
+      {
+        "tier": "START",
+        "label": "EVIDENCE | FIT THE REASON",
+        "prompt": "Reason: “Preparation can turn some risks into informed choices.” Which detail from this week’s article fits best?",
+        "options": [
+          "The article is an interview with a psychologist.",
+          "Social media can make unusual activities more visible.",
+          "The article describes several personality components.",
+          "Some wingsuit fliers and ice climbers practise for months."
+        ],
+        "answer": "Some wingsuit fliers and ice climbers practise for months.",
+        "why": "The training detail directly illustrates preparation. The other facts do not support this reason as precisely.",
+        "gate": "Add one explanation sentence linking the training detail to informed choice."
+      },
+      {
+        "tier": "BUILD",
+        "label": "EVIDENCE LIMIT | DO NOT INVENT PROOF",
+        "prompt": "“Some athletes train for months, so every well-prepared risk succeeds.” Which revision best fits the evidence?",
+        "options": [
+          "Training proves that successful people never experience failure.",
+          "Preparation can improve a decision, but the example does not guarantee success.",
+          "Training has no connection with the quality of a risky decision.",
+          "Every risk is equally sensible if someone wants success enough."
+        ],
+        "answer": "Preparation can improve a decision, but the example does not guarantee success.",
+        "why": "The evidence supports a limited claim about preparation. It does not establish a universal guarantee of success.",
+        "gate": "Explain the difference between evidence supporting a claim and evidence proving an absolute."
+      },
+      {
+        "tier": "BUILD",
+        "label": "COUNTERARGUMENT | TAKE IT SERIOUSLY",
+        "prompt": "Which counterargument most fairly challenges the idea that risk is necessary for success?",
+        "options": [
+          "Successful people probably enjoy all the same activities.",
+          "Risk has no clear meaning, so success cannot be discussed.",
+          "Steady practice can achieve many goals without adding unnecessary danger.",
+          "People who favour risk simply dislike careful preparation."
+        ],
+        "answer": "Steady practice can achieve many goals without adding unnecessary danger.",
+        "why": "It offers a plausible alternative path and challenges the meaning of necessary without misrepresenting the opposing side.",
+        "gate": "Concede one fair point, then identify what your essay still needs to defend."
+      },
+      {
+        "tier": "BUILD",
+        "label": "REBUTTAL | CONCEDE AND RESPOND",
+        "prompt": "Which response best answers that counterargument?",
+        "options": [
+          "Steady practice matters, but trying a new opportunity may still require accepting possible failure.",
+          "Steady practice does not count as success because it is not exciting.",
+          "People who avoid danger cannot have worthwhile goals.",
+          "Preparation guarantees success, so the counterargument is irrelevant."
+        ],
+        "answer": "Steady practice matters, but trying a new opportunity may still require accepting possible failure.",
+        "why": "It recognises the valid role of practice and distinguishes uncertainty from unnecessary physical danger.",
+        "gate": "Identify the concession and the response. Add one relevant example without inventing a statistic."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "CONCLUSION | SYNTHESISE, DO NOT ADD A NEW CASE",
+        "prompt": "Which ending best concludes an essay arguing for calculated risk?",
+        "options": [
+          "A new survey proves that nearly everyone needs danger, although it was not discussed earlier.",
+          "In conclusion, risk is risk and success means being successful.",
+          "The essay has mentioned reasons, so the reader should agree with all risks.",
+          "Meaningful goals may require uncertainty; purpose, preparation and possible harm should guide which risks we accept."
+        ],
+        "answer": "Meaningful goals may require uncertainty; purpose, preparation and possible harm should guide which risks we accept.",
+        "why": "The conclusion synthesises the position and criteria. It introduces no unsupported statistic and does not turn a qualified argument into an absolute.",
+        "gate": "Explain how this ending links back to the thesis without merely copying it."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "PEER FEEDBACK | MAKE THE NEXT EDIT CLEAR",
+        "prompt": "A draft gives three reasons but only the first has evidence. Which comment is most useful?",
+        "options": [
+          "Your vocabulary is good, so you should leave the body paragraphs as they are.",
+          "Add a relevant example to reasons two and three, then explain how each supports the thesis.",
+          "Make the essay much longer so every reason occupies more space.",
+          "Replace the thesis with a more dramatic claim to make the argument sound stronger."
+        ],
+        "answer": "Add a relevant example to reasons two and three, then explain how each supports the thesis.",
+        "why": "The feedback identifies a specific gap and a concrete revision. Length or dramatic wording alone will not fix missing support.",
+        "gate": "Give one strength as well as this improvement, then let the writer decide how to revise."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "AFTER DEBATE | RESPOND TO A STRONG CHALLENGE",
+        "prompt": "During the debate, a speaker gives a convincing example of success through low-risk practice. What is the best response in your final essay?",
+        "options": [
+          "Delete the example from your notes because it challenges your position.",
+          "Repeat the original thesis more forcefully without changing the reasoning.",
+          "Acknowledge the example and qualify what kinds of success may require uncertainty.",
+          "Replace the entire essay with the opposing view even if other evidence still supports yours."
+        ],
+        "answer": "Acknowledge the example and qualify what kinds of success may require uncertainty.",
+        "why": "A thoughtful writer can refine a claim in response to evidence. One counterexample challenges an absolute, not necessarily every qualified version.",
+        "gate": "Say one concrete sentence you could add or change after hearing the debate."
+      }
+    ]
+  }
+};
+
+    function esc(value) {
+      return String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    }
+    const states = {};
+    let currentLesson = 1;
+    let turnNumber = 1;
+    let soundOn = true;
+    let audioContext = null;
+
+    const dom = {
+      tabs: [...document.querySelectorAll('.lesson-tab')],
+      eyebrow: document.getElementById('activityEyebrow'),
+      title: document.getElementById('activityTitle'),
+      instruction: document.getElementById('activityInstruction'),
+      stage: document.getElementById('activityStage'),
+      progressText: document.getElementById('progressText'),
+      scoreText: document.getElementById('scoreText'),
+      progressFill: document.getElementById('progressFill'),
+      tiers: [...document.querySelectorAll('.tier-step')],
+      feedback: document.getElementById('feedbackPanel'),
+      feedbackIcon: document.getElementById('feedbackIcon'),
+      feedbackTitle: document.getElementById('feedbackTitle'),
+      feedbackText: document.getElementById('feedbackText'),
+      tip: document.getElementById('teacherTip'),
+      reset: document.getElementById('resetButton'),
+      reveal: document.getElementById('revealButton'),
+      sound: document.getElementById('soundButton'),
+      next: document.getElementById('nextButton'),
+      fullscreen: document.getElementById('fullscreenButton'),
+      turn: document.getElementById('turnNumber')
+    };
+
+    function newState() {
+      return {
+        index: 0,
+        score: 0,
+        attempts: 0,
+        answered: false,
+        explanationConfirmed: false,
+        revealed: false,
+        finished: false,
+        optionOrder: null,
+        records: {}
+      };
+    }
+
+    function stateFor(lessonNumber) {
+      if (!states[lessonNumber]) states[lessonNumber] = newState();
+      return states[lessonNumber];
+    }
+
+    const questionFields = ['attempts', 'answered', 'explanationConfirmed', 'revealed', 'optionOrder'];
+    function saveQuestion(state) {
+      state.records[state.index] = Object.fromEntries(questionFields.map(key => [key, state[key]]));
+    }
+    function jumpToQuestion(index) {
+      const state = stateFor(currentLesson);
+      saveQuestion(state);
+      state.index = index;
+      state.finished = false;
+      const record = state.records[index] || newState();
+      questionFields.forEach(key => { state[key] = record[key]; });
+      render();
+    }
+    function currentChallenge() {
+      const state = stateFor(currentLesson);
+      return lessons[currentLesson].challenges[state.index];
+    }
+
+    function setFeedback(kind, title, text) {
+      dom.feedback.className = `feedback ${kind}`;
+      dom.feedbackIcon.textContent = kind === 'success' ? '✓' : kind === 'error' ? '×' : kind === 'reveal' ? '!' : '?';
+      dom.feedbackTitle.textContent = title;
+      dom.feedbackText.textContent = text;
+    }
+
+    function neutralFeedback() {
+      setFeedback('neutral', 'Read every option', 'The board player chooses only after the class has formed an answer.');
+    }
+
+    function tone(frequency, duration) {
+      if (!soundOn) return;
+      try {
+        audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.frequency.value = frequency;
+        gain.gain.setValueAtTime(.045, audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(.001, audioContext.currentTime + duration);
+        oscillator.connect(gain).connect(audioContext.destination);
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + duration);
+      } catch (error) {
+        soundOn = false;
+        dom.sound.textContent = 'Sound unavailable';
+      }
+    }
+
+    function shuffle(items) {
+      const copy = [...items];
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function updateHeader() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      const total = lesson.challenges.length;
+      const itemNumber = state.finished ? total : state.index + 1;
+      dom.eyebrow.textContent = lesson.eyebrow;
+      dom.title.textContent = lesson.title;
+      dom.instruction.textContent = lesson.instruction;
+      dom.tip.textContent = lesson.tip;
+      dom.progressText.textContent = `${itemNumber} of ${total}`;
+      dom.scoreText.textContent = `${state.score} first-try correct`;
+      dom.progressFill.style.width = `${state.finished ? 100 : (state.index / total) * 100}%`;
+      dom.tiers.forEach(step => step.classList.toggle('active', !state.finished && step.dataset.tier === currentChallenge().tier));
+      dom.next.disabled = !state.explanationConfirmed || state.finished;
+      dom.reveal.disabled = state.finished;
+      dom.turn.textContent = String(turnNumber).padStart(2, '0');
+    }
+
+    function render() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      updateHeader();
+
+      if (state.finished) {
+        dom.stage.innerHTML = `
+          <article class="finish-card">
+            <div class="finish-inner">
+              <div class="finish-mark">✓</div>
+              <h3>${esc(lesson.finishTitle)}</h3>
+              <p>${esc(lesson.finishText)}</p>
+              <div class="finish-model">${esc(lesson.finishModel)}</div>
+            </div>
+          </article>`;
+        setFeedback('success', 'End of challenge bank', `${Object.values(state.records).filter(record => record.answered).length} of ${lesson.challenges.length} explored; ${state.score} correct on the first attempt. Use the level buttons to revisit or extend.`);
+        dom.next.disabled = true;
+        return;
+      }
+
+      const challenge = currentChallenge();
+      dom.stage.innerHTML = `
+        <article class="prompt-card">
+          <div class="challenge-label"><span class="tier-dot"></span>${esc(challenge.tier)} | ${esc(challenge.label)}</div>
+          <p class="prompt-text">${esc(challenge.prompt)}</p>
+          <div class="source-line">Use your reasoning, copybook and the listed SB/LC pages.</div>
+          ${lesson.support ? `<details class="root-bank"><summary>Open root bank</summary><p>${esc(lesson.support)}</p></details>` : ''}
+        </article>
+        <article class="response-card" id="responseCard"></article>`;
+
+      renderChoices(document.getElementById('responseCard'), challenge, state);
+      if (state.explanationConfirmed) setFeedback('success', 'Reason accepted', challenge.why);
+      else if (state.revealed) setFeedback('reveal', `Answer: ${challenge.answer}`, challenge.why);
+      else if (state.answered) setFeedback('success', 'Correct. Now prove it.', challenge.why);
+      else neutralFeedback();
+    }
+
+    function renderChoices(container, challenge, state) {
+      const options = state.optionOrder || shuffle(challenge.options);
+      state.optionOrder = options;
+      container.innerHTML = `
+        <div class="choice-grid">
+          ${options.map((option, index) => `<button class="choice" data-option="${encodeURIComponent(option)}"><span class="key-hint">${index + 1}</span>${esc(option)}</button>`).join('')}
+        </div>
+        <div id="gateArea"></div>`;
+
+      [...container.querySelectorAll('.choice')].forEach(button => {
+        const option = decodeURIComponent(button.dataset.option);
+        if (state.answered || state.revealed) {
+          button.disabled = true;
+          if (option === challenge.answer) button.classList.add('correct');
+        }
+        button.addEventListener('click', () => choose(option, button));
+      });
+
+      if (state.answered || state.revealed) renderGate(challenge, state);
+    }
+
+    function choose(option, button) {
+      const state = stateFor(currentLesson);
+      const challenge = currentChallenge();
+      if (state.answered || state.revealed || button.disabled) return;
+      state.attempts += 1;
+
+      if (option === challenge.answer) {
+        state.answered = true;
+        if (state.attempts === 1) state.score += 1;
+        tone(720, .18);
+        [...document.querySelectorAll('.choice')].forEach(choice => {
+          choice.disabled = true;
+          if (decodeURIComponent(choice.dataset.option) === challenge.answer) choice.classList.add('correct');
+        });
+        setFeedback('success', 'Correct. Now prove it.', challenge.why);
+        renderGate(challenge, state);
+      } else {
+        button.classList.add('wrong');
+        button.disabled = true;
+        tone(190, .16);
+        setFeedback('error', 'Not precise enough', 'Re-read the prompt and every option. Check meaning, grammar and evidence before choosing again.');
+      }
+      updateHeader();
+    }
+
+    function renderGate(challenge, state) {
+      const gateArea = document.getElementById('gateArea');
+      if (!gateArea) return;
+      gateArea.innerHTML = `
+        <div class="oral-gate">
+          <div><strong>Explanation gate</strong><p>${esc(challenge.gate)}</p></div>
+          <button class="tool-button confirm" id="confirmExplanation">${state.explanationConfirmed ? 'Explanation confirmed' : 'Explanation heard'}</button>
+        </div>`;
+      const confirm = document.getElementById('confirmExplanation');
+      confirm.disabled = state.explanationConfirmed;
+      confirm.addEventListener('click', () => {
+        state.explanationConfirmed = true;
+        confirm.disabled = true;
+        confirm.textContent = 'Explanation confirmed';
+        setFeedback('success', 'Reason accepted', challenge.why);
+        dom.next.disabled = false;
+        tone(880, .12);
+      });
+    }
+
+    function revealAnswer() {
+      const state = stateFor(currentLesson);
+      if (state.finished) return;
+      const challenge = currentChallenge();
+      state.revealed = true;
+      state.answered = true;
+      render();
+      setFeedback('reveal', `Answer: ${challenge.answer}`, challenge.why);
+      renderGate(challenge, state);
+    }
+
+    function nextChallenge() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      if (!state.explanationConfirmed) return;
+
+      saveQuestion(state);
+      if (state.index >= lesson.challenges.length - 1) {
+        state.finished = true;
+        render();
+      } else {
+        turnNumber = turnNumber >= 99 ? 1 : turnNumber + 1;
+        jumpToQuestion(state.index + 1);
+      }
+    }
+
+    function switchLesson(lessonNumber) {
+      currentLesson = lessonNumber;
+      dom.tabs.forEach(tab => { const active = Number(tab.dataset.lesson) === lessonNumber; tab.classList.toggle('active', active); tab.setAttribute('aria-pressed', String(active)); });
+      window.location.hash = `l${lessonNumber}`;
+      render();
+    }
+
+    function clickChoiceByNumber(number) {
+      const buttons = [...document.querySelectorAll('.choice')];
+      const button = buttons[number - 1];
+      if (button && !button.disabled) button.click();
+    }
+
+    dom.tiers.forEach(step => step.addEventListener('click', () => {
+      const index = lessons[currentLesson].challenges.findIndex(item => item.tier === step.dataset.tier);
+      if (index >= 0) jumpToQuestion(index);
+    }));
+    dom.tabs.forEach(tab => tab.addEventListener('click', () => switchLesson(Number(tab.dataset.lesson))));
+    dom.reset.addEventListener('click', () => {
+      states[currentLesson] = newState();
+      render();
+    });
+    dom.reveal.addEventListener('click', revealAnswer);
+    dom.next.addEventListener('click', nextChallenge);
+    dom.sound.addEventListener('click', () => {
+      soundOn = !soundOn;
+      dom.sound.textContent = soundOn ? 'Sound on' : 'Sound off';
+      dom.sound.setAttribute('aria-pressed', String(soundOn));
+      if (soundOn) tone(620, .1);
+    });
+    dom.fullscreen.addEventListener('click', async () => {
+      try {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+        else await document.exitFullscreen();
+      } catch (error) {
+        setFeedback('error', 'Full screen unavailable', 'Use the browser menu or presentation mode instead.');
+      }
+    });
+    document.addEventListener('fullscreenchange', () => {
+      dom.fullscreen.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen';
+    });
+    document.addEventListener('keydown', event => {
+      if (event.altKey && event.key === 'ArrowRight') {
+        event.preventDefault();
+        switchLesson(currentLesson === 5 ? 1 : currentLesson + 1);
+        return;
+      }
+      if (event.altKey && event.key === 'ArrowLeft') {
+        event.preventDefault();
+        switchLesson(currentLesson === 1 ? 5 : currentLesson - 1);
+        return;
+      }
+      if (['1', '2', '3', '4'].includes(event.key)) clickChoiceByNumber(Number(event.key));
+      if (event.key.toLowerCase() === 'e') document.getElementById('confirmExplanation')?.click();
+      if (event.key.toLowerCase() === 'n' && !dom.next.disabled) nextChallenge();
+      if (event.key.toLowerCase() === 'r' && !dom.reveal.disabled) revealAnswer();
+    });
+
+    window.addEventListener('hashchange', () => {
+      const number = Number(window.location.hash.replace('#l', ''));
+      if (number >= 1 && number <= 5 && number !== currentLesson) switchLesson(number);
+    });
+    const hashLesson = Number(window.location.hash.replace('#l', ''));
+    switchLesson(hashLesson >= 1 && hashLesson <= 5 ? hashLesson : 1);
+  </script>
+</body>
+</html>
