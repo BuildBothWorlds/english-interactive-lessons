@@ -1,0 +1,2020 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071321">
+  <meta name="description" content="Grade 7 English Week 12 touchscreen classroom activities for Lessons 1-7.">
+  <title>Grade 7 English | Week 12 Touchscreen Challenge</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071321;
+      --panel: #10243c;
+      --panel-2: #172e4b;
+      --line: #2e4d72;
+      --text: #f8fbff;
+      --soft: #d8e3f1;
+      --muted: #93a8c1;
+      --cyan: #5de2ea;
+      --yellow: #fff200;
+      --pink: #ff8fa8;
+      --mint: #71e6a2;
+      --orange: #ffb65e;
+      --red: #ff6f7f;
+      --shadow: 0 24px 74px rgba(0, 0, 0, .34);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100dvh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 8% -4%, rgba(93, 226, 234, .14), transparent 28rem),
+        radial-gradient(circle at 100% 12%, rgba(255, 143, 168, .1), transparent 30rem),
+        var(--bg);
+    }
+
+    a, button { touch-action: manipulation; }
+    button { font: inherit; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 4px solid var(--yellow);
+      outline-offset: 3px;
+    }
+
+    .shell {
+      width: min(1660px, 100%);
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: 18px clamp(18px, 3vw, 46px) 16px;
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      gap: 13px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .home-link {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--cyan);
+      background: rgba(16, 36, 60, .9);
+      text-decoration: none;
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .brand-kicker,
+    .eyebrow {
+      color: var(--cyan);
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .brand-kicker { font-size: clamp(.7rem, 1vw, .9rem); }
+
+    h1 {
+      margin: 5px 0 0;
+      font-size: clamp(1.45rem, 2.4vw, 2.45rem);
+      line-height: 1;
+    }
+
+    .routine {
+      min-width: 340px;
+      min-height: 58px;
+      padding: 8px 16px 8px 9px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(16, 36, 60, .9);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--soft);
+    }
+
+    .routine-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 12px;
+      color: var(--bg);
+      background: var(--yellow);
+      font-size: 1.1rem;
+      font-weight: 950;
+    }
+
+    .routine strong { color: var(--text); }
+
+    .lesson-tabs {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .lesson-tab {
+      min-height: 62px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(16, 36, 60, .82);
+      color: var(--soft);
+      text-align: left;
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .lesson-tab span {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .lesson-tab strong {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(.82rem, 1.05vw, 1rem);
+    }
+
+    .lesson-tab:hover,
+    .lesson-tab:focus-visible {
+      border-color: var(--cyan);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .lesson-tab.active {
+      color: var(--bg);
+      background: var(--cyan);
+      border-color: var(--cyan);
+      box-shadow: 0 10px 28px rgba(93, 226, 234, .18);
+    }
+
+    .lesson-tab.active span { color: rgba(7, 19, 33, .72); }
+
+    .activity-card {
+      min-height: 0;
+      padding: clamp(16px, 2vw, 28px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(16, 36, 60, .98), rgba(8, 24, 42, .99));
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto auto minmax(300px, 1fr) auto;
+      gap: 14px;
+      overflow: hidden;
+    }
+
+    .activity-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(250px, 29%);
+      align-items: end;
+      gap: 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 7px;
+      font-size: .78rem;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 3.55rem);
+      line-height: .99;
+    }
+
+    .instruction {
+      margin: 9px 0 0;
+      color: var(--soft);
+      font-size: clamp(.92rem, 1.3vw, 1.16rem);
+    }
+
+    .score-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 8px;
+      color: var(--soft);
+      font-size: .88rem;
+      font-weight: 850;
+    }
+
+    .progress-track {
+      height: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #08192b;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--mint));
+      transition: width .3s ease;
+    }
+
+    .tier-track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .tier-step {
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--muted);
+      background: rgba(7, 19, 33, .55);
+      font-size: .72rem;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-align: center;
+    }
+
+    .tier-step.active[data-tier="START"] { color: var(--bg); background: var(--cyan); border-color: var(--cyan); }
+    .tier-step.active[data-tier="BUILD"] { color: var(--bg); background: var(--orange); border-color: var(--orange); }
+    .tier-step.active[data-tier="EXTEND"] { color: var(--bg); background: var(--pink); border-color: var(--pink); }
+
+    .stage {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(330px, .9fr) minmax(460px, 1.2fr);
+      gap: 22px;
+    }
+
+    .prompt-card,
+    .response-card,
+    .finish-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--panel-2);
+    }
+
+    .prompt-card {
+      min-height: 0;
+      padding: clamp(22px, 3vw, 42px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .challenge-label {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--cyan);
+      font-size: .78rem;
+      font-weight: 950;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .tier-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 15px rgba(93, 226, 234, .75);
+    }
+
+    .prompt-text {
+      margin: 0;
+      font-size: clamp(1.3rem, 2.25vw, 2.5rem);
+      line-height: 1.18;
+      font-weight: 850;
+    }
+
+    .source-line {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 750;
+    }
+
+    .response-card {
+      min-height: 0;
+      padding: clamp(18px, 2vw, 28px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .choice {
+      position: relative;
+      min-height: 82px;
+      padding: 15px 16px 15px 50px;
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      color: var(--text);
+      background: var(--panel);
+      font-size: clamp(.96rem, 1.35vw, 1.24rem);
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+
+    .key-hint {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      color: var(--bg);
+      background: var(--muted);
+      font-size: .78rem;
+      font-weight: 950;
+    }
+
+    .choice:hover,
+    .choice:focus-visible,
+    .tool-button:hover,
+    .tool-button:focus-visible {
+      border-color: var(--cyan);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .choice.correct {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .choice.correct .key-hint { color: var(--mint); background: var(--bg); }
+
+    .choice.wrong {
+      background: rgba(255, 111, 127, .17);
+      border-color: var(--red);
+    }
+
+    .choice:disabled { cursor: default; transform: none; }
+
+    .oral-gate {
+      padding: 15px 17px;
+      border: 1px solid rgba(255, 242, 0, .58);
+      border-radius: 15px;
+      background: rgba(255, 242, 0, .06);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .oral-gate strong { color: var(--yellow); }
+    .oral-gate p { margin: 4px 0 0; color: var(--soft); }
+
+    .feedback {
+      min-height: 72px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      align-items: center;
+      gap: 13px;
+      background: rgba(7, 19, 33, .74);
+    }
+
+    .feedback-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--muted);
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .feedback strong { font-size: 1.04rem; }
+    .feedback p { margin: 4px 0 0; color: var(--soft); }
+    .feedback.success { border-color: rgba(113, 230, 162, .7); }
+    .feedback.success .feedback-icon { background: var(--mint); }
+    .feedback.error { border-color: rgba(255, 111, 127, .75); }
+    .feedback.error .feedback-icon { color: white; background: var(--red); }
+    .feedback.reveal { border-color: rgba(255, 242, 0, .7); }
+    .feedback.reveal .feedback-icon { background: var(--yellow); }
+
+    .teacher-toolbar {
+      min-height: 56px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .toolbar-left,
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .teacher-tip {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 750;
+      text-align: right;
+    }
+
+    .tool-button {
+      min-height: 50px;
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--soft);
+      background: var(--panel);
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, opacity .12s ease;
+    }
+
+    .tool-button.primary {
+      color: var(--bg);
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+
+    .tool-button.confirm {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .tool-button:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+
+    .finish-card {
+      grid-column: 1 / -1;
+      min-height: 100%;
+      padding: clamp(30px, 5vw, 70px);
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .finish-inner { width: min(850px, 100%); }
+
+    .finish-mark {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--mint);
+      font-size: 2.45rem;
+      font-weight: 950;
+    }
+
+    .finish-card h3 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 4rem);
+    }
+
+    .finish-card p {
+      max-width: 680px;
+      margin: 14px auto 0;
+      color: var(--soft);
+      font-size: clamp(1rem, 1.5vw, 1.22rem);
+      line-height: 1.45;
+    }
+
+    .finish-model {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-left: 7px solid var(--yellow);
+      border-radius: 12px;
+      color: var(--text);
+      background: var(--bg);
+      font-size: clamp(1rem, 1.45vw, 1.2rem);
+      font-weight: 800;
+      text-align: left;
+    }
+
+    @media (max-width: 1000px) {
+      body { overflow: auto; }
+      .shell { min-height: 100vh; }
+      .lesson-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lesson-tab:last-child { grid-column: span 2; }
+      .stage { grid-template-columns: 1fr; }
+      .teacher-toolbar,
+      .toolbar-left,
+      .toolbar-right { flex-wrap: wrap; }
+      .teacher-tip { max-width: none; flex: 1 1 100%; text-align: left; }
+    }
+
+    @media (max-width: 680px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .routine { min-width: 0; width: 100%; }
+      .activity-heading { grid-template-columns: 1fr; }
+      .choice-grid { grid-template-columns: 1fr; }
+      .oral-gate { grid-template-columns: 1fr; }
+      .activity-card { overflow: visible; }
+      .teacher-toolbar { flex-direction: column; }
+      .toolbar-left,
+      .toolbar-right { width: 100%; }
+      .tool-button { flex: 1 1 auto; }
+    }
+
+    @media (max-height: 850px) and (min-width: 1001px) {
+      .shell { padding-top: 9px; padding-bottom: 9px; gap: 8px; }
+      .topbar h1 { font-size: 1.7rem; }
+      .routine { min-height: 46px; }
+      .routine-number { width: 36px; height: 36px; }
+      .lesson-tab { min-height: 48px; padding: 6px 10px; }
+      .activity-card { padding: 13px 18px; gap: 9px; grid-template-rows: auto auto minmax(255px, 1fr) auto; }
+      h2 { font-size: clamp(1.7rem, 2.5vw, 2.55rem); }
+      .instruction { margin-top: 5px; }
+      .prompt-card { padding: 20px 28px; }
+      .prompt-text { font-size: clamp(1.2rem, 1.9vw, 1.95rem); }
+      .choice { min-height: 62px; padding-top: 10px; padding-bottom: 10px; }
+      .feedback { min-height: 58px; padding-top: 7px; padding-bottom: 7px; }
+      .teacher-toolbar { min-height: 48px; }
+      .tool-button { min-height: 44px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+    .reading-source { font-size:clamp(.95rem,1.2vw,1.12rem); line-height:1.4; color:var(--soft); border-bottom:1px solid var(--line); padding-bottom:12px; }
+    .reading-source strong { display:block; color:var(--cyan); font-size:.78rem; margin-bottom:7px; }
+    .reading-source p { margin:0; }
+    .prompt-card:has(.reading-source) { align-content:start; padding:20px 26px; }
+    .prompt-card:has(.reading-source) .prompt-text { font-size:clamp(1.2rem,1.75vw,1.8rem); }
+    .lesson-tab:focus-visible, .choice:focus-visible, .tool-button:focus-visible { outline:3px solid var(--yellow); outline-offset:3px; }
+    @media(max-width:1150px) and (min-width:1001px){.lesson-tab strong{font-size:.78rem}.lesson-tab{padding-inline:8px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand-line">
+        <a class="home-link" href="../index.html" aria-label="Return to lesson library">‹</a>
+        <div>
+          <div class="brand-kicker">MRISB | GRADE 7 ENGLISH</div>
+          <h1>Week 12 Touchscreen Challenge</h1>
+        </div>
+      </div>
+      <div class="routine" aria-label="Classroom routine">
+        <span class="routine-number" id="turnNumber">01</span>
+        <span><strong>Read fully.</strong> Choose carefully. Explain the link.</span>
+      </div>
+    </header>
+
+    <nav class="lesson-tabs" aria-label="Select a lesson"><button class="lesson-tab active" data-lesson="1" aria-pressed="true"><span>Lesson 1</span><strong>Vocabulary</strong></button><button class="lesson-tab" data-lesson="2" aria-pressed="false"><span>Lesson 2</span><strong>Cohesive devices</strong></button><button class="lesson-tab" data-lesson="3" aria-pressed="false"><span>Lesson 3</span><strong>Adjectives</strong></button><button class="lesson-tab" data-lesson="4" aria-pressed="false"><span>Lesson 4</span><strong>Essay draft</strong></button><button class="lesson-tab" data-lesson="5" aria-pressed="false"><span>Lesson 5</span><strong>Close read</strong></button><button class="lesson-tab" data-lesson="6" aria-pressed="false"><span>Lesson 6</span><strong>Catch-up</strong></button><button class="lesson-tab" data-lesson="7" aria-pressed="false"><span>Lesson 7</span><strong>Week review</strong></button></nav>
+
+    <main class="activity-card">
+      <section class="activity-heading">
+        <div>
+          <p class="eyebrow" id="activityEyebrow"></p>
+          <h2 id="activityTitle"></h2>
+          <p class="instruction" id="activityInstruction"></p>
+        </div>
+        <div>
+          <div class="score-line"><span id="progressText"></span><span id="scoreText"></span></div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+      </section>
+
+      <section class="tier-track" aria-label="Challenge level">
+        <div class="tier-step" data-tier="START">START | Recognise</div>
+        <div class="tier-step" data-tier="BUILD">BUILD | Apply</div>
+        <div class="tier-step" data-tier="EXTEND">EXTEND | Justify</div>
+      </section>
+
+      <section class="stage" id="activityStage" aria-live="polite"></section>
+
+      <section class="feedback" id="feedbackPanel" aria-live="assertive">
+        <div class="feedback-icon" id="feedbackIcon">?</div>
+        <div><strong id="feedbackTitle">Read every option</strong><p id="feedbackText">The board player chooses only after the class has formed an answer.</p></div>
+      </section>
+    </main>
+
+    <footer class="teacher-toolbar">
+      <div class="toolbar-left">
+        <button class="tool-button" id="resetButton">Reset lesson</button>
+        <button class="tool-button" id="revealButton">Reveal answer</button>
+        <button class="tool-button" id="soundButton" aria-pressed="true">Sound on</button>
+      </div>
+      <div class="toolbar-right">
+        <span class="teacher-tip" id="teacherTip"></span>
+        <button class="tool-button primary" id="nextButton" disabled>Next challenge</button>
+        <button class="tool-button" id="fullscreenButton">Full screen</button>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const lessons = {
+  "1": {
+    "tab": "Vocabulary",
+    "eyebrow": "LESSON 1 | SB p.188 · LC p.74",
+    "title": "Six words about growing up",
+    "instruction": "Read the clue, choose precisely and explain why the word fits.",
+    "tip": "Every boy forms an answer before the board turn. Ask for meaning and a useful example.",
+    "finishTitle": "Six words ready to use",
+    "finishText": "Complete the whole of SB p.188, then the whole of LC p.74. Switch books only at the teacher’s signal.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "MEANING | NOUN",
+        "prompt": "Which word means the result of an activity or process?",
+        "options": [
+          "reputation",
+          "adolescence",
+          "outcome",
+          "risk"
+        ],
+        "answer": "outcome",
+        "why": "An outcome is what happens at the end of an activity or process.",
+        "gate": "Name the outcome of something you did this week.",
+        "tier": "START"
+      },
+      {
+        "label": "MEANING | VERB",
+        "prompt": "Which word means to make a connection between two things or people?",
+        "options": [
+          "associate",
+          "outcome",
+          "reputation",
+          "complicated"
+        ],
+        "answer": "associate",
+        "why": "To associate two things is to connect them in your mind.",
+        "gate": "Say two things you associate with each other.",
+        "tier": "START"
+      },
+      {
+        "label": "MEANING | ADJECTIVE",
+        "prompt": "Which word means having many parts or steps?",
+        "options": [
+          "risk",
+          "adolescence",
+          "associate",
+          "complicated"
+        ],
+        "answer": "complicated",
+        "why": "Complicated describes something with many parts or steps.",
+        "gate": "Name something complicated and say why it is.",
+        "tier": "START"
+      },
+      {
+        "label": "CONTEXT | FIND THE CLUE",
+        "prompt": "The shop sells broken phones, so nobody trusts it. It has a bad ___.",
+        "options": [
+          "risk",
+          "adolescence",
+          "outcome",
+          "reputation"
+        ],
+        "answer": "reputation",
+        "why": "What people think of the shop is its reputation.",
+        "gate": "Which words in the sentence show an opinion?",
+        "tier": "BUILD"
+      },
+      {
+        "label": "CONTEXT | FIND THE CLUE",
+        "prompt": "Many people ___ summer with long, hot days.",
+        "options": [
+          "associate",
+          "complicated",
+          "outcome",
+          "risk"
+        ],
+        "answer": "associate",
+        "why": "We associate one thing with another. The word with is a useful clue.",
+        "gate": "Make your own sentence with associate and with.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "CONTEXT | FIND THE CLUE",
+        "prompt": "Swimming far from the shore alone is a serious ___.",
+        "options": [
+          "risk",
+          "outcome",
+          "adolescence",
+          "reputation"
+        ],
+        "answer": "risk",
+        "why": "Something bad might happen, so it is a risk.",
+        "gate": "Say what could go wrong.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "CONTEXT | FIND THE CLUE",
+        "prompt": "He is 15, and his body and brain are still developing. He is in ___.",
+        "options": [
+          "adolescence",
+          "outcome",
+          "risk",
+          "reputation"
+        ],
+        "answer": "adolescence",
+        "why": "Adolescence is the time between 11 and 18 when a child develops into an adult.",
+        "gate": "Explain why a 6-year-old would not fit.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "USE | WORD CLASS",
+        "prompt": "Which sentence uses complicated correctly?",
+        "options": [
+          "The game has so many rules that it is complicated.",
+          "She has a good complicated at school.",
+          "He complicated the ball to his friend.",
+          "The complicated of the match was a draw."
+        ],
+        "answer": "The game has so many rules that it is complicated.",
+        "why": "Complicated is an adjective. Here it describes the game.",
+        "gate": "Name the word class and the noun it describes.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "PRECISION | TWO WORDS",
+        "prompt": "Before the race, he thought about what could go wrong. After it, he looked at his time. Which pair fits?",
+        "options": [
+          "adolescence, then outcome",
+          "reputation, then risk",
+          "outcome, then risk",
+          "risk, then outcome"
+        ],
+        "answer": "risk, then outcome",
+        "why": "What could go wrong comes first. The result comes after the race.",
+        "gate": "Explain why outcome cannot come first.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "REVISION | BEST SENTENCE",
+        "prompt": "Which sentence best improves “Teenagers do things and bad things happen”?",
+        "options": [
+          "Teenagers outcome risks in a reputation.",
+          "Adolescence is a risk of complicated.",
+          "Some teenagers associate very much.",
+          "Some teenagers take risks without thinking about the outcome."
+        ],
+        "answer": "Some teenagers take risks without thinking about the outcome.",
+        "why": "It uses risks and outcome correctly and says something exact.",
+        "gate": "Add one more key word to the sentence.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "2": {
+    "tab": "Cohesive devices",
+    "eyebrow": "LESSON 2 | SB pp.189–193",
+    "title": "How ideas connect",
+    "instruction": "Find the device, name the link and say how the two ideas connect.",
+    "tip": "Ask what came before the device. Then ask how the two parts connect.",
+    "finishTitle": "Ready to read closely",
+    "finishText": "Finish reading SB pp.190–193. Underline anything confusing so it can be cleared up in the Close Read.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "PURPOSE | WHAT THEY DO",
+        "prompt": "What do cohesive devices show?",
+        "options": [
+          "how ideas are connected",
+          "which words are nouns",
+          "how long a text is",
+          "who wrote a text"
+        ],
+        "answer": "how ideas are connected",
+        "why": "They are words and phrases that show how sentences, paragraphs or sections relate.",
+        "gate": "Say one cohesive device from your copybook.",
+        "tier": "START"
+      },
+      {
+        "label": "TYPE | OPPOSITION",
+        "prompt": "Which word shows opposition?",
+        "options": [
+          "consequently",
+          "for instance",
+          "however",
+          "similarly"
+        ],
+        "answer": "however",
+        "why": "However introduces an idea that goes against the one before it.",
+        "gate": "Use however in a sentence about school.",
+        "tier": "START"
+      },
+      {
+        "label": "TYPE | EXAMPLE",
+        "prompt": "Which phrase introduces an example?",
+        "options": [
+          "for instance",
+          "in contrast",
+          "as a result",
+          "likewise"
+        ],
+        "answer": "for instance",
+        "why": "For instance tells the reader an example is coming.",
+        "gate": "Finish this: I like sport. For instance, …",
+        "tier": "START"
+      },
+      {
+        "label": "IDENTIFY | NAME THE LINK",
+        "prompt": "It rained all night. As a result, the match was cancelled. What link is this?",
+        "options": [
+          "agreement",
+          "example or explanation",
+          "opposition",
+          "cause and effect"
+        ],
+        "answer": "cause and effect",
+        "why": "The rain is the cause. The cancelled match is the effect.",
+        "gate": "Name the cause and the effect.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "IDENTIFY | NAME THE LINK",
+        "prompt": "Phones are useful. However, they can waste time. What link is this?",
+        "options": [
+          "opposition",
+          "cause and effect",
+          "agreement",
+          "example or explanation"
+        ],
+        "answer": "opposition",
+        "why": "The second idea goes against the first.",
+        "gate": "Say the two opposite ideas.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "IDENTIFY | NAME THE LINK",
+        "prompt": "Omar trains hard. Similarly, his brother practises every day. What link is this?",
+        "options": [
+          "agreement",
+          "example or explanation",
+          "cause and effect",
+          "opposition"
+        ],
+        "answer": "agreement",
+        "why": "Both sentences give a similar idea.",
+        "gate": "Say what is similar about the two brothers.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "CHOOSE | BEST DEVICE",
+        "prompt": "He did not study. ___, he failed the test.",
+        "options": [
+          "For instance",
+          "To clarify",
+          "Consequently",
+          "Similarly"
+        ],
+        "answer": "Consequently",
+        "why": "Not studying caused the failed test, so a cause-and-effect device fits.",
+        "gate": "Explain why Similarly does not fit.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "ARTICLE | LINE 30",
+        "prompt": "In line 30, what does This means do?",
+        "options": [
+          "It disagrees with the idea before it.",
+          "It starts a new topic.",
+          "It explains the idea before it.",
+          "It gives the first example."
+        ],
+        "answer": "It explains the idea before it.",
+        "why": "The sentence after This means helps explain why the prefrontal cortex takes so long.",
+        "gate": "Say the two ideas in your own words.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "ARTICLE | LINE 61",
+        "prompt": "In line 61, But shows opposition. Which summary is accurate?",
+        "options": [
+          "Brains have neurons, but they have no networks.",
+          "Teenagers decide things every day, but some decisions need more time to develop.",
+          "Children go to school, but teenagers do not.",
+          "Teenagers cannot decide, but adults always can."
+        ],
+        "answer": "Teenagers decide things every day, but some decisions need more time to develop.",
+        "why": "The first idea is everyday decisions. The opposing idea is that some kinds still need time.",
+        "gate": "Point to the two ideas in lines 57 to 63.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "SUMMARY | BOTH IDEAS",
+        "prompt": "Line 27 uses in order for. Which summary connects both ideas?",
+        "options": [
+          "Neurons are one example of a high-order function.",
+          "Neurons are similar to high-order functions.",
+          "Neurons must connect in complicated patterns so that high-order functions can happen.",
+          "High-order functions stop neurons from connecting."
+        ],
+        "answer": "Neurons must connect in complicated patterns so that high-order functions can happen.",
+        "why": "The connections must exist first. Then the high-order functions can happen.",
+        "gate": "Say which idea is the cause and which is the effect.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "3": {
+    "tab": "Adjectives",
+    "eyebrow": "LESSON 3 | Whole LC pp.72–73",
+    "title": "Describe it accurately",
+    "instruction": "Choose the correct form and say which rule proves it.",
+    "tip": "Ask for the rule, not only the answer. Use the copied rules.",
+    "finishTitle": "Rules ready to use",
+    "finishText": "Complete every activity on LC pp.72–73. Keep only the LC open.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "FIND | THE ADJECTIVE",
+        "prompt": "The tall boy ran quickly. Which word is the adjective?",
+        "options": [
+          "ran",
+          "tall",
+          "quickly",
+          "boy"
+        ],
+        "answer": "tall",
+        "why": "Tall describes the noun boy.",
+        "gate": "Replace tall with another adjective.",
+        "tier": "START"
+      },
+      {
+        "label": "RULE | PURPOSE",
+        "prompt": "What do adjectives describe?",
+        "options": [
+          "nouns",
+          "punctuation",
+          "verbs",
+          "prepositions"
+        ],
+        "answer": "nouns",
+        "why": "Adjectives tell us more about nouns.",
+        "gate": "Give an adjective and a noun that fit together.",
+        "tier": "START"
+      },
+      {
+        "label": "RULE | INTENSIFIER",
+        "prompt": "Which word makes an adjective stronger?",
+        "options": [
+          "very",
+          "slightly",
+          "a little",
+          "not"
+        ],
+        "answer": "very",
+        "why": "Very is an intensifier. It goes in front of the adjective.",
+        "gate": "Use very in a sentence about the weather.",
+        "tier": "START"
+      },
+      {
+        "label": "FORM | NEVER PLURAL",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "The red cars are fast.",
+          "The cars reds are fast.",
+          "The red cars is fast.",
+          "The reds cars are fast."
+        ],
+        "answer": "The red cars are fast.",
+        "why": "Adjectives stay singular, the adjective goes before the noun, and plural cars needs are.",
+        "gate": "Name the rule that fixes reds.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "POSITION | WORD ORDER",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "New he has a phone.",
+          "He has a new phone.",
+          "He a new has phone.",
+          "He has a phone new."
+        ],
+        "answer": "He has a new phone.",
+        "why": "An adjective usually goes in front of its noun.",
+        "gate": "Say another sentence with a new noun.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "POSITION | AFTER THE VERB",
+        "prompt": "The soup tastes ___.",
+        "options": [
+          "a salty",
+          "saltys",
+          "salty",
+          "salt very"
+        ],
+        "answer": "salty",
+        "why": "Taste is a sense verb, so an adjective can follow it.",
+        "gate": "Name two other sense verbs.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "MITIGATOR | WEAKER",
+        "prompt": "I was ___ late, so I missed only the first minute.",
+        "options": [
+          "extremely",
+          "slightly",
+          "really",
+          "very"
+        ],
+        "answer": "slightly",
+        "why": "Only one minute was missed, so the weaker word fits.",
+        "gate": "Say the sentence with a little instead.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "REPAIR | WORD ORDER",
+        "prompt": "Correct this: Sami gave me a special really gift.",
+        "options": [
+          "Sami gave me a gift special really.",
+          "Sami gave me a really specials gift.",
+          "Sami really gave me special a gift.",
+          "Sami gave me a really special gift."
+        ],
+        "answer": "Sami gave me a really special gift.",
+        "why": "An intensifier goes directly in front of its adjective.",
+        "gate": "Name the intensifier and its adjective.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "REPAIR | TWO ERRORS",
+        "prompt": "Correct this: The olds houses is very beautiful.",
+        "options": [
+          "The olds houses are very beautiful.",
+          "The old houses are very beautiful.",
+          "The old house are very beautifuls.",
+          "The old houses is very beautiful."
+        ],
+        "answer": "The old houses are very beautiful.",
+        "why": "Old stays singular, and plural houses needs are.",
+        "gate": "Explain both changes.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "REVISION | CLEAREST PICTURE",
+        "prompt": "Which sentence gives the clearest picture of “We saw a house”?",
+        "options": [
+          "We saw a small white house with a very old door.",
+          "We saw a very house.",
+          "We saw a smalls whites house.",
+          "We saw a house house."
+        ],
+        "answer": "We saw a small white house with a very old door.",
+        "why": "It uses correct adjectives and an intensifier to build a clear picture.",
+        "gate": "Add a mitigator to the sentence.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "4": {
+    "tab": "Essay draft",
+    "eyebrow": "LESSON 4 | Writing Task 6 · OneNote",
+    "title": "From plan to first draft",
+    "instruction": "Decide which choice makes the essay clearer and say why.",
+    "tip": "The examples are about litter so that no student’s own topic is copied.",
+    "finishTitle": "Ready to draft",
+    "finishText": "Write your first draft in OneNote from your plan. Guide length: 300–450 words.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "PARTS | MAIN IDEA",
+        "prompt": "Which part gives your main idea in one clear sentence?",
+        "options": [
+          "the thesis",
+          "the title",
+          "the evidence",
+          "the last word"
+        ],
+        "answer": "the thesis",
+        "why": "The thesis tells the reader the problem and your overall answer.",
+        "gate": "Say your own thesis aloud.",
+        "tier": "START"
+      },
+      {
+        "label": "PARTS | BODY",
+        "prompt": "Where do you explain a solution and its evidence?",
+        "options": [
+          "after the conclusion",
+          "in the title",
+          "in a body paragraph",
+          "only in the introduction"
+        ],
+        "answer": "in a body paragraph",
+        "why": "Each solution and its evidence belongs in a body paragraph.",
+        "gate": "Name the two solutions in your plan.",
+        "tier": "START"
+      },
+      {
+        "label": "PARTS | ENDING",
+        "prompt": "What does a conclusion do?",
+        "options": [
+          "It repeats only the title.",
+          "It starts a new solution.",
+          "It lists new evidence.",
+          "It sums up and ends with a clear final thought."
+        ],
+        "answer": "It sums up and ends with a clear final thought.",
+        "why": "A conclusion closes the essay. New ideas belong in the body.",
+        "gate": "Say one final thought for your essay.",
+        "tier": "START"
+      },
+      {
+        "label": "THESIS | BEST CHOICE",
+        "prompt": "Which is the best thesis about litter at school?",
+        "options": [
+          "Do you like bins?",
+          "There is litter.",
+          "Litter is a serious problem at school, but more bins and class duties can solve it.",
+          "I will write about litter now."
+        ],
+        "answer": "Litter is a serious problem at school, but more bins and class duties can solve it.",
+        "why": "It names the problem and both solutions.",
+        "gate": "Find the problem and the two solutions.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "CAUSE | BEST CHOICE",
+        "prompt": "Which sentence explains a cause of litter?",
+        "options": [
+          "Bins are usually green.",
+          "Litter is a short word.",
+          "Students drop wrappers because the bins are far from the yard.",
+          "The yard is next to the gate."
+        ],
+        "answer": "Students drop wrappers because the bins are far from the yard.",
+        "why": "Because shows why the problem happens.",
+        "gate": "Give a cause of your own problem.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "EVIDENCE | BEST CHOICE",
+        "prompt": "Which is evidence for “More bins would reduce litter”?",
+        "options": [
+          "I think bins are nice.",
+          "Bins are good because they are good.",
+          "Everyone knows this is true.",
+          "After two bins were added near the canteen, the teacher counted fewer wrappers."
+        ],
+        "answer": "After two bins were added near the canteen, the teacher counted fewer wrappers.",
+        "why": "It gives something that was seen and counted, not only an opinion.",
+        "gate": "Say what evidence you have for one solution.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "LINK | COHESIVE DEVICE",
+        "prompt": "Bins are far from the yard. ___, students leave wrappers on the ground.",
+        "options": [
+          "Similarly",
+          "For instance",
+          "As a result",
+          "However"
+        ],
+        "answer": "As a result",
+        "why": "The far bins cause the litter, so a cause-and-effect device fits.",
+        "gate": "Add a cohesive device to your own plan.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "ORDER | ORGANISATION",
+        "prompt": "Which order is clearest?",
+        "options": [
+          "conclusion, solutions, problem, introduction",
+          "two solutions, introduction, conclusion, problem",
+          "problem, conclusion, introduction, two solutions",
+          "introduction, problem and causes, two solutions, conclusion"
+        ],
+        "answer": "introduction, problem and causes, two solutions, conclusion",
+        "why": "The reader needs the problem first, then the solutions, then the ending.",
+        "gate": "Check your draft follows this order.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "REVISION | STRONGER SENTENCE",
+        "prompt": "Which sentence best improves “Bins are good. They help.”?",
+        "options": [
+          "Good bins are helping good.",
+          "Bins are very, very good.",
+          "More bins would help because students could throw wrappers away quickly.",
+          "Bins help and bins are good."
+        ],
+        "answer": "More bins would help because students could throw wrappers away quickly.",
+        "why": "It says how the solution works.",
+        "gate": "Improve one sentence from your plan.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "PEER REVIEW | MOST USEFUL",
+        "prompt": "Which comment helps most with organisation?",
+        "options": [
+          "I like your font.",
+          "You wrote a lot.",
+          "Your second solution has no evidence yet. Can you add one real example?",
+          "Nice work."
+        ],
+        "answer": "Your second solution has no evidence yet. Can you add one real example?",
+        "why": "It names a part of the essay and gives a clear next step.",
+        "gate": "Practise one useful question for your partner.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "5": {
+    "tab": "Close read",
+    "eyebrow": "LESSON 5 | SB p.194 · LC p.75",
+    "title": "Prove it from the text",
+    "instruction": "Answer the question, then point to the lines that prove it.",
+    "tip": "Keep the article open. Ask for line numbers before moving on.",
+    "finishTitle": "Evidence ready",
+    "finishText": "Complete the whole of SB p.194, then the whole of LC p.75.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "DETAIL | LINES 4–5",
+        "prompt": "Where is the prefrontal cortex?",
+        "options": [
+          "at the front of the brain",
+          "at the back of the brain",
+          "in the heart",
+          "in the spine"
+        ],
+        "answer": "at the front of the brain",
+        "why": "The article describes it as the front-most part of the brain.",
+        "gate": "Point to the line.",
+        "tier": "START"
+      },
+      {
+        "label": "DETAIL | LINES 6–8",
+        "prompt": "Which is a job of the prefrontal cortex?",
+        "options": [
+          "growing hair",
+          "planning for the future",
+          "digesting food",
+          "pumping blood"
+        ],
+        "answer": "planning for the future",
+        "why": "The article lists planning, decision-making, goal-directed behaviour and emotions.",
+        "gate": "Name another job from the same lines.",
+        "tier": "START"
+      },
+      {
+        "label": "DETAIL | LINES 31–33",
+        "prompt": "Until about what age are high-order functions not fully developed?",
+        "options": [
+          "around 25",
+          "around 8",
+          "around 12",
+          "around 60"
+        ],
+        "answer": "around 25",
+        "why": "The article gives an age of around 25.",
+        "gate": "Say what this means in your own words.",
+        "tier": "START"
+      },
+      {
+        "label": "VOCABULARY | LINE 55",
+        "prompt": "In line 55, what does prolonged mean?",
+        "options": [
+          "dangerous",
+          "simple",
+          "extended",
+          "sudden"
+        ],
+        "answer": "extended",
+        "why": "The footnote explains it. The development happens over many years.",
+        "gate": "Use prolonged in a new sentence.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "DETAIL | LINES 43–47",
+        "prompt": "What happens in synapse pruning?",
+        "options": [
+          "New brains grow.",
+          "All connections get weaker.",
+          "Neurons stop working.",
+          "Weak or unused connections are cut back."
+        ],
+        "answer": "Weak or unused connections are cut back.",
+        "why": "Cutting back weak connections lets stronger ones become even stronger.",
+        "gate": "Explain the comparison with pruning a tree.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "EVIDENCE | BEST LINES",
+        "prompt": "Which lines best prove that teenagers can make decisions?",
+        "options": [
+          "lines 40–42, what happens in babies",
+          "lines 1–3, the question at the start",
+          "lines 4–5, where the brain part is",
+          "lines 57–61, the list of everyday choices"
+        ],
+        "answer": "lines 57–61, the list of everyday choices",
+        "why": "Those lines give real decisions that children and teenagers make.",
+        "gate": "Give one example from those lines.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "DEVICE | LINE 58",
+        "prompt": "What does For instance show in line 58?",
+        "options": [
+          "opposition",
+          "an example",
+          "cause and effect",
+          "agreement"
+        ],
+        "answer": "an example",
+        "why": "The list that follows gives examples of everyday decisions.",
+        "gate": "Say which idea the examples support.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "CONNECTION | LINES 65–70",
+        "prompt": "Why does the writer tell teenagers to think again?",
+        "options": [
+          "They cannot make any decisions.",
+          "Their decision-making networks are still developing.",
+          "They have no prefrontal cortex.",
+          "Their parents are always right."
+        ],
+        "answer": "Their decision-making networks are still developing.",
+        "why": "The word So in line 68 links the advice to the changes in the brain.",
+        "gate": "Name the cohesive device and the link.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "INFER | BEYOND THE TEXT",
+        "prompt": "Most mammals have a prefrontal cortex. What can you infer about adolescent animals?",
+        "options": [
+          "They think exactly like humans.",
+          "They have fully developed brains.",
+          "They make no decisions at all.",
+          "They may take more risks than adult animals."
+        ],
+        "answer": "They may take more risks than adult animals.",
+        "why": "If the same brain area is still developing, similar behaviour is likely. This is an inference, not a fact from the text.",
+        "gate": "Say what evidence the inference is built on.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "ANSWER QUALITY | STRONGEST",
+        "prompt": "Why do high-order functions take so long? Which answer is strongest?",
+        "options": [
+          "The brain is amazing and very interesting.",
+          "Because the article says so.",
+          "They need complicated neuron networks. Lines 28–30 say these develop much more slowly than other connections.",
+          "Lines 28–30."
+        ],
+        "answer": "They need complicated neuron networks. Lines 28–30 say these develop much more slowly than other connections.",
+        "why": "It answers directly, points to the lines and explains them.",
+        "gate": "Improve one of your own answers the same way.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "6": {
+    "tab": "Catch-up",
+    "eyebrow": "LESSON 6 | SB pp.188–194 · Whole LC pp.72–75",
+    "title": "Check, correct and explain",
+    "instruction": "Use ten checks to find what needs attention. Correct existing work without repeating accurate answers.",
+    "tip": "Use the responses to choose a book-work priority. The checklist is a self-audit, not proof of completion.",
+    "finishTitle": "Your next useful step",
+    "finishText": "Work in the Student Book block first, then switch once to LC. Complete whole assigned pages and show the teacher your corrections.",
+    "finishModel": "Current page list: SB p.188 vocabulary; p.189 cohesive devices; pp.190–193 reading; p.194 close read. LC pp.72–73 adjectives; p.74 vocabulary; p.75 close read. Complete the OneNote first draft if needed.",
+    "challenges": [
+      {
+        "label": "VOCABULARY | CONTEXT",
+        "prompt": "The final score was the ___ of the match.",
+        "options": [
+          "outcome",
+          "adolescence",
+          "risk",
+          "reputation"
+        ],
+        "answer": "outcome",
+        "why": "The score is the result of the match.",
+        "gate": "Find the word on SB p.188.",
+        "tier": "START"
+      },
+      {
+        "label": "COHESION | AGREEMENT",
+        "prompt": "Which group shows agreement?",
+        "options": [
+          "however, in contrast",
+          "for instance, this means",
+          "similarly, likewise",
+          "as a result, so"
+        ],
+        "answer": "similarly, likewise",
+        "why": "Both words show that the next idea is alike.",
+        "gate": "Check your copied list.",
+        "tier": "START"
+      },
+      {
+        "label": "GRAMMAR | CORRECT FORM",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "They are boys very tall.",
+          "They are very tall boys.",
+          "They very are tall boys.",
+          "They are very talls boys."
+        ],
+        "answer": "They are very tall boys.",
+        "why": "Tall stays singular and very goes in front of it.",
+        "gate": "Name the rule.",
+        "tier": "START"
+      },
+      {
+        "label": "VOCABULARY | USE",
+        "prompt": "Which sentence uses associate correctly?",
+        "options": [
+          "I have an associate of rain.",
+          "The rain was very associate.",
+          "It was an associate outcome.",
+          "I associate rain with the winter."
+        ],
+        "answer": "I associate rain with the winter.",
+        "why": "Associate is a verb here, and it is followed by with.",
+        "gate": "Write your own sentence.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "COHESION | FIND IT",
+        "prompt": "The bus was late, so we missed the start. Which word is the cohesive device?",
+        "options": [
+          "so",
+          "missed",
+          "bus",
+          "late"
+        ],
+        "answer": "so",
+        "why": "So links the cause to the effect.",
+        "gate": "Say the cause and the effect.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "GRAMMAR | MITIGATOR",
+        "prompt": "Which sentence uses a mitigator?",
+        "options": [
+          "The water was really cold.",
+          "The water was very cold.",
+          "The water was cold.",
+          "The water was a little cold."
+        ],
+        "answer": "The water was a little cold.",
+        "why": "A little makes the adjective weaker.",
+        "gate": "Change it to use slightly.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "CLOSE READ | EVIDENCE",
+        "prompt": "Which answer uses evidence?",
+        "options": [
+          "Lines 52–54 show that decision-making keeps developing into the early twenties.",
+          "The article is quite long.",
+          "I think teenagers are fine.",
+          "Brains are in heads."
+        ],
+        "answer": "Lines 52–54 show that decision-making keeps developing into the early twenties.",
+        "why": "It gives line numbers and says what they show.",
+        "gate": "Check one of your answers on SB p.194.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "ESSAY | NEXT STEP",
+        "prompt": "Your draft has a thesis and two solutions, but no evidence. What is the best next step?",
+        "options": [
+          "Write a new title.",
+          "Change the font.",
+          "Add real evidence for each solution.",
+          "Delete one solution."
+        ],
+        "answer": "Add real evidence for each solution.",
+        "why": "Each solution needs evidence to convince the reader.",
+        "gate": "Check your own draft.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "REPAIR | TWO ERRORS",
+        "prompt": "Correct this: He is a boy very kinds.",
+        "options": [
+          "He very is a kind boy.",
+          "He is a very kind boy.",
+          "He is a very kinds boy.",
+          "He is boy a very kind."
+        ],
+        "answer": "He is a very kind boy.",
+        "why": "Kind stays singular and goes in front of the noun, with very before it.",
+        "gate": "Explain both changes.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "USE | TWO WORDS",
+        "prompt": "Which sentence uses risk and outcome correctly?",
+        "options": [
+          "Risk is an outcome of complicated.",
+          "He thought about the risk before he chose, and the outcome was good.",
+          "He outcome the risk.",
+          "The risk was very outcome."
+        ],
+        "answer": "He thought about the risk before he chose, and the outcome was good.",
+        "why": "Both words are used as nouns with the right meaning.",
+        "gate": "Write your own sentence with both words.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "7": {
+    "tab": "Week review",
+    "eyebrow": "LESSON 7 | Week 12 review",
+    "title": "Ten rounds, every answer explained",
+    "instruction": "Decide before the reveal. Then explain why the answer is right and why one wrong answer fails.",
+    "tip": "Use this if the Kahoot is not ready. Accuracy first, speed second.",
+    "finishTitle": "Review complete",
+    "finishText": "Write two corrections with reasons in your copybook.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "VOCABULARY | MEANING",
+        "prompt": "Which word names the ages between 11 and 18?",
+        "options": [
+          "reputation",
+          "outcome",
+          "risk",
+          "adolescence"
+        ],
+        "answer": "adolescence",
+        "why": "Adolescence is when a child develops into an adult.",
+        "gate": "Use the word in a sentence.",
+        "tier": "START"
+      },
+      {
+        "label": "VOCABULARY | CONTEXT",
+        "prompt": "A plan with twenty steps is ___.",
+        "options": [
+          "risk",
+          "outcome",
+          "complicated",
+          "associate"
+        ],
+        "answer": "complicated",
+        "why": "Many steps make a plan complicated.",
+        "gate": "Say the word class.",
+        "tier": "START"
+      },
+      {
+        "label": "COHESION | TYPE",
+        "prompt": "Which is a cause-and-effect device?",
+        "options": [
+          "in contrast",
+          "as a result",
+          "for instance",
+          "similarly"
+        ],
+        "answer": "as a result",
+        "why": "As a result introduces an effect.",
+        "gate": "Use it in a sentence.",
+        "tier": "START"
+      },
+      {
+        "label": "GRAMMAR | POSITION",
+        "prompt": "Where can an adjective go?",
+        "options": [
+          "only at the end of a text",
+          "only after a noun",
+          "only before a verb",
+          "before a noun or after a linking verb"
+        ],
+        "answer": "before a noun or after a linking verb",
+        "why": "Those are the two main positions from LC p.72.",
+        "gate": "Give one example of each.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "GRAMMAR | STRONGER",
+        "prompt": "Which word makes an adjective stronger?",
+        "options": [
+          "a little",
+          "never",
+          "slightly",
+          "really"
+        ],
+        "answer": "really",
+        "why": "Really is an intensifier.",
+        "gate": "Name a mitigator.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "READING | MAIN IDEA",
+        "prompt": "What does the article say about teenagers’ decisions?",
+        "options": [
+          "Teenagers can never decide.",
+          "All risks are good.",
+          "Only adults have brains.",
+          "Some kinds of decisions need more time to develop."
+        ],
+        "answer": "Some kinds of decisions need more time to develop.",
+        "why": "Teenagers make decisions every day, but weighing urges against bad outcomes takes longer.",
+        "gate": "Say which lines prove it.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "COHESION | NAME THE LINK",
+        "prompt": "Some teenagers take risks. In contrast, many adults are careful. What link is this?",
+        "options": [
+          "agreement",
+          "example or explanation",
+          "opposition",
+          "cause and effect"
+        ],
+        "answer": "opposition",
+        "why": "The two ideas are opposite, and In contrast signals it.",
+        "gate": "Change it to show agreement.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "REPAIR | TWO ERRORS",
+        "prompt": "Correct this: My friends are talls and very kinds.",
+        "options": [
+          "My friends are tall and very kind.",
+          "My friends are talls and very kind.",
+          "My friend are tall and very kind.",
+          "My friends are tall and very kinds."
+        ],
+        "answer": "My friends are tall and very kind.",
+        "why": "Adjectives are never plural, even with a plural noun.",
+        "gate": "State the rule.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "ESSAY | ENDING",
+        "prompt": "Which conclusion is strongest?",
+        "options": [
+          "The end.",
+          "In short, more bins and class duties would make our school cleaner for everyone.",
+          "Now I will start my essay.",
+          "Bins are bins."
+        ],
+        "answer": "In short, more bins and class duties would make our school cleaner for everyone.",
+        "why": "It sums up the solutions and ends with a clear final thought.",
+        "gate": "Say a conclusion for your own essay.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "EVALUATE | BEST DEVICE",
+        "prompt": "He was very tired. ___, he finished all his homework.",
+        "options": [
+          "Similarly",
+          "For instance",
+          "However",
+          "As a result"
+        ],
+        "answer": "However",
+        "why": "Being tired would normally stop him, so the second idea is opposite to what we expect.",
+        "gate": "Explain why As a result fails.",
+        "tier": "EXTEND"
+      }
+    ]
+  }
+};
+
+    const states = {};
+    let currentLesson = 1;
+    let turnNumber = 1;
+    let soundOn = true;
+    let audioContext = null;
+
+    const dom = {
+      tabs: [...document.querySelectorAll('.lesson-tab')],
+      eyebrow: document.getElementById('activityEyebrow'),
+      title: document.getElementById('activityTitle'),
+      instruction: document.getElementById('activityInstruction'),
+      stage: document.getElementById('activityStage'),
+      progressText: document.getElementById('progressText'),
+      scoreText: document.getElementById('scoreText'),
+      progressFill: document.getElementById('progressFill'),
+      tiers: [...document.querySelectorAll('.tier-step')],
+      feedback: document.getElementById('feedbackPanel'),
+      feedbackIcon: document.getElementById('feedbackIcon'),
+      feedbackTitle: document.getElementById('feedbackTitle'),
+      feedbackText: document.getElementById('feedbackText'),
+      tip: document.getElementById('teacherTip'),
+      reset: document.getElementById('resetButton'),
+      reveal: document.getElementById('revealButton'),
+      sound: document.getElementById('soundButton'),
+      next: document.getElementById('nextButton'),
+      fullscreen: document.getElementById('fullscreenButton'),
+      turn: document.getElementById('turnNumber')
+    };
+
+    function newState() {
+      return {
+        index: 0,
+        score: 0,
+        attempts: 0,
+        answered: false,
+        explanationConfirmed: false,
+        revealed: false,
+        finished: false,
+        optionOrder: null
+      };
+    }
+
+    function stateFor(lessonNumber) {
+      if (!states[lessonNumber]) states[lessonNumber] = newState();
+      return states[lessonNumber];
+    }
+
+    function currentChallenge() {
+      const state = stateFor(currentLesson);
+      return lessons[currentLesson].challenges[state.index];
+    }
+
+    function setFeedback(kind, title, text) {
+      dom.feedback.className = `feedback ${kind}`;
+      dom.feedbackIcon.textContent = kind === 'success' ? '✓' : kind === 'error' ? '×' : kind === 'reveal' ? '!' : '?';
+      dom.feedbackTitle.textContent = title;
+      dom.feedbackText.textContent = text;
+    }
+
+    function neutralFeedback() {
+      setFeedback('neutral', 'Read every option', 'The board player chooses only after the class has formed an answer.');
+    }
+
+    function tone(frequency, duration) {
+      if (!soundOn) return;
+      try {
+        audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.frequency.value = frequency;
+        gain.gain.setValueAtTime(.045, audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(.001, audioContext.currentTime + duration);
+        oscillator.connect(gain).connect(audioContext.destination);
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + duration);
+      } catch (error) {
+        soundOn = false;
+        dom.sound.textContent = 'Sound unavailable';
+      }
+    }
+
+    function shuffle(items) {
+      const copy = [...items];
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function updateHeader() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      const total = lesson.challenges.length;
+      const itemNumber = state.finished ? total : state.index + 1;
+      dom.eyebrow.textContent = lesson.eyebrow;
+      dom.title.textContent = lesson.title;
+      dom.instruction.textContent = lesson.instruction;
+      dom.tip.textContent = lesson.tip;
+      dom.progressText.textContent = `${itemNumber} of ${total}`;
+      dom.scoreText.textContent = `${state.score} first-try correct`;
+      dom.progressFill.style.width = `${state.finished ? 100 : (state.index / total) * 100}%`;
+      dom.tiers.forEach(step => step.classList.toggle('active', !state.finished && step.dataset.tier === currentChallenge().tier));
+      dom.next.disabled = !state.explanationConfirmed || state.finished;
+      dom.reveal.disabled = state.finished;
+      dom.turn.textContent = String(turnNumber).padStart(2, '0');
+    }
+
+    function render() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      updateHeader();
+
+      if (state.finished) {
+        dom.stage.innerHTML = `
+          <article class="finish-card">
+            <div class="finish-inner">
+              <div class="finish-mark">✓</div>
+              <h3>${lesson.finishTitle}</h3>
+              <p>${lesson.finishText}</p>
+              <div class="finish-model">${lesson.finishModel}</div>
+            </div>
+          </article>`;
+        setFeedback('success', 'Lesson challenge complete', `${state.score} of ${lesson.challenges.length} were correct on the first attempt.`);
+        dom.next.disabled = true;
+        return;
+      }
+
+      const challenge = currentChallenge();
+      dom.stage.innerHTML = `
+        <article class="prompt-card">
+          <div class="challenge-label"><span class="tier-dot"></span>${challenge.tier} | ${challenge.label}</div>
+          ${lesson.practice ? `<div class="reading-source"><strong>Original practice text, not from the book</strong><p>${lesson.practice}</p></div>` : ""}
+          <p class="prompt-text">${challenge.prompt}</p>
+          <div class="source-line">Use the prompt and explain your reasoning.</div>
+        </article>
+        <article class="response-card" id="responseCard"></article>`;
+
+      renderChoices(document.getElementById('responseCard'), challenge, state);
+      if (!state.answered && !state.revealed) neutralFeedback();
+      else if (state.explanationConfirmed) setFeedback('success', 'Reason accepted', challenge.why);
+      else if (state.revealed) setFeedback('reveal', `Answer: ${challenge.answer}`, challenge.why);
+      else setFeedback('success', 'Correct. Now prove it.', challenge.why);
+    }
+
+    function renderChoices(container, challenge, state) {
+      const options = state.optionOrder || shuffle(challenge.options);
+      state.optionOrder = options;
+      container.innerHTML = `
+        <div class="choice-grid">
+          ${options.map((option, index) => `<button class="choice" data-option="${encodeURIComponent(option)}"><span class="key-hint">${index + 1}</span>${option}</button>`).join('')}
+        </div>
+        <div id="gateArea"></div>`;
+
+      [...container.querySelectorAll('.choice')].forEach(button => {
+        const option = decodeURIComponent(button.dataset.option);
+        if (state.answered || state.revealed) {
+          button.disabled = true;
+          if (option === challenge.answer) button.classList.add('correct');
+        }
+        button.addEventListener('click', () => choose(option, button));
+      });
+
+      if (state.answered || state.revealed) renderGate(challenge, state);
+    }
+
+    function choose(option, button) {
+      const state = stateFor(currentLesson);
+      const challenge = currentChallenge();
+      if (state.answered || state.revealed || button.disabled) return;
+      state.attempts += 1;
+
+      if (option === challenge.answer) {
+        state.answered = true;
+        if (state.attempts === 1) state.score += 1;
+        tone(720, .18);
+        [...document.querySelectorAll('.choice')].forEach(choice => {
+          choice.disabled = true;
+          if (decodeURIComponent(choice.dataset.option) === challenge.answer) choice.classList.add('correct');
+        });
+        setFeedback('success', 'Correct. Now prove it.', challenge.why);
+        renderGate(challenge, state);
+      } else {
+        button.classList.add('wrong');
+        button.disabled = true;
+        tone(190, .16);
+        setFeedback('error', 'Not precise enough', 'Re-read the prompt and every option. Check meaning, grammar and evidence before choosing again.');
+      }
+      updateHeader();
+    }
+
+    function renderGate(challenge, state) {
+      const gateArea = document.getElementById('gateArea');
+      if (!gateArea) return;
+      gateArea.innerHTML = `
+        <div class="oral-gate">
+          <div><strong>Explanation gate</strong><p>${challenge.gate}</p></div>
+          <button class="tool-button confirm" id="confirmExplanation">${state.explanationConfirmed ? 'Explanation confirmed' : 'Explanation heard'}</button>
+        </div>`;
+      const confirm = document.getElementById('confirmExplanation');
+      confirm.disabled = state.explanationConfirmed;
+      confirm.addEventListener('click', () => {
+        state.explanationConfirmed = true;
+        confirm.disabled = true;
+        confirm.textContent = 'Explanation confirmed';
+        setFeedback('success', 'Reason accepted', challenge.why);
+        dom.next.disabled = false;
+        tone(880, .12);
+      });
+    }
+
+    function revealAnswer() {
+      const state = stateFor(currentLesson);
+      if (state.finished) return;
+      const challenge = currentChallenge();
+      state.revealed = true;
+      state.answered = true;
+      render();
+      setFeedback('reveal', `Answer: ${challenge.answer}`, challenge.why);
+      renderGate(challenge, state);
+    }
+
+    function nextChallenge() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      if (!state.explanationConfirmed) return;
+
+      if (state.index >= lesson.challenges.length - 1) {
+        state.finished = true;
+      } else {
+        state.index += 1;
+        state.attempts = 0;
+        state.answered = false;
+        state.explanationConfirmed = false;
+        state.revealed = false;
+        state.optionOrder = null;
+        turnNumber = turnNumber >= 99 ? 1 : turnNumber + 1;
+      }
+      render();
+    }
+
+    function switchLesson(lessonNumber) {
+      currentLesson = lessonNumber;
+      dom.tabs.forEach(tab => { const active=Number(tab.dataset.lesson) === lessonNumber; tab.classList.toggle('active', active); tab.setAttribute('aria-pressed', String(active)); });
+      window.location.hash = `l${lessonNumber}`;
+      render();
+    }
+
+    function clickChoiceByNumber(number) {
+      const buttons = [...document.querySelectorAll('.choice')];
+      const button = buttons[number - 1];
+      if (button && !button.disabled) button.click();
+    }
+
+    dom.tabs.forEach(tab => tab.addEventListener('click', () => switchLesson(Number(tab.dataset.lesson))));
+    dom.reset.addEventListener('click', () => {
+      states[currentLesson] = newState();
+      render();
+    });
+    dom.reveal.addEventListener('click', revealAnswer);
+    dom.next.addEventListener('click', nextChallenge);
+    dom.sound.addEventListener('click', () => {
+      soundOn = !soundOn;
+      dom.sound.textContent = soundOn ? 'Sound on' : 'Sound off';
+      dom.sound.setAttribute('aria-pressed', String(soundOn));
+      if (soundOn) tone(620, .1);
+    });
+    dom.fullscreen.addEventListener('click', async () => {
+      try {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+        else await document.exitFullscreen();
+      } catch (error) {
+        setFeedback('error', 'Full screen unavailable', 'Use the browser menu or presentation mode instead.');
+      }
+    });
+    document.addEventListener('fullscreenchange', () => {
+      dom.fullscreen.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen';
+    });
+    document.addEventListener('keydown', event => {
+      if (event.altKey && event.key === 'ArrowRight') {
+        event.preventDefault();
+        switchLesson(currentLesson === 7 ? 1 : currentLesson + 1);
+        return;
+      }
+      if (event.altKey && event.key === 'ArrowLeft') {
+        event.preventDefault();
+        switchLesson(currentLesson === 1 ? 7 : currentLesson - 1);
+        return;
+      }
+      if (['1', '2', '3', '4'].includes(event.key)) clickChoiceByNumber(Number(event.key));
+      if (event.key.toLowerCase() === 'e') document.getElementById('confirmExplanation')?.click();
+      if (event.key.toLowerCase() === 'n' && !dom.next.disabled) nextChallenge();
+      if (event.key.toLowerCase() === 'r' && !dom.reveal.disabled) revealAnswer();
+    });
+
+    const hashLesson = Number(window.location.hash.replace('#l', ''));
+    switchLesson(hashLesson >= 1 && hashLesson <= 7 ? hashLesson : 1);
+  </script>
+</body>
+</html>
+
