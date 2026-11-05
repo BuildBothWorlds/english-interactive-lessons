@@ -1,0 +1,1668 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071321">
+  <meta name="description" content="Grade 8 English Week 12 touchscreen classroom activities for Lessons 1-5.">
+  <title>Grade 8 English | Week 12 Touchscreen Challenge</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071321;
+      --panel: #10243c;
+      --panel-2: #172e4b;
+      --line: #2e4d72;
+      --text: #f8fbff;
+      --soft: #d8e3f1;
+      --muted: #93a8c1;
+      --cyan: #5de2ea;
+      --yellow: #fff200;
+      --pink: #ff8fa8;
+      --mint: #71e6a2;
+      --orange: #ffb65e;
+      --red: #ff6f7f;
+      --shadow: 0 24px 74px rgba(0, 0, 0, .34);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100dvh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 8% -4%, rgba(93, 226, 234, .14), transparent 28rem),
+        radial-gradient(circle at 100% 12%, rgba(255, 143, 168, .1), transparent 30rem),
+        var(--bg);
+    }
+
+    a, button { touch-action: manipulation; }
+    button { font: inherit; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 4px solid var(--yellow);
+      outline-offset: 3px;
+    }
+
+    .shell {
+      width: min(1660px, 100%);
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: 18px clamp(18px, 3vw, 46px) 16px;
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      gap: 13px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .home-link {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--cyan);
+      background: rgba(16, 36, 60, .9);
+      text-decoration: none;
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .brand-kicker,
+    .eyebrow {
+      color: var(--cyan);
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .brand-kicker { font-size: clamp(.7rem, 1vw, .9rem); }
+
+    h1 {
+      margin: 5px 0 0;
+      font-size: clamp(1.45rem, 2.4vw, 2.45rem);
+      line-height: 1;
+    }
+
+    .routine {
+      min-width: 340px;
+      min-height: 58px;
+      padding: 8px 16px 8px 9px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(16, 36, 60, .9);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--soft);
+    }
+
+    .routine-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 12px;
+      color: var(--bg);
+      background: var(--yellow);
+      font-size: 1.1rem;
+      font-weight: 950;
+    }
+
+    .routine strong { color: var(--text); }
+
+    .lesson-tabs {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .lesson-tab {
+      min-height: 62px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(16, 36, 60, .82);
+      color: var(--soft);
+      text-align: left;
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .lesson-tab span {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .lesson-tab strong {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(.82rem, 1.05vw, 1rem);
+    }
+
+    .lesson-tab:hover,
+    .lesson-tab:focus-visible {
+      border-color: var(--cyan);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .lesson-tab.active {
+      color: var(--bg);
+      background: var(--cyan);
+      border-color: var(--cyan);
+      box-shadow: 0 10px 28px rgba(93, 226, 234, .18);
+    }
+
+    .lesson-tab.active span { color: rgba(7, 19, 33, .72); }
+
+    .activity-card {
+      min-height: 0;
+      padding: clamp(16px, 2vw, 28px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(16, 36, 60, .98), rgba(8, 24, 42, .99));
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto auto minmax(300px, 1fr) auto;
+      gap: 14px;
+      overflow: hidden;
+    }
+
+    .activity-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(250px, 29%);
+      align-items: end;
+      gap: 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 7px;
+      font-size: .78rem;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 3.55rem);
+      line-height: .99;
+    }
+
+    .instruction {
+      margin: 9px 0 0;
+      color: var(--soft);
+      font-size: clamp(.92rem, 1.3vw, 1.16rem);
+    }
+
+    .score-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 8px;
+      color: var(--soft);
+      font-size: .88rem;
+      font-weight: 850;
+    }
+
+    .progress-track {
+      height: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #08192b;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--mint));
+      transition: width .3s ease;
+    }
+
+    .tier-track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .tier-step {
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--muted);
+      background: rgba(7, 19, 33, .55);
+      font-size: .72rem;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-align: center;
+    }
+
+    .tier-step.active[data-tier="START"] { color: var(--bg); background: var(--cyan); border-color: var(--cyan); }
+    .tier-step.active[data-tier="BUILD"] { color: var(--bg); background: var(--orange); border-color: var(--orange); }
+    .tier-step.active[data-tier="EXTEND"] { color: var(--bg); background: var(--pink); border-color: var(--pink); }
+
+    .stage {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(330px, .9fr) minmax(460px, 1.2fr);
+      gap: 22px;
+    }
+
+    .prompt-card,
+    .response-card,
+    .finish-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--panel-2);
+    }
+
+    .prompt-card {
+      min-height: 0;
+      padding: clamp(22px, 3vw, 42px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .challenge-label {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--cyan);
+      font-size: .78rem;
+      font-weight: 950;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .tier-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 15px rgba(93, 226, 234, .75);
+    }
+
+    .prompt-text {
+      margin: 0;
+      font-size: clamp(1.3rem, 2.25vw, 2.5rem);
+      line-height: 1.18;
+      font-weight: 850;
+    }
+
+    .source-line {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 750;
+    }
+
+    .response-card {
+      min-height: 0;
+      padding: clamp(18px, 2vw, 28px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .choice {
+      position: relative;
+      min-height: 82px;
+      padding: 15px 16px 15px 50px;
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      color: var(--text);
+      background: var(--panel);
+      font-size: clamp(.96rem, 1.35vw, 1.24rem);
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+
+    .key-hint {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      color: var(--bg);
+      background: var(--muted);
+      font-size: .78rem;
+      font-weight: 950;
+    }
+
+    .choice:hover,
+    .choice:focus-visible,
+    .tool-button:hover,
+    .tool-button:focus-visible {
+      border-color: var(--cyan);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .choice.correct {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .choice.correct .key-hint { color: var(--mint); background: var(--bg); }
+
+    .choice.wrong {
+      background: rgba(255, 111, 127, .17);
+      border-color: var(--red);
+    }
+
+    .choice:disabled { cursor: default; transform: none; }
+
+    .oral-gate {
+      padding: 15px 17px;
+      border: 1px solid rgba(255, 242, 0, .58);
+      border-radius: 15px;
+      background: rgba(255, 242, 0, .06);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .oral-gate strong { color: var(--yellow); }
+    .oral-gate p { margin: 4px 0 0; color: var(--soft); }
+
+    .feedback {
+      min-height: 72px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      align-items: center;
+      gap: 13px;
+      background: rgba(7, 19, 33, .74);
+    }
+
+    .feedback-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--muted);
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .feedback strong { font-size: 1.04rem; }
+    .feedback p { margin: 4px 0 0; color: var(--soft); }
+    .feedback.success { border-color: rgba(113, 230, 162, .7); }
+    .feedback.success .feedback-icon { background: var(--mint); }
+    .feedback.error { border-color: rgba(255, 111, 127, .75); }
+    .feedback.error .feedback-icon { color: white; background: var(--red); }
+    .feedback.reveal { border-color: rgba(255, 242, 0, .7); }
+    .feedback.reveal .feedback-icon { background: var(--yellow); }
+
+    .teacher-toolbar {
+      min-height: 56px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .toolbar-left,
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .teacher-tip {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 750;
+      text-align: right;
+    }
+
+    .tool-button {
+      min-height: 50px;
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--soft);
+      background: var(--panel);
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, opacity .12s ease;
+    }
+
+    .tool-button.primary {
+      color: var(--bg);
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+
+    .tool-button.confirm {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .tool-button:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+
+    .finish-card {
+      grid-column: 1 / -1;
+      min-height: 100%;
+      padding: clamp(30px, 5vw, 70px);
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .finish-inner { width: min(850px, 100%); }
+
+    .finish-mark {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--mint);
+      font-size: 2.45rem;
+      font-weight: 950;
+    }
+
+    .finish-card h3 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 4rem);
+    }
+
+    .finish-card p {
+      max-width: 680px;
+      margin: 14px auto 0;
+      color: var(--soft);
+      font-size: clamp(1rem, 1.5vw, 1.22rem);
+      line-height: 1.45;
+    }
+
+    .finish-model {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-left: 7px solid var(--yellow);
+      border-radius: 12px;
+      color: var(--text);
+      background: var(--bg);
+      font-size: clamp(1rem, 1.45vw, 1.2rem);
+      font-weight: 800;
+      text-align: left;
+    }
+
+    @media (max-width: 1000px) {
+      body { overflow: auto; }
+      .shell { min-height: 100vh; }
+      .lesson-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lesson-tab:last-child { grid-column: span 2; }
+      .stage { grid-template-columns: 1fr; }
+      .teacher-toolbar,
+      .toolbar-left,
+      .toolbar-right { flex-wrap: wrap; }
+      .teacher-tip { max-width: none; flex: 1 1 100%; text-align: left; }
+    }
+
+    @media (max-width: 680px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .routine { min-width: 0; width: 100%; }
+      .activity-heading { grid-template-columns: 1fr; }
+      .choice-grid { grid-template-columns: 1fr; }
+      .oral-gate { grid-template-columns: 1fr; }
+      .activity-card { overflow: visible; }
+      .teacher-toolbar { flex-direction: column; }
+      .toolbar-left,
+      .toolbar-right { width: 100%; }
+      .tool-button { flex: 1 1 auto; }
+    }
+
+    @media (max-height: 850px) and (min-width: 1001px) {
+      .shell { padding-top: 9px; padding-bottom: 9px; gap: 8px; }
+      .topbar h1 { font-size: 1.7rem; }
+      .routine { min-height: 46px; }
+      .routine-number { width: 36px; height: 36px; }
+      .lesson-tab { min-height: 48px; padding: 6px 10px; }
+      .activity-card { padding: 13px 18px; gap: 9px; grid-template-rows: auto auto minmax(255px, 1fr) auto; }
+      h2 { font-size: clamp(1.7rem, 2.5vw, 2.55rem); }
+      .instruction { margin-top: 5px; }
+      .prompt-card { padding: 20px 28px; }
+      .prompt-text { font-size: clamp(1.2rem, 1.9vw, 1.95rem); }
+      .choice { min-height: 62px; padding-top: 10px; padding-bottom: 10px; }
+      .feedback { min-height: 58px; padding-top: 7px; padding-bottom: 7px; }
+      .teacher-toolbar { min-height: 48px; }
+      .tool-button { min-height: 44px; }
+    }
+
+    .root-bank { font-size: .92rem; color: var(--soft); border-top: 1px solid var(--line); padding-top: 10px; }
+    .root-bank summary { cursor: pointer; color: var(--yellow); min-height: 44px; display: flex; align-items: center; font-weight: 850; }
+    .root-bank p { margin: 0; line-height: 1.6; }
+    .tier-step { cursor: pointer; min-height: 44px; font: inherit; font-weight: 850; }
+    .tier-step:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand-line">
+        <a class="home-link" href="../index.html" aria-label="Return to lesson library">‹</a>
+        <div>
+          <div class="brand-kicker">MRISB | GRADE 8 ENGLISH</div>
+          <h1>Week 12 Touchscreen Challenge</h1>
+        </div>
+      </div>
+      <div class="routine" aria-label="Classroom routine">
+        <span class="routine-number" id="turnNumber">01</span>
+        <span><strong>Read fully.</strong> Choose carefully. Explain the link.</span>
+      </div>
+    </header>
+
+    <nav class="lesson-tabs" aria-label="Select a lesson">
+      <button class="lesson-tab active" data-lesson="1"><span>Lesson 1</span><strong>Vocabulary + Roots</strong></button>
+      <button class="lesson-tab" data-lesson="2"><span>Lesson 2</span><strong>Setting + Analogy</strong></button>
+      <button class="lesson-tab" data-lesson="3"><span>Lesson 3</span><strong>Inference + Reading</strong></button>
+      <button class="lesson-tab" data-lesson="4"><span>Lesson 4</span><strong>Past Perfect + Modifiers</strong></button>
+      <button class="lesson-tab" data-lesson="5"><span>Lesson 5</span><strong>Reporting + Questions</strong></button>
+    </nav>
+
+    <main class="activity-card">
+      <section class="activity-heading">
+        <div>
+          <p class="eyebrow" id="activityEyebrow"></p>
+          <h2 id="activityTitle"></h2>
+          <p class="instruction" id="activityInstruction"></p>
+        </div>
+        <div>
+          <div class="score-line"><span id="progressText"></span><span id="scoreText"></span></div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+      </section>
+
+      <section class="tier-track" aria-label="Challenge level">
+        <button class="tier-step" data-tier="START" aria-label="Jump to start questions">START | Recognise</button>
+        <button class="tier-step" data-tier="BUILD" aria-label="Jump to build questions">BUILD | Apply</button>
+        <button class="tier-step" data-tier="EXTEND" aria-label="Jump to extend questions">EXTEND | Justify</button>
+      </section>
+
+      <section class="stage" id="activityStage" aria-live="polite"></section>
+
+      <section class="feedback" id="feedbackPanel" aria-live="assertive">
+        <div class="feedback-icon" id="feedbackIcon">?</div>
+        <div><strong id="feedbackTitle">Read every option</strong><p id="feedbackText">The board player chooses only after the class has formed an answer.</p></div>
+      </section>
+    </main>
+
+    <footer class="teacher-toolbar">
+      <div class="toolbar-left">
+        <button class="tool-button" id="resetButton">Reset lesson</button>
+        <button class="tool-button" id="revealButton">Reveal answer</button>
+        <button class="tool-button" id="soundButton" aria-pressed="true">Sound on</button>
+      </div>
+      <div class="toolbar-right">
+        <span class="teacher-tip" id="teacherTip"></span>
+        <button class="tool-button primary" id="nextButton" disabled>Next challenge</button>
+        <button class="tool-button" id="fullscreenButton">Full screen</button>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const lessons = {
+  "1": {
+    "eyebrow": "LESSON 1 | SB 108, 124, 140, 149 · LC 42 A, 48 A, 54 A, 56",
+    "title": "Words that change the meaning",
+    "instruction": "Read silently. Choose the most precise answer, defend it, then use the word in a sentence of your own.",
+    "tip": "Use 3–5 challenges in the lesson. Extension questions are a bank, not a race.",
+    "finishTitle": "Precise words, careful thinking",
+    "finishText": "Return to LC 42 A, 48 A, 54 A and 56. Check your answers against today's word tables.",
+    "finishModel": "A strong example gives enough context to prove the meaning. A root suggests a meaning; the sentence confirms it.",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "CONTEXT | ORDER OF FEELINGS",
+        "prompt": "For days before the cliff walk, Sami could not sleep. On the walk, a rock fell nearby and Sami froze for a second. Which pair matches the order of the feelings?",
+        "options": [
+          "dread, then startled",
+          "startled, then dread",
+          "desperate, then merged",
+          "reckless, then secure"
+        ],
+        "answer": "dread, then startled",
+        "why": "Dread looks ahead to something still to come. Startled is a sudden reaction in the moment.",
+        "gate": "Name the clue that shows the first feeling came before the walk."
+      },
+      {
+        "tier": "START",
+        "label": "NEAR-MEANINGS | HAZARD OR TREACHEROUS",
+        "prompt": "Ice, loose stones and a missing handrail made a mountain path dangerous. Which sentence uses both words accurately?",
+        "options": [
+          "The ice and stones were hazards, so the path was treacherous.",
+          "The path was a hazard, so the stones were all treacherous ice.",
+          "The handrail was treacherous, so the hazards were the safest part.",
+          "The hazards made the path secure, so the ice was treacherous."
+        ],
+        "answer": "The ice and stones were hazards, so the path was treacherous.",
+        "why": "Hazards names the dangers. Treacherous describes the place or situation they create.",
+        "gate": "Change the example: name two hazards in a different treacherous place."
+      },
+      {
+        "tier": "START",
+        "label": "PRECISION | PREVALENT",
+        "prompt": "In a class of 30, 24 students walk to school. Which statement is accurate?",
+        "options": [
+          "Walking is prevalent, because most students do it, though not all.",
+          "Walking is prevalent, because every student in the class must do it.",
+          "Walking is reckless, because it is so common across the whole class.",
+          "Walking is a sensation, because 24 students can feel it each morning."
+        ],
+        "answer": "Walking is prevalent, because most students do it, though not all.",
+        "why": "Prevalent means common or widespread. It does not mean universal.",
+        "gate": "Use prevalent in a sentence that also shows some people are different."
+      },
+      {
+        "tier": "BUILD",
+        "label": "NEGATION | UNPREDICTABILITY",
+        "prompt": "A guide says, “There is almost no unpredictability in the weather here in July.” What does the guide mean?",
+        "options": [
+          "July weather is reliable, so plans can be made.",
+          "July weather is dangerous and difficult to travel in.",
+          "July weather changes suddenly, with very little warning.",
+          "July weather cannot be measured or described at all."
+        ],
+        "answer": "July weather is reliable, so plans can be made.",
+        "why": "Almost no reverses the meaning. Low unpredictability means the weather is easy to predict.",
+        "gate": "Give the antonym of unpredictability and use it in a sentence."
+      },
+      {
+        "tier": "BUILD",
+        "label": "ROOTS | SPLIT THE WORD",
+        "prompt": "A swimming coach writes “aquaphobia” in a report. Using the roots, which meaning fits best?",
+        "options": [
+          "a strong fear of water",
+          "a strong love of deep water",
+          "a special skill in water sports",
+          "a sickness caused by dirty water"
+        ],
+        "answer": "a strong fear of water",
+        "why": "Aqu means water and phob means fear. The sentence around the word would confirm it.",
+        "gate": "Split the word. What would the next sentence say if your meaning is right?"
+      },
+      {
+        "tier": "BUILD",
+        "label": "USAGE | COWER",
+        "prompt": "Which sentence uses cower accurately?",
+        "options": [
+          "The dog cowered under the table as the thunder cracked.",
+          "The student cowered the exam for a week before it began.",
+          "The climbers cowered the hazards and reached the summit.",
+          "The two small streams cowered into one wide, fast river."
+        ],
+        "answer": "The dog cowered under the table as the thunder cracked.",
+        "why": "Cower is a physical reaction: bending or shrinking back in fear. It does not take an object here.",
+        "gate": "Explain why dread fits the second sentence better than cower."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "JUDGEMENT | RISKY OR RECKLESS",
+        "prompt": "Two climbers attempt the same hard route. One checks the forecast and carries a rope. The other ignores a storm warning. Which judgement is strongest?",
+        "options": [
+          "Only the second is reckless, because the word depends on ignoring risk, not on the route.",
+          "Both are reckless, because the route they have chosen is itself hard and very dangerous.",
+          "Neither is reckless, because both of them are brave people who are facing the same route.",
+          "The first is reckless, because carrying a rope shows the climber really expected danger."
+        ],
+        "answer": "Only the second is reckless, because the word depends on ignoring risk, not on the route.",
+        "why": "Reckless means careless about possible bad results. Preparation is evidence against it, even when risk remains.",
+        "gate": "Write one sentence that shows the difference between risky and reckless."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "OVERSTATEMENT | SUSCEPTIBILITY",
+        "prompt": "A report says, “Young trees have high susceptibility to frost.” Which conclusion goes too far?",
+        "options": [
+          "All young trees will die in the next frost.",
+          "Frost can harm young trees more easily.",
+          "Young trees may need protection in winter.",
+          "Older trees may be harmed less easily."
+        ],
+        "answer": "All young trees will die in the next frost.",
+        "why": "Susceptibility describes how easily something is affected. It does not promise that harm will happen.",
+        "gate": "Rewrite the conclusion so that it stays within the evidence."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "ROOT TRAP | TEST THE MEANING",
+        "prompt": "A student says, “General must mean family, because it contains gen.” What is the best response?",
+        "options": [
+          "Letters can look like a root, so the sentence must confirm the meaning.",
+          "Every word containing gen is about family, so the student is right.",
+          "Roots never help with meaning, so context is the only useful tool.",
+          "General comes from genetic, so both words mean exactly the same."
+        ],
+        "answer": "Letters can look like a root, so the sentence must confirm the meaning.",
+        "why": "A root is a useful clue, not proof. Similar letters may be a coincidence.",
+        "gate": "Choose a word with a real root and show how context confirms it."
+      }
+    ],
+    "support": "Root bank: psych = mind; sens = feel; neuro = nerves; aqu = water; gen = family; lingu = language; photo = light; phob = fear; super = over."
+  },
+  "2": {
+    "eyebrow": "LESSON 2 | SB 109, 119 · LC 43, 44",
+    "title": "How place shapes people",
+    "instruction": "Read fully. Link the place to the action, or the comparison to its purpose. Then defend your choice.",
+    "tip": "Ask for the link, not the label. Choosing the right answer is only half of the task.",
+    "finishTitle": "Place, action, comparison",
+    "finishText": "Return to LC 43 and LC 44. Check your setting notes and your analogies.",
+    "finishModel": "Strong analysis says how the place changes what a character feels or does. A strong analogy has a clear purpose.",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "SETTING | ANALYSE OR NAME",
+        "prompt": "Which sentence analyses setting rather than only naming it?",
+        "options": [
+          "The rising tide gives Neel no time, so he must act at once.",
+          "The story takes place near a creek, a cave and a long dock.",
+          "Neel and Rupa are a brother and a sister who live on an island.",
+          "The cub is in the cave, and the children go there with milk."
+        ],
+        "answer": "The rising tide gives Neel no time, so he must act at once.",
+        "why": "Analysis explains an effect. The tide changes what Neel does.",
+        "gate": "Add one more setting detail and explain its effect on a character."
+      },
+      {
+        "tier": "START",
+        "label": "ANALOGY | METAPHOR",
+        "prompt": "Which sentence is a metaphor?",
+        "options": [
+          "The wind was a howling wolf outside the hut.",
+          "The wind howled like a wolf outside the hut.",
+          "The wind was as loud as a wolf outside the hut.",
+          "The wolf story about the wind is my favourite."
+        ],
+        "answer": "The wind was a howling wolf outside the hut.",
+        "why": "A metaphor says one thing is another. Like or as would make it a simile.",
+        "gate": "Say what quality the wind and the wolf share."
+      },
+      {
+        "tier": "START",
+        "label": "TRAP | FALSE SIMILE",
+        "prompt": "Which sentence contains no analogy at all?",
+        "options": [
+          "It looks like the rain will stop soon.",
+          "The rain fell like a curtain across the bay.",
+          "The rain was a thousand tiny drums on the roof.",
+          "The rain was as sharp as needles on our faces."
+        ],
+        "answer": "It looks like the rain will stop soon.",
+        "why": "Here, looks like means probably. Nothing is being compared.",
+        "gate": "Rewrite the sentence so that it does contain a simile."
+      },
+      {
+        "tier": "BUILD",
+        "label": "CHARACTER | CHANGE OF PLACE",
+        "prompt": "At the dock, Gupta shines a bright flashlight across Neel’s face. How does this change Neel’s situation compared with the cave?",
+        "options": [
+          "He moves from hiding to being exposed to powerful adults.",
+          "He moves from great danger into safety and comfort at last.",
+          "He can now see the cub much more clearly than he could before.",
+          "He no longer needs to explain anything at all to his father."
+        ],
+        "answer": "He moves from hiding to being exposed to powerful adults.",
+        "why": "The cave hid him. The dock places him under the light, in front of adults with power.",
+        "gate": "Name one word that describes how Neel might feel, and link it to the light."
+      },
+      {
+        "tier": "BUILD",
+        "label": "SETTING | PRESSURE",
+        "prompt": "Rupa hisses that the tide is rising. Why does Neel then squeeze into the cave instead of waiting?",
+        "options": [
+          "Waiting has now become more dangerous than acting.",
+          "The rising water will carry the cub out to him.",
+          "The cave becomes warmer once the tide comes in.",
+          "Rupa wants him to clean out the cave for the cub."
+        ],
+        "answer": "Waiting has now become more dangerous than acting.",
+        "why": "The tide acts like a countdown. The setting forces a decision.",
+        "gate": "Finish this: The tide acts like ___ because ___."
+      },
+      {
+        "tier": "BUILD",
+        "label": "ANALOGY | BEST PURPOSE",
+        "prompt": "A writer wants to show that a man’s anger could erupt at any moment. Which analogy fits best?",
+        "options": [
+          "His temper was a volcano, ready to explode.",
+          "His temper was a long, slow river to the sea.",
+          "His temper was a locked door at the end of a hall.",
+          "His temper was as cold as winter ice on the lake."
+        ],
+        "answer": "His temper was a volcano, ready to explode.",
+        "why": "A volcano suggests hidden pressure and sudden danger, which matches the purpose.",
+        "gate": "Explain why the locked door suggests something different."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "WHAT IF | TRADE-OFF",
+        "prompt": "Imagine that the whole rescue happens in bright daylight. Which response shows the strongest reasoning?",
+        "options": [
+          "The path gets safer, but the searchers could spot them far more easily.",
+          "The story stays the same, because all of the characters stay the same.",
+          "The rescue becomes easy, because daylight removes every single problem.",
+          "The cub becomes more dangerous, because it can now see the children."
+        ],
+        "answer": "The path gets safer, but the searchers could spot them far more easily.",
+        "why": "Strong reasoning sees the trade-off: one change can help and harm at once.",
+        "gate": "Choose a different change and give one gain and one loss."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "ANALOGY | COMPARE EFFECT",
+        "prompt": "Which analogy best shows that a safe routine can feel comfortable but also limiting?",
+        "options": [
+          "A routine is a warm room with the door locked from inside.",
+          "A routine is a wild river that never stops moving at all.",
+          "A routine is as dangerous as an icy path above a cliff.",
+          "A routine is a loud drum that wakes up the whole street."
+        ],
+        "answer": "A routine is a warm room with the door locked from inside.",
+        "why": "Warm suggests comfort; locked suggests limits. One image carries both ideas.",
+        "gate": "Write your own analogy for an adventurous life with two ideas in it."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "REPAIR | WEAK ANALOGY",
+        "prompt": "“The tide was like water.” Why is this a weak analogy?",
+        "options": [
+          "It compares a thing to what it already is, so nothing new is shown.",
+          "It uses like, and a good simile should always use as instead.",
+          "It should be a metaphor, because a tide is never like anything.",
+          "It compares two unlike things, which every analogy must avoid."
+        ],
+        "answer": "It compares a thing to what it already is, so nothing new is shown.",
+        "why": "An analogy links two unlike things through a shared quality.",
+        "gate": "Repair the sentence so that it shows the tide’s danger."
+      }
+    ]
+  },
+  "3": {
+    "eyebrow": "LESSON 3 | SB 125, 141 · LC 49, 55",
+    "title": "Reading beyond the words",
+    "instruction": "Read the text clue first. Decide what it shows, then prove that your answer stays inside the evidence.",
+    "tip": "Text clues + what I already know = inference. Ask for the clue before accepting any answer.",
+    "finishTitle": "Clue, knowledge, inference",
+    "finishText": "Return to LC 49 and LC 55. Add a missing clue where your inference needs one.",
+    "finishModel": "A strong answer has three parts: the answer, the clue and an explanation of how the clue proves it.",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "MONITOR | FIRST STEP",
+        "prompt": "You read that Ortega took a “calculated risk”, and you are unsure what calculated means. You have no dictionary. What should you do first?",
+        "options": [
+          "Reread the sentences around it and restate them.",
+          "Skip the paragraph and start on the next one.",
+          "Decide that it must be about mathematics.",
+          "Stop reading until a teacher explains it."
+        ],
+        "answer": "Reread the sentences around it and restate them.",
+        "why": "Monitoring means noticing confusion and using a strategy straight away.",
+        "gate": "Name a second strategy that could also help here."
+      },
+      {
+        "tier": "START",
+        "label": "FACT OR INFERENCE | OFFICIALS",
+        "prompt": "Text: Officials had warned villagers of a second slide. Which statement is an inference?",
+        "options": [
+          "Officials thought the area was still dangerous.",
+          "Officials warned the villagers about a slide.",
+          "A second slide was mentioned by officials.",
+          "The villagers were told about another slide."
+        ],
+        "answer": "Officials thought the area was still dangerous.",
+        "why": "The other three repeat the text. This one goes beyond it, using a clue.",
+        "gate": "Name the clue and the knowledge that together give this inference."
+      },
+      {
+        "tier": "START",
+        "label": "INFERENCE OR GUESS | CLUES",
+        "prompt": "Text: The café was empty, and the chairs were stacked on the tables. Which is a supported inference?",
+        "options": [
+          "The café was closed or about to close.",
+          "The owner of the café had lost all the money.",
+          "The chairs had been bought that same morning.",
+          "Nobody living in the town likes drinking coffee."
+        ],
+        "answer": "The café was closed or about to close.",
+        "why": "Stacked chairs and no customers are clues. The other options have no clue behind them.",
+        "gate": "Add one detail that would change this inference."
+      },
+      {
+        "tier": "BUILD",
+        "label": "CHARACTER | TEXT + KNOWLEDGE",
+        "prompt": "Ingrid Fedoroff says she is terrified before a ski run, yet she still skis after a bad injury. What can you infer?",
+        "options": [
+          "She values the experience enough to accept the fear.",
+          "She has stopped feeling any fear when she skis.",
+          "She skis only because someone else forces her to.",
+          "She does not understand that skiing is dangerous."
+        ],
+        "answer": "She values the experience enough to accept the fear.",
+        "why": "Terrified shows the fear is real; continuing shows she chooses it anyway.",
+        "gate": "Use: This clue suggests ___ because ___."
+      },
+      {
+        "tier": "BUILD",
+        "label": "PURPOSE | SAFE OR ADVENTUROUS?",
+        "prompt": "Why does the writer of Safe or Adventurous? say that a mountain guide “does not stay safe by staying at home”?",
+        "options": [
+          "To show that safety can come from careful preparation.",
+          "To warn all readers never to climb a mountain at all.",
+          "To prove that mountain guides dislike being at home.",
+          "To suggest that every kind of routine is dangerous."
+        ],
+        "answer": "To show that safety can come from careful preparation.",
+        "why": "The next sentence lists preparation: weather, ropes, turning back. That is the purpose.",
+        "gate": "Point to the sentence that proves this purpose."
+      },
+      {
+        "tier": "BUILD",
+        "label": "EVIDENCE | BEST MATCH",
+        "prompt": "Which detail best supports the inference that Ortega felt responsible for others?",
+        "options": [
+          "He said that searching “was a duty”.",
+          "An avalanche of mud came down the mountainside.",
+          "He runs a retreat centre at Johnson’s Landing.",
+          "A second slide fell soon after the first one."
+        ],
+        "answer": "He said that searching “was a duty”.",
+        "why": "A duty is something you feel you must do for others. The other details are events or background.",
+        "gate": "Explain why the avalanche detail does not prove how Ortega felt."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "OVERGENERALISING | TOO FAR",
+        "prompt": "The article says that thrill-seekers can stay calm and focused in chaotic situations. Which conclusion goes too far?",
+        "options": [
+          "Every thrill-seeker stays calm in every emergency.",
+          "Some people find chaos less stressful than others do.",
+          "Staying calm may help people in stressful moments.",
+          "Calm behaviour can be a useful personal characteristic."
+        ],
+        "answer": "Every thrill-seeker stays calm in every emergency.",
+        "why": "Every and every turn a general pattern into an absolute claim.",
+        "gate": "Rewrite the conclusion using a word such as some, may or often."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "REVISE | NEW EVIDENCE",
+        "prompt": "You infer that a hiker is lost, because the hiker keeps stopping. Then you read that the hiker is photographing birds. What should a good reader do?",
+        "options": [
+          "Change the inference so that it fits the new evidence.",
+          "Keep the inference, because a first idea is usually best.",
+          "Ignore the new detail, because it came later in the text.",
+          "Decide that the text must have made a serious mistake."
+        ],
+        "answer": "Change the inference so that it fits the new evidence.",
+        "why": "An inference can change. Good readers keep testing it as they read.",
+        "gate": "Say what your new inference is, and name the clue."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "STRONGEST ANSWER | PROVE IT",
+        "prompt": "Question: Does the writer of Safe or Adventurous? think we must choose one kind of life? Which answer is strongest?",
+        "options": [
+          "No. “May not be” shows doubt, and the writer recommends both security and calculated risks.",
+          "No, because a safe life and an adventurous life are both equally good for everybody in the world.",
+          "Yes. The writer says clearly that sensible people always have to choose a safe and steady life.",
+          "Yes, because the title of this text is a question, and a question always asks people to choose."
+        ],
+        "answer": "No. “May not be” shows doubt, and the writer recommends both security and calculated risks.",
+        "why": "The best answer gives a position, a clue from the text and an explanation.",
+        "gate": "Label the answer, the clue and the explanation in the strongest option."
+      }
+    ],
+    "support": "From Safe or Adventurous?: “The guide studies the weather, checks the ropes and turns back when conditions change. … The real choice may not be between a safe life and an adventurous one.”",
+    "supportLabel": "Open passage lines"
+  },
+  "4": {
+    "eyebrow": "LESSON 4 | SB 135 · LC 45–46, 50",
+    "title": "Time order and clear description",
+    "instruction": "Read the whole sentence. Find what happened first, or who is doing the action. Then explain the repair.",
+    "tip": "Ask two questions: Which event came first? Who or what is doing this?",
+    "finishTitle": "Earlier events, clear modifiers",
+    "finishText": "Return to LC 45–46 and LC 50. Finish SB 135 if it is not done. Correct only what needs correcting.",
+    "finishModel": "Had + past participle marks the earlier event. A modifier sits next to what it describes, and the doer must be in the sentence.",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "EVENT ORDER | WHAT CAME FIRST",
+        "prompt": "When the rescue team reached the hut, the hikers had left. What happened first?",
+        "options": [
+          "The hikers left.",
+          "The team reached the hut.",
+          "Both happened at the same time.",
+          "The sentence does not show the order."
+        ],
+        "answer": "The hikers left.",
+        "why": "Had left marks the earlier event. Reached is the later one.",
+        "gate": "Say the two events in the order they happened."
+      },
+      {
+        "tier": "START",
+        "label": "FORM | PAST PARTICIPLE",
+        "prompt": "We could not cross, because the storm ______ the bridge.",
+        "options": [
+          "had broken",
+          "had broke",
+          "had break",
+          "have broken"
+        ],
+        "answer": "had broken",
+        "why": "The past perfect needs had + past participle. Broke is the simple past.",
+        "gate": "Give the past participle of go, see and forget."
+      },
+      {
+        "tier": "START",
+        "label": "MODIFIER | WHAT IS WRONG",
+        "prompt": "“Hanging on the wall, Ali saw the map.” What is the problem?",
+        "options": [
+          "It suggests that Ali was hanging on the wall.",
+          "The verb saw should be in the past perfect.",
+          "The sentence needs a comma after the name Ali.",
+          "The word map should come first in the sentence."
+        ],
+        "answer": "It suggests that Ali was hanging on the wall.",
+        "why": "The opening phrase describes the nearest noun. The map, not Ali, should be hanging.",
+        "gate": "Rewrite the sentence so that the modifier describes the map."
+      },
+      {
+        "tier": "BUILD",
+        "label": "MEANING | SHOW THE ORDER",
+        "prompt": "Which sentence shows that the forecast was checked before the team left?",
+        "options": [
+          "The team left after they had checked the forecast.",
+          "The team left, and then they checked the forecast.",
+          "The team had left when they checked the forecast.",
+          "The team was leaving as they checked the forecast."
+        ],
+        "answer": "The team left after they had checked the forecast.",
+        "why": "Had checked marks the earlier action. In the second option, the team left first.",
+        "gate": "Explain what the second option says happened first."
+      },
+      {
+        "tier": "BUILD",
+        "label": "WORD ORDER | NEVER",
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "We had never seen such a storm.",
+          "We had seen never such a storm.",
+          "We never had saw such a storm.",
+          "We had never saw such a storm."
+        ],
+        "answer": "We had never seen such a storm.",
+        "why": "Never goes between had and the past participle. Seen is the participle.",
+        "gate": "Write a sentence with had already or had never."
+      },
+      {
+        "tier": "BUILD",
+        "label": "REPAIR | DANGLING MODIFIER",
+        "prompt": "“Tired from the climb, the tent looked wonderful.” Which repair works?",
+        "options": [
+          "Tired from the climb, we thought the tent looked wonderful.",
+          "The tent looked wonderful, and it was tired from the climb.",
+          "Tired from the climb, the wonderful tent looked very good.",
+          "Looking wonderful, the tent was tired from the long climb."
+        ],
+        "answer": "Tired from the climb, we thought the tent looked wonderful.",
+        "why": "The tent cannot be tired. The repair adds the doer: we.",
+        "gate": "Ask the test question: who is tired? Then write your own repair."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "COMPARE | ONE WORD CHANGES IT",
+        "prompt": "A: When we arrived, the match started.  B: When we arrived, the match had started. What is the difference?",
+        "options": [
+          "In B we missed the start; in A it began as we came.",
+          "In A we missed the start; in B it began as we came.",
+          "There is no difference, as both of them are in the past.",
+          "B is about the future, and A is only about the past."
+        ],
+        "answer": "In B we missed the start; in A it began as we came.",
+        "why": "Had started shows the match began earlier than our arrival.",
+        "gate": "Draw the two events on a timeline for sentence B."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "PRECISION | KEEP THE MEANING",
+        "prompt": "“The guide showed the map to the group covered in mud.” Which repair shows that the map was muddy?",
+        "options": [
+          "The guide showed the group the map covered in mud.",
+          "Covered in mud, the guide showed the map to the group.",
+          "The guide, covered in mud, showed the map to the group.",
+          "The guide showed the map to the muddy, tired group."
+        ],
+        "answer": "The guide showed the group the map covered in mud.",
+        "why": "The modifier must sit beside map. The other repairs change who is muddy.",
+        "gate": "Say who is muddy in each of the other options."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "ERROR HUNT | NO MISTAKES",
+        "prompt": "Which sentence has no error?",
+        "options": [
+          "After the storm had passed, we walked back to the camp.",
+          "After walking back, the camp had seemed much smaller to us.",
+          "The storm had went away before we walked back to the camp.",
+          "We had walked back to the camp had the storm passed by."
+        ],
+        "answer": "After the storm had passed, we walked back to the camp.",
+        "why": "This one has a clear doer and a correct past participle.",
+        "gate": "Name the error in each of the other sentences."
+      }
+    ]
+  },
+  "5": {
+    "eyebrow": "LESSON 5 | LC 51–52, 57–58",
+    "title": "Say it precisely",
+    "instruction": "Ask what the speaker wants to do, or find the subject and verb. Then defend your choice.",
+    "tip": "Check three things in order: word order, verb form, final punctuation.",
+    "finishTitle": "Report it. Ask it. Punctuate it.",
+    "finishText": "Return to LC 51–52 and LC 57–58. Check word order and final punctuation.",
+    "finishModel": "A reporting verb shows how something was meant. An indirect question uses statement word order, and the outer sentence sets the punctuation.",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "MEANING | WHICH VERB",
+        "prompt": "“I was wrong about the bridge,” the engineer said quietly. Which reporting verb fits best?",
+        "options": [
+          "admitted",
+          "announced",
+          "predicted",
+          "questioned"
+        ],
+        "answer": "admitted",
+        "why": "Admit shows a truth the speaker would rather not say.",
+        "gate": "Say the sentence again with a different verb. How does the meaning change?"
+      },
+      {
+        "tier": "START",
+        "label": "FORM | TELL OR SAY",
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "The ranger told us that the trail was closed.",
+          "The ranger said us that the trail was closed.",
+          "The ranger told that the trail was closed.",
+          "The ranger said to that the trail was closed."
+        ],
+        "answer": "The ranger told us that the trail was closed.",
+        "why": "Tell needs a person. Say does not.",
+        "gate": "Rewrite the correct sentence using said."
+      },
+      {
+        "tier": "START",
+        "label": "WORD ORDER | WH- WITH BE",
+        "prompt": "Where is the exit? → Do you know ...",
+        "options": [
+          "Do you know where the exit is?",
+          "Do you know where is the exit?",
+          "Do you know where the exit is.",
+          "Do you know is where the exit?"
+        ],
+        "answer": "Do you know where the exit is?",
+        "why": "Inside the sentence, use statement order: subject + verb. The outer sentence is a question.",
+        "gate": "Point to the subject and the verb in the correct sentence."
+      },
+      {
+        "tier": "BUILD",
+        "label": "FORM | DO DISAPPEARS",
+        "prompt": "Why did the team turn back? → I wonder ...",
+        "options": [
+          "I wonder why the team turned back.",
+          "I wonder why did the team turn back.",
+          "I wonder why the team turn back.",
+          "I wonder why did the team turned back?"
+        ],
+        "answer": "I wonder why the team turned back.",
+        "why": "Delete did and put the past tense on the main verb. I wonder is a statement, so end with a full stop.",
+        "gate": "Explain why the sentence ends with a full stop."
+      },
+      {
+        "tier": "BUILD",
+        "label": "YES/NO | IF OR WHETHER",
+        "prompt": "Is the path open? → Can you tell me ...",
+        "options": [
+          "Can you tell me if the path is open?",
+          "Can you tell me is the path open?",
+          "Can you tell me if is the path open?",
+          "Can you tell me the path is open?"
+        ],
+        "answer": "Can you tell me if the path is open?",
+        "why": "Yes/no questions need if or whether, then statement order.",
+        "gate": "Say it again with whether. Which one sounds more formal?"
+      },
+      {
+        "tier": "BUILD",
+        "label": "TONE | SHOW YOUR DOUBT",
+        "prompt": "A writer doubts a statement but wants to report it. Which sentence shows that doubt best?",
+        "options": [
+          "The company claims that the ride is completely safe.",
+          "The company confirms that the ride is completely safe.",
+          "The company explains that the ride is completely safe.",
+          "The company states that the ride is completely safe."
+        ],
+        "answer": "The company claims that the ride is completely safe.",
+        "why": "Claims keeps a distance: it reports the idea without accepting it as true.",
+        "gate": "Which verb would you use if you were certain it was true?"
+      },
+      {
+        "tier": "EXTEND",
+        "label": "EXCEPTION | SUBJECT QUESTION",
+        "prompt": "Who broke the rope? → Do you know ...",
+        "options": [
+          "Do you know who broke the rope?",
+          "Do you know who did break the rope?",
+          "Do you know who the rope broke?",
+          "Do you know who did the rope break?"
+        ],
+        "answer": "Do you know who broke the rope?",
+        "why": "Who is the subject here, so the word order does not change.",
+        "gate": "Explain why this one keeps its order when others change."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "PUNCTUATION | OUTER SENTENCE",
+        "prompt": "Which pair is punctuated correctly?",
+        "options": [
+          "I wonder who won. / Do you know who won?",
+          "I wonder who won? / Do you know who won.",
+          "I wonder who won? / Do you know who won?",
+          "I wonder who won. / Do you know who won."
+        ],
+        "answer": "I wonder who won. / Do you know who won?",
+        "why": "The outer sentence decides. I wonder is a statement; Do you know is a question.",
+        "gate": "Write your own pair with two different outer frames."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "ESSAY USE | OPPOSING VIEW",
+        "prompt": "Which sentence best introduces an opposing view in an essay?",
+        "options": [
+          "Some people argue that a safe life is wiser, but careful risks help us grow.",
+          "Some people say me that a safe life is wiser, but careful risks help us grow.",
+          "I don’t know is a safe life wiser, and I think careful risks help us to grow.",
+          "Some people wonder why is a safe life wiser, but careful risks help us grow."
+        ],
+        "answer": "Some people argue that a safe life is wiser, but careful risks help us grow.",
+        "why": "Argue fits a persuasive view, and but begins the rebuttal.",
+        "gate": "Write your own opposing view for Writing Task 6, then answer it."
+      }
+    ]
+  }
+};
+
+    function esc(value) {
+      return String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    }
+    const states = {};
+    let currentLesson = 1;
+    let turnNumber = 1;
+    let soundOn = true;
+    let audioContext = null;
+
+    const dom = {
+      tabs: [...document.querySelectorAll('.lesson-tab')],
+      eyebrow: document.getElementById('activityEyebrow'),
+      title: document.getElementById('activityTitle'),
+      instruction: document.getElementById('activityInstruction'),
+      stage: document.getElementById('activityStage'),
+      progressText: document.getElementById('progressText'),
+      scoreText: document.getElementById('scoreText'),
+      progressFill: document.getElementById('progressFill'),
+      tiers: [...document.querySelectorAll('.tier-step')],
+      feedback: document.getElementById('feedbackPanel'),
+      feedbackIcon: document.getElementById('feedbackIcon'),
+      feedbackTitle: document.getElementById('feedbackTitle'),
+      feedbackText: document.getElementById('feedbackText'),
+      tip: document.getElementById('teacherTip'),
+      reset: document.getElementById('resetButton'),
+      reveal: document.getElementById('revealButton'),
+      sound: document.getElementById('soundButton'),
+      next: document.getElementById('nextButton'),
+      fullscreen: document.getElementById('fullscreenButton'),
+      turn: document.getElementById('turnNumber')
+    };
+
+    function newState() {
+      return {
+        index: 0,
+        score: 0,
+        attempts: 0,
+        answered: false,
+        explanationConfirmed: false,
+        revealed: false,
+        finished: false,
+        optionOrder: null,
+        records: {}
+      };
+    }
+
+    function stateFor(lessonNumber) {
+      if (!states[lessonNumber]) states[lessonNumber] = newState();
+      return states[lessonNumber];
+    }
+
+    const questionFields = ['attempts', 'answered', 'explanationConfirmed', 'revealed', 'optionOrder'];
+    function saveQuestion(state) {
+      state.records[state.index] = Object.fromEntries(questionFields.map(key => [key, state[key]]));
+    }
+    function jumpToQuestion(index) {
+      const state = stateFor(currentLesson);
+      saveQuestion(state);
+      state.index = index;
+      state.finished = false;
+      const record = state.records[index] || newState();
+      questionFields.forEach(key => { state[key] = record[key]; });
+      render();
+    }
+    function currentChallenge() {
+      const state = stateFor(currentLesson);
+      return lessons[currentLesson].challenges[state.index];
+    }
+
+    function setFeedback(kind, title, text) {
+      dom.feedback.className = `feedback ${kind}`;
+      dom.feedbackIcon.textContent = kind === 'success' ? '✓' : kind === 'error' ? '×' : kind === 'reveal' ? '!' : '?';
+      dom.feedbackTitle.textContent = title;
+      dom.feedbackText.textContent = text;
+    }
+
+    function neutralFeedback() {
+      setFeedback('neutral', 'Read every option', 'The board player chooses only after the class has formed an answer.');
+    }
+
+    function tone(frequency, duration) {
+      if (!soundOn) return;
+      try {
+        audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.frequency.value = frequency;
+        gain.gain.setValueAtTime(.045, audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(.001, audioContext.currentTime + duration);
+        oscillator.connect(gain).connect(audioContext.destination);
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + duration);
+      } catch (error) {
+        soundOn = false;
+        dom.sound.textContent = 'Sound unavailable';
+      }
+    }
+
+    function shuffle(items) {
+      const copy = [...items];
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function updateHeader() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      const total = lesson.challenges.length;
+      const itemNumber = state.finished ? total : state.index + 1;
+      dom.eyebrow.textContent = lesson.eyebrow;
+      dom.title.textContent = lesson.title;
+      dom.instruction.textContent = lesson.instruction;
+      dom.tip.textContent = lesson.tip;
+      dom.progressText.textContent = `${itemNumber} of ${total}`;
+      dom.scoreText.textContent = `${state.score} first-try correct`;
+      dom.progressFill.style.width = `${state.finished ? 100 : (state.index / total) * 100}%`;
+      dom.tiers.forEach(step => step.classList.toggle('active', !state.finished && step.dataset.tier === currentChallenge().tier));
+      dom.next.disabled = !state.explanationConfirmed || state.finished;
+      dom.reveal.disabled = state.finished;
+      dom.turn.textContent = String(turnNumber).padStart(2, '0');
+    }
+
+    function render() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      updateHeader();
+
+      if (state.finished) {
+        dom.stage.innerHTML = `
+          <article class="finish-card">
+            <div class="finish-inner">
+              <div class="finish-mark">✓</div>
+              <h3>${esc(lesson.finishTitle)}</h3>
+              <p>${esc(lesson.finishText)}</p>
+              <div class="finish-model">${esc(lesson.finishModel)}</div>
+            </div>
+          </article>`;
+        setFeedback('success', 'End of challenge bank', `${Object.values(state.records).filter(record => record.answered).length} of ${lesson.challenges.length} explored; ${state.score} correct on the first attempt. Use the level buttons to revisit or extend.`);
+        dom.next.disabled = true;
+        return;
+      }
+
+      const challenge = currentChallenge();
+      dom.stage.innerHTML = `
+        <article class="prompt-card">
+          <div class="challenge-label"><span class="tier-dot"></span>${esc(challenge.tier)} | ${esc(challenge.label)}</div>
+          <p class="prompt-text">${esc(challenge.prompt)}</p>
+          <div class="source-line">Use your reasoning, copybook and the listed SB/LC pages.</div>
+          ${lesson.support ? `<details class="root-bank"><summary>${esc(lesson.supportLabel || 'Open root bank')}</summary><p>${esc(lesson.support)}</p></details>` : ''}
+        </article>
+        <article class="response-card" id="responseCard"></article>`;
+
+      renderChoices(document.getElementById('responseCard'), challenge, state);
+      if (state.explanationConfirmed) setFeedback('success', 'Reason accepted', challenge.why);
+      else if (state.revealed) setFeedback('reveal', `Answer: ${challenge.answer}`, challenge.why);
+      else if (state.answered) setFeedback('success', 'Correct. Now prove it.', challenge.why);
+      else neutralFeedback();
+    }
+
+    function renderChoices(container, challenge, state) {
+      const options = state.optionOrder || shuffle(challenge.options);
+      state.optionOrder = options;
+      container.innerHTML = `
+        <div class="choice-grid">
+          ${options.map((option, index) => `<button class="choice" data-option="${encodeURIComponent(option)}"><span class="key-hint">${index + 1}</span>${esc(option)}</button>`).join('')}
+        </div>
+        <div id="gateArea"></div>`;
+
+      [...container.querySelectorAll('.choice')].forEach(button => {
+        const option = decodeURIComponent(button.dataset.option);
+        if (state.answered || state.revealed) {
+          button.disabled = true;
+          if (option === challenge.answer) button.classList.add('correct');
+        }
+        button.addEventListener('click', () => choose(option, button));
+      });
+
+      if (state.answered || state.revealed) renderGate(challenge, state);
+    }
+
+    function choose(option, button) {
+      const state = stateFor(currentLesson);
+      const challenge = currentChallenge();
+      if (state.answered || state.revealed || button.disabled) return;
+      state.attempts += 1;
+
+      if (option === challenge.answer) {
+        state.answered = true;
+        if (state.attempts === 1) state.score += 1;
+        tone(720, .18);
+        [...document.querySelectorAll('.choice')].forEach(choice => {
+          choice.disabled = true;
+          if (decodeURIComponent(choice.dataset.option) === challenge.answer) choice.classList.add('correct');
+        });
+        setFeedback('success', 'Correct. Now prove it.', challenge.why);
+        renderGate(challenge, state);
+      } else {
+        button.classList.add('wrong');
+        button.disabled = true;
+        tone(190, .16);
+        setFeedback('error', 'Not precise enough', 'Re-read the prompt and every option. Check meaning, grammar and evidence before choosing again.');
+      }
+      updateHeader();
+    }
+
+    function renderGate(challenge, state) {
+      const gateArea = document.getElementById('gateArea');
+      if (!gateArea) return;
+      gateArea.innerHTML = `
+        <div class="oral-gate">
+          <div><strong>Explanation gate</strong><p>${esc(challenge.gate)}</p></div>
+          <button class="tool-button confirm" id="confirmExplanation">${state.explanationConfirmed ? 'Explanation confirmed' : 'Explanation heard'}</button>
+        </div>`;
+      const confirm = document.getElementById('confirmExplanation');
+      confirm.disabled = state.explanationConfirmed;
+      confirm.addEventListener('click', () => {
+        state.explanationConfirmed = true;
+        confirm.disabled = true;
+        confirm.textContent = 'Explanation confirmed';
+        setFeedback('success', 'Reason accepted', challenge.why);
+        dom.next.disabled = false;
+        tone(880, .12);
+      });
+    }
+
+    function revealAnswer() {
+      const state = stateFor(currentLesson);
+      if (state.finished) return;
+      const challenge = currentChallenge();
+      state.revealed = true;
+      state.answered = true;
+      render();
+      setFeedback('reveal', `Answer: ${challenge.answer}`, challenge.why);
+      renderGate(challenge, state);
+    }
+
+    function nextChallenge() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      if (!state.explanationConfirmed) return;
+
+      saveQuestion(state);
+      if (state.index >= lesson.challenges.length - 1) {
+        state.finished = true;
+        render();
+      } else {
+        turnNumber = turnNumber >= 99 ? 1 : turnNumber + 1;
+        jumpToQuestion(state.index + 1);
+      }
+    }
+
+    function switchLesson(lessonNumber) {
+      currentLesson = lessonNumber;
+      dom.tabs.forEach(tab => { const active = Number(tab.dataset.lesson) === lessonNumber; tab.classList.toggle('active', active); tab.setAttribute('aria-pressed', String(active)); });
+      window.location.hash = `l${lessonNumber}`;
+      render();
+    }
+
+    function clickChoiceByNumber(number) {
+      const buttons = [...document.querySelectorAll('.choice')];
+      const button = buttons[number - 1];
+      if (button && !button.disabled) button.click();
+    }
+
+    dom.tiers.forEach(step => step.addEventListener('click', () => {
+      const index = lessons[currentLesson].challenges.findIndex(item => item.tier === step.dataset.tier);
+      if (index >= 0) jumpToQuestion(index);
+    }));
+    dom.tabs.forEach(tab => tab.addEventListener('click', () => switchLesson(Number(tab.dataset.lesson))));
+    dom.reset.addEventListener('click', () => {
+      states[currentLesson] = newState();
+      render();
+    });
+    dom.reveal.addEventListener('click', revealAnswer);
+    dom.next.addEventListener('click', nextChallenge);
+    dom.sound.addEventListener('click', () => {
+      soundOn = !soundOn;
+      dom.sound.textContent = soundOn ? 'Sound on' : 'Sound off';
+      dom.sound.setAttribute('aria-pressed', String(soundOn));
+      if (soundOn) tone(620, .1);
+    });
+    dom.fullscreen.addEventListener('click', async () => {
+      try {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+        else await document.exitFullscreen();
+      } catch (error) {
+        setFeedback('error', 'Full screen unavailable', 'Use the browser menu or presentation mode instead.');
+      }
+    });
+    document.addEventListener('fullscreenchange', () => {
+      dom.fullscreen.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen';
+    });
+    document.addEventListener('keydown', event => {
+      if (event.altKey && event.key === 'ArrowRight') {
+        event.preventDefault();
+        switchLesson(currentLesson === 5 ? 1 : currentLesson + 1);
+        return;
+      }
+      if (event.altKey && event.key === 'ArrowLeft') {
+        event.preventDefault();
+        switchLesson(currentLesson === 1 ? 5 : currentLesson - 1);
+        return;
+      }
+      if (['1', '2', '3', '4'].includes(event.key)) clickChoiceByNumber(Number(event.key));
+      if (event.key.toLowerCase() === 'e') document.getElementById('confirmExplanation')?.click();
+      if (event.key.toLowerCase() === 'n' && !dom.next.disabled) nextChallenge();
+      if (event.key.toLowerCase() === 'r' && !dom.reveal.disabled) revealAnswer();
+    });
+
+    window.addEventListener('hashchange', () => {
+      const number = Number(window.location.hash.replace('#l', ''));
+      if (number >= 1 && number <= 5 && number !== currentLesson) switchLesson(number);
+    });
+    const hashLesson = Number(window.location.hash.replace('#l', ''));
+    switchLesson(hashLesson >= 1 && hashLesson <= 5 ? hashLesson : 1);
+  </script>
+</body>
+</html>
