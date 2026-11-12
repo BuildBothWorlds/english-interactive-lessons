@@ -1,0 +1,1557 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071321">
+  <meta name="description" content="Grade 8 English Week 13 touchscreen classroom activities for Lessons 1-6.">
+  <title>Grade 8 English | Week 13 Touchscreen Challenge</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071321;
+      --panel: #10243c;
+      --panel-2: #172e4b;
+      --line: #2e4d72;
+      --text: #f8fbff;
+      --soft: #d8e3f1;
+      --muted: #93a8c1;
+      --cyan: #5de2ea;
+      --yellow: #fff200;
+      --pink: #ff8fa8;
+      --mint: #71e6a2;
+      --orange: #ffb65e;
+      --red: #ff6f7f;
+      --shadow: 0 24px 74px rgba(0, 0, 0, .34);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100dvh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 8% -4%, rgba(93, 226, 234, .14), transparent 28rem),
+        radial-gradient(circle at 100% 12%, rgba(255, 143, 168, .1), transparent 30rem),
+        var(--bg);
+    }
+
+    a, button { touch-action: manipulation; }
+    button { font: inherit; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 4px solid var(--yellow);
+      outline-offset: 3px;
+    }
+
+    .shell {
+      width: min(1660px, 100%);
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: 18px clamp(18px, 3vw, 46px) 16px;
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      gap: 13px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .home-link {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--cyan);
+      background: rgba(16, 36, 60, .9);
+      text-decoration: none;
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .brand-kicker,
+    .eyebrow {
+      color: var(--cyan);
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .brand-kicker { font-size: clamp(.7rem, 1vw, .9rem); }
+
+    h1 {
+      margin: 5px 0 0;
+      font-size: clamp(1.45rem, 2.4vw, 2.45rem);
+      line-height: 1;
+    }
+
+    .routine {
+      min-width: 340px;
+      min-height: 58px;
+      padding: 8px 16px 8px 9px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(16, 36, 60, .9);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--soft);
+    }
+
+    .routine-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 12px;
+      color: var(--bg);
+      background: var(--yellow);
+      font-size: 1.1rem;
+      font-weight: 950;
+    }
+
+    .routine strong { color: var(--text); }
+
+    .lesson-tabs {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .lesson-tab {
+      min-height: 62px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(16, 36, 60, .82);
+      color: var(--soft);
+      text-align: left;
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .lesson-tab span {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .lesson-tab strong {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(.82rem, 1.05vw, 1rem);
+    }
+
+    .lesson-tab:hover,
+    .lesson-tab:focus-visible {
+      border-color: var(--cyan);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .lesson-tab.active {
+      color: var(--bg);
+      background: var(--cyan);
+      border-color: var(--cyan);
+      box-shadow: 0 10px 28px rgba(93, 226, 234, .18);
+    }
+
+    .lesson-tab.active span { color: rgba(7, 19, 33, .72); }
+
+    .activity-card {
+      min-height: 0;
+      padding: clamp(16px, 2vw, 28px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(16, 36, 60, .98), rgba(8, 24, 42, .99));
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto auto minmax(300px, 1fr) auto;
+      gap: 14px;
+      overflow: hidden;
+    }
+
+    .activity-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(250px, 29%);
+      align-items: end;
+      gap: 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 7px;
+      font-size: .78rem;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 3.55rem);
+      line-height: .99;
+    }
+
+    .instruction {
+      margin: 9px 0 0;
+      color: var(--soft);
+      font-size: clamp(.92rem, 1.3vw, 1.16rem);
+    }
+
+    .score-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 8px;
+      color: var(--soft);
+      font-size: .88rem;
+      font-weight: 850;
+    }
+
+    .progress-track {
+      height: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #08192b;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--mint));
+      transition: width .3s ease;
+    }
+
+    .tier-track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .tier-step {
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--muted);
+      background: rgba(7, 19, 33, .55);
+      font-size: .72rem;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-align: center;
+    }
+
+    .tier-step.active[data-tier="START"] { color: var(--bg); background: var(--cyan); border-color: var(--cyan); }
+    .tier-step.active[data-tier="BUILD"] { color: var(--bg); background: var(--orange); border-color: var(--orange); }
+    .tier-step.active[data-tier="EXTEND"] { color: var(--bg); background: var(--pink); border-color: var(--pink); }
+
+    .stage {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(330px, .9fr) minmax(460px, 1.2fr);
+      gap: 22px;
+    }
+
+    .prompt-card,
+    .response-card,
+    .finish-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--panel-2);
+    }
+
+    .prompt-card {
+      min-height: 0;
+      padding: clamp(22px, 3vw, 42px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .challenge-label {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--cyan);
+      font-size: .78rem;
+      font-weight: 950;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .tier-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 15px rgba(93, 226, 234, .75);
+    }
+
+    .prompt-text {
+      margin: 0;
+      font-size: clamp(1.3rem, 2.25vw, 2.5rem);
+      line-height: 1.18;
+      font-weight: 850;
+    }
+
+    .source-line {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 750;
+    }
+
+    .response-card {
+      min-height: 0;
+      padding: clamp(18px, 2vw, 28px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .choice {
+      position: relative;
+      min-height: 82px;
+      padding: 15px 16px 15px 50px;
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      color: var(--text);
+      background: var(--panel);
+      font-size: clamp(.96rem, 1.35vw, 1.24rem);
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+
+    .key-hint {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      color: var(--bg);
+      background: var(--muted);
+      font-size: .78rem;
+      font-weight: 950;
+    }
+
+    .choice:hover,
+    .choice:focus-visible,
+    .tool-button:hover,
+    .tool-button:focus-visible {
+      border-color: var(--cyan);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .choice.correct {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .choice.correct .key-hint { color: var(--mint); background: var(--bg); }
+
+    .choice.wrong {
+      background: rgba(255, 111, 127, .17);
+      border-color: var(--red);
+    }
+
+    .choice:disabled { cursor: default; transform: none; }
+
+    .oral-gate {
+      padding: 15px 17px;
+      border: 1px solid rgba(255, 242, 0, .58);
+      border-radius: 15px;
+      background: rgba(255, 242, 0, .06);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .oral-gate strong { color: var(--yellow); }
+    .oral-gate p { margin: 4px 0 0; color: var(--soft); }
+
+    .feedback {
+      min-height: 72px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      align-items: center;
+      gap: 13px;
+      background: rgba(7, 19, 33, .74);
+    }
+
+    .feedback-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--muted);
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .feedback strong { font-size: 1.04rem; }
+    .feedback p { margin: 4px 0 0; color: var(--soft); }
+    .feedback.success { border-color: rgba(113, 230, 162, .7); }
+    .feedback.success .feedback-icon { background: var(--mint); }
+    .feedback.error { border-color: rgba(255, 111, 127, .75); }
+    .feedback.error .feedback-icon { color: white; background: var(--red); }
+    .feedback.reveal { border-color: rgba(255, 242, 0, .7); }
+    .feedback.reveal .feedback-icon { background: var(--yellow); }
+
+    .teacher-toolbar {
+      min-height: 56px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .toolbar-left,
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .teacher-tip {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 750;
+      text-align: right;
+    }
+
+    .tool-button {
+      min-height: 50px;
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--soft);
+      background: var(--panel);
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, opacity .12s ease;
+    }
+
+    .tool-button.primary {
+      color: var(--bg);
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+
+    .tool-button.confirm {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .tool-button:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+
+    .finish-card {
+      grid-column: 1 / -1;
+      min-height: 100%;
+      padding: clamp(30px, 5vw, 70px);
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .finish-inner { width: min(850px, 100%); }
+
+    .finish-mark {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--mint);
+      font-size: 2.45rem;
+      font-weight: 950;
+    }
+
+    .finish-card h3 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 4rem);
+    }
+
+    .finish-card p {
+      max-width: 680px;
+      margin: 14px auto 0;
+      color: var(--soft);
+      font-size: clamp(1rem, 1.5vw, 1.22rem);
+      line-height: 1.45;
+    }
+
+    .finish-model {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-left: 7px solid var(--yellow);
+      border-radius: 12px;
+      color: var(--text);
+      background: var(--bg);
+      font-size: clamp(1rem, 1.45vw, 1.2rem);
+      font-weight: 800;
+      text-align: left;
+    }
+
+    @media (max-width: 1000px) {
+      body { overflow: auto; }
+      .shell { min-height: 100vh; }
+      .lesson-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lesson-tab:last-child { grid-column: span 2; }
+      .stage { grid-template-columns: 1fr; }
+      .teacher-toolbar,
+      .toolbar-left,
+      .toolbar-right { flex-wrap: wrap; }
+      .teacher-tip { max-width: none; flex: 1 1 100%; text-align: left; }
+    }
+
+    @media (max-width: 680px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .routine { min-width: 0; width: 100%; }
+      .activity-heading { grid-template-columns: 1fr; }
+      .choice-grid { grid-template-columns: 1fr; }
+      .oral-gate { grid-template-columns: 1fr; }
+      .activity-card { overflow: visible; }
+      .teacher-toolbar { flex-direction: column; }
+      .toolbar-left,
+      .toolbar-right { width: 100%; }
+      .tool-button { flex: 1 1 auto; }
+    }
+
+    @media (max-height: 850px) and (min-width: 1001px) {
+      .shell { padding-top: 9px; padding-bottom: 9px; gap: 8px; }
+      .topbar h1 { font-size: 1.7rem; }
+      .routine { min-height: 46px; }
+      .routine-number { width: 36px; height: 36px; }
+      .lesson-tab { min-height: 48px; padding: 6px 10px; }
+      .activity-card { padding: 13px 18px; gap: 9px; grid-template-rows: auto auto minmax(255px, 1fr) auto; }
+      h2 { font-size: clamp(1.7rem, 2.5vw, 2.55rem); }
+      .instruction { margin-top: 5px; }
+      .prompt-card { padding: 20px 28px; }
+      .prompt-text { font-size: clamp(1.2rem, 1.9vw, 1.95rem); }
+      .choice { min-height: 62px; padding-top: 10px; padding-bottom: 10px; }
+      .feedback { min-height: 58px; padding-top: 7px; padding-bottom: 7px; }
+      .teacher-toolbar { min-height: 48px; }
+      .tool-button { min-height: 44px; }
+    }
+
+    .root-bank { font-size: .92rem; color: var(--soft); border-top: 1px solid var(--line); padding-top: 10px; }
+    .root-bank summary { cursor: pointer; color: var(--yellow); min-height: 44px; display: flex; align-items: center; font-weight: 850; }
+    .root-bank p { margin: 0; line-height: 1.6; }
+    .tier-step { cursor: pointer; min-height: 44px; font: inherit; font-weight: 850; }
+    .tier-step:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand-line">
+        <a class="home-link" href="../index.html" aria-label="Return to lesson library">‹</a>
+        <div>
+          <div class="brand-kicker">MRISB | GRADE 8 ENGLISH</div>
+          <h1>Week 13 Touchscreen Challenge</h1>
+        </div>
+      </div>
+      <div class="routine" aria-label="Classroom routine">
+        <span class="routine-number" id="turnNumber">01</span>
+        <span><strong>Read fully.</strong> Choose carefully. Explain the link.</span>
+      </div>
+    </header>
+
+    <nav class="lesson-tabs" aria-label="Select a lesson">
+      <button class="lesson-tab active" data-lesson="1"><span>Lesson 1</span><strong>Unit 4 Vocabulary</strong></button>
+      <button class="lesson-tab" data-lesson="2"><span>Lesson 2</span><strong>Multiple Meanings</strong></button>
+      <button class="lesson-tab" data-lesson="3"><span>Lesson 3</span><strong>Allegory</strong></button>
+      <button class="lesson-tab" data-lesson="4"><span>Lesson 4</span><strong>The King and the Shirt</strong></button>
+      <button class="lesson-tab" data-lesson="5"><span>Lesson 5</span><strong>Indefinite Pronouns</strong></button>
+      <button class="lesson-tab" data-lesson="6"><span>Lesson 6</span><strong>Informational Report</strong></button>
+    </nav>
+
+    <main class="activity-card">
+      <section class="activity-heading">
+        <div>
+          <p class="eyebrow" id="activityEyebrow"></p>
+          <h2 id="activityTitle"></h2>
+          <p class="instruction" id="activityInstruction"></p>
+        </div>
+        <div>
+          <div class="score-line"><span id="progressText"></span><span id="scoreText"></span></div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+      </section>
+
+      <section class="tier-track" aria-label="Challenge level">
+        <button class="tier-step" data-tier="START" aria-label="Jump to start questions">START | Recognise</button>
+        <button class="tier-step" data-tier="BUILD" aria-label="Jump to build questions">BUILD | Apply</button>
+        <button class="tier-step" data-tier="EXTEND" aria-label="Jump to extend questions">EXTEND | Justify</button>
+      </section>
+
+      <section class="stage" id="activityStage" aria-live="polite"></section>
+
+      <section class="feedback" id="feedbackPanel" aria-live="assertive">
+        <div class="feedback-icon" id="feedbackIcon">?</div>
+        <div><strong id="feedbackTitle">Read every option</strong><p id="feedbackText">The board player chooses only after the class has formed an answer.</p></div>
+      </section>
+    </main>
+
+    <footer class="teacher-toolbar">
+      <div class="toolbar-left">
+        <button class="tool-button" id="resetButton">Reset lesson</button>
+        <button class="tool-button" id="revealButton">Reveal answer</button>
+        <button class="tool-button" id="soundButton" aria-pressed="true">Sound on</button>
+      </div>
+      <div class="toolbar-right">
+        <span class="teacher-tip" id="teacherTip"></span>
+        <button class="tool-button primary" id="nextButton" disabled>Next challenge</button>
+        <button class="tool-button" id="fullscreenButton">Full screen</button>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const lessons = {
+  "1": {
+    "eyebrow": "LESSON 1 | SB 162–164 · LC 61, 62 A",
+    "title": "Words for talking about happiness",
+    "instruction": "Read the whole sentence. Choose the most precise word, defend it, then use it in a sentence of your own.",
+    "tip": "Use 3–4 challenges in the lesson. Ask for the clue before revealing.",
+    "finishTitle": "Twelve words, ready to use",
+    "finishText": "Return to LC 61 and LC 62 A. Check your answers against today's word tables.",
+    "finishModel": "A strong sentence gives enough context to prove the meaning: Sleep is a factor that affects my mood.",
+    "support": "concept = a general idea · survey = questions that collect opinions · vary = be different · factor = something that adds to a result · affect = change or influence · environment = the conditions around you · possess = own · concoction = a mixture · advisor = a person who gives advice · summon = order to come · handsomely = generously · nourish = feed, help to grow",
+    "supportLabel": "Open word bank",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "CONTEXT | ONE PART OF THE RESULT",
+        "prompt": "Sleep, exercise and good friends all play a part in how happy Lina feels. Each one is a ___ in her happiness.",
+        "options": [
+          "factor",
+          "concept",
+          "survey",
+          "environment"
+        ],
+        "answer": "factor",
+        "why": "A factor is one thing that adds to a result. Each item adds to her happiness.",
+        "gate": "Name two more factors that affect your happiness."
+      },
+      {
+        "tier": "START",
+        "label": "USAGE | NOURISH",
+        "prompt": "Which sentence uses nourish accurately?",
+        "options": [
+          "Fresh fruit and vegetables nourish the body.",
+          "The king nourished his advisors to the throne room.",
+          "The merchant nourished a large house and three ships.",
+          "The magician nourished a strange mix of herbs and oil."
+        ],
+        "answer": "Fresh fruit and vegetables nourish the body.",
+        "why": "Nourish means to feed or to give what is needed to grow. The other sentences need summoned, possessed and mixed.",
+        "gate": "What nourishes your mind? Answer in one sentence."
+      },
+      {
+        "tier": "BUILD",
+        "label": "WORD FORM | AFFECT",
+        "prompt": "A noisy environment ___ how well students concentrate.",
+        "options": [
+          "affects",
+          "effects",
+          "affect",
+          "effect"
+        ],
+        "answer": "affects",
+        "why": "Affect is the verb. The singular subject environment needs affects. Effect is usually a noun.",
+        "gate": "Rewrite the sentence using effect as a noun."
+      },
+      {
+        "tier": "BUILD",
+        "label": "MEANING | VARY",
+        "prompt": "A class survey shows that favourite hobbies vary from student to student. What does vary mean here?",
+        "options": [
+          "are different",
+          "stay the same",
+          "are very popular",
+          "are kept secret"
+        ],
+        "answer": "are different",
+        "why": "Vary means to be different or to change. From student to student signals difference.",
+        "gate": "Write a sentence about something that varies from day to day."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "PRECISION | HANDSOMELY",
+        "prompt": "The messengers tell the happy man he will be handsomely rewarded. Which conclusion is best supported?",
+        "options": [
+          "He will receive a large, generous reward.",
+          "He will be rewarded for being good-looking.",
+          "He will be thanked in a polite, gentle way.",
+          "He will be paid late, but in full."
+        ],
+        "answer": "He will receive a large, generous reward.",
+        "why": "Here handsomely means generously, in a large amount. It describes the reward, not anyone's looks.",
+        "gate": "Use handsomely in a new sentence where it means generously."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "JUDGEMENT | CONCEPT AND ENVIRONMENT",
+        "prompt": "A student writes: “Happiness is a concept that changes with your environment.” Which explanation is strongest?",
+        "options": [
+          "Happiness is an idea, and the conditions around us can change how we feel it.",
+          "Happiness is a place, and the environment is a kind of feeling.",
+          "Happiness is a survey, and environment means nature only.",
+          "Happiness is a factor, and the environment is a general idea."
+        ],
+        "answer": "Happiness is an idea, and the conditions around us can change how we feel it.",
+        "why": "A concept is a general idea. Environment means the conditions around a person, not only nature.",
+        "gate": "Name one part of your environment that changes your mood."
+      }
+    ]
+  },
+  "2": {
+    "eyebrow": "LESSON 2 | SB 162, 169 · LC 64",
+    "title": "One word, more than one meaning",
+    "instruction": "Read the whole sentence. Find the clue that decides the meaning, then defend your choice.",
+    "tip": "Ask: which word in the sentence ruled out the other meanings?",
+    "finishTitle": "Context decides",
+    "finishText": "Return to LC 64. Check A and C, and correct only what is wrong.",
+    "finishModel": "The same spelling can carry different meanings. The words around it tell you which one the writer means.",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "CONTEXT | RAISE",
+        "prompt": "The family worked hard to raise money for the new school library. Which meaning of raise fits?",
+        "options": [
+          "collect",
+          "lift up",
+          "bring up a child",
+          "make louder"
+        ],
+        "answer": "collect",
+        "why": "Money for a library is collected. The clue word money points to collect.",
+        "gate": "Write a sentence where raise means lift up."
+      },
+      {
+        "tier": "START",
+        "label": "CONTEXT | CLEAR",
+        "prompt": "After the storm, the sky was clear and blue. What does clear mean here?",
+        "options": [
+          "free of clouds",
+          "easy to understand",
+          "to remove things",
+          "certain, with no doubt"
+        ],
+        "answer": "free of clouds",
+        "why": "Sky and blue signal weather, so clear means free of clouds.",
+        "gate": "Write a sentence where clear means easy to understand."
+      },
+      {
+        "tier": "BUILD",
+        "label": "CONTEXT | ORDERED",
+        "prompt": "The doctor ordered the patient to rest for a week. What does ordered mean here?",
+        "options": [
+          "gave an instruction",
+          "asked for food in a restaurant",
+          "arranged in a sequence",
+          "bought something online"
+        ],
+        "answer": "gave an instruction",
+        "why": "A doctor telling a patient what to do is giving an instruction.",
+        "gate": "Use ordered to mean arranged in a sequence."
+      },
+      {
+        "tier": "BUILD",
+        "label": "CONTEXT | RUNNING",
+        "prompt": "Please don't leave the water running while you brush your teeth. What does running mean here?",
+        "options": [
+          "flowing",
+          "moving fast on foot",
+          "managing a business",
+          "taking part in an election"
+        ],
+        "answer": "flowing",
+        "why": "Water cannot run on feet. Running water is flowing.",
+        "gate": "In the story, the king's son was running the kingdom. What does running mean there?"
+      },
+      {
+        "tier": "EXTEND",
+        "label": "WORD CLASS | TROUBLE",
+        "prompt": "Which sentence uses trouble as a verb?",
+        "options": [
+          "I am sorry to trouble you, but could you help me?",
+          "The happy man will be rewarded for his trouble.",
+          "Trouble began when the king became ill.",
+          "His trouble was that no medicine worked."
+        ],
+        "answer": "I am sorry to trouble you, but could you help me?",
+        "why": "To trouble someone is an action: to bother them. The other sentences use trouble as a noun.",
+        "gate": "Write one sentence with trouble as a noun and one with it as a verb."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "RESPONSE GRAPH | READ THE DATA",
+        "prompt": "A sample class graph shows: family 11 votes, friends 8, free time 5, exercise 3, sleep 2, money 1. Which statement is accurate?",
+        "options": [
+          "Most students chose people, not things, as their top factor.",
+          "Money was the most important factor for the class.",
+          "Every student chose family as the top factor.",
+          "Sleep and exercise together got more votes than friends."
+        ],
+        "answer": "Most students chose people, not things, as their top factor.",
+        "why": "Family and friends together have 19 of 30 votes. Sleep and exercise together have only 5.",
+        "gate": "What does the graph suggest about how we can achieve happiness?"
+      }
+    ]
+  },
+  "3": {
+    "eyebrow": "LESSON 3 | SB 165–167 · LC 63 C, D",
+    "title": "Stories with a second meaning",
+    "instruction": "Think beyond the events. Decide what a character or detail stands for, then prove it with the text.",
+    "tip": "Push for the symbol and the message, not a retelling.",
+    "finishTitle": "Symbol, message, evidence",
+    "finishText": "Return to LC 63 C and D. Check each answer against the three steps for analyzing an allegory.",
+    "finishModel": "An allegory hides a message. Symbols – characters, events or details – point to it.",
+    "support": "Analyze an allegory: 1. What is the story about? 2. Which characters, events or details are symbols? 3. What message do the symbols point to?",
+    "supportLabel": "Open the three steps",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "DEFINITION | ALLEGORY",
+        "prompt": "What makes a story an allegory?",
+        "options": [
+          "It has a message, and its characters or details stand for ideas.",
+          "It always has animals that can talk.",
+          "It is a true story about a real king.",
+          "It has a happy ending and no problem."
+        ],
+        "answer": "It has a message, and its characters or details stand for ideas.",
+        "why": "An allegory carries a message through symbols. Animals are common, but they are not required.",
+        "gate": "Name another story you know that teaches a lesson through its characters."
+      },
+      {
+        "tier": "START",
+        "label": "SYMBOL | THE TORTOISE",
+        "prompt": "In The Tortoise and the Hare, what does the tortoise symbolize?",
+        "options": [
+          "a slow and steady approach",
+          "speed and natural talent",
+          "a lazy, careless attitude",
+          "bad luck in a race"
+        ],
+        "answer": "a slow and steady approach",
+        "why": "The tortoise is slow but keeps going, so it stands for steady effort.",
+        "gate": "What does the hare symbolize? Give the detail that proves it."
+      },
+      {
+        "tier": "BUILD",
+        "label": "MESSAGE | TORTOISE AND HARE",
+        "prompt": "Which message do the symbols point to?",
+        "options": [
+          "It is better to keep going steadily than to be fast but overconfident.",
+          "Fast animals usually win their races.",
+          "Never enter a race you might lose.",
+          "Rest is more important than finishing."
+        ],
+        "answer": "It is better to keep going steadily than to be fast but overconfident.",
+        "why": "The hare's nap and the tortoise's steady pace together point to this message.",
+        "gate": "Do you agree with the message? Give one reason."
+      },
+      {
+        "tier": "BUILD",
+        "label": "SYMBOL | THE KING",
+        "prompt": "A mighty king becomes ill, and no medicine helps him. What might the king stand for?",
+        "options": [
+          "people who have wealth and power but are still not well or happy",
+          "all doctors and healers in the land",
+          "a real king from Russian history",
+          "people who are poor and hungry"
+        ],
+        "answer": "people who have wealth and power but are still not well or happy",
+        "why": "The king has everything money can buy, yet nothing cures him. That points to a deeper problem.",
+        "gate": "Find one detail that shows how much the king possessed."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "SYMBOL | THE CURES",
+        "prompt": "The physician tries potions and pills, and the magician tries charms and concoctions. None of them works. What idea might this stand for?",
+        "options": [
+          "Things that money can buy cannot cure unhappiness.",
+          "Doctors are always better than magicians.",
+          "The king needed a stronger medicine.",
+          "The advisors wanted the king to stay ill."
+        ],
+        "answer": "Things that money can buy cannot cure unhappiness.",
+        "why": "Every bought or made cure fails. That suggests the illness is not one that things can fix.",
+        "gate": "Predict what kind of cure might work instead."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "PREDICTION | THE SHIRT",
+        "prompt": "The youngest advisor says the king will be well if he wears the shirt of a happy man. Which prediction is strongest?",
+        "options": [
+          "Finding a truly happy man will be harder than everyone expects.",
+          "The messengers will find a happy man in the first town.",
+          "The king will refuse to wear another man's shirt.",
+          "The advisor is joking and has no real plan."
+        ],
+        "answer": "Finding a truly happy man will be harder than everyone expects.",
+        "why": "In an allegory, a simple-sounding task often hides the message. The search itself will teach something.",
+        "gate": "What might the shirt stand for? Give one reason."
+      }
+    ]
+  },
+  "4": {
+    "eyebrow": "LESSON 4 | SB 166–168 · LC 63 A, B",
+    "title": "The King and the Shirt",
+    "instruction": "Answer with the text in mind. Choose, then point to the line or event that proves it.",
+    "tip": "Every answer needs evidence. Ask: where in the story?",
+    "finishTitle": "The story's message",
+    "finishText": "Return to LC 63 A and B. Use your story map to order events and to check true or false.",
+    "finishModel": "The only happy man in the kingdom owns almost nothing, not even a shirt. Happiness does not come from possessions.",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "SEQUENCE | FIRST EVENT",
+        "prompt": "Which event happens first?",
+        "options": [
+          "The king falls ill, and no medicine or concoction works.",
+          "The messengers search the kingdom for a happy man.",
+          "The king's son hears a clear voice from a tiny hut.",
+          "The youngest advisor suggests the shirt of a happy man."
+        ],
+        "answer": "The king falls ill, and no medicine or concoction works.",
+        "why": "The illness and the failed cures come first. They create the problem the others try to solve.",
+        "gate": "Put the other three events in order."
+      },
+      {
+        "tier": "START",
+        "label": "DETAIL | THE ENDING",
+        "prompt": "Why can't the king's son take the happy man's shirt?",
+        "options": [
+          "The happy man does not own a shirt.",
+          "The happy man refuses to sell it.",
+          "The shirt is too small for the king.",
+          "The king gets well before he returns."
+        ],
+        "answer": "The happy man does not own a shirt.",
+        "why": "The story ends with the surprise: the happy man has almost nothing, not even a shirt.",
+        "gate": "Why is this ending surprising?"
+      },
+      {
+        "tier": "BUILD",
+        "label": "INFERENCE | THE SEARCH",
+        "prompt": "The messengers cannot find a happy man: if a man was rich, he argued with his wife; if his marriage was joyful, his children worried him. What does this show?",
+        "options": [
+          "Everyone has some complaint, whatever they possess.",
+          "Rich people are always the unhappiest.",
+          "The messengers did not search carefully.",
+          "Families are the main cause of unhappiness."
+        ],
+        "answer": "Everyone has some complaint, whatever they possess.",
+        "why": "It was one thing, or it was another. No one was without complaint.",
+        "gate": "Which detail shows the search was long and wide?"
+      },
+      {
+        "tier": "BUILD",
+        "label": "CHARACTER | THE HAPPY MAN",
+        "prompt": "The happy man says he has finished his work, nourished his body and can now rest. What makes him happy?",
+        "options": [
+          "He is satisfied with simple things and wants nothing more.",
+          "He has just been paid handsomely by the king.",
+          "He owns many shirts and a large house.",
+          "He has no work to do and no duties."
+        ],
+        "answer": "He is satisfied with simple things and wants nothing more.",
+        "why": "He asks, What more could anyone ever require? He is content with what he has.",
+        "gate": "Which word in his speech shows he feels lucky?"
+      },
+      {
+        "tier": "EXTEND",
+        "label": "THEME | ESSENTIAL QUESTION",
+        "prompt": "Which answer to How can we achieve happiness? does the story support best?",
+        "options": [
+          "By being content with simple things, not by gaining possessions.",
+          "By becoming rich and powerful like the king.",
+          "By finding the right medicine or cure.",
+          "By taking what we need from other people."
+        ],
+        "answer": "By being content with simple things, not by gaining possessions.",
+        "why": "The king has everything and is ill. The happy man has almost nothing and is content.",
+        "gate": "Do you agree with the story's message? Give one reason."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "EVIDENCE | STRONGEST DETAIL",
+        "prompt": "Which detail best supports the message that happiness does not come from possessions?",
+        "options": [
+          "The only happy man in the kingdom had almost nothing he could call his own.",
+          "The king rested on a purple satin pillow.",
+          "The royal son carried a sack of gold pieces.",
+          "The advisors stood and thought in silence."
+        ],
+        "answer": "The only happy man in the kingdom had almost nothing he could call his own.",
+        "why": "This detail links happiness directly to having very little.",
+        "gate": "Explain how the sack of gold adds to the story's irony."
+      }
+    ]
+  },
+  "5": {
+    "eyebrow": "LESSON 5 | LC 65–66",
+    "title": "Everyone, anyone, no one",
+    "instruction": "Find the pronoun, then check the verb or the negative. Choose, then state the rule.",
+    "tip": "Two rules: -one, -body and -thing take singular verbs; after not, use any-.",
+    "finishTitle": "Two rules, used well",
+    "finishText": "Return to LC 65–66. Check B and C, and correct only what is wrong.",
+    "finishModel": "Everyone has a favourite place. I did not tell anyone my secret.",
+    "support": "some-: someone, somebody, something, somewhere · any-: anyone, anybody, anything, anywhere · no-: no one, nobody, nothing, nowhere · every-: everyone, everybody, everything, everywhere",
+    "supportLabel": "Open pronoun table",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "AGREEMENT | EVERYONE",
+        "prompt": "Everyone in the class ___ ready for the quiz.",
+        "options": [
+          "is",
+          "are",
+          "were",
+          "be"
+        ],
+        "answer": "is",
+        "why": "Everyone sounds like many people, but it takes a singular verb.",
+        "gate": "Write a sentence that starts with Everybody and uses a singular verb."
+      },
+      {
+        "tier": "START",
+        "label": "NEGATIVE | AFTER NOT",
+        "prompt": "I looked everywhere, but I could not find ___.",
+        "options": [
+          "anything",
+          "nothing",
+          "no one",
+          "nowhere"
+        ],
+        "answer": "anything",
+        "why": "Not already makes the sentence negative, so use an any- form. Nothing would make a double negative.",
+        "gate": "Rewrite the sentence with nothing and no not."
+      },
+      {
+        "tier": "BUILD",
+        "label": "AGREEMENT | SOMEBODY",
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "Somebody has left a bag on the bus.",
+          "Somebody have left a bag on the bus.",
+          "Somebody are leaving a bag on the bus.",
+          "Somebody were left a bag on the bus."
+        ],
+        "answer": "Somebody has left a bag on the bus.",
+        "why": "Somebody is singular, so it takes has.",
+        "gate": "Change somebody to two students. What happens to the verb?"
+      },
+      {
+        "tier": "BUILD",
+        "label": "FIX IT OR KEEP IT",
+        "prompt": "Nobody in my family like spicy food.",
+        "options": [
+          "Fix it: Nobody in my family likes spicy food.",
+          "Keep it: it is already correct.",
+          "Fix it: Nobody in my family don't like spicy food.",
+          "Fix it: Nobodies in my family like spicy food."
+        ],
+        "answer": "Fix it: Nobody in my family likes spicy food.",
+        "why": "Nobody is singular, so the verb needs -s. In my family does not change that.",
+        "gate": "Find the subject and the verb in one more sentence of your own."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "MEANING | WHICH PLACE",
+        "prompt": "All the seats are free, so you can sit ___ you like.",
+        "options": [
+          "anywhere",
+          "nowhere",
+          "everywhere",
+          "somewhere"
+        ],
+        "answer": "anywhere",
+        "why": "Anywhere means any place at all, which fits all the seats being free.",
+        "gate": "Write a sentence where somewhere fits better than anywhere."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "ERROR HUNT | ONE MISTAKE",
+        "prompt": "Which sentence contains a mistake?",
+        "options": [
+          "I didn't tell nobody my secret.",
+          "Everyone was happy after the trip.",
+          "Nobody wants to miss the party.",
+          "Someone has taken my pen."
+        ],
+        "answer": "I didn't tell nobody my secret.",
+        "why": "Didn't and nobody make a double negative. Use anybody after not.",
+        "gate": "Correct the sentence in two different ways."
+      }
+    ]
+  },
+  "6": {
+    "eyebrow": "LESSON 6 | SB 186–189",
+    "title": "Report what you learned",
+    "instruction": "Think like a reporter, not a debater. Choose, then explain what makes the answer fit a report.",
+    "tip": "Link every answer back to the five-paragraph structure.",
+    "finishTitle": "Ready to interview",
+    "finishText": "Review SB 186–189. Complete or review your interview questions and notes.",
+    "finishModel": "Introduction: who and why. Three body paragraphs: one idea each, with an exact quotation. Conclusion: what I learned.",
+    "challenges": [
+      {
+        "tier": "START",
+        "label": "PURPOSE | REPORT",
+        "prompt": "What is the main purpose of an informational report?",
+        "options": [
+          "to summarize key information from an interview, survey or study",
+          "to persuade readers to agree with the writer",
+          "to tell an imaginary story with a lesson",
+          "to describe the writer's own feelings only"
+        ],
+        "answer": "to summarize key information from an interview, survey or study",
+        "why": "A report informs. It does not argue a side.",
+        "gate": "Name one difference between a report and an argument essay."
+      },
+      {
+        "tier": "START",
+        "label": "INTERVIEW | OPEN QUESTION",
+        "prompt": "Which is an open-ended interview question?",
+        "options": [
+          "What makes you feel happy on a difficult day?",
+          "Are you a happy person?",
+          "Do you like your job?",
+          "Is your family large?"
+        ],
+        "answer": "What makes you feel happy on a difficult day?",
+        "why": "Open-ended questions cannot be answered with yes or no, so they give you quotations.",
+        "gate": "Turn Are you a happy person? into an open-ended question."
+      },
+      {
+        "tier": "BUILD",
+        "label": "STRUCTURE | INTRODUCTION",
+        "prompt": "Where should the writer say who they interviewed and why they chose that person?",
+        "options": [
+          "in the introduction",
+          "in the second body paragraph",
+          "in the conclusion only",
+          "nowhere, because it is not needed"
+        ],
+        "answer": "in the introduction",
+        "why": "The introduction tells the reader who the person is and why they matter.",
+        "gate": "Write the first sentence of your own introduction."
+      },
+      {
+        "tier": "BUILD",
+        "label": "QUOTATION | EXACT WORDS",
+        "prompt": "Which sentence uses an exact quotation correctly?",
+        "options": [
+          "Yolanda said, “Life goes quickly, and we should try to appreciate the time we have.”",
+          "Yolanda said, Life goes quickly, and we should try to appreciate the time we have.",
+          "“Yolanda said life goes quickly,” and we should try to appreciate the time we have.",
+          "Yolanda said that “life goes quickly, and we should try to appreciate the time we have."
+        ],
+        "answer": "Yolanda said, “Life goes quickly, and we should try to appreciate the time we have.”",
+        "why": "An exact quotation puts the speaker's words inside quotation marks, after a comma.",
+        "gate": "Where in your report will each quotation go?"
+      },
+      {
+        "tier": "EXTEND",
+        "label": "TONE | REPORT OR PERSUADE",
+        "prompt": "Which sentence belongs in an informational report?",
+        "options": [
+          "According to Yolanda, working in her garden makes her happy today.",
+          "Everyone should spend more time with family, because it is the best way.",
+          "I think Yolanda is wrong to spend so much time in her garden.",
+          "You will definitely be happier if you live like Yolanda."
+        ],
+        "answer": "According to Yolanda, working in her garden makes her happy today.",
+        "why": "A report states what the person said, without arguing or judging.",
+        "gate": "Rewrite one wrong option so it fits a report."
+      },
+      {
+        "tier": "EXTEND",
+        "label": "STRUCTURE | CONCLUSION",
+        "prompt": "What should the conclusion of the report do?",
+        "options": [
+          "Explain what the writer learned from the interview.",
+          "Introduce a new person to interview.",
+          "List every question that was asked.",
+          "Copy the introduction word for word."
+        ],
+        "answer": "Explain what the writer learned from the interview.",
+        "why": "The conclusion closes the report by reflecting on what the interview taught.",
+        "gate": "Link your conclusion to the Essential Question."
+      }
+    ]
+  }
+};
+
+    function esc(value) {
+      return String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    }
+    const states = {};
+    let currentLesson = 1;
+    let turnNumber = 1;
+    let soundOn = true;
+    let audioContext = null;
+
+    const dom = {
+      tabs: [...document.querySelectorAll('.lesson-tab')],
+      eyebrow: document.getElementById('activityEyebrow'),
+      title: document.getElementById('activityTitle'),
+      instruction: document.getElementById('activityInstruction'),
+      stage: document.getElementById('activityStage'),
+      progressText: document.getElementById('progressText'),
+      scoreText: document.getElementById('scoreText'),
+      progressFill: document.getElementById('progressFill'),
+      tiers: [...document.querySelectorAll('.tier-step')],
+      feedback: document.getElementById('feedbackPanel'),
+      feedbackIcon: document.getElementById('feedbackIcon'),
+      feedbackTitle: document.getElementById('feedbackTitle'),
+      feedbackText: document.getElementById('feedbackText'),
+      tip: document.getElementById('teacherTip'),
+      reset: document.getElementById('resetButton'),
+      reveal: document.getElementById('revealButton'),
+      sound: document.getElementById('soundButton'),
+      next: document.getElementById('nextButton'),
+      fullscreen: document.getElementById('fullscreenButton'),
+      turn: document.getElementById('turnNumber')
+    };
+
+    function newState() {
+      return {
+        index: 0,
+        score: 0,
+        attempts: 0,
+        answered: false,
+        explanationConfirmed: false,
+        revealed: false,
+        finished: false,
+        optionOrder: null,
+        records: {}
+      };
+    }
+
+    function stateFor(lessonNumber) {
+      if (!states[lessonNumber]) states[lessonNumber] = newState();
+      return states[lessonNumber];
+    }
+
+    const questionFields = ['attempts', 'answered', 'explanationConfirmed', 'revealed', 'optionOrder'];
+    function saveQuestion(state) {
+      state.records[state.index] = Object.fromEntries(questionFields.map(key => [key, state[key]]));
+    }
+    function jumpToQuestion(index) {
+      const state = stateFor(currentLesson);
+      saveQuestion(state);
+      state.index = index;
+      state.finished = false;
+      const record = state.records[index] || newState();
+      questionFields.forEach(key => { state[key] = record[key]; });
+      render();
+    }
+    function currentChallenge() {
+      const state = stateFor(currentLesson);
+      return lessons[currentLesson].challenges[state.index];
+    }
+
+    function setFeedback(kind, title, text) {
+      dom.feedback.className = `feedback ${kind}`;
+      dom.feedbackIcon.textContent = kind === 'success' ? '✓' : kind === 'error' ? '×' : kind === 'reveal' ? '!' : '?';
+      dom.feedbackTitle.textContent = title;
+      dom.feedbackText.textContent = text;
+    }
+
+    function neutralFeedback() {
+      setFeedback('neutral', 'Read every option', 'The board player chooses only after the class has formed an answer.');
+    }
+
+    function tone(frequency, duration) {
+      if (!soundOn) return;
+      try {
+        audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.frequency.value = frequency;
+        gain.gain.setValueAtTime(.045, audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(.001, audioContext.currentTime + duration);
+        oscillator.connect(gain).connect(audioContext.destination);
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + duration);
+      } catch (error) {
+        soundOn = false;
+        dom.sound.textContent = 'Sound unavailable';
+      }
+    }
+
+    function shuffle(items) {
+      const copy = [...items];
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function updateHeader() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      const total = lesson.challenges.length;
+      const itemNumber = state.finished ? total : state.index + 1;
+      dom.eyebrow.textContent = lesson.eyebrow;
+      dom.title.textContent = lesson.title;
+      dom.instruction.textContent = lesson.instruction;
+      dom.tip.textContent = lesson.tip;
+      dom.progressText.textContent = `${itemNumber} of ${total}`;
+      dom.scoreText.textContent = `${state.score} first-try correct`;
+      dom.progressFill.style.width = `${state.finished ? 100 : (state.index / total) * 100}%`;
+      dom.tiers.forEach(step => step.classList.toggle('active', !state.finished && step.dataset.tier === currentChallenge().tier));
+      dom.next.disabled = !state.explanationConfirmed || state.finished;
+      dom.reveal.disabled = state.finished;
+      dom.turn.textContent = String(turnNumber).padStart(2, '0');
+    }
+
+    function render() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      updateHeader();
+
+      if (state.finished) {
+        dom.stage.innerHTML = `
+          <article class="finish-card">
+            <div class="finish-inner">
+              <div class="finish-mark">✓</div>
+              <h3>${esc(lesson.finishTitle)}</h3>
+              <p>${esc(lesson.finishText)}</p>
+              <div class="finish-model">${esc(lesson.finishModel)}</div>
+            </div>
+          </article>`;
+        setFeedback('success', 'End of challenge bank', `${Object.values(state.records).filter(record => record.answered).length} of ${lesson.challenges.length} explored; ${state.score} correct on the first attempt. Use the level buttons to revisit or extend.`);
+        dom.next.disabled = true;
+        return;
+      }
+
+      const challenge = currentChallenge();
+      dom.stage.innerHTML = `
+        <article class="prompt-card">
+          <div class="challenge-label"><span class="tier-dot"></span>${esc(challenge.tier)} | ${esc(challenge.label)}</div>
+          <p class="prompt-text">${esc(challenge.prompt)}</p>
+          <div class="source-line">Use your reasoning, copybook and the listed SB/LC pages.</div>
+          ${lesson.support ? `<details class="root-bank"><summary>${esc(lesson.supportLabel || 'Open root bank')}</summary><p>${esc(lesson.support)}</p></details>` : ''}
+        </article>
+        <article class="response-card" id="responseCard"></article>`;
+
+      renderChoices(document.getElementById('responseCard'), challenge, state);
+      if (state.explanationConfirmed) setFeedback('success', 'Reason accepted', challenge.why);
+      else if (state.revealed) setFeedback('reveal', `Answer: ${challenge.answer}`, challenge.why);
+      else if (state.answered) setFeedback('success', 'Correct. Now prove it.', challenge.why);
+      else neutralFeedback();
+    }
+
+    function renderChoices(container, challenge, state) {
+      const options = state.optionOrder || shuffle(challenge.options);
+      state.optionOrder = options;
+      container.innerHTML = `
+        <div class="choice-grid">
+          ${options.map((option, index) => `<button class="choice" data-option="${encodeURIComponent(option)}"><span class="key-hint">${index + 1}</span>${esc(option)}</button>`).join('')}
+        </div>
+        <div id="gateArea"></div>`;
+
+      [...container.querySelectorAll('.choice')].forEach(button => {
+        const option = decodeURIComponent(button.dataset.option);
+        if (state.answered || state.revealed) {
+          button.disabled = true;
+          if (option === challenge.answer) button.classList.add('correct');
+        }
+        button.addEventListener('click', () => choose(option, button));
+      });
+
+      if (state.answered || state.revealed) renderGate(challenge, state);
+    }
+
+    function choose(option, button) {
+      const state = stateFor(currentLesson);
+      const challenge = currentChallenge();
+      if (state.answered || state.revealed || button.disabled) return;
+      state.attempts += 1;
+
+      if (option === challenge.answer) {
+        state.answered = true;
+        if (state.attempts === 1) state.score += 1;
+        tone(720, .18);
+        [...document.querySelectorAll('.choice')].forEach(choice => {
+          choice.disabled = true;
+          if (decodeURIComponent(choice.dataset.option) === challenge.answer) choice.classList.add('correct');
+        });
+        setFeedback('success', 'Correct. Now prove it.', challenge.why);
+        renderGate(challenge, state);
+      } else {
+        button.classList.add('wrong');
+        button.disabled = true;
+        tone(190, .16);
+        setFeedback('error', 'Not precise enough', 'Re-read the prompt and every option. Check meaning, grammar and evidence before choosing again.');
+      }
+      updateHeader();
+    }
+
+    function renderGate(challenge, state) {
+      const gateArea = document.getElementById('gateArea');
+      if (!gateArea) return;
+      gateArea.innerHTML = `
+        <div class="oral-gate">
+          <div><strong>Explanation gate</strong><p>${esc(challenge.gate)}</p></div>
+          <button class="tool-button confirm" id="confirmExplanation">${state.explanationConfirmed ? 'Explanation confirmed' : 'Explanation heard'}</button>
+        </div>`;
+      const confirm = document.getElementById('confirmExplanation');
+      confirm.disabled = state.explanationConfirmed;
+      confirm.addEventListener('click', () => {
+        state.explanationConfirmed = true;
+        confirm.disabled = true;
+        confirm.textContent = 'Explanation confirmed';
+        setFeedback('success', 'Reason accepted', challenge.why);
+        dom.next.disabled = false;
+        tone(880, .12);
+      });
+    }
+
+    function revealAnswer() {
+      const state = stateFor(currentLesson);
+      if (state.finished) return;
+      const challenge = currentChallenge();
+      state.revealed = true;
+      state.answered = true;
+      render();
+      setFeedback('reveal', `Answer: ${challenge.answer}`, challenge.why);
+      renderGate(challenge, state);
+    }
+
+    function nextChallenge() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      if (!state.explanationConfirmed) return;
+
+      saveQuestion(state);
+      if (state.index >= lesson.challenges.length - 1) {
+        state.finished = true;
+        render();
+      } else {
+        turnNumber = turnNumber >= 99 ? 1 : turnNumber + 1;
+        jumpToQuestion(state.index + 1);
+      }
+    }
+
+    function switchLesson(lessonNumber) {
+      currentLesson = lessonNumber;
+      dom.tabs.forEach(tab => { const active = Number(tab.dataset.lesson) === lessonNumber; tab.classList.toggle('active', active); tab.setAttribute('aria-pressed', String(active)); });
+      window.location.hash = `l${lessonNumber}`;
+      render();
+    }
+
+    function clickChoiceByNumber(number) {
+      const buttons = [...document.querySelectorAll('.choice')];
+      const button = buttons[number - 1];
+      if (button && !button.disabled) button.click();
+    }
+
+    dom.tiers.forEach(step => step.addEventListener('click', () => {
+      const index = lessons[currentLesson].challenges.findIndex(item => item.tier === step.dataset.tier);
+      if (index >= 0) jumpToQuestion(index);
+    }));
+    dom.tabs.forEach(tab => tab.addEventListener('click', () => switchLesson(Number(tab.dataset.lesson))));
+    dom.reset.addEventListener('click', () => {
+      states[currentLesson] = newState();
+      render();
+    });
+    dom.reveal.addEventListener('click', revealAnswer);
+    dom.next.addEventListener('click', nextChallenge);
+    dom.sound.addEventListener('click', () => {
+      soundOn = !soundOn;
+      dom.sound.textContent = soundOn ? 'Sound on' : 'Sound off';
+      dom.sound.setAttribute('aria-pressed', String(soundOn));
+      if (soundOn) tone(620, .1);
+    });
+    dom.fullscreen.addEventListener('click', async () => {
+      try {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+        else await document.exitFullscreen();
+      } catch (error) {
+        setFeedback('error', 'Full screen unavailable', 'Use the browser menu or presentation mode instead.');
+      }
+    });
+    document.addEventListener('fullscreenchange', () => {
+      dom.fullscreen.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen';
+    });
+    document.addEventListener('keydown', event => {
+      if (event.altKey && event.key === 'ArrowRight') {
+        event.preventDefault();
+        switchLesson(currentLesson === 6 ? 1 : currentLesson + 1);
+        return;
+      }
+      if (event.altKey && event.key === 'ArrowLeft') {
+        event.preventDefault();
+        switchLesson(currentLesson === 1 ? 6 : currentLesson - 1);
+        return;
+      }
+      if (['1', '2', '3', '4'].includes(event.key)) clickChoiceByNumber(Number(event.key));
+      if (event.key.toLowerCase() === 'e') document.getElementById('confirmExplanation')?.click();
+      if (event.key.toLowerCase() === 'n' && !dom.next.disabled) nextChallenge();
+      if (event.key.toLowerCase() === 'r' && !dom.reveal.disabled) revealAnswer();
+    });
+
+    window.addEventListener('hashchange', () => {
+      const number = Number(window.location.hash.replace('#l', ''));
+      if (number >= 1 && number <= 5 && number !== currentLesson) switchLesson(number);
+    });
+    const hashLesson = Number(window.location.hash.replace('#l', ''));
+    switchLesson(hashLesson >= 1 && hashLesson <= 5 ? hashLesson : 1);
+  </script>
+</body>
+</html>
