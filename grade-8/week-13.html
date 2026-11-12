@@ -1548,10 +1548,10 @@
 
     window.addEventListener('hashchange', () => {
       const number = Number(window.location.hash.replace('#l', ''));
-      if (number >= 1 && number <= 5 && number !== currentLesson) switchLesson(number);
+      if (number >= 1 && number <= 6 && number !== currentLesson) switchLesson(number);
     });
     const hashLesson = Number(window.location.hash.replace('#l', ''));
-    switchLesson(hashLesson >= 1 && hashLesson <= 5 ? hashLesson : 1);
+    switchLesson(hashLesson >= 1 && hashLesson <= 6 ? hashLesson : 1);
   </script>
 </body>
 </html>

@@ -1,0 +1,1867 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071321">
+  <meta name="description" content="Grade 7 English Week 13 touchscreen classroom activities for Lessons 1-6.">
+  <title>Grade 7 English | Week 13 Touchscreen Challenge</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071321;
+      --panel: #10243c;
+      --panel-2: #172e4b;
+      --line: #2e4d72;
+      --text: #f8fbff;
+      --soft: #d8e3f1;
+      --muted: #93a8c1;
+      --cyan: #5de2ea;
+      --yellow: #fff200;
+      --pink: #ff8fa8;
+      --mint: #71e6a2;
+      --orange: #ffb65e;
+      --red: #ff6f7f;
+      --shadow: 0 24px 74px rgba(0, 0, 0, .34);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100dvh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 8% -4%, rgba(93, 226, 234, .14), transparent 28rem),
+        radial-gradient(circle at 100% 12%, rgba(255, 143, 168, .1), transparent 30rem),
+        var(--bg);
+    }
+
+    a, button { touch-action: manipulation; }
+    button { font: inherit; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 4px solid var(--yellow);
+      outline-offset: 3px;
+    }
+
+    .shell {
+      width: min(1660px, 100%);
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: 18px clamp(18px, 3vw, 46px) 16px;
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      gap: 13px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .home-link {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--cyan);
+      background: rgba(16, 36, 60, .9);
+      text-decoration: none;
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .brand-kicker,
+    .eyebrow {
+      color: var(--cyan);
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .brand-kicker { font-size: clamp(.7rem, 1vw, .9rem); }
+
+    h1 {
+      margin: 5px 0 0;
+      font-size: clamp(1.45rem, 2.4vw, 2.45rem);
+      line-height: 1;
+    }
+
+    .routine {
+      min-width: 340px;
+      min-height: 58px;
+      padding: 8px 16px 8px 9px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(16, 36, 60, .9);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--soft);
+    }
+
+    .routine-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 12px;
+      color: var(--bg);
+      background: var(--yellow);
+      font-size: 1.1rem;
+      font-weight: 950;
+    }
+
+    .routine strong { color: var(--text); }
+
+    .lesson-tabs {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .lesson-tab {
+      min-height: 62px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(16, 36, 60, .82);
+      color: var(--soft);
+      text-align: left;
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .lesson-tab span {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .lesson-tab strong {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(.82rem, 1.05vw, 1rem);
+    }
+
+    .lesson-tab:hover,
+    .lesson-tab:focus-visible {
+      border-color: var(--cyan);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .lesson-tab.active {
+      color: var(--bg);
+      background: var(--cyan);
+      border-color: var(--cyan);
+      box-shadow: 0 10px 28px rgba(93, 226, 234, .18);
+    }
+
+    .lesson-tab.active span { color: rgba(7, 19, 33, .72); }
+
+    .activity-card {
+      min-height: 0;
+      padding: clamp(16px, 2vw, 28px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(16, 36, 60, .98), rgba(8, 24, 42, .99));
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto auto minmax(300px, 1fr) auto;
+      gap: 14px;
+      overflow: hidden;
+    }
+
+    .activity-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(250px, 29%);
+      align-items: end;
+      gap: 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 7px;
+      font-size: .78rem;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 3.55rem);
+      line-height: .99;
+    }
+
+    .instruction {
+      margin: 9px 0 0;
+      color: var(--soft);
+      font-size: clamp(.92rem, 1.3vw, 1.16rem);
+    }
+
+    .score-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 8px;
+      color: var(--soft);
+      font-size: .88rem;
+      font-weight: 850;
+    }
+
+    .progress-track {
+      height: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #08192b;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--mint));
+      transition: width .3s ease;
+    }
+
+    .tier-track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .tier-step {
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--muted);
+      background: rgba(7, 19, 33, .55);
+      font-size: .72rem;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-align: center;
+    }
+
+    .tier-step.active[data-tier="START"] { color: var(--bg); background: var(--cyan); border-color: var(--cyan); }
+    .tier-step.active[data-tier="BUILD"] { color: var(--bg); background: var(--orange); border-color: var(--orange); }
+    .tier-step.active[data-tier="EXTEND"] { color: var(--bg); background: var(--pink); border-color: var(--pink); }
+
+    .stage {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(330px, .9fr) minmax(460px, 1.2fr);
+      gap: 22px;
+    }
+
+    .prompt-card,
+    .response-card,
+    .finish-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--panel-2);
+    }
+
+    .prompt-card {
+      min-height: 0;
+      padding: clamp(22px, 3vw, 42px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .challenge-label {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--cyan);
+      font-size: .78rem;
+      font-weight: 950;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .tier-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 15px rgba(93, 226, 234, .75);
+    }
+
+    .prompt-text {
+      margin: 0;
+      font-size: clamp(1.3rem, 2.25vw, 2.5rem);
+      line-height: 1.18;
+      font-weight: 850;
+    }
+
+    .source-line {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 750;
+    }
+
+    .response-card {
+      min-height: 0;
+      padding: clamp(18px, 2vw, 28px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .choice {
+      position: relative;
+      min-height: 82px;
+      padding: 15px 16px 15px 50px;
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      color: var(--text);
+      background: var(--panel);
+      font-size: clamp(.96rem, 1.35vw, 1.24rem);
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+
+    .key-hint {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      color: var(--bg);
+      background: var(--muted);
+      font-size: .78rem;
+      font-weight: 950;
+    }
+
+    .choice:hover,
+    .choice:focus-visible,
+    .tool-button:hover,
+    .tool-button:focus-visible {
+      border-color: var(--cyan);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .choice.correct {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .choice.correct .key-hint { color: var(--mint); background: var(--bg); }
+
+    .choice.wrong {
+      background: rgba(255, 111, 127, .17);
+      border-color: var(--red);
+    }
+
+    .choice:disabled { cursor: default; transform: none; }
+
+    .oral-gate {
+      padding: 15px 17px;
+      border: 1px solid rgba(255, 242, 0, .58);
+      border-radius: 15px;
+      background: rgba(255, 242, 0, .06);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .oral-gate strong { color: var(--yellow); }
+    .oral-gate p { margin: 4px 0 0; color: var(--soft); }
+
+    .feedback {
+      min-height: 72px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      align-items: center;
+      gap: 13px;
+      background: rgba(7, 19, 33, .74);
+    }
+
+    .feedback-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--muted);
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .feedback strong { font-size: 1.04rem; }
+    .feedback p { margin: 4px 0 0; color: var(--soft); }
+    .feedback.success { border-color: rgba(113, 230, 162, .7); }
+    .feedback.success .feedback-icon { background: var(--mint); }
+    .feedback.error { border-color: rgba(255, 111, 127, .75); }
+    .feedback.error .feedback-icon { color: white; background: var(--red); }
+    .feedback.reveal { border-color: rgba(255, 242, 0, .7); }
+    .feedback.reveal .feedback-icon { background: var(--yellow); }
+
+    .teacher-toolbar {
+      min-height: 56px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .toolbar-left,
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .teacher-tip {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 750;
+      text-align: right;
+    }
+
+    .tool-button {
+      min-height: 50px;
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--soft);
+      background: var(--panel);
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, opacity .12s ease;
+    }
+
+    .tool-button.primary {
+      color: var(--bg);
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+
+    .tool-button.confirm {
+      color: var(--bg);
+      background: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .tool-button:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+
+    .finish-card {
+      grid-column: 1 / -1;
+      min-height: 100%;
+      padding: clamp(30px, 5vw, 70px);
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .finish-inner { width: min(850px, 100%); }
+
+    .finish-mark {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      background: var(--mint);
+      font-size: 2.45rem;
+      font-weight: 950;
+    }
+
+    .finish-card h3 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 4rem);
+    }
+
+    .finish-card p {
+      max-width: 680px;
+      margin: 14px auto 0;
+      color: var(--soft);
+      font-size: clamp(1rem, 1.5vw, 1.22rem);
+      line-height: 1.45;
+    }
+
+    .finish-model {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-left: 7px solid var(--yellow);
+      border-radius: 12px;
+      color: var(--text);
+      background: var(--bg);
+      font-size: clamp(1rem, 1.45vw, 1.2rem);
+      font-weight: 800;
+      text-align: left;
+    }
+
+    @media (max-width: 1000px) {
+      body { overflow: auto; }
+      .shell { min-height: 100vh; }
+      .lesson-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stage { grid-template-columns: 1fr; }
+      .teacher-toolbar,
+      .toolbar-left,
+      .toolbar-right { flex-wrap: wrap; }
+      .teacher-tip { max-width: none; flex: 1 1 100%; text-align: left; }
+    }
+
+    @media (max-width: 680px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .routine { min-width: 0; width: 100%; }
+      .activity-heading { grid-template-columns: 1fr; }
+      .choice-grid { grid-template-columns: 1fr; }
+      .oral-gate { grid-template-columns: 1fr; }
+      .activity-card { overflow: visible; }
+      .teacher-toolbar { flex-direction: column; }
+      .toolbar-left,
+      .toolbar-right { width: 100%; }
+      .tool-button { flex: 1 1 auto; }
+    }
+
+    @media (max-height: 850px) and (min-width: 1001px) {
+      .shell { padding-top: 9px; padding-bottom: 9px; gap: 8px; }
+      .topbar h1 { font-size: 1.7rem; }
+      .routine { min-height: 46px; }
+      .routine-number { width: 36px; height: 36px; }
+      .lesson-tab { min-height: 48px; padding: 6px 10px; }
+      .activity-card { padding: 13px 18px; gap: 9px; grid-template-rows: auto auto minmax(255px, 1fr) auto; }
+      h2 { font-size: clamp(1.7rem, 2.5vw, 2.55rem); }
+      .instruction { margin-top: 5px; }
+      .prompt-card { padding: 20px 28px; }
+      .prompt-text { font-size: clamp(1.2rem, 1.9vw, 1.95rem); }
+      .choice { min-height: 62px; padding-top: 10px; padding-bottom: 10px; }
+      .feedback { min-height: 58px; padding-top: 7px; padding-bottom: 7px; }
+      .teacher-toolbar { min-height: 48px; }
+      .tool-button { min-height: 44px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+    .reading-source { font-size:clamp(.95rem,1.2vw,1.12rem); line-height:1.4; color:var(--soft); border-bottom:1px solid var(--line); padding-bottom:12px; }
+    .reading-source strong { display:block; color:var(--cyan); font-size:.78rem; margin-bottom:7px; }
+    .reading-source p { margin:0; }
+    .prompt-card:has(.reading-source) { align-content:start; padding:20px 26px; }
+    .prompt-card:has(.reading-source) .prompt-text { font-size:clamp(1.2rem,1.75vw,1.8rem); }
+    .lesson-tab:focus-visible, .choice:focus-visible, .tool-button:focus-visible { outline:3px solid var(--yellow); outline-offset:3px; }
+    @media(max-width:1150px) and (min-width:1001px){.lesson-tab strong{font-size:.78rem}.lesson-tab{padding-inline:8px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand-line">
+        <a class="home-link" href="../index.html" aria-label="Return to lesson library">‹</a>
+        <div>
+          <div class="brand-kicker">MRISB | GRADE 7 ENGLISH</div>
+          <h1>Week 13 Touchscreen Challenge</h1>
+        </div>
+      </div>
+      <div class="routine" aria-label="Classroom routine">
+        <span class="routine-number" id="turnNumber">01</span>
+        <span><strong>Read fully.</strong> Choose carefully. Explain the link.</span>
+      </div>
+    </header>
+
+    <nav class="lesson-tabs" aria-label="Select a lesson"><button class="lesson-tab active" data-lesson="1" aria-pressed="true"><span>Lesson 1</span><strong>Connotation</strong></button><button class="lesson-tab" data-lesson="2" aria-pressed="false"><span>Lesson 2</span><strong>-ed and -ing</strong></button><button class="lesson-tab" data-lesson="3" aria-pressed="false"><span>Lesson 3</span><strong>Idea web</strong></button><button class="lesson-tab" data-lesson="4" aria-pressed="false"><span>Lesson 4</span><strong>Respond</strong></button><button class="lesson-tab" data-lesson="5" aria-pressed="false"><span>Lesson 5</span><strong>Revise</strong></button><button class="lesson-tab" data-lesson="6" aria-pressed="false"><span>Lesson 6</span><strong>Edit</strong></button></nav>
+
+    <main class="activity-card">
+      <section class="activity-heading">
+        <div>
+          <p class="eyebrow" id="activityEyebrow"></p>
+          <h2 id="activityTitle"></h2>
+          <p class="instruction" id="activityInstruction"></p>
+        </div>
+        <div>
+          <div class="score-line"><span id="progressText"></span><span id="scoreText"></span></div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+      </section>
+
+      <section class="tier-track" aria-label="Challenge level">
+        <div class="tier-step" data-tier="START">START | Recognise</div>
+        <div class="tier-step" data-tier="BUILD">BUILD | Apply</div>
+        <div class="tier-step" data-tier="EXTEND">EXTEND | Justify</div>
+      </section>
+
+      <section class="stage" id="activityStage" aria-live="polite"></section>
+
+      <section class="feedback" id="feedbackPanel" aria-live="assertive">
+        <div class="feedback-icon" id="feedbackIcon">?</div>
+        <div><strong id="feedbackTitle">Read every option</strong><p id="feedbackText">The board player chooses only after the class has formed an answer.</p></div>
+      </section>
+    </main>
+
+    <footer class="teacher-toolbar">
+      <div class="toolbar-left">
+        <button class="tool-button" id="resetButton">Reset lesson</button>
+        <button class="tool-button" id="revealButton">Reveal answer</button>
+        <button class="tool-button" id="soundButton" aria-pressed="true">Sound on</button>
+      </div>
+      <div class="toolbar-right">
+        <span class="teacher-tip" id="teacherTip"></span>
+        <button class="tool-button primary" id="nextButton" disabled>Next challenge</button>
+        <button class="tool-button" id="fullscreenButton">Full screen</button>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const lessons = {
+  "1": {
+    "tab": "Connotation",
+    "eyebrow": "LESSON 1 | SB p.185 · LC p.71",
+    "title": "Words that carry feelings",
+    "instruction": "Read the sentence. Choose the word or meaning that fits, then explain the feeling it creates.",
+    "tip": "Every boy forms an answer before the board turn. Ask: what does it mean, and what does it make you feel?",
+    "finishTitle": "Denotation and connotation, ready to use",
+    "finishText": "Complete LC p.71 A and B. Use the frame: In this sentence, ___ makes me feel ___ because ___.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "DEFINITION | DENOTATION",
+        "prompt": "What is the denotation of a word?",
+        "options": [
+          "the feeling it gives you",
+          "its dictionary meaning",
+          "how many letters it has",
+          "a word with the opposite meaning"
+        ],
+        "answer": "its dictionary meaning",
+        "why": "Denotation is the literal meaning you find in a dictionary.",
+        "gate": "Give the denotation of home.",
+        "tier": "START"
+      },
+      {
+        "label": "DEFINITION | CONNOTATION",
+        "prompt": "What is the connotation of a word?",
+        "options": [
+          "its dictionary meaning",
+          "its spelling",
+          "its word class",
+          "the ideas and feelings it suggests"
+        ],
+        "answer": "the ideas and feelings it suggests",
+        "why": "Connotation is what a word makes us think and feel, beyond its dictionary meaning.",
+        "gate": "Say what the word home makes you feel.",
+        "tier": "START"
+      },
+      {
+        "label": "SAME MEANING | WARM FEELING",
+        "prompt": "All four words can mean a place to live. Which one feels the warmest and safest?",
+        "options": [
+          "home",
+          "house",
+          "building",
+          "shelter"
+        ],
+        "answer": "home",
+        "why": "Home suggests family, love and safety. House and building only name the place.",
+        "gate": "Use home in a sentence that shows that warm feeling.",
+        "tier": "START"
+      },
+      {
+        "label": "POSITIVE OR NEGATIVE | THIN",
+        "prompt": "Which word is the most positive way to describe a thin person?",
+        "options": [
+          "skinny",
+          "bony",
+          "slim",
+          "scrawny"
+        ],
+        "answer": "slim",
+        "why": "Slim sounds healthy and attractive. Skinny, bony and scrawny suggest too thin.",
+        "gate": "Put the four words in order from most negative to most positive.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "POSITIVE OR NEGATIVE | NEVER GIVES UP",
+        "prompt": "Omar never gives up on his goals. Which word praises him?",
+        "options": [
+          "determined",
+          "stubborn",
+          "pig-headed",
+          "inflexible"
+        ],
+        "answer": "determined",
+        "why": "Determined is positive: a strong will for a good aim. Stubborn suggests refusing to change when you should.",
+        "gate": "Describe a time you were determined.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "TEXT | PILED",
+        "prompt": "On Sidi's table, two plates are piled high with fat purple grapes. What does piled suggest about Sidi's home?",
+        "options": [
+          "The plates are dirty and need washing.",
+          "The food is falling on the floor.",
+          "Sidi does not like grapes.",
+          "There is plenty of food, so it feels generous and welcoming."
+        ],
+        "answer": "There is plenty of food, so it feels generous and welcoming.",
+        "why": "Piled means stacked high. Plenty of food makes Sidi's home feel generous.",
+        "gate": "Find another detail that makes Sidi's home feel welcoming.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "TEXT | FLUTTERED",
+        "prompt": "Ruffled yellow curtains still fluttered in the open windows. Which feeling does fluttered create?",
+        "options": [
+          "loud, violent shaking",
+          "gentle, calm movement",
+          "no movement at all",
+          "fast, angry flapping"
+        ],
+        "answer": "gentle, calm movement",
+        "why": "Flutter means small, light movements, so the house feels calm and alive.",
+        "gate": "Replace fluttered with a word that makes the scene feel stormy.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "CONNOTATION | QUESTIONS",
+        "prompt": "Ali asks his teacher many questions about how volcanoes work. Which word fits best?",
+        "options": [
+          "nosy",
+          "prying",
+          "curious",
+          "interfering"
+        ],
+        "answer": "curious",
+        "why": "Curious is positive: wanting to learn. Nosy and prying suggest interest in things that are not your business.",
+        "gate": "Write a sentence where nosy is the right word.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "LC p.71 | WHINE",
+        "prompt": "Aref asks, trying not to whine, “Will your house feel sad when we leave?” What does whine suggest?",
+        "options": [
+          "speaking calmly and clearly",
+          "laughing loudly with friends",
+          "singing a happy song",
+          "complaining in a high, unhappy voice, like a small child"
+        ],
+        "answer": "complaining in a high, unhappy voice, like a small child",
+        "why": "Whine means to complain in a high voice. Its connotation is childish, so Aref tries not to sound like that.",
+        "gate": "Why does Aref try not to whine? What does that show about him?",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "AUTHOR'S CHOICE | STRIDING",
+        "prompt": "Sidi gives Aref a postcard of camels striding across dunes. Why might the author choose striding instead of walking?",
+        "options": [
+          "Striding suggests long, confident steps, so the camels seem strong and steady.",
+          "Striding is shorter and easier to spell.",
+          "Striding means the camels are lost.",
+          "The two words have opposite denotations."
+        ],
+        "answer": "Striding suggests long, confident steps, so the camels seem strong and steady.",
+        "why": "Both words mean walking, but striding adds confidence and purpose.",
+        "gate": "Choose a word for how Aref might walk into his new school, and explain its connotation.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "2": {
+    "tab": "-ed and -ing",
+    "eyebrow": "LESSON 2 | LC pp.72-73",
+    "title": "Bored or boring?",
+    "instruction": "Ask yourself: is it the feeling (-ed) or the cause (-ing)? Choose, then explain.",
+    "tip": "Ask for the rule before the reveal: who feels it, and what causes it?",
+    "finishTitle": "Two endings, two jobs",
+    "finishText": "Complete LC pp.72-73 A to E. Check every -ed and -ing word with the feeling-or-cause question.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "FEELING | -ED",
+        "prompt": "Aref felt ___ about leaving Oman.",
+        "options": [
+          "worrying",
+          "worried",
+          "worry",
+          "worries"
+        ],
+        "answer": "worried",
+        "why": "-ed adjectives describe how a person feels. Aref is the one who feels it.",
+        "gate": "Say how you felt on your first day at a new school.",
+        "tier": "START"
+      },
+      {
+        "label": "CAUSE | -ING",
+        "prompt": "The long journey to the United States was ___ for Aref.",
+        "options": [
+          "tired",
+          "tire",
+          "tires",
+          "tiring"
+        ],
+        "answer": "tiring",
+        "why": "-ing adjectives describe what causes the feeling. The journey causes tiredness.",
+        "gate": "Say one thing that is tiring for you.",
+        "tier": "START"
+      },
+      {
+        "label": "RULE | BOTH ENDINGS",
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "I am bored because the film is boring.",
+          "I am boring because the film is bored.",
+          "I am bored because the film is bored.",
+          "I am boring because the film is boring."
+        ],
+        "answer": "I am bored because the film is boring.",
+        "why": "The person feels bored (-ed). The film causes the feeling (-ing).",
+        "gate": "Make a pair like this with excited and exciting.",
+        "tier": "START"
+      },
+      {
+        "label": "CHOOSE | CAUSE",
+        "prompt": "Sidi told Aref an ___ story about the falcon and the turtles.",
+        "options": [
+          "interested",
+          "interest",
+          "interesting",
+          "interests"
+        ],
+        "answer": "interesting",
+        "why": "The story causes interest, so it needs -ing.",
+        "gate": "Change the sentence so it uses interested.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "CHOOSE | FEELING",
+        "prompt": "Omar was ___ when the match was cancelled.",
+        "options": [
+          "disappointed",
+          "disappointing",
+          "disappoint",
+          "disappointment"
+        ],
+        "answer": "disappointed",
+        "why": "Omar is the one with the feeling, so it needs -ed.",
+        "gate": "Name something that was disappointing for you.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "ADJECTIVE OR VERB | -ING",
+        "prompt": "In which sentence is the -ing word an ADJECTIVE?",
+        "options": [
+          "Aref is packing his suitcase.",
+          "The brain is developing quickly.",
+          "Sidi was walking to the docks.",
+          "The ending of the story was amazing."
+        ],
+        "answer": "The ending of the story was amazing.",
+        "why": "Very amazing works, so amazing is an adjective. Is packing, is developing and was walking are verbs.",
+        "gate": "Use the very test on one of the wrong answers.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "ADJECTIVE OR VERB | -ED",
+        "prompt": "In which sentence is the -ed word a VERB?",
+        "options": [
+          "High-order processes are complicated.",
+          "Aref decided to leave his drum at home.",
+          "Aref was surprised by the gift.",
+          "The prolonged trip made him sleepy."
+        ],
+        "answer": "Aref decided to leave his drum at home.",
+        "why": "Decided is an action: what Aref did. Complicated, surprised and prolonged describe a noun.",
+        "gate": "Write a sentence where decided is an action.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "FIND THE ERROR",
+        "prompt": "Which sentence has a mistake?",
+        "options": [
+          "The trip was very exciting.",
+          "I was very excited about the trip.",
+          "I was very exciting about the trip.",
+          "The trip excited me."
+        ],
+        "answer": "I was very exciting about the trip.",
+        "why": "A person feels excited. I was exciting means I made other people excited.",
+        "gate": "Correct the sentence out loud.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "TWO GAPS",
+        "prompt": "The news was ___, so everyone was ___.",
+        "options": [
+          "surprised / surprising",
+          "surprised / surprised",
+          "surprising / surprising",
+          "surprising / surprised"
+        ],
+        "answer": "surprising / surprised",
+        "why": "The news causes the feeling (-ing). Everyone feels it (-ed).",
+        "gate": "Write your own two-gap sentence with annoying and annoyed.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "MEANING SHIFT",
+        "prompt": "Ahmed is boring. Ahmed is bored. What is the difference?",
+        "options": [
+          "The first says Ahmed makes others feel bored; the second says Ahmed feels bored.",
+          "There is no difference.",
+          "The first is past tense; the second is present.",
+          "The first is about a film; the second is about a person."
+        ],
+        "answer": "The first says Ahmed makes others feel bored; the second says Ahmed feels bored.",
+        "why": "Changing the ending changes the meaning completely.",
+        "gate": "Make a pair with confusing and confused.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "3": {
+    "tab": "Idea web",
+    "eyebrow": "LESSON 3 | SB p.186",
+    "title": "Challenges and rewards for Aref",
+    "instruction": "Read the detail. Decide what it shows, then point to the line in the story.",
+    "tip": "Ask for the exact line before the reveal. Accept any answer the text supports, with a reason.",
+    "finishTitle": "Evidence collected",
+    "finishText": "Add your strongest details to the idea web: two challenges and two rewards, each with what it shows and a feeling word.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "DETAIL | THE SONG",
+        "prompt": "Aref makes up a song: “No no no, I won't go.” What does this show?",
+        "options": [
+          "He is excited about the trip.",
+          "He does not want to leave Oman.",
+          "He wants to learn a new song.",
+          "He is angry with Sidi."
+        ],
+        "answer": "He does not want to leave Oman.",
+        "why": "The repeated no shows how strongly he wants to stay.",
+        "gate": "Is this a challenge or a reward? Explain.",
+        "tier": "START"
+      },
+      {
+        "label": "DETAIL | THE DRUM",
+        "prompt": "Aref's drum takes up too much room in his suitcase. Why does this matter?",
+        "options": [
+          "The drum is broken.",
+          "He wants to sell the drum.",
+          "He does not like the drum.",
+          "He cannot take everything he loves with him."
+        ],
+        "answer": "He cannot take everything he loves with him.",
+        "why": "The drum was a present from Sidi when he turned four. Leaving it is part of leaving home.",
+        "gate": "What would you find hard to leave behind?",
+        "tier": "START"
+      },
+      {
+        "label": "SORT | CHALLENGE",
+        "prompt": "Which detail shows a CHALLENGE for Aref?",
+        "options": [
+          "“What if no one likes me?”",
+          "Sidi gives him a brand-new elegant blue hat.",
+          "Sidi invites him to spend two days at his house.",
+          "Sidi plans a boat ride with a friendly fisherman."
+        ],
+        "answer": "“What if no one likes me?”",
+        "why": "Aref is afraid of being the new one with no friends.",
+        "gate": "Find one more challenge in the story.",
+        "tier": "START"
+      },
+      {
+        "label": "SORT | REWARD",
+        "prompt": "Which detail shows a REWARD or comfort for Aref?",
+        "options": [
+          "His drum will not fit in his suitcase.",
+          "The house starts to look like a hotel.",
+          "Sidi gives him a tassel exactly like his own.",
+          "“What if they make fun of my hat?”"
+        ],
+        "answer": "Sidi gives him a tassel exactly like his own.",
+        "why": "The tassel connects Aref to Sidi and his family, so he carries home with him.",
+        "gate": "Why does it matter that the tassel is like Sidi's?",
+        "tier": "BUILD"
+      },
+      {
+        "label": "INFER | THE HOTEL",
+        "prompt": "“The house was starting to look like a hotel.” What does this show?",
+        "options": [
+          "Home is changing and no longer feels like Aref's own.",
+          "The family is opening a hotel.",
+          "Aref is happy that the house is so clean.",
+          "Sidi is moving into the house."
+        ],
+        "answer": "Home is changing and no longer feels like Aref's own.",
+        "why": "The photos and books are gone. A hotel is a place where nobody really lives.",
+        "gate": "What feeling word fits Aref here?",
+        "tier": "BUILD"
+      },
+      {
+        "label": "INFER | THE HOUSES MAY CRY",
+        "prompt": "Sidi says the houses may cry, “but they will wait for you to get back, the same way I will.” What is Sidi telling Aref?",
+        "options": [
+          "The houses will fall down.",
+          "Aref should never come back.",
+          "Sidi is angry that Aref is leaving.",
+          "Leaving is sad, but home and Sidi will still be there."
+        ],
+        "answer": "Leaving is sad, but home and Sidi will still be there.",
+        "why": "Sidi admits the sadness but gives Aref comfort and hope.",
+        "gate": "Is this a challenge, a reward, or both?",
+        "tier": "BUILD"
+      },
+      {
+        "label": "INFER | A DIFFERENT BOY",
+        "prompt": "Sidi says, “When you come back to Muscat, you will be a different boy.” What does he mean?",
+        "options": [
+          "Aref will forget his family.",
+          "Aref will grow and change while he is away.",
+          "Aref will not be allowed to return.",
+          "Aref will change his name in the United States."
+        ],
+        "answer": "Aref will grow and change while he is away.",
+        "why": "Growing up means changing. Sidi later says Aref will be the same boy with some added new flavours.",
+        "gate": "Do you agree with Aref that he will only be slightly taller?",
+        "tier": "BUILD"
+      },
+      {
+        "label": "FEELING WORD",
+        "prompt": "Which feeling word best fits Aref when he asks, “What if no one likes me?”",
+        "options": [
+          "worrying",
+          "excited",
+          "worried",
+          "bored"
+        ],
+        "answer": "worried",
+        "why": "Aref feels it, so the -ed form is correct.",
+        "gate": "Name the cause: what is worrying for him?",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "BOTH SIDES | FRIENDS",
+        "prompt": "Sidi says, “Friends are everywhere.” How can this detail show a challenge AND a reward?",
+        "options": [
+          "It shows Aref has no friends in Oman.",
+          "It means Aref will never see Sidi again.",
+          "It is only about Sidi's friends.",
+          "Aref must make new friends, but Sidi believes he will."
+        ],
+        "answer": "Aref must make new friends, but Sidi believes he will.",
+        "why": "Making friends is the challenge; Sidi's confidence is the comfort.",
+        "gate": "Write one sentence that shows both sides.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "STRONGEST EVIDENCE | LOVE",
+        "prompt": "Which detail is the strongest evidence that Sidi loves Aref?",
+        "options": [
+          "Asked why his house is always so happy, Sidi says, “Because you're in it.”",
+          "Aref turned on the television.",
+          "The tables had been polished.",
+          "Sidi sat down on the couch."
+        ],
+        "answer": "Asked why his house is always so happy, Sidi says, “Because you're in it.”",
+        "why": "Sidi says plainly that Aref is what makes his house happy.",
+        "gate": "Explain your choice in one sentence.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "4": {
+    "tab": "Respond",
+    "eyebrow": "LESSON 4 | SB pp.186-187",
+    "title": "Challenges and triumphs of growing up",
+    "instruction": "Decide what makes a response strong: an opinion, evidence and an explanation.",
+    "tip": "Before each reveal, ask boys to name the part of the response: opinion, evidence or explanation.",
+    "finishTitle": "Ready to respond",
+    "finishText": "Write 6-8 sentences: What are the challenges and triumphs of growing up? Check your response against the rubric.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "VOCABULARY | TRIUMPH",
+        "prompt": "What is a triumph?",
+        "options": [
+          "a problem you cannot solve",
+          "a great success after effort",
+          "a kind of journey",
+          "a sad memory"
+        ],
+        "answer": "a great success after effort",
+        "why": "A triumph is a win you worked for. Growing up has challenges and triumphs.",
+        "gate": "Name one triumph you have had this year.",
+        "tier": "START"
+      },
+      {
+        "label": "PART | OPINION",
+        "prompt": "Which sentence is an OPINION about growing up?",
+        "options": [
+          "Aref lives in Muscat.",
+          "Sidi gave Aref two postcards.",
+          "The drum was made of goatskin.",
+          "In my opinion, the hardest part of growing up is saying goodbye."
+        ],
+        "answer": "In my opinion, the hardest part of growing up is saying goodbye.",
+        "why": "An opinion says what you think. The others are facts from the story.",
+        "gate": "Say your own opinion about growing up.",
+        "tier": "START"
+      },
+      {
+        "label": "PART | EVIDENCE",
+        "prompt": "Which sentence is EVIDENCE from the text?",
+        "options": [
+          "Aref asks, “What if no one likes me?”",
+          "I think growing up is hard.",
+          "Everyone feels nervous sometimes.",
+          "This shows that change is scary."
+        ],
+        "answer": "Aref asks, “What if no one likes me?”",
+        "why": "Evidence comes from the story, often as a quotation.",
+        "gate": "Find one more quotation you could use.",
+        "tier": "START"
+      },
+      {
+        "label": "PART | EXPLANATION",
+        "prompt": "Which sentence EXPLAINS that evidence?",
+        "options": [
+          "Aref says, “What if no one likes me?”",
+          "In my opinion, growing up is hard.",
+          "This shows that Aref is afraid of being an outsider.",
+          "The story was written by Naomi Shihab Nye."
+        ],
+        "answer": "This shows that Aref is afraid of being an outsider.",
+        "why": "An explanation says what the evidence shows. This shows that ... is a strong start.",
+        "gate": "Explain a different quotation with This shows that ...",
+        "tier": "BUILD"
+      },
+      {
+        "label": "ORDER | RESPONSE",
+        "prompt": "What is the best order for a response?",
+        "options": [
+          "opinion, then evidence, then explanation",
+          "explanation, then opinion, then evidence",
+          "evidence, then title, then opinion",
+          "evidence, then evidence, then evidence"
+        ],
+        "answer": "opinion, then evidence, then explanation",
+        "why": "State your idea, prove it, then explain how the proof supports it.",
+        "gate": "Say a three-sentence response in this order.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "LIFE EXAMPLE",
+        "prompt": "Which sentence adds a strong example from your own life?",
+        "options": [
+          "Life is life.",
+          "Aref was nervous.",
+          "I like football.",
+          "When I moved to a new school, I was nervous until I joined the football team."
+        ],
+        "answer": "When I moved to a new school, I was nervous until I joined the football team.",
+        "why": "It is personal, specific and linked to a challenge and a triumph.",
+        "gate": "Tell a partner your own example.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "DISCUSSION IDEA",
+        "prompt": "Which sentence uses a classmate's idea well?",
+        "options": [
+          "My classmate is my friend.",
+          "A classmate pointed out that Sidi faces a challenge too, because he stays behind.",
+          "A classmate said the story was good.",
+          "Everyone in my class agrees with me."
+        ],
+        "answer": "A classmate pointed out that Sidi faces a challenge too, because he stays behind.",
+        "why": "It names a specific idea and gives a reason.",
+        "gate": "Add an idea you heard in today's discussion.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "STRONGER SENTENCE",
+        "prompt": "Which is the stronger response sentence?",
+        "options": [
+          "One triumph is good.",
+          "Aref got a hat and it was blue and it fit.",
+          "One triumph is learning that love travels with you; Sidi's gifts will remind Aref of home.",
+          "The triumph is the triumph of growing up."
+        ],
+        "answer": "One triumph is learning that love travels with you; Sidi's gifts will remind Aref of home.",
+        "why": "It names the triumph and links it to a detail from the text.",
+        "gate": "Improve one of the weak sentences.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "-ED / -ING IN WRITING",
+        "prompt": "Choose the correct sentence for your response.",
+        "options": [
+          "Leaving home is frightened, so Aref feels frightening.",
+          "Leaving home is frightening, so Aref feels frightening.",
+          "Leaving home is frightened, so Aref feels frightened.",
+          "Leaving home is frightening, so Aref feels frightened."
+        ],
+        "answer": "Leaving home is frightening, so Aref feels frightened.",
+        "why": "Leaving home causes the feeling (-ing). Aref feels it (-ed).",
+        "gate": "Underline an -ed or -ing adjective in your own response.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "ADULTS TOO | SIDI",
+        "prompt": "What is a challenge for Sidi, an adult, in this story?",
+        "options": [
+          "He must let Aref go and wait for him to come back.",
+          "He must pack his own suitcase.",
+          "He must learn to fly.",
+          "He must start at a new school."
+        ],
+        "answer": "He must let Aref go and wait for him to come back.",
+        "why": "Sidi stays behind to protect the nest and promises to wait, the same way the houses will.",
+        "gate": "What could be a triumph for Sidi?",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "5": {
+    "tab": "Revise",
+    "eyebrow": "LESSON 5 | Writing Task 6 · second draft",
+    "title": "Revise for clearer, stronger ideas",
+    "instruction": "Read both versions. Choose the revision that makes the essay clearer or stronger, then say why.",
+    "tip": "Revising means big changes. Ask: what was added, moved, cut or linked?",
+    "finishTitle": "Ready to revise",
+    "finishText": "Write your two targets at the top of a new page, then revise your weakest paragraph first.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "REVISE OR EDIT",
+        "prompt": "Which change is REVISING (a big change)?",
+        "options": [
+          "fixing a spelling mistake",
+          "adding a fact to support a solution",
+          "adding a missing full stop",
+          "changing a small letter to a capital"
+        ],
+        "answer": "adding a fact to support a solution",
+        "why": "Revising improves ideas. The others are small fixes for editing in Lesson 6.",
+        "gate": "Name one big change your draft needs.",
+        "tier": "START"
+      },
+      {
+        "label": "STRUCTURE | INTRODUCTION",
+        "prompt": "What should the introduction of a problem-solution essay do?",
+        "options": [
+          "list every solution in detail",
+          "say goodbye to the reader",
+          "list the sources",
+          "explain why the problem matters and give the main idea"
+        ],
+        "answer": "explain why the problem matters and give the main idea",
+        "why": "The introduction hooks the reader and states the problem and main idea.",
+        "gate": "Read your first sentence: does it show why the problem matters?",
+        "tier": "START"
+      },
+      {
+        "label": "STRUCTURE | CONCLUSION",
+        "prompt": "What should the conclusion do?",
+        "options": [
+          "describe the impact if the solutions work",
+          "introduce a brand-new problem",
+          "copy the introduction word for word",
+          "list the sources"
+        ],
+        "answer": "describe the impact if the solutions work",
+        "why": "The conclusion shows what will change if the solutions are used.",
+        "gate": "Say one impact your solutions would have.",
+        "tier": "START"
+      },
+      {
+        "label": "ADD EVIDENCE",
+        "prompt": "Original: Many students are tired at school. Which revision adds the strongest evidence?",
+        "options": [
+          "Many students are very, very tired at school.",
+          "Many students are tired at school, which is bad.",
+          "Many students are tired at school; in our class survey, 18 of 25 students slept less than eight hours.",
+          "Tired students are tired at school."
+        ],
+        "answer": "Many students are tired at school; in our class survey, 18 of 25 students slept less than eight hours.",
+        "why": "A number from a survey proves the point. Repeating very adds no evidence.",
+        "gate": "Where could you add a fact to your draft?",
+        "tier": "BUILD"
+      },
+      {
+        "label": "TRANSITION | SECOND SOLUTION",
+        "prompt": "Your first solution was a sleep campaign. Introduce your second: ___ schools could start a homework club.",
+        "options": [
+          "Another solution is that",
+          "For example,",
+          "In conclusion,",
+          "Because"
+        ],
+        "answer": "Another solution is that",
+        "why": "Another solution is that signals a new solution clearly.",
+        "gate": "Which transition starts each of your body paragraphs?",
+        "tier": "BUILD"
+      },
+      {
+        "label": "TRANSITION | RESULT",
+        "prompt": "Students stay up late on their phones. ___, they find it hard to concentrate in class.",
+        "options": [
+          "For example",
+          "First",
+          "In my opinion",
+          "As a result"
+        ],
+        "answer": "As a result",
+        "why": "As a result links a cause to its effect.",
+        "gate": "Use As a result in a sentence about your problem.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "CUT | OFF-TOPIC",
+        "prompt": "Which sentence should be CUT from a paragraph about sleep and school?",
+        "options": [
+          "Sleep helps the brain remember new information.",
+          "My cousin has a red bicycle.",
+          "Tired students often make more mistakes.",
+          "A regular bedtime can improve sleep."
+        ],
+        "answer": "My cousin has a red bicycle.",
+        "why": "It does not support the topic. Cutting it makes the paragraph clearer.",
+        "gate": "Find one sentence in your draft that could be cut.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "EXPLAIN | THE FACT",
+        "prompt": "Which sentence best explains this fact: 18 of 25 students slept less than eight hours?",
+        "options": [
+          "This is a number.",
+          "18 and 25 are both numbers.",
+          "This shows that most of our class is not getting enough rest to learn well.",
+          "Some students sleep."
+        ],
+        "answer": "This shows that most of our class is not getting enough rest to learn well.",
+        "why": "A good explanation says what the fact means for the problem.",
+        "gate": "Add a This shows that ... sentence after one of your facts.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "WORD CHOICE | CONNOTATION",
+        "prompt": "Which word fits a serious essay best? Late-night phone use is ___ for sleep.",
+        "options": [
+          "super bad",
+          "evil",
+          "yucky",
+          "harmful"
+        ],
+        "answer": "harmful",
+        "why": "Harmful is clear and formal. The others sound informal or too extreme.",
+        "gate": "Find one informal word in your draft and replace it.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "BEST TOPIC SENTENCE",
+        "prompt": "Which topic sentence is strongest for Solution 1?",
+        "options": [
+          "One realistic solution is a school sleep campaign that teaches students why rest matters.",
+          "Solution one.",
+          "There are many solutions and this is one of them.",
+          "Sleep campaign is good I think."
+        ],
+        "answer": "One realistic solution is a school sleep campaign that teaches students why rest matters.",
+        "why": "It names the solution, says it is realistic and shows its purpose.",
+        "gate": "Rewrite the topic sentence of your weakest paragraph.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "6": {
+    "tab": "Edit",
+    "eyebrow": "LESSON 6 | Writing Task 6 · edit and share",
+    "title": "Edit, then give useful feedback",
+    "instruction": "Find the mistake or choose the best feedback. Explain the rule.",
+    "tip": "Editing means small fixes. Ask boys to name the checklist line before the reveal.",
+    "finishTitle": "Ready to edit and share",
+    "finishText": "Tick the ME column of the checklist, swap drafts, then write one strength and one next step for your partner.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "CAPITALS",
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "in muscat, Aref's family packed their bags.",
+          "In Muscat, Aref's family packed their bags.",
+          "In muscat, aref's family packed their bags.",
+          "In Muscat, Aref's Family packed their Bags."
+        ],
+        "answer": "In Muscat, Aref's family packed their bags.",
+        "why": "Capitals start sentences and names like Muscat and Aref. Ordinary nouns stay lower case.",
+        "gate": "Check every name in your draft.",
+        "tier": "START"
+      },
+      {
+        "label": "FULL STOPS",
+        "prompt": "Which is correctly punctuated?",
+        "options": [
+          "Students need more sleep a regular bedtime can help.",
+          "Students need more sleep, a regular bedtime can help.",
+          "Students need. More sleep a regular bedtime can help.",
+          "Students need more sleep. A regular bedtime can help."
+        ],
+        "answer": "Students need more sleep. A regular bedtime can help.",
+        "why": "Two complete sentences need a full stop between them, not a comma.",
+        "gate": "Find one long sentence in your draft and check it.",
+        "tier": "START"
+      },
+      {
+        "label": "SPELLING",
+        "prompt": "Which word is spelled correctly?",
+        "options": [
+          "because",
+          "becuase",
+          "becouse",
+          "beacause"
+        ],
+        "answer": "because",
+        "why": "Because: b-e-c-a-u-s-e. Check common words as well as long ones.",
+        "gate": "Check how you spelled because in your draft.",
+        "tier": "START"
+      },
+      {
+        "label": "VERB TENSE",
+        "prompt": "Which sentence keeps the tense consistent?",
+        "options": [
+          "Last year, our school starts a club and many students joined.",
+          "Last year, our school started a club and many students join.",
+          "Last year, our school started a club and many students joined.",
+          "Last year, our school will start a club and many students joined."
+        ],
+        "answer": "Last year, our school started a club and many students joined.",
+        "why": "Last year signals the past, so both verbs are past tense.",
+        "gate": "Read one paragraph and check that the tense stays the same.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "-ED / -ING",
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "Students feel tired after a late night.",
+          "Students feel tiring after a late night.",
+          "A late night is tired for students.",
+          "The students are tiring after a late night."
+        ],
+        "answer": "Students feel tired after a late night.",
+        "why": "Students feel the tiredness, so tired (-ed) is correct.",
+        "gate": "Find an -ed or -ing adjective in your draft and check it.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "SUBJECT AND VERB",
+        "prompt": "Many students ___ less than eight hours a night.",
+        "options": [
+          "sleeps",
+          "sleeping",
+          "is sleep",
+          "sleep"
+        ],
+        "answer": "sleep",
+        "why": "Many students is plural, so the verb is sleep.",
+        "gate": "Check one sentence in your draft that starts with a plural noun.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "ADJECTIVES | NEVER PLURAL",
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "These are importants ideas.",
+          "These are important ideas.",
+          "These are ideas importants.",
+          "These is important ideas."
+        ],
+        "answer": "These are important ideas.",
+        "why": "Adjectives never take -s in English and usually come before the noun.",
+        "gate": "Check one adjective in your draft.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "FEEDBACK | STRENGTH",
+        "prompt": "Which is the most useful STRENGTH comment?",
+        "options": [
+          "Good job!",
+          "Nice handwriting.",
+          "Your fact about the class survey makes your first solution convincing.",
+          "I like it."
+        ],
+        "answer": "Your fact about the class survey makes your first solution convincing.",
+        "why": "A useful strength names exactly what works and why.",
+        "gate": "Write a strength like this for your partner.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "FEEDBACK | NEXT STEP",
+        "prompt": "Which is the most useful NEXT STEP?",
+        "options": [
+          "Make it better.",
+          "Your essay is bad.",
+          "Write more.",
+          "Add a transition at the start of paragraph 3 to link your two solutions."
+        ],
+        "answer": "Add a transition at the start of paragraph 3 to link your two solutions.",
+        "why": "A useful next step says where and what to change.",
+        "gate": "Write a next step like this for your partner.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "FEEDBACK | THE WRITING, NOT THE WRITER",
+        "prompt": "Which comment is about the writing, not the writer?",
+        "options": [
+          "Your conclusion repeats the introduction; explain the impact instead.",
+          "You are lazy.",
+          "You always forget things.",
+          "You should be more like me."
+        ],
+        "answer": "Your conclusion repeats the introduction; explain the impact instead.",
+        "why": "Feedback is about the writing. It is kind, specific and helps the writer improve.",
+        "gate": "Read your comment again: is it about the writing?",
+        "tier": "EXTEND"
+      }
+    ]
+  }
+};
+
+    const states = {};
+    let currentLesson = 1;
+    let turnNumber = 1;
+    let soundOn = true;
+    let audioContext = null;
+
+    const dom = {
+      tabs: [...document.querySelectorAll('.lesson-tab')],
+      eyebrow: document.getElementById('activityEyebrow'),
+      title: document.getElementById('activityTitle'),
+      instruction: document.getElementById('activityInstruction'),
+      stage: document.getElementById('activityStage'),
+      progressText: document.getElementById('progressText'),
+      scoreText: document.getElementById('scoreText'),
+      progressFill: document.getElementById('progressFill'),
+      tiers: [...document.querySelectorAll('.tier-step')],
+      feedback: document.getElementById('feedbackPanel'),
+      feedbackIcon: document.getElementById('feedbackIcon'),
+      feedbackTitle: document.getElementById('feedbackTitle'),
+      feedbackText: document.getElementById('feedbackText'),
+      tip: document.getElementById('teacherTip'),
+      reset: document.getElementById('resetButton'),
+      reveal: document.getElementById('revealButton'),
+      sound: document.getElementById('soundButton'),
+      next: document.getElementById('nextButton'),
+      fullscreen: document.getElementById('fullscreenButton'),
+      turn: document.getElementById('turnNumber')
+    };
+
+    function newState() {
+      return {
+        index: 0,
+        score: 0,
+        attempts: 0,
+        answered: false,
+        explanationConfirmed: false,
+        revealed: false,
+        finished: false,
+        optionOrder: null
+      };
+    }
+
+    function stateFor(lessonNumber) {
+      if (!states[lessonNumber]) states[lessonNumber] = newState();
+      return states[lessonNumber];
+    }
+
+    function currentChallenge() {
+      const state = stateFor(currentLesson);
+      return lessons[currentLesson].challenges[state.index];
+    }
+
+    function setFeedback(kind, title, text) {
+      dom.feedback.className = `feedback ${kind}`;
+      dom.feedbackIcon.textContent = kind === 'success' ? '✓' : kind === 'error' ? '×' : kind === 'reveal' ? '!' : '?';
+      dom.feedbackTitle.textContent = title;
+      dom.feedbackText.textContent = text;
+    }
+
+    function neutralFeedback() {
+      setFeedback('neutral', 'Read every option', 'The board player chooses only after the class has formed an answer.');
+    }
+
+    function tone(frequency, duration) {
+      if (!soundOn) return;
+      try {
+        audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.frequency.value = frequency;
+        gain.gain.setValueAtTime(.045, audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(.001, audioContext.currentTime + duration);
+        oscillator.connect(gain).connect(audioContext.destination);
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + duration);
+      } catch (error) {
+        soundOn = false;
+        dom.sound.textContent = 'Sound unavailable';
+      }
+    }
+
+    function shuffle(items) {
+      const copy = [...items];
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function updateHeader() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      const total = lesson.challenges.length;
+      const itemNumber = state.finished ? total : state.index + 1;
+      dom.eyebrow.textContent = lesson.eyebrow;
+      dom.title.textContent = lesson.title;
+      dom.instruction.textContent = lesson.instruction;
+      dom.tip.textContent = lesson.tip;
+      dom.progressText.textContent = `${itemNumber} of ${total}`;
+      dom.scoreText.textContent = `${state.score} first-try correct`;
+      dom.progressFill.style.width = `${state.finished ? 100 : (state.index / total) * 100}%`;
+      dom.tiers.forEach(step => step.classList.toggle('active', !state.finished && step.dataset.tier === currentChallenge().tier));
+      dom.next.disabled = !state.explanationConfirmed || state.finished;
+      dom.reveal.disabled = state.finished;
+      dom.turn.textContent = String(turnNumber).padStart(2, '0');
+    }
+
+    function render() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      updateHeader();
+
+      if (state.finished) {
+        dom.stage.innerHTML = `
+          <article class="finish-card">
+            <div class="finish-inner">
+              <div class="finish-mark">✓</div>
+              <h3>${lesson.finishTitle}</h3>
+              <p>${lesson.finishText}</p>
+              <div class="finish-model">${lesson.finishModel}</div>
+            </div>
+          </article>`;
+        setFeedback('success', 'Lesson challenge complete', `${state.score} of ${lesson.challenges.length} were correct on the first attempt.`);
+        dom.next.disabled = true;
+        return;
+      }
+
+      const challenge = currentChallenge();
+      dom.stage.innerHTML = `
+        <article class="prompt-card">
+          <div class="challenge-label"><span class="tier-dot"></span>${challenge.tier} | ${challenge.label}</div>
+          ${lesson.practice ? `<div class="reading-source"><strong>Original practice text, not from the book</strong><p>${lesson.practice}</p></div>` : ""}
+          <p class="prompt-text">${challenge.prompt}</p>
+          <div class="source-line">Use the prompt and explain your reasoning.</div>
+        </article>
+        <article class="response-card" id="responseCard"></article>`;
+
+      renderChoices(document.getElementById('responseCard'), challenge, state);
+      if (!state.answered && !state.revealed) neutralFeedback();
+      else if (state.explanationConfirmed) setFeedback('success', 'Reason accepted', challenge.why);
+      else if (state.revealed) setFeedback('reveal', `Answer: ${challenge.answer}`, challenge.why);
+      else setFeedback('success', 'Correct. Now prove it.', challenge.why);
+    }
+
+    function renderChoices(container, challenge, state) {
+      const options = state.optionOrder || shuffle(challenge.options);
+      state.optionOrder = options;
+      container.innerHTML = `
+        <div class="choice-grid">
+          ${options.map((option, index) => `<button class="choice" data-option="${encodeURIComponent(option)}"><span class="key-hint">${index + 1}</span>${option}</button>`).join('')}
+        </div>
+        <div id="gateArea"></div>`;
+
+      [...container.querySelectorAll('.choice')].forEach(button => {
+        const option = decodeURIComponent(button.dataset.option);
+        if (state.answered || state.revealed) {
+          button.disabled = true;
+          if (option === challenge.answer) button.classList.add('correct');
+        }
+        button.addEventListener('click', () => choose(option, button));
+      });
+
+      if (state.answered || state.revealed) renderGate(challenge, state);
+    }
+
+    function choose(option, button) {
+      const state = stateFor(currentLesson);
+      const challenge = currentChallenge();
+      if (state.answered || state.revealed || button.disabled) return;
+      state.attempts += 1;
+
+      if (option === challenge.answer) {
+        state.answered = true;
+        if (state.attempts === 1) state.score += 1;
+        tone(720, .18);
+        [...document.querySelectorAll('.choice')].forEach(choice => {
+          choice.disabled = true;
+          if (decodeURIComponent(choice.dataset.option) === challenge.answer) choice.classList.add('correct');
+        });
+        setFeedback('success', 'Correct. Now prove it.', challenge.why);
+        renderGate(challenge, state);
+      } else {
+        button.classList.add('wrong');
+        button.disabled = true;
+        tone(190, .16);
+        setFeedback('error', 'Not precise enough', 'Re-read the prompt and every option. Check meaning, grammar and evidence before choosing again.');
+      }
+      updateHeader();
+    }
+
+    function renderGate(challenge, state) {
+      const gateArea = document.getElementById('gateArea');
+      if (!gateArea) return;
+      gateArea.innerHTML = `
+        <div class="oral-gate">
+          <div><strong>Explanation gate</strong><p>${challenge.gate}</p></div>
+          <button class="tool-button confirm" id="confirmExplanation">${state.explanationConfirmed ? 'Explanation confirmed' : 'Explanation heard'}</button>
+        </div>`;
+      const confirm = document.getElementById('confirmExplanation');
+      confirm.disabled = state.explanationConfirmed;
+      confirm.addEventListener('click', () => {
+        state.explanationConfirmed = true;
+        confirm.disabled = true;
+        confirm.textContent = 'Explanation confirmed';
+        setFeedback('success', 'Reason accepted', challenge.why);
+        dom.next.disabled = false;
+        tone(880, .12);
+      });
+    }
+
+    function revealAnswer() {
+      const state = stateFor(currentLesson);
+      if (state.finished) return;
+      const challenge = currentChallenge();
+      state.revealed = true;
+      state.answered = true;
+      render();
+      setFeedback('reveal', `Answer: ${challenge.answer}`, challenge.why);
+      renderGate(challenge, state);
+    }
+
+    function nextChallenge() {
+      const lesson = lessons[currentLesson];
+      const state = stateFor(currentLesson);
+      if (!state.explanationConfirmed) return;
+
+      if (state.index >= lesson.challenges.length - 1) {
+        state.finished = true;
+      } else {
+        state.index += 1;
+        state.attempts = 0;
+        state.answered = false;
+        state.explanationConfirmed = false;
+        state.revealed = false;
+        state.optionOrder = null;
+        turnNumber = turnNumber >= 99 ? 1 : turnNumber + 1;
+      }
+      render();
+    }
+
+    function switchLesson(lessonNumber) {
+      currentLesson = lessonNumber;
+      dom.tabs.forEach(tab => { const active=Number(tab.dataset.lesson) === lessonNumber; tab.classList.toggle('active', active); tab.setAttribute('aria-pressed', String(active)); });
+      window.location.hash = `l${lessonNumber}`;
+      render();
+    }
+
+    function clickChoiceByNumber(number) {
+      const buttons = [...document.querySelectorAll('.choice')];
+      const button = buttons[number - 1];
+      if (button && !button.disabled) button.click();
+    }
+
+    dom.tabs.forEach(tab => tab.addEventListener('click', () => switchLesson(Number(tab.dataset.lesson))));
+    dom.reset.addEventListener('click', () => {
+      states[currentLesson] = newState();
+      render();
+    });
+    dom.reveal.addEventListener('click', revealAnswer);
+    dom.next.addEventListener('click', nextChallenge);
+    dom.sound.addEventListener('click', () => {
+      soundOn = !soundOn;
+      dom.sound.textContent = soundOn ? 'Sound on' : 'Sound off';
+      dom.sound.setAttribute('aria-pressed', String(soundOn));
+      if (soundOn) tone(620, .1);
+    });
+    dom.fullscreen.addEventListener('click', async () => {
+      try {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+        else await document.exitFullscreen();
+      } catch (error) {
+        setFeedback('error', 'Full screen unavailable', 'Use the browser menu or presentation mode instead.');
+      }
+    });
+    document.addEventListener('fullscreenchange', () => {
+      dom.fullscreen.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen';
+    });
+    document.addEventListener('keydown', event => {
+      if (event.altKey && event.key === 'ArrowRight') {
+        event.preventDefault();
+        switchLesson(currentLesson === 6 ? 1 : currentLesson + 1);
+        return;
+      }
+      if (event.altKey && event.key === 'ArrowLeft') {
+        event.preventDefault();
+        switchLesson(currentLesson === 1 ? 6 : currentLesson - 1);
+        return;
+      }
+      if (['1', '2', '3', '4'].includes(event.key)) clickChoiceByNumber(Number(event.key));
+      if (event.key.toLowerCase() === 'e') document.getElementById('confirmExplanation')?.click();
+      if (event.key.toLowerCase() === 'n' && !dom.next.disabled) nextChallenge();
+      if (event.key.toLowerCase() === 'r' && !dom.reveal.disabled) revealAnswer();
+    });
+
+    const hashLesson = Number(window.location.hash.replace('#l', ''));
+    switchLesson(hashLesson >= 1 && hashLesson <= 6 ? hashLesson : 1);
+  </script>
+</body>
+</html>
+
