@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#071321">
-  <meta name="description" content="Grade 7 English Week 13 touchscreen classroom activities for Lessons 1-6.">
+  <meta name="description" content="Grade 7 English Week 13 touchscreen classroom activities for Lessons 1-7.">
   <title>Grade 7 English | Week 13 Touchscreen Challenge</title>
   <style>
     :root {
@@ -136,7 +136,7 @@
 
     .lesson-tabs {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-template-columns: repeat(7, minmax(0, 1fr));
       gap: 9px;
     }
 
@@ -540,6 +540,7 @@
       body { overflow: auto; }
       .shell { min-height: 100vh; }
       .lesson-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lesson-tab:last-child { grid-column: span 2; }
       .stage { grid-template-columns: 1fr; }
       .teacher-toolbar,
       .toolbar-left,
@@ -605,7 +606,7 @@
       </div>
     </header>
 
-    <nav class="lesson-tabs" aria-label="Select a lesson"><button class="lesson-tab active" data-lesson="1" aria-pressed="true"><span>Lesson 1</span><strong>Connotation</strong></button><button class="lesson-tab" data-lesson="2" aria-pressed="false"><span>Lesson 2</span><strong>-ed and -ing</strong></button><button class="lesson-tab" data-lesson="3" aria-pressed="false"><span>Lesson 3</span><strong>Idea web</strong></button><button class="lesson-tab" data-lesson="4" aria-pressed="false"><span>Lesson 4</span><strong>Respond</strong></button><button class="lesson-tab" data-lesson="5" aria-pressed="false"><span>Lesson 5</span><strong>Revise</strong></button><button class="lesson-tab" data-lesson="6" aria-pressed="false"><span>Lesson 6</span><strong>Edit</strong></button></nav>
+    <nav class="lesson-tabs" aria-label="Select a lesson"><button class="lesson-tab active" data-lesson="1" aria-pressed="true"><span>Lesson 1</span><strong>Connotation</strong></button><button class="lesson-tab" data-lesson="2" aria-pressed="false"><span>Lesson 2</span><strong>-ed and -ing</strong></button><button class="lesson-tab" data-lesson="3" aria-pressed="false"><span>Lesson 3</span><strong>Second draft</strong></button><button class="lesson-tab" data-lesson="4" aria-pressed="false"><span>Lesson 4</span><strong>Reflect and Respond</strong></button><button class="lesson-tab" data-lesson="5" aria-pressed="false"><span>Lesson 5</span><strong>Quick Write 4</strong></button><button class="lesson-tab" data-lesson="6" aria-pressed="false"><span>Lesson 6</span><strong>Catch-up</strong></button><button class="lesson-tab" data-lesson="7" aria-pressed="false"><span>Lesson 7</span><strong>Week review</strong></button></nav>
 
     <main class="activity-card">
       <section class="activity-heading">
@@ -652,7 +653,7 @@
     const lessons = {
   "1": {
     "tab": "Connotation",
-    "eyebrow": "LESSON 1 | SB p.185 · LC p.71",
+    "eyebrow": "LESSON 1 | LC p.71",
     "title": "Words that carry feelings",
     "instruction": "Read the sentence. Choose the word or meaning that fits, then explain the feeling it creates.",
     "tip": "Every boy forms an answer before the board turn. Ask: what does it mean, and what does it make you feel?",
@@ -955,317 +956,13 @@
     ]
   },
   "3": {
-    "tab": "Idea web",
-    "eyebrow": "LESSON 3 | SB p.186",
-    "title": "Challenges and rewards for Aref",
-    "instruction": "Read the detail. Decide what it shows, then point to the line in the story.",
-    "tip": "Ask for the exact line before the reveal. Accept any answer the text supports, with a reason.",
-    "finishTitle": "Evidence collected",
-    "finishText": "Add your strongest details to the idea web: two challenges and two rewards, each with what it shows and a feeling word.",
-    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
-    "challenges": [
-      {
-        "label": "DETAIL | THE SONG",
-        "prompt": "Aref makes up a song: “No no no, I won't go.” What does this show?",
-        "options": [
-          "He is excited about the trip.",
-          "He does not want to leave Oman.",
-          "He wants to learn a new song.",
-          "He is angry with Sidi."
-        ],
-        "answer": "He does not want to leave Oman.",
-        "why": "The repeated no shows how strongly he wants to stay.",
-        "gate": "Is this a challenge or a reward? Explain.",
-        "tier": "START"
-      },
-      {
-        "label": "DETAIL | THE DRUM",
-        "prompt": "Aref's drum takes up too much room in his suitcase. Why does this matter?",
-        "options": [
-          "The drum is broken.",
-          "He wants to sell the drum.",
-          "He does not like the drum.",
-          "He cannot take everything he loves with him."
-        ],
-        "answer": "He cannot take everything he loves with him.",
-        "why": "The drum was a present from Sidi when he turned four. Leaving it is part of leaving home.",
-        "gate": "What would you find hard to leave behind?",
-        "tier": "START"
-      },
-      {
-        "label": "SORT | CHALLENGE",
-        "prompt": "Which detail shows a CHALLENGE for Aref?",
-        "options": [
-          "“What if no one likes me?”",
-          "Sidi gives him a brand-new elegant blue hat.",
-          "Sidi invites him to spend two days at his house.",
-          "Sidi plans a boat ride with a friendly fisherman."
-        ],
-        "answer": "“What if no one likes me?”",
-        "why": "Aref is afraid of being the new one with no friends.",
-        "gate": "Find one more challenge in the story.",
-        "tier": "START"
-      },
-      {
-        "label": "SORT | REWARD",
-        "prompt": "Which detail shows a REWARD or comfort for Aref?",
-        "options": [
-          "His drum will not fit in his suitcase.",
-          "The house starts to look like a hotel.",
-          "Sidi gives him a tassel exactly like his own.",
-          "“What if they make fun of my hat?”"
-        ],
-        "answer": "Sidi gives him a tassel exactly like his own.",
-        "why": "The tassel connects Aref to Sidi and his family, so he carries home with him.",
-        "gate": "Why does it matter that the tassel is like Sidi's?",
-        "tier": "BUILD"
-      },
-      {
-        "label": "INFER | THE HOTEL",
-        "prompt": "“The house was starting to look like a hotel.” What does this show?",
-        "options": [
-          "Home is changing and no longer feels like Aref's own.",
-          "The family is opening a hotel.",
-          "Aref is happy that the house is so clean.",
-          "Sidi is moving into the house."
-        ],
-        "answer": "Home is changing and no longer feels like Aref's own.",
-        "why": "The photos and books are gone. A hotel is a place where nobody really lives.",
-        "gate": "What feeling word fits Aref here?",
-        "tier": "BUILD"
-      },
-      {
-        "label": "INFER | THE HOUSES MAY CRY",
-        "prompt": "Sidi says the houses may cry, “but they will wait for you to get back, the same way I will.” What is Sidi telling Aref?",
-        "options": [
-          "The houses will fall down.",
-          "Aref should never come back.",
-          "Sidi is angry that Aref is leaving.",
-          "Leaving is sad, but home and Sidi will still be there."
-        ],
-        "answer": "Leaving is sad, but home and Sidi will still be there.",
-        "why": "Sidi admits the sadness but gives Aref comfort and hope.",
-        "gate": "Is this a challenge, a reward, or both?",
-        "tier": "BUILD"
-      },
-      {
-        "label": "INFER | A DIFFERENT BOY",
-        "prompt": "Sidi says, “When you come back to Muscat, you will be a different boy.” What does he mean?",
-        "options": [
-          "Aref will forget his family.",
-          "Aref will grow and change while he is away.",
-          "Aref will not be allowed to return.",
-          "Aref will change his name in the United States."
-        ],
-        "answer": "Aref will grow and change while he is away.",
-        "why": "Growing up means changing. Sidi later says Aref will be the same boy with some added new flavours.",
-        "gate": "Do you agree with Aref that he will only be slightly taller?",
-        "tier": "BUILD"
-      },
-      {
-        "label": "FEELING WORD",
-        "prompt": "Which feeling word best fits Aref when he asks, “What if no one likes me?”",
-        "options": [
-          "worrying",
-          "excited",
-          "worried",
-          "bored"
-        ],
-        "answer": "worried",
-        "why": "Aref feels it, so the -ed form is correct.",
-        "gate": "Name the cause: what is worrying for him?",
-        "tier": "EXTEND"
-      },
-      {
-        "label": "BOTH SIDES | FRIENDS",
-        "prompt": "Sidi says, “Friends are everywhere.” How can this detail show a challenge AND a reward?",
-        "options": [
-          "It shows Aref has no friends in Oman.",
-          "It means Aref will never see Sidi again.",
-          "It is only about Sidi's friends.",
-          "Aref must make new friends, but Sidi believes he will."
-        ],
-        "answer": "Aref must make new friends, but Sidi believes he will.",
-        "why": "Making friends is the challenge; Sidi's confidence is the comfort.",
-        "gate": "Write one sentence that shows both sides.",
-        "tier": "EXTEND"
-      },
-      {
-        "label": "STRONGEST EVIDENCE | LOVE",
-        "prompt": "Which detail is the strongest evidence that Sidi loves Aref?",
-        "options": [
-          "Asked why his house is always so happy, Sidi says, “Because you're in it.”",
-          "Aref turned on the television.",
-          "The tables had been polished.",
-          "Sidi sat down on the couch."
-        ],
-        "answer": "Asked why his house is always so happy, Sidi says, “Because you're in it.”",
-        "why": "Sidi says plainly that Aref is what makes his house happy.",
-        "gate": "Explain your choice in one sentence.",
-        "tier": "EXTEND"
-      }
-    ]
-  },
-  "4": {
-    "tab": "Respond",
-    "eyebrow": "LESSON 4 | SB pp.186-187",
-    "title": "Challenges and triumphs of growing up",
-    "instruction": "Decide what makes a response strong: an opinion, evidence and an explanation.",
-    "tip": "Before each reveal, ask boys to name the part of the response: opinion, evidence or explanation.",
-    "finishTitle": "Ready to respond",
-    "finishText": "Write 6-8 sentences: What are the challenges and triumphs of growing up? Check your response against the rubric.",
-    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
-    "challenges": [
-      {
-        "label": "VOCABULARY | TRIUMPH",
-        "prompt": "What is a triumph?",
-        "options": [
-          "a problem you cannot solve",
-          "a great success after effort",
-          "a kind of journey",
-          "a sad memory"
-        ],
-        "answer": "a great success after effort",
-        "why": "A triumph is a win you worked for. Growing up has challenges and triumphs.",
-        "gate": "Name one triumph you have had this year.",
-        "tier": "START"
-      },
-      {
-        "label": "PART | OPINION",
-        "prompt": "Which sentence is an OPINION about growing up?",
-        "options": [
-          "Aref lives in Muscat.",
-          "Sidi gave Aref two postcards.",
-          "The drum was made of goatskin.",
-          "In my opinion, the hardest part of growing up is saying goodbye."
-        ],
-        "answer": "In my opinion, the hardest part of growing up is saying goodbye.",
-        "why": "An opinion says what you think. The others are facts from the story.",
-        "gate": "Say your own opinion about growing up.",
-        "tier": "START"
-      },
-      {
-        "label": "PART | EVIDENCE",
-        "prompt": "Which sentence is EVIDENCE from the text?",
-        "options": [
-          "Aref asks, “What if no one likes me?”",
-          "I think growing up is hard.",
-          "Everyone feels nervous sometimes.",
-          "This shows that change is scary."
-        ],
-        "answer": "Aref asks, “What if no one likes me?”",
-        "why": "Evidence comes from the story, often as a quotation.",
-        "gate": "Find one more quotation you could use.",
-        "tier": "START"
-      },
-      {
-        "label": "PART | EXPLANATION",
-        "prompt": "Which sentence EXPLAINS that evidence?",
-        "options": [
-          "Aref says, “What if no one likes me?”",
-          "In my opinion, growing up is hard.",
-          "This shows that Aref is afraid of being an outsider.",
-          "The story was written by Naomi Shihab Nye."
-        ],
-        "answer": "This shows that Aref is afraid of being an outsider.",
-        "why": "An explanation says what the evidence shows. This shows that ... is a strong start.",
-        "gate": "Explain a different quotation with This shows that ...",
-        "tier": "BUILD"
-      },
-      {
-        "label": "ORDER | RESPONSE",
-        "prompt": "What is the best order for a response?",
-        "options": [
-          "opinion, then evidence, then explanation",
-          "explanation, then opinion, then evidence",
-          "evidence, then title, then opinion",
-          "evidence, then evidence, then evidence"
-        ],
-        "answer": "opinion, then evidence, then explanation",
-        "why": "State your idea, prove it, then explain how the proof supports it.",
-        "gate": "Say a three-sentence response in this order.",
-        "tier": "BUILD"
-      },
-      {
-        "label": "LIFE EXAMPLE",
-        "prompt": "Which sentence adds a strong example from your own life?",
-        "options": [
-          "Life is life.",
-          "Aref was nervous.",
-          "I like football.",
-          "When I moved to a new school, I was nervous until I joined the football team."
-        ],
-        "answer": "When I moved to a new school, I was nervous until I joined the football team.",
-        "why": "It is personal, specific and linked to a challenge and a triumph.",
-        "gate": "Tell a partner your own example.",
-        "tier": "BUILD"
-      },
-      {
-        "label": "DISCUSSION IDEA",
-        "prompt": "Which sentence uses a classmate's idea well?",
-        "options": [
-          "My classmate is my friend.",
-          "A classmate pointed out that Sidi faces a challenge too, because he stays behind.",
-          "A classmate said the story was good.",
-          "Everyone in my class agrees with me."
-        ],
-        "answer": "A classmate pointed out that Sidi faces a challenge too, because he stays behind.",
-        "why": "It names a specific idea and gives a reason.",
-        "gate": "Add an idea you heard in today's discussion.",
-        "tier": "BUILD"
-      },
-      {
-        "label": "STRONGER SENTENCE",
-        "prompt": "Which is the stronger response sentence?",
-        "options": [
-          "One triumph is good.",
-          "Aref got a hat and it was blue and it fit.",
-          "One triumph is learning that love travels with you; Sidi's gifts will remind Aref of home.",
-          "The triumph is the triumph of growing up."
-        ],
-        "answer": "One triumph is learning that love travels with you; Sidi's gifts will remind Aref of home.",
-        "why": "It names the triumph and links it to a detail from the text.",
-        "gate": "Improve one of the weak sentences.",
-        "tier": "EXTEND"
-      },
-      {
-        "label": "-ED / -ING IN WRITING",
-        "prompt": "Choose the correct sentence for your response.",
-        "options": [
-          "Leaving home is frightened, so Aref feels frightening.",
-          "Leaving home is frightening, so Aref feels frightening.",
-          "Leaving home is frightened, so Aref feels frightened.",
-          "Leaving home is frightening, so Aref feels frightened."
-        ],
-        "answer": "Leaving home is frightening, so Aref feels frightened.",
-        "why": "Leaving home causes the feeling (-ing). Aref feels it (-ed).",
-        "gate": "Underline an -ed or -ing adjective in your own response.",
-        "tier": "EXTEND"
-      },
-      {
-        "label": "ADULTS TOO | SIDI",
-        "prompt": "What is a challenge for Sidi, an adult, in this story?",
-        "options": [
-          "He must let Aref go and wait for him to come back.",
-          "He must pack his own suitcase.",
-          "He must learn to fly.",
-          "He must start at a new school."
-        ],
-        "answer": "He must let Aref go and wait for him to come back.",
-        "why": "Sidi stays behind to protect the nest and promises to wait, the same way the houses will.",
-        "gate": "What could be a triumph for Sidi?",
-        "tier": "EXTEND"
-      }
-    ]
-  },
-  "5": {
-    "tab": "Revise",
-    "eyebrow": "LESSON 5 | Writing Task 6 · second draft",
-    "title": "Revise for clearer, stronger ideas",
-    "instruction": "Read both versions. Choose the revision that makes the essay clearer or stronger, then say why.",
-    "tip": "Revising means big changes. Ask: what was added, moved, cut or linked?",
-    "finishTitle": "Ready to revise",
-    "finishText": "Write your two targets at the top of a new page, then revise your weakest paragraph first.",
+    "tab": "Second draft",
+    "eyebrow": "LESSON 3 | Writing Task 6 · second draft",
+    "title": "Revise and edit your second draft",
+    "instruction": "Choose the change that makes the essay clearer, stronger or correct, then say why.",
+    "tip": "Revising means big changes; editing means small fixes. Ask boys which one each question is before the reveal.",
+    "finishTitle": "Second draft ready",
+    "finishText": "Revise your weakest paragraph first, then edit with the checklist. Copy the second draft into your copybook.",
     "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
     "challenges": [
       {
@@ -1278,7 +975,7 @@
           "changing a small letter to a capital"
         ],
         "answer": "adding a fact to support a solution",
-        "why": "Revising improves ideas. The others are small fixes for editing in Lesson 6.",
+        "why": "Revising improves ideas. The others are small fixes for editing.",
         "gate": "Name one big change your draft needs.",
         "tier": "START"
       },
@@ -1297,17 +994,17 @@
         "tier": "START"
       },
       {
-        "label": "STRUCTURE | CONCLUSION",
-        "prompt": "What should the conclusion do?",
+        "label": "CAPITALS",
+        "prompt": "Which sentence is correct?",
         "options": [
-          "describe the impact if the solutions work",
-          "introduce a brand-new problem",
-          "copy the introduction word for word",
-          "list the sources"
+          "In Muscat, Aref's family packed their bags.",
+          "in muscat, Aref's family packed their bags.",
+          "In muscat, aref's family packed their bags.",
+          "In Muscat, Aref's Family packed their Bags."
         ],
-        "answer": "describe the impact if the solutions work",
-        "why": "The conclusion shows what will change if the solutions are used.",
-        "gate": "Say one impact your solutions would have.",
+        "answer": "In Muscat, Aref's family packed their bags.",
+        "why": "Capitals start sentences and names like Muscat and Aref. Ordinary nouns stay lower case.",
+        "gate": "Check every name in your draft.",
         "tier": "START"
       },
       {
@@ -1325,27 +1022,13 @@
         "tier": "BUILD"
       },
       {
-        "label": "TRANSITION | SECOND SOLUTION",
-        "prompt": "Your first solution was a sleep campaign. Introduce your second: ___ schools could start a homework club.",
-        "options": [
-          "Another solution is that",
-          "For example,",
-          "In conclusion,",
-          "Because"
-        ],
-        "answer": "Another solution is that",
-        "why": "Another solution is that signals a new solution clearly.",
-        "gate": "Which transition starts each of your body paragraphs?",
-        "tier": "BUILD"
-      },
-      {
         "label": "TRANSITION | RESULT",
         "prompt": "Students stay up late on their phones. ___, they find it hard to concentrate in class.",
         "options": [
+          "As a result",
           "For example",
           "First",
-          "In my opinion",
-          "As a result"
+          "In my opinion"
         ],
         "answer": "As a result",
         "why": "As a result links a cause to its effect.",
@@ -1357,13 +1040,27 @@
         "prompt": "Which sentence should be CUT from a paragraph about sleep and school?",
         "options": [
           "Sleep helps the brain remember new information.",
-          "My cousin has a red bicycle.",
           "Tired students often make more mistakes.",
-          "A regular bedtime can improve sleep."
+          "A regular bedtime can improve sleep.",
+          "My cousin has a red bicycle."
         ],
         "answer": "My cousin has a red bicycle.",
         "why": "It does not support the topic. Cutting it makes the paragraph clearer.",
         "gate": "Find one sentence in your draft that could be cut.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "VERB TENSE",
+        "prompt": "Which sentence keeps the tense consistent?",
+        "options": [
+          "Last year, our school starts a club and many students joined.",
+          "Last year, our school started a club and many students joined.",
+          "Last year, our school started a club and many students join.",
+          "Last year, our school will start a club and many students joined."
+        ],
+        "answer": "Last year, our school started a club and many students joined.",
+        "why": "Last year signals the past, so both verbs are past tense.",
+        "gate": "Read one paragraph and check that the tense stays the same.",
         "tier": "BUILD"
       },
       {
@@ -1410,38 +1107,356 @@
       }
     ]
   },
-  "6": {
-    "tab": "Edit",
-    "eyebrow": "LESSON 6 | Writing Task 6 · edit and share",
-    "title": "Edit, then give useful feedback",
-    "instruction": "Find the mistake or choose the best feedback. Explain the rule.",
-    "tip": "Editing means small fixes. Ask boys to name the checklist line before the reveal.",
-    "finishTitle": "Ready to edit and share",
-    "finishText": "Tick the ME column of the checklist, swap drafts, then write one strength and one next step for your partner.",
+  "4": {
+    "tab": "Reflect and Respond",
+    "eyebrow": "LESSON 4 | SB p.186",
+    "title": "Challenges and triumphs of growing up",
+    "instruction": "Read the detail or the response sentence. Decide what it shows, then point to the evidence.",
+    "tip": "Ask for the exact line before the reveal. Then ask: opinion, evidence or explanation?",
+    "finishTitle": "Ready to respond",
+    "finishText": "Complete the idea web, plan your response in the five-part table, then write 6-8 sentences.",
     "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
     "challenges": [
       {
-        "label": "CAPITALS",
-        "prompt": "Which sentence is correct?",
+        "label": "VOCABULARY | TRIUMPH",
+        "prompt": "What is a triumph?",
         "options": [
-          "in muscat, Aref's family packed their bags.",
-          "In Muscat, Aref's family packed their bags.",
-          "In muscat, aref's family packed their bags.",
-          "In Muscat, Aref's Family packed their Bags."
+          "a problem you cannot solve",
+          "a great success after effort",
+          "a kind of journey",
+          "a sad memory"
         ],
-        "answer": "In Muscat, Aref's family packed their bags.",
-        "why": "Capitals start sentences and names like Muscat and Aref. Ordinary nouns stay lower case.",
-        "gate": "Check every name in your draft.",
+        "answer": "a great success after effort",
+        "why": "A triumph is a win you worked for. Growing up has challenges and triumphs.",
+        "gate": "Name one triumph you have had this year.",
+        "tier": "START"
+      },
+      {
+        "label": "SORT | CHALLENGE",
+        "prompt": "Which detail shows a CHALLENGE for Aref?",
+        "options": [
+          "Sidi gives him a brand-new elegant blue hat.",
+          "Sidi invites him to spend two days at his house.",
+          "Sidi plans a boat ride with a friendly fisherman.",
+          "“What if no one likes me?”"
+        ],
+        "answer": "“What if no one likes me?”",
+        "why": "Aref is afraid of being the new one with no friends.",
+        "gate": "Find one more challenge in the story.",
+        "tier": "START"
+      },
+      {
+        "label": "SORT | REWARD",
+        "prompt": "Which detail shows a REWARD or comfort for Aref?",
+        "options": [
+          "Sidi gives him a tassel exactly like his own.",
+          "His drum will not fit in his suitcase.",
+          "The house starts to look like a hotel.",
+          "“What if they make fun of my hat?”"
+        ],
+        "answer": "Sidi gives him a tassel exactly like his own.",
+        "why": "The tassel connects Aref to Sidi and his family, so he carries home with him.",
+        "gate": "Why does it matter that the tassel is like Sidi's?",
+        "tier": "START"
+      },
+      {
+        "label": "INFER | THE HOTEL",
+        "prompt": "“The house was starting to look like a hotel.” What does this show?",
+        "options": [
+          "The family is opening a hotel.",
+          "Aref is happy that the house is so clean.",
+          "Home is changing and no longer feels like Aref's own.",
+          "Sidi is moving into the house."
+        ],
+        "answer": "Home is changing and no longer feels like Aref's own.",
+        "why": "The photos and books are gone. A hotel is a place where nobody really lives.",
+        "gate": "What feeling word fits Aref here?",
+        "tier": "BUILD"
+      },
+      {
+        "label": "INFER | A DIFFERENT BOY",
+        "prompt": "Sidi says, “When you come back to Muscat, you will be a different boy.” What does he mean?",
+        "options": [
+          "Aref will grow and change while he is away.",
+          "Aref will forget his family.",
+          "Aref will not be allowed to return.",
+          "Aref will change his name in the United States."
+        ],
+        "answer": "Aref will grow and change while he is away.",
+        "why": "Growing up means changing. Sidi later says Aref will be the same boy with some added new flavours.",
+        "gate": "Do you agree with Aref that he will only be slightly taller?",
+        "tier": "BUILD"
+      },
+      {
+        "label": "PART | OPINION",
+        "prompt": "Which sentence is an OPINION about growing up?",
+        "options": [
+          "Aref lives in Muscat.",
+          "Sidi gave Aref two postcards.",
+          "The drum was made of goatskin.",
+          "In my opinion, the hardest part of growing up is saying goodbye."
+        ],
+        "answer": "In my opinion, the hardest part of growing up is saying goodbye.",
+        "why": "An opinion says what you think. The others are facts from the story.",
+        "gate": "Say your own opinion about growing up.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "PART | EXPLANATION",
+        "prompt": "Which sentence EXPLAINS that evidence?",
+        "options": [
+          "Aref says, “What if no one likes me?”",
+          "This shows that Aref is afraid of being an outsider.",
+          "In my opinion, growing up is hard.",
+          "The story was written by Naomi Shihab Nye."
+        ],
+        "answer": "This shows that Aref is afraid of being an outsider.",
+        "why": "An explanation says what the evidence shows. This shows that ... is a strong start.",
+        "gate": "Explain a different quotation with This shows that ...",
+        "tier": "BUILD"
+      },
+      {
+        "label": "FEELING WORD",
+        "prompt": "Which feeling word best fits Aref when he asks, “What if no one likes me?”",
+        "options": [
+          "worrying",
+          "excited",
+          "worried",
+          "bored"
+        ],
+        "answer": "worried",
+        "why": "Aref feels it, so the -ed form is correct.",
+        "gate": "Name the cause: what is worrying for him?",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "ORDER | RESPONSE",
+        "prompt": "What is the best order for a response?",
+        "options": [
+          "explanation, then opinion, then evidence",
+          "evidence, then title, then opinion",
+          "evidence, then evidence, then evidence",
+          "opinion, then evidence, then explanation"
+        ],
+        "answer": "opinion, then evidence, then explanation",
+        "why": "State your idea, prove it, then explain how the proof supports it.",
+        "gate": "Say a three-sentence response in this order.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "STRONGER SENTENCE",
+        "prompt": "Which is the stronger response sentence?",
+        "options": [
+          "One triumph is learning that love travels with you; Sidi's gifts will remind Aref of home.",
+          "One triumph is good.",
+          "Aref got a hat and it was blue and it fit.",
+          "The triumph is the triumph of growing up."
+        ],
+        "answer": "One triumph is learning that love travels with you; Sidi's gifts will remind Aref of home.",
+        "why": "It names the triumph and links it to a detail from the text.",
+        "gate": "Improve one of the weak sentences.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "5": {
+    "tab": "Quick Write 4",
+    "eyebrow": "LESSON 5 | Quick Write 4 · sharing circle",
+    "title": "Then and now",
+    "instruction": "Prompt: What is one thing you can do now that you couldn't do two years ago? Choose, then say how it helps your paragraph.",
+    "tip": "Link every answer to the five-part plan: topic sentence, before, how I learned, now, close.",
+    "finishTitle": "Ready to write and share",
+    "finishText": "Write your paragraph, check it against the success criteria, then read your topic sentence in the sharing circle.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "PLAN | TOPIC SENTENCE",
+        "prompt": "Which is the best topic sentence for this quick write?",
+        "options": [
+          "Swimming.",
+          "Two years ago I could not swim, but now I can swim across the pool.",
+          "I like many sports and games.",
+          "Do you know how to swim?"
+        ],
+        "answer": "Two years ago I could not swim, but now I can swim across the pool.",
+        "why": "It answers the prompt and shows the before and the now in one sentence.",
+        "gate": "Say your own topic sentence to a partner.",
+        "tier": "START"
+      },
+      {
+        "label": "PLAN | ORDER",
+        "prompt": "What is the best order for the paragraph?",
+        "options": [
+          "closing sentence, now, before, topic sentence, how I learned",
+          "now, topic sentence, closing sentence, before, how I learned",
+          "how I learned, closing sentence, topic sentence, now, before",
+          "topic sentence, before, how I learned, now, closing sentence"
+        ],
+        "answer": "topic sentence, before, how I learned, now, closing sentence",
+        "why": "The plan moves from the main idea through time to a closing thought.",
+        "gate": "Point to each part on your plan.",
+        "tier": "START"
+      },
+      {
+        "label": "THEN | COULD NOT",
+        "prompt": "Two years ago, I ___ ride a bike without help.",
+        "options": [
+          "couldn't",
+          "can't",
+          "don't",
+          "won't"
+        ],
+        "answer": "couldn't",
+        "why": "Two years ago is the past, so we use couldn't for past ability.",
+        "gate": "Say one thing you couldn't do two years ago.",
+        "tier": "START"
+      },
+      {
+        "label": "NOW | CAN",
+        "prompt": "Now I ___ ride to the park on my own.",
+        "options": [
+          "could",
+          "couldn't",
+          "can",
+          "canned"
+        ],
+        "answer": "can",
+        "why": "Now is the present, so we use can for present ability.",
+        "gate": "Say what you can do now.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "HOW I LEARNED | DETAIL",
+        "prompt": "Which sentence best explains HOW the writer learned?",
+        "options": [
+          "My older brother held the bike every evening until I could balance.",
+          "It was a long time ago.",
+          "Bikes have two wheels.",
+          "I am good at many things."
+        ],
+        "answer": "My older brother held the bike every evening until I could balance.",
+        "why": "It gives a specific person, time and action. That is what the reader needs.",
+        "gate": "Add one specific detail about how you learned.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "FEELING | -ED",
+        "prompt": "When I fell off the bike for the third time, I felt ___.",
+        "options": [
+          "frustrating",
+          "frustrate",
+          "frustration",
+          "frustrated"
+        ],
+        "answer": "frustrated",
+        "why": "The writer feels it, so the -ed adjective is correct.",
+        "gate": "Add a feeling word with -ed to your paragraph.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "FEELING | -ING",
+        "prompt": "Learning to balance was ___ at first.",
+        "options": [
+          "challenged",
+          "challenging",
+          "challenge",
+          "challenges"
+        ],
+        "answer": "challenging",
+        "why": "Learning causes the feeling, so the -ing adjective is correct.",
+        "gate": "Add an -ing word that describes your challenge.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "CONNOTATION | TRIUMPH",
+        "prompt": "Which word gives the most positive feeling about the result? Riding on my own made me feel ___.",
+        "options": [
+          "okay",
+          "fine",
+          "proud",
+          "big-headed"
+        ],
+        "answer": "proud",
+        "why": "Proud is strongly positive. Big-headed has a negative connotation.",
+        "gate": "Choose a feeling word with a positive connotation.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "CLOSE | CLOSING SENTENCE",
+        "prompt": "Which is the strongest closing sentence?",
+        "options": [
+          "The end.",
+          "That is all about my bike.",
+          "I also like football.",
+          "Now I know that a challenge can become a triumph if I keep trying."
+        ],
+        "answer": "Now I know that a challenge can become a triumph if I keep trying.",
+        "why": "It links the paragraph to the unit idea of challenges and triumphs.",
+        "gate": "Write your closing sentence.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "SHARING CIRCLE | LISTEN",
+        "prompt": "Your classmate reads his topic sentence. What should you do next?",
+        "options": [
+          "name one triumph you heard in his sentence",
+          "start reading your own paragraph",
+          "say whose paragraph is the best",
+          "check your phone"
+        ],
+        "answer": "name one triumph you heard in his sentence",
+        "why": "Good listeners respond to what they heard. Naming the triumph shows you listened.",
+        "gate": "Practise naming a triumph from your partner's sentence.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "6": {
+    "tab": "Catch-up",
+    "eyebrow": "LESSON 6 | Catch-up and correct",
+    "title": "Fix it and finish it",
+    "instruction": "Mixed questions from the week. Choose, then name the rule or the evidence.",
+    "tip": "Students note any question they miss, then return to that task to correct it.",
+    "finishTitle": "Gaps found, gaps fixed",
+    "finishText": "Return to the task linked to any question you missed: LC p.71, LC pp.72-73, the second draft, the SB p.186 response or Quick Write 4.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "DENOTATION | CHEAP",
+        "prompt": "Cheap and economical have the same denotation. What is it?",
+        "options": [
+          "badly made",
+          "costing little money",
+          "very expensive",
+          "saving time"
+        ],
+        "answer": "costing little money",
+        "why": "Both words mean costing little money. Only the feeling they give is different.",
+        "gate": "Say which of the two sounds more positive, and why.",
+        "tier": "START"
+      },
+      {
+        "label": "FEELING | -ED",
+        "prompt": "After the long exam, Yousef felt ___.",
+        "options": [
+          "exhausting",
+          "exhaust",
+          "exhausts",
+          "exhausted"
+        ],
+        "answer": "exhausted",
+        "why": "Yousef feels it, so the -ed adjective is correct.",
+        "gate": "Say when you last felt exhausted.",
         "tier": "START"
       },
       {
         "label": "FULL STOPS",
         "prompt": "Which is correctly punctuated?",
         "options": [
+          "Students need more sleep. A regular bedtime can help.",
           "Students need more sleep a regular bedtime can help.",
           "Students need more sleep, a regular bedtime can help.",
-          "Students need. More sleep a regular bedtime can help.",
-          "Students need more sleep. A regular bedtime can help."
+          "Students need. More sleep a regular bedtime can help."
         ],
         "answer": "Students need more sleep. A regular bedtime can help.",
         "why": "Two complete sentences need a full stop between them, not a comma.",
@@ -1449,45 +1464,31 @@
         "tier": "START"
       },
       {
-        "label": "SPELLING",
-        "prompt": "Which word is spelled correctly?",
+        "label": "POSITIVE OR NEGATIVE | CURIOUS",
+        "prompt": "Which word is the most positive way to describe someone who asks about everything?",
         "options": [
-          "because",
-          "becuase",
-          "becouse",
-          "beacause"
+          "nosy",
+          "prying",
+          "curious",
+          "snoopy"
         ],
-        "answer": "because",
-        "why": "Because: b-e-c-a-u-s-e. Check common words as well as long ones.",
-        "gate": "Check how you spelled because in your draft.",
-        "tier": "START"
-      },
-      {
-        "label": "VERB TENSE",
-        "prompt": "Which sentence keeps the tense consistent?",
-        "options": [
-          "Last year, our school starts a club and many students joined.",
-          "Last year, our school started a club and many students join.",
-          "Last year, our school started a club and many students joined.",
-          "Last year, our school will start a club and many students joined."
-        ],
-        "answer": "Last year, our school started a club and many students joined.",
-        "why": "Last year signals the past, so both verbs are past tense.",
-        "gate": "Read one paragraph and check that the tense stays the same.",
+        "answer": "curious",
+        "why": "Curious suggests a wish to learn. Nosy, prying and snoopy suggest rudeness.",
+        "gate": "Use curious in a sentence about yourself.",
         "tier": "BUILD"
       },
       {
-        "label": "-ED / -ING",
-        "prompt": "Which sentence is correct?",
+        "label": "ADJECTIVE OR VERB | -ING VERB",
+        "prompt": "In which sentence is the -ing word a VERB?",
         "options": [
-          "Students feel tired after a late night.",
-          "Students feel tiring after a late night.",
-          "A late night is tired for students.",
-          "The students are tiring after a late night."
+          "The boys are cleaning the classroom.",
+          "The film was amazing.",
+          "That was a confusing question.",
+          "The trip was tiring."
         ],
-        "answer": "Students feel tired after a late night.",
-        "why": "Students feel the tiredness, so tired (-ed) is correct.",
-        "gate": "Find an -ed or -ing adjective in your draft and check it.",
+        "answer": "The boys are cleaning the classroom.",
+        "why": "Are cleaning is an action in progress. The others describe a noun.",
+        "gate": "Make one sentence with an -ing verb and one with an -ing adjective.",
         "tier": "BUILD"
       },
       {
@@ -1505,59 +1506,211 @@
         "tier": "BUILD"
       },
       {
+        "label": "TRANSITION | SECOND SOLUTION",
+        "prompt": "Your first solution was a sleep campaign. Introduce your second: ___ schools could start a homework club.",
+        "options": [
+          "For example,",
+          "Another solution is that",
+          "In conclusion,",
+          "Because"
+        ],
+        "answer": "Another solution is that",
+        "why": "Another solution is that signals a new solution clearly.",
+        "gate": "Which transition starts each of your body paragraphs?",
+        "tier": "BUILD"
+      },
+      {
+        "label": "FIND THE ERROR | EXCITED",
+        "prompt": "Which sentence has a mistake?",
+        "options": [
+          "The trip to Muscat was exciting.",
+          "I was excited about the trip to Muscat.",
+          "I was very exciting about the trip to Muscat.",
+          "Packing for the trip was tiring."
+        ],
+        "answer": "I was very exciting about the trip to Muscat.",
+        "why": "I feel the excitement, so the word should be excited.",
+        "gate": "Say the corrected sentence aloud.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "STRONGEST EVIDENCE | LOVE",
+        "prompt": "Which detail is the strongest evidence that Sidi loves Aref?",
+        "options": [
+          "Aref turned on the television.",
+          "The tables had been polished.",
+          "Sidi sat down on the couch.",
+          "Asked why his house is always so happy, Sidi says, “Because you're in it.”"
+        ],
+        "answer": "Asked why his house is always so happy, Sidi says, “Because you're in it.”",
+        "why": "Sidi says plainly that Aref is what makes his house happy.",
+        "gate": "Explain your choice in one sentence.",
+        "tier": "EXTEND"
+      },
+      {
         "label": "ADJECTIVES | NEVER PLURAL",
         "prompt": "Which sentence is correct?",
         "options": [
-          "These are importants ideas.",
           "These are important ideas.",
+          "These are importants ideas.",
           "These are ideas importants.",
           "These is important ideas."
         ],
         "answer": "These are important ideas.",
         "why": "Adjectives never take -s in English and usually come before the noun.",
         "gate": "Check one adjective in your draft.",
+        "tier": "EXTEND"
+      }
+    ]
+  },
+  "7": {
+    "tab": "Week review",
+    "eyebrow": "LESSON 7 | Week 13 review",
+    "title": "Week 13 review",
+    "instruction": "Use this if the Kahoot is not ready. Answer alone, then check with a partner.",
+    "tip": "Run it like the Kahoot: read each question aloud, give 20 seconds, then reveal.",
+    "finishTitle": "Week 13 complete",
+    "finishText": "Note the two questions the class found hardest and review them next week.",
+    "finishModel": "Finished? Check every answer, correct spelling, capitals and punctuation, complete current book work, try the slide challenge, then read your independent book.",
+    "challenges": [
+      {
+        "label": "CONNOTATION | CHAT OR GOSSIP",
+        "prompt": "Which word has a NEGATIVE connotation?",
+        "options": [
+          "chat",
+          "gossip",
+          "talk",
+          "discuss"
+        ],
+        "answer": "gossip",
+        "why": "Gossip suggests talking unkindly about other people.",
+        "gate": "Use chat and gossip in two different sentences.",
+        "tier": "START"
+      },
+      {
+        "label": "CAUSE | THE FINAL",
+        "prompt": "The football final was so ___ that nobody left early.",
+        "options": [
+          "excited",
+          "excite",
+          "excitement",
+          "exciting"
+        ],
+        "answer": "exciting",
+        "why": "The final causes the feeling, so the -ing adjective is correct.",
+        "gate": "Describe a match you watched with an -ing adjective.",
+        "tier": "START"
+      },
+      {
+        "label": "SCALE | NEUTRAL",
+        "prompt": "Slim, skinny, bony and thin all describe size. Which one is NEUTRAL?",
+        "options": [
+          "thin",
+          "slim",
+          "skinny",
+          "bony"
+        ],
+        "answer": "thin",
+        "why": "Thin simply describes size. Slim sounds positive; skinny and bony sound negative.",
+        "gate": "Put the four words on a scale from negative to positive.",
+        "tier": "START"
+      },
+      {
+        "label": "POSITIVE OR NEGATIVE | DETERMINED",
+        "prompt": "Ahmed keeps practising until he gets it right. Which word praises him?",
+        "options": [
+          "stubborn",
+          "pig-headed",
+          "determined",
+          "obstinate"
+        ],
+        "answer": "determined",
+        "why": "Determined is positive. The others suggest someone who refuses to listen.",
+        "gate": "Use determined in a sentence about a classmate.",
         "tier": "BUILD"
       },
       {
-        "label": "FEEDBACK | STRENGTH",
-        "prompt": "Which is the most useful STRENGTH comment?",
+        "label": "CHOOSE | WORRIED",
+        "prompt": "Sami was ___ when he lost his house key.",
         "options": [
-          "Good job!",
-          "Nice handwriting.",
-          "Your fact about the class survey makes your first solution convincing.",
-          "I like it."
+          "worried",
+          "worrying",
+          "worry",
+          "worries"
         ],
-        "answer": "Your fact about the class survey makes your first solution convincing.",
-        "why": "A useful strength names exactly what works and why.",
-        "gate": "Write a strength like this for your partner.",
+        "answer": "worried",
+        "why": "Sami feels it, so the -ed adjective worried is correct.",
+        "gate": "Say what makes you feel worried before a test.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "ADJECTIVE OR VERB | -ED ADJECTIVE",
+        "prompt": "In which sentence is the -ed word an ADJECTIVE?",
+        "options": [
+          "The coach tired the players with sprints.",
+          "We walked to the park after school.",
+          "He finished his homework early.",
+          "The tired players sat down after the match."
+        ],
+        "answer": "The tired players sat down after the match.",
+        "why": "Tired describes the players, so it is an adjective. The others are past-tense verbs.",
+        "gate": "Make your own sentence with an -ed adjective.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "-ED / -ING",
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "Students feel tiring after a late night.",
+          "Students feel tired after a late night.",
+          "A late night is tired for students.",
+          "The students are tiring after a late night."
+        ],
+        "answer": "Students feel tired after a late night.",
+        "why": "Students feel the tiredness, so tired (-ed) is correct.",
+        "gate": "Find an -ed or -ing adjective in your draft and check it.",
+        "tier": "BUILD"
+      },
+      {
+        "label": "TWO GAPS | THE FILM",
+        "prompt": "The film was ___, so we felt ___.",
+        "options": [
+          "bored / boring",
+          "bored / bored",
+          "boring / bored",
+          "boring / boring"
+        ],
+        "answer": "boring / bored",
+        "why": "The film causes the feeling (-ing); we feel it (-ed).",
+        "gate": "Make your own two-gap sentence.",
+        "tier": "EXTEND"
+      },
+      {
+        "label": "PART | EVIDENCE",
+        "prompt": "Which sentence is EVIDENCE from the text?",
+        "options": [
+          "I think growing up is hard.",
+          "Everyone feels nervous sometimes.",
+          "This shows that change is scary.",
+          "Aref asks, “What if no one likes me?”"
+        ],
+        "answer": "Aref asks, “What if no one likes me?”",
+        "why": "Evidence comes from the story, often as a quotation.",
+        "gate": "Find one more quotation you could use.",
         "tier": "EXTEND"
       },
       {
         "label": "FEEDBACK | NEXT STEP",
         "prompt": "Which is the most useful NEXT STEP?",
         "options": [
+          "Add a transition at the start of paragraph 3 to link your two solutions.",
           "Make it better.",
           "Your essay is bad.",
-          "Write more.",
-          "Add a transition at the start of paragraph 3 to link your two solutions."
+          "Write more."
         ],
         "answer": "Add a transition at the start of paragraph 3 to link your two solutions.",
         "why": "A useful next step says where and what to change.",
         "gate": "Write a next step like this for your partner.",
-        "tier": "EXTEND"
-      },
-      {
-        "label": "FEEDBACK | THE WRITING, NOT THE WRITER",
-        "prompt": "Which comment is about the writing, not the writer?",
-        "options": [
-          "Your conclusion repeats the introduction; explain the impact instead.",
-          "You are lazy.",
-          "You always forget things.",
-          "You should be more like me."
-        ],
-        "answer": "Your conclusion repeats the introduction; explain the impact instead.",
-        "why": "Feedback is about the writing. It is kind, specific and helps the writer improve.",
-        "gate": "Read your comment again: is it about the writing?",
         "tier": "EXTEND"
       }
     ]
@@ -1845,12 +1998,12 @@
     document.addEventListener('keydown', event => {
       if (event.altKey && event.key === 'ArrowRight') {
         event.preventDefault();
-        switchLesson(currentLesson === 6 ? 1 : currentLesson + 1);
+        switchLesson(currentLesson === 7 ? 1 : currentLesson + 1);
         return;
       }
       if (event.altKey && event.key === 'ArrowLeft') {
         event.preventDefault();
-        switchLesson(currentLesson === 1 ? 6 : currentLesson - 1);
+        switchLesson(currentLesson === 1 ? 7 : currentLesson - 1);
         return;
       }
       if (['1', '2', '3', '4'].includes(event.key)) clickChoiceByNumber(Number(event.key));
@@ -1860,7 +2013,7 @@
     });
 
     const hashLesson = Number(window.location.hash.replace('#l', ''));
-    switchLesson(hashLesson >= 1 && hashLesson <= 6 ? hashLesson : 1);
+    switchLesson(hashLesson >= 1 && hashLesson <= 7 ? hashLesson : 1);
   </script>
 </body>
 </html>
